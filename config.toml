@@ -1,7 +1,7 @@
 baseURL = "/"
 languageCode = "en"
-title = "Blogophonic"
-author = "Formspree"
+title = "Selfish Primate"
+author = "Halil İbrahim Çakıroğlu"
 description = "A modern, beautiful, and easily configurable blog theme for Hugo."
 copyright = "" # set to override the auto generated copyright using org info and now year
 googleAnalytics = ""
@@ -17,8 +17,8 @@ paginate = 3
 preserveTaxonomyNames = true
 
 [params]
-  orgName = "Formspree"
-  orgLocal = "Brooklyn, NY"
+  orgName = "Selfish Primate"
+  orgLocal = "Istanbul, Turkey"
   favicon = "/img/favicon.ico?v=0"
   logo = "/img/blogophonic-mark-dark.png"
   # font options: sans-serif or serif
