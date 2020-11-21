@@ -1,6 +1,6 @@
 baseURL = "/"
 languageCode = "en"
-title = "Selfish Primate"
+title = "Selfish Primate Official"
 author = "Halil İbrahim Çakıroğlu"
 description = "A modern, beautiful, and easily configurable blog theme for Hugo."
 copyright = "" # set to override the auto generated copyright using org info and now year
@@ -17,10 +17,10 @@ paginate = 3
 preserveTaxonomyNames = true
 
 [params]
-  orgName = "Selfish Primate"
+  orgName = "Halil İbrahim Çakıroğlu"
   orgLocal = "Istanbul, Turkey"
   favicon = "/img/favicon.ico?v=0"
-  logo = "/img/blogophonic-mark-dark.png"
+  logo = "/images/sp_logo_01.svg"
   # font options: sans-serif or serif
   # for more http://tachyons.io/docs/typography/font-family/
   textFontFamily = "sans-serif"
@@ -48,13 +48,13 @@ preserveTaxonomyNames = true
 
 [social]
   # social accounts (username only)
-  facebook = "formspree"
+  facebook = "selfishprimate"
   facebook_admin = "" # Facebook Page Admin ID for Domain Insights
-  instagram = ""
+  instagram = "selfishprimate"
   youtube = ""
-  twitter = "formspree"
-  github = "formspree"
-  medium = ""
+  twitter = "selfishprimate"
+  github = "selfishprimate"
+  medium = "selfishprimate"
 
 [taxonomies]
   category = "categories"

@@ -1,5 +1,5 @@
 ---
-title: Showcase Page
+title: My Showcase
 description: "This is the showcase page you mother fucker!"
 author: The Team at Formspree
 images:

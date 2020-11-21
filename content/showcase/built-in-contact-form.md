@@ -1,9 +1,9 @@
 ---
-title: "Built-in Contact Form"
-subtitle: "Form to email feature powered by Formspree"
-excerpt: "This theme has a form-to-email feature built in, thanks to the simple Formspree integration. All you need to activate the form is a valid recipient email address saved in the form front matter."
+title: "Gerillass"
+subtitle: "Meet the best Sass mixin library to build a website easily."
+excerpt: "Gerillass is a website development tool built on top of Sass (Syntactically Awesome Style Sheets) with a set of Sass mixins and functions for frontend developers to generate scalable CSS outputs."
 date: 2019-07-01
-author: "Eric Anderson"
+# author: "Eric Anderson"
 draft: false
 images:
   - /showcase/assets/built-in-contact-form-thumbnail.png
@@ -12,12 +12,10 @@ series:
   - Getting Started
 tags:
   - hugo-site
-categories:
-  - Theme Features
+# categories:
+#   - Theme Features
 layout: single
 ---
-
-![Formspree Logo](/showcase/assets/formspree-logo.png)
 
 ## [Formspree](https://formspree.io) makes it easy to receive submissions from HTML forms on your static website.
 
