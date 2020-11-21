@@ -19,8 +19,9 @@ preserveTaxonomyNames = true
 [params]
   orgName = "Halil İbrahim Çakıroğlu"
   orgLocal = "Istanbul, Turkey"
-  favicon = "/img/favicon.ico?v=0"
+  favicon = "/images/favicon.png"
   logo = "/images/sp_logo_01.svg"
+  motto = "Monkeying around with the music, design, and code."
   # font options: sans-serif or serif
   # for more http://tachyons.io/docs/typography/font-family/
   textFontFamily = "sans-serif"

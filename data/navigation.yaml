@@ -2,15 +2,15 @@ header:
   # - name: Home
   #   title: Home Page
   #   url: /
-  - name: About Me
-    title: About Me
-    url: /about/
   # - name: Blog
   #   title: Blog
   #   url: /blog/
   - name: Showcase
     title: Showcase
     url: /showcase/
+  - name: About
+    title: About
+    url: /about/
   - name: Contact
     title: Contact Form
     url: /contact/
