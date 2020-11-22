@@ -6,8 +6,8 @@ date: 2019-07-03
 author: "Eric Anderson"
 draft: false
 images:
-  - /showcase/assets/tachyons-thumbnail.png
-  - /showcase/assets/tachyons-logo-script-feature.png
+  - /work/assets/tachyons-thumbnail.png
+  - /work/assets/tachyons-logo-script-feature.png
 series:
   - Getting Started
 tags:
@@ -18,7 +18,7 @@ categories:
 layout: single
 ---
 
-![Tachyons Logo Script](/showcase/assets/tachyons-logo-script-feature.png)
+![Tachyons Logo Script](/work/assets/tachyons-logo-script-feature.png)
 
 ## [Tachyons](http://tachyons.io) is a design system that allows you to design gorgeous interfaces in the browser with little effort.
 

@@ -6,8 +6,8 @@ date: 2019-07-02
 author: "Eric Anderson"
 draft: false
 images:
-- /showcase/assets/css-grid-thumbnail.png
-- /showcase/assets/css-grid-cover.png
+- /work/assets/css-grid-thumbnail.png
+- /work/assets/css-grid-cover.png
 series:
 - Getting Started
 tags:
@@ -28,7 +28,7 @@ Since I began building websites in Y2K, I've lost count how many times the phras
 
 Well, technology sure has come a long way since slicing up images to match the table-based layout that was just created in Dreamweaver. You'd be surprised (or maybe you wouldn't) how challenging the standard header, content, sidebar, footer layout could be to actually get right.
 
-{{< figure src="/showcase/assets/css-grid-cover.png" alt="Traditional right sidebar layout" caption="A visual example of the traditional right sidebar layout" >}}
+{{< figure src="/work/assets/css-grid-cover.png" alt="Traditional right sidebar layout" caption="A visual example of the traditional right sidebar layout" >}}
 
 ---
 

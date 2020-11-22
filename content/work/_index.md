@@ -1,6 +1,6 @@
 ---
 title: My Showcase
-description: "This is the showcase page you mother fucker!"
+description: "This is the work page you mother fucker!"
 author: The Team at Formspree
 images:
   - https://via.placeholder.com/960x480?text=SECTION+IMAGE

@@ -6,8 +6,8 @@ date: 2019-07-01
 # author: "Eric Anderson"
 draft: false
 images:
-  - /showcase/assets/built-in-contact-form-thumbnail.png
-  - /showcase/assets/built-in-contact-form-feature.png
+  - /work/assets/built-in-contact-form-thumbnail.png
+  - /work/assets/built-in-contact-form-feature.png
 series:
   - Getting Started
 tags:
@@ -49,7 +49,7 @@ matter, and the rest is automatic.
 layout: split-right
 ```
 
-![Contact Form Split Right Layout Screenshot](/showcase/assets/built-in-contact-form-feature.png)
+![Contact Form Split Right Layout Screenshot](/work/assets/built-in-contact-form-feature.png)
 
 Both layouts display the page title and description opposite the form, and you
 can also choose to show your social icon links if you have those configured in

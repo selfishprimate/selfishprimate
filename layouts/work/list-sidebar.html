@@ -1,7 +1,7 @@
 {{ define "main" }}
 <main class="page-main pa4 {{ .Kind }}" role="main">
   <section class="blog-content mw7 center">
-    {{ $paginator := .Paginate (where .Pages "Type" "showcase") }}
+    {{ $paginator := .Paginate (where .Pages "Type" "work") }}
     {{ range $paginator.Pages }}
       {{ .Render "summary" }}
     {{ end }}
@@ -9,7 +9,7 @@
   </section>
 </main>
 <aside class="page-sidebar" role="complementary">
-  {{ .Scratch.Set "sidebar" .Site.Data.sidebar_content.showcase.list_sidebar }}
+  {{ .Scratch.Set "sidebar" .Site.Data.sidebar_content.work.list_sidebar }}
   {{ partial "shared/sidebar-content.html" . }}
 </aside>
 {{ end }}

@@ -5,9 +5,9 @@ header:
   # - name: Blog
   #   title: Blog
   #   url: /blog/
-  - name: Showcase
-    title: Showcase
-    url: /showcase/
+  - name: Work
+    title: Work
+    url: /work/
   - name: About
     title: About
     url: /about/
