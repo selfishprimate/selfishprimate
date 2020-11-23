@@ -1,7 +1,7 @@
 header:
-  # - name: Home
-  #   title: Home Page
-  #   url: /
+  - name: Home
+    title: Home Page
+    url: /
   # - name: Blog
   #   title: Blog
   #   url: /blog/
@@ -12,7 +12,7 @@ header:
     title: About
     url: /about/
   - name: Contact
-    title: Contact Form
+    title: Contact
     url: /contact/
   # - name: Elements
   #   title: Element Page

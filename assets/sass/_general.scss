@@ -13,3 +13,12 @@ a {
     text-align: center;
   }
 }
+
+.site-links {
+  .link {
+    &.active {
+      font-weight: bold;
+      color: $link-active-color;
+    }
+  }
+}
