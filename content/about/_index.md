@@ -1,8 +1,8 @@
 ---
-title: "Figma Plugins"
-description: "Figma description"
-keywords: "Figma, Best Figma Plugins, Curated Figma Plugins, The Best Plugins for Figma"
-data: "figma_plugins"
+title: "About Me"
+description: "Accessibility description"
+keywords: "Osman, Kamil, Samet, Simi"
+# data: "accessibility"
 weight: 1
 # hero_image: "accessibility.jpg"
 # hero_alt: "Acessibility design resources"

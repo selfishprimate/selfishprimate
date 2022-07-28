@@ -1,6 +1,7 @@
 ---
-title: "Books"
-data: "books"
+title: "Projects"
+data: "projects"
+featured_image: "blogs.jpg"
 weight: 1
 ---
 
