@@ -1,21 +1,7 @@
 ---
-title: "Hey There!"
-# subtitle: "HALİL İBRAHİM ÇAKIROĞLU (UI/UX DESIGNER)"
-description: "I’m Halil İbrahim Çakıroğlu, the creator of Sketchize and Gerillass. I am an Istanbul based user interface designer and frontend lover. I love designing and developing human-centered user interfaces to create a better digital world."
-date: 2019-02-18T12:27:33-06:00
-images:
-  - img/unicorn-megaphone.png
-# show_action_link: true
-# action_link: /about
-# action_label: "Read More &rarr;"
-action_type: text # text, button
-type: home
+title: "Curated Design Resources"
 ---
 
-** index doesn't contain a body, just front matter above.
-See index.html in the layouts folder **
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 
-I’m Halil İbrahim Çakıroğlu, an Istanbul based user interface designer and frontend lover. 
-
-I design and develop human-centered user interfaces for our 
