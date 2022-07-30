@@ -3,7 +3,7 @@
 
   {{ partial "head.html" . }}
 
-  <body class="{{ if .IsHome }}home{{ else }}{{ .Section }}{{ end }}">
+  <body class="{{ if .IsHome }}home{{ else }}{{ .Section }}{{ end }} baseof">
 
     <main class="main">
 

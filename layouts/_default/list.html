@@ -1,5 +1,40 @@
-{{ define "main" }}
-<article>
-  {{- .Content -}}
-</article>
-{{ end }}
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+
+  {{ partial "head.html" . }}
+
+  <body class="{{ if .IsHome }}home{{ else }}{{ .Section }}{{ end }} layout-list">
+
+    <main class="main">
+
+      {{ partial "header.html" . }}
+
+      <section class="content-wrapper">
+
+        {{ partial "sidebar.html" . }}
+        
+        <div class="content">
+          {{ partial "hero.html" . }}
+          <div class="content__header">
+            <h2 class="content__title">{{ .Params.Title }}</h2>
+          </div>
+          <div class="content__body">
+            {{ .Content }}
+            <ul>
+              {{ range .Pages }}
+                <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+              {{ end }}
+            </ul>
+          </div>
+        </div><!-- .content -->
+      </section><!-- .content-wrapper -->
+
+      {{ partial "footer.html" . }}
+
+    </main><!-- .main -->
+
+    {{ partial "featured-image.html" . }}
+
+  </body>
+  
+</html>
