@@ -1,6 +1,6 @@
 # hugo server --minify --themesDir ... --baseURL=http://localhost:1313/theme/book/
 
-baseURL = 'https://curated-design-resources.netlify.app/'
+baseURL = 'https://selfishprimate.netlify.app/'
 title = 'Selfish Primate'
 
 # This command below is cleaning the unused content of ./public folder.
