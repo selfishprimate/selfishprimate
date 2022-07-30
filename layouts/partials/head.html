@@ -3,10 +3,10 @@
   {{ "<!--" | safeHTML }}Designed and built by Halil İbrahim Çakıroğlu{{ "-->" | safeHTML }}
   <meta charset="utf-8">
 
-  {{ if .Params.title }}
-    <title>{{ .Params.Title }} · {{ .Site.Title }}</title>
-  {{ else }}
+  {{ if .IsHome }}
     <title>{{ .Site.Title }}</title>
+  {{ else }}
+    <title>{{ .Params.Title }} · {{ .Site.Title }}</title>
   {{ end }}
 
   {{ if .Params.Description }}
