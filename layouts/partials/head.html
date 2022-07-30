@@ -2,7 +2,12 @@
 
   {{ "<!--" | safeHTML }}Designed and built by Halil İbrahim Çakıroğlu{{ "-->" | safeHTML }}
   <meta charset="utf-8">
-  <title>{{ .Params.Title }} · {{ .Site.Title }}</title>
+
+  {{ if .Params.title }}
+    <title>{{ .Params.Title }} · {{ .Site.Title }}</title>
+  {{ else }}
+    <title>{{ .Site.Title }}</title>
+  {{ end }}
 
   {{ if .Params.Description }}
     <meta name="description" content="{{ .Params.Description }}">
