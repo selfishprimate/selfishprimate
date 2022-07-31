@@ -8,8 +8,17 @@
     background-color: $white;
     padding: 2rem 2rem 4rem;
     min-height: 300px;
-    border: 2px solid transparent;
     box-shadow: 0 0 0 $primary-color;
+    &__figure {
+      margin-left: -2rem;
+      margin-right: -2rem;
+      margin-top: -2rem;
+      margin-bottom: 2rem;
+      img {
+        @include responsive-image;
+      }
+
+    }
     &__title {
       font-family: $title-font;
       font-weight: 900;
@@ -69,13 +78,22 @@
       transition: 0.2s;
     }
   }
-  @include breakpoint(min, large) {
-    @include columnizer(2, 1rem);
+  &.min-large-2 {
+    @include breakpoint(min, large) {
+      @include columnizer(2, 2rem);
+    }
   }
-  @include breakpoint(min, xlarge) {
-    @include columnizer(3, 1.2rem);
+
+  &.min-xlarge-3 {
+    @include breakpoint(min, xlarge) {
+      @include columnizer(3, 2rem);
+    }
   }
-  @include breakpoint(min, xxlarge) {
-    @include columnizer(4, 1.2rem);
+
+  &.min-xxlarge-4 {
+    @include breakpoint(min, xxlarge) {
+      @include columnizer(4, 1rem);
+    }
   }
+
 }

@@ -1,7 +1,7 @@
 ---
 title: "Projects"
 data: "projects"
-featured_image: "blogs.jpg"
+# featured_image: "blogs.jpg"
 weight: 1
 layout: "projects"
 ---
