@@ -3,7 +3,7 @@ title: "About Me"
 description: "Accessibility description"
 keywords: "Osman, Kamil, Samet, Simi"
 # data: "accessibility"
-weight: 1
+weight: 3
 # hero_image: "accessibility.jpg"
 # hero_alt: "Acessibility design resources"
 featured_image: "accessibility.jpg"

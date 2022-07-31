@@ -1,5 +1,5 @@
 ---
-title: "B Markdown File"
+title: "Article B"
 description: "Accessibility description"
 ---
 This is the B markdown file.

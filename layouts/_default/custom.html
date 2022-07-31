@@ -3,7 +3,7 @@
 
   {{ partial "head.html" . }}
 
-  <body class="{{ if .IsHome }}home{{ else }}{{ .Section }}{{ end }} layout-single">
+  <body class="{{ if .IsHome }}home{{ else }}{{ .Section }}{{ end }} layout-custom">
    
     {{ partial "header.html" . }}
 
@@ -15,7 +15,7 @@
         {{ partial "hero.html" . }}
         <div class="content__header">
           <h2 class="content__title">{{ .Params.Title }}</h2>
-          <p>This is the <strong>single page</strong> layout.</p>
+          <p>This is the <strong>custom page</strong> layout.</p>
         </div>
         <div class="content__body">
           {{ .Content }}
