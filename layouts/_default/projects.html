@@ -7,9 +7,7 @@
 
     <main class="main">
 
-      {{ partial "header.html" . }}
-
-      <section class="content-wrapper">
+      <div class="content-wrapper">
 
         {{ partial "sidebar.html" . }}
         
@@ -26,7 +24,7 @@
 
             {{ .Content }}
 
-            <ul class="cards min-large-2">
+            <ul class="cards min-large-3">
               {{ range .Pages }}
                 <li class="card">
                   <a class="card__link" href="{{ .Permalink }}">
@@ -44,9 +42,7 @@
           </div>
 
         </div><!-- .content -->
-      </section><!-- .content-wrapper -->
-
-      {{ partial "footer.html" . }}
+      </div><!-- .content-wrapper -->
 
     </main><!-- .main -->
 

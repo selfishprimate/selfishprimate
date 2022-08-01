@@ -4,26 +4,22 @@
   {{ partial "head.html" . }}
 
   <body class="{{ if .IsHome }}home{{ else }}{{ .Section }}{{ end }} layout-single">
-   
-    {{ partial "header.html" . }}
 
-    <section class="content-wrapper">
+    <main class="main">
 
-      {{ partial "sidebar.html" . }}
-      
-      <div class="content">
-        {{ partial "hero.html" . }}
-        <div class="content__header">
-          <h2 class="content__title">{{ .Params.Title }}</h2>
-          <p>This is the <strong>single page</strong> layout.</p>
-        </div>
-        <div class="content__body">
-          {{ .Content }}
-        </div>
-      </div><!-- .content -->
-    </section><!-- .content-wrapper -->
-
-    {{ partial "footer.html" . }}
+      <div class="content-wrapper">
+        {{ partial "sidebar.html" . }}
+        <div class="content">
+          {{ partial "hero.html" . }}
+          <div class="content__header">
+            <h2 class="content__title">{{ .Params.Title }}</h2>
+            <p>This is the <strong>single page</strong> layout.</p>
+          </div>
+          <div class="content__body">
+            {{ .Content }}
+          </div>
+        </div><!-- .content -->
+      </div><!-- .content-wrapper -->
 
   </main><!-- .main -->
 
