@@ -1,0 +1,14 @@
+
+.tag-container {
+  display: flex;
+}
+
+.tag {
+  background-color: $light-gray;
+  border-radius: $border-radius;
+  padding: 0.5rem 1rem;
+  @include except(last) {
+    margin-right: 0.5rem;
+  }
+}
+

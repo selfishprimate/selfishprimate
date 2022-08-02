@@ -21,7 +21,17 @@
           </div>
 
           <div class="content__body">
+
             {{ .Content }}
+
+            <div class="tag-container">
+              {{ if .Params.tags }}
+                {{ range .Params.tags }}
+                    <div class="tag">{{ . }}</div>
+                {{ end }}
+              {{ end }}
+            </div>
+
           </div>
 
         </div><!-- .content -->
