@@ -4,24 +4,21 @@
     Site Navigation
   </h2>
 
-  {{ .File.ContentBaseName }}
-
-
   <ul class="navigation__list">
 
     {{ range .Site.Sections }}
 
       <li class="navigation__list__item {{ .Section }}">
 
-        {{ if eq .File.ContentBaseName "projects" }}
+        {{ if eq .Section "projects" }}
         <ion-icon name="folder-open-outline"></ion-icon>
         {{ end }}
 
-        {{ if eq .File.ContentBaseName "articles" }}
+        {{ if eq .Section "articles" }}
         <ion-icon name="book-outline"></ion-icon>
         {{ end }}
 
-        {{ if eq .File.ContentBaseName "about-me" }}
+        {{ if eq .Section "about-me" }}
         <ion-icon name="finger-print-outline"></ion-icon>
         {{ end }}
 
