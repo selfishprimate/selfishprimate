@@ -6,6 +6,9 @@
     $height: 32px,
     $image-url: "/images/sp-logo.svg"
   );
+  a {
+    display: inline-block;
+  }
   @include after("data-description") {
     position: absolute;
     bottom: -6px;

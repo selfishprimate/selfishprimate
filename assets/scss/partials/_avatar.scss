@@ -1,0 +1,9 @@
+.avatar {
+  display: flex;
+  margin-bottom: 0.5rem;
+  img {
+    display: inline-block;
+    @include circle(100px);
+    border: 8px solid transparentize($primary-color, 0.9);
+  }
+}
