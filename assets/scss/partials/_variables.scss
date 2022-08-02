@@ -7,6 +7,7 @@ $bus-yellow: #ffd900;
 $yellow-munsell: #F1D00A;
 $celtic-blue: #0366D6;
 $light-gray: rgb(245,245,245);
+$border-gray: rgb(240,240,240);
 $raisin-black: #201E1F;
 
 // Color Styles
@@ -20,6 +21,8 @@ $content-bg-color: $white;
 $body-text-color: $raisin-black;
 
 $color-link: #05b !default;
+
+$border-color: $border-gray; 
 
 // Font Styles
 

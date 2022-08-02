@@ -1,16 +1,33 @@
-<nav class="navigation">
+<nav class="navigation {{ if .IsHome }}home{{ else }}{{ .Section }}{{ end }}">
 
   <h2 class="navigation__title">
     Site Navigation
   </h2>
 
   <ul class="navigation__list">
-    {{ $url := .RelPermalink}}
+
     {{ range .Site.Sections }}
-      <li class="navigation__list__item {{ if eq $url .RelPermalink }}active{{ end }}">
+
+      <li class="navigation__list__item {{ .Section }}">
+
+        {{ if eq .File.ContentBaseName "projects" }}
+        <ion-icon name="folder-open-outline"></ion-icon>
+        {{ end }}
+
+        {{ if eq .File.ContentBaseName "articles" }}
+        <ion-icon name="book-outline"></ion-icon>
+        {{ end }}
+
+        {{ if eq .File.ContentBaseName "about-me" }}
+        <ion-icon name="finger-print-outline"></ion-icon>
+        {{ end }}
+
         <a class="navigation__list__item__link" href="{{ .Permalink }}">{{ .Title }}</a>
+
       </li>
+
     {{ end }}
+
   </ul>
 
 </nav>

@@ -14,19 +14,45 @@
   }
   &__list {
     &__item {
+      display: flex;
+      align-items: center;
       position: relative;
+      padding: 1rem 0;
+      padding-left: 2.5rem;
       @include except(last) {
-        margin-bottom: 0.6rem;
+        border-bottom: 1px solid $border-color;
       }
-      &.active {
-        .navigation__list__item__link {
-          color: $primary-color;
-          font-weight: bold;
-        }
-      }
-      &.home {
-        margin-bottom: 2rem;
+      ion-icon {
+        position: absolute;
+        left: 0;
+        font-size: 1.3rem;
       }
     }
   }
+}
+
+%active-link {
+  color: $primary-color;
+  font-weight: bold;
+}
+
+body {
+  &.projects {
+    .navigation__list__item.projects {
+      @extend %active-link;
+    }
+  }
+
+  &.articles {
+    .navigation__list__item.articles {
+      @extend %active-link;
+    }
+  }
+
+  &.about-me {
+    .navigation__list__item.about-me {
+      @extend %active-link;
+    }
+  }
+
 }
