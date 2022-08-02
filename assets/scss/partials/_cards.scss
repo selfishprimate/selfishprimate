@@ -7,29 +7,43 @@
     position: relative;
     background-color: $white;
     min-height: 300px;
+    &:hover {
+      .card__figure {
+        img {
+          transform: scale(1.2);
+        }
+      }
+    }
     &__figure {
       margin-bottom: 2rem;
+      border-radius: $border-radius;
+      overflow: hidden;
       img {
+        transition: $transition;
         @include responsive-image;
       }
 
     }
+    &__header {
+      margin-bottom: 1rem;
+    }
+    &__body {}
     &__title {
       font-family: $title-font;
-      font-weight: 900;
-      font-size: __remify(26px);
+      font-weight: 700;
+      font-size: __remify(22px);
       line-height: 1.2;
-      margin: 0 0 1rem 0;
+      margin-bottom: 0;
     }
     &__label {
       font-size: __remify(16px);
       margin-bottom: 1rem;
-      margin-top: -0.5rem;
-      opacity: 0.5;
+      margin-top: 0.2rem;
+      opacity: 0.6;
     }
     &__description {
-      font-size: __remify(18px);
-      line-height: 1.5;
+      font-size: __remify(17px);
+      line-height: 1.4;
     }
     &__link {
       @include stretched-link;

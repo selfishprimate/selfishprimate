@@ -31,8 +31,14 @@
                     <figure class="card__figure">
                       <img src="{{ .File.ContentBaseName }}/images/{{ .Params.image }}" alt="">
                     </figure>
-                    <h3 class="card__title">{{ .Title }}</h3>
-                    <p class="card__description">{{ .Description }}</p>
+
+                    <div class="card__header">
+                      <h3 class="card__title">{{ .Title }}</h3>
+                      {{ if .Params.label }}<div class="card__label">{{ .Params.label }}</div>{{ end }}
+                    </div>
+                    <div class="card__body">
+                      <p class="card__description">{{ .Description }}</p>
+                    </div>
                   </a>
                 </li>
               {{ end }}
