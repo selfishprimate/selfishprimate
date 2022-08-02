@@ -1,15 +1,40 @@
 .content {
-  padding: 3rem 4rem 3rem 3rem;
+  padding: 10rem 4rem 3rem 3rem;
   &__header {
+    position: relative;
     margin-bottom: 3rem;
+    @include after("data-decorative-text") {
+      position: absolute;
+      width: 100vw;
+      height: 200px;
+      top: -125px;
+      left: -100px;
+      font-size: 12rem;
+      font-weight: 900;
+      line-height: 1;
+      color: rgb(245,245,245);
+      z-index: 0;
+      white-space: nowrap;
+      @include text-stroke(
+        $stroke-color: rgb(230,230,230),
+        $fallback-color: rgb(245,245,245),
+        $stroke-width: 1px
+      );
+    }
   }
   &__body {
+    position: relative;
     margin-bottom: 2rem;
   }
   &__title {
+    position: relative;
     margin-top: 0;
+    z-index: 1;
   }
-  &__description {}
+  &__description {
+    position: relative;
+    z-index: 1;
+  }
   
   p {
     margin-bottom: 1rem;

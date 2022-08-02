@@ -32,6 +32,10 @@ body {
   padding: 0;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .main {
   display: flex;
   flex-direction: column;
