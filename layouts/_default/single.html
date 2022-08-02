@@ -8,16 +8,22 @@
     <main class="main">
 
       <div class="content-wrapper">
+
         {{ partial "sidebar.html" . }}
+
         <div class="content">
+
           {{ partial "hero.html" . }}
+
           <div class="content__header">
             <h2 class="content__title">{{ .Params.Title }}</h2>
-            <p>This is the <strong>single page</strong> layout.</p>
+            <p class="content__description">{{ .Params.Description }}</p>
           </div>
+
           <div class="content__body">
             {{ .Content }}
           </div>
+
         </div><!-- .content -->
       </div><!-- .content-wrapper -->
 

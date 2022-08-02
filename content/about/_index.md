@@ -1,8 +1,7 @@
 ---
 title: "About Me"
-description: "Accessibility description"
+description: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
 keywords: "Osman, Kamil, Samet, Simi"
-# data: "accessibility"
 weight: 3
 # hero_image: "accessibility.jpg"
 # hero_alt: "Acessibility design resources"
