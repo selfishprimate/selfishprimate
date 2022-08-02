@@ -1,10 +1,5 @@
 .navigation {
-  font-family: $body-font;
   margin-bottom: 2rem;
-  &__brand {
-    margin-bottom: 2rem;
-    &__logo {}
-  }
   &__title {
     @include hide;
   }
@@ -17,11 +12,8 @@
       display: flex;
       align-items: center;
       position: relative;
-      padding: 1rem 0;
-      padding-left: 2.5rem;
-      @include except(last) {
-        border-bottom: 1px solid $border-color;
-      }
+      padding: 6px 0;
+      font-size: 1rem;
       ion-icon {
         position: absolute;
         left: 0;
@@ -32,7 +24,6 @@
 }
 
 %active-link {
-  color: $primary-color;
   font-weight: bold;
 }
 

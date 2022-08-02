@@ -1,5 +1,5 @@
 ---
-title: "Selfish Primate"
+title: "Howdy!"
 description: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
 layout: "single"
 ---

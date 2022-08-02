@@ -55,28 +55,10 @@
         @include loadify($i * 0.1s);
       }
     }
-    ion-icon {
-      display: none;
-      position: absolute;
-      right: 2rem;
-      bottom: 1.8rem;
-      font-size: 2rem;
-      color: rgb(200, 200, 200);
-    }
     &:hover {
-      color: $primary-color;
       .card__label {
         opacity: 1;
       }
-      &__link {
-        color: $primary-color;
-      }
-      & .card__link {
-        color: $primary-color;
-      }
-    }
-    &:active {
-      transition: 0.2s;
     }
   }
   &.min-large-2 {
