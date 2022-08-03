@@ -1,9 +1,11 @@
 .sidebar {
-  position: relative;
-  flex: 0 0 300px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: $sidebar-width;
+  height: 100%;
   padding: $global-space * 2;
   background-color: $body-bg-color;
   border-right: 1px solid $border-color;
-  min-height: 100vh;
   z-index: 1;
 }

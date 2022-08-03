@@ -1,33 +1,28 @@
-.cards-wrapper {
-}
-
-.cards {
-  @include columnizer(1, 1rem);
-  .card {
+.experience-list {
+  @include breakpoint(min, large) {
+    padding-right: 20rem;
+  }
+  &__item {
     position: relative;
+    display: flex;
     background-color: $white;
-    min-height: 300px;
-    &:hover {
-      .card__figure {
-        img {
-          transform: scale(1.2);
-        }
-      }
+    padding: 3rem 0;
+    @include except(last) {
+      border-bottom: 1px solid $border-color;
     }
     &__figure {
-      margin-bottom: 2rem;
+      position: relative;
+      width: 80px;
+      height: 80px;
+      flex: 0 0 80px;
       border-radius: $border-radius;
+      margin-right: 2rem;
       overflow: hidden;
       img {
         transition: $transition;
         @include responsive-image;
       }
-
     }
-    &__header {
-      margin-bottom: 1rem;
-    }
-    &__body {}
     &__title {
       font-family: $title-font;
       font-weight: 700;
@@ -36,7 +31,6 @@
       margin-bottom: 0;
     }
     &__label {
-      font-size: __remify(16px);
       margin-bottom: 1rem;
       margin-top: 0.2rem;
       color: $dark-gray;
@@ -46,9 +40,9 @@
       line-height: 1.4;
     }
     &__link {
-      @include stretched-link;
+      font-size: __remify(16px);
       text-decoration: none;
-      color: inherit;
+      color: $dark-gray;
     }
     @for $i from 1 through 20 {
       @include only($i) {
@@ -59,26 +53,6 @@
       .card__label {
         opacity: 1;
       }
-    }
-  }
-  &.min-large-2 {
-    @include breakpoint(min, large) {
-      @include columnizer(2, 2rem);
-    }
-  }
-  &.min-large-3 {
-    @include breakpoint(min, large) {
-      @include columnizer(3, 2rem);
-    }
-  }
-  &.min-xlarge-3 {
-    @include breakpoint(min, xlarge) {
-      @include columnizer(3, 2rem);
-    }
-  }
-  &.min-xxlarge-4 {
-    @include breakpoint(min, xxlarge) {
-      @include columnizer(4, 2rem);
     }
   }
 }

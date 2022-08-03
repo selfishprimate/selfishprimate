@@ -40,6 +40,13 @@ body {
     }
   }
 
+  &.experience {
+    .navigation__list__item.experience {
+      @extend %active-link;
+    }
+  }
+
+
   &.about-me {
     .navigation__list__item.about-me {
       @extend %active-link;

@@ -7,29 +7,28 @@
 
     <main class="main">
 
-      <div class="content-wrapper">
+      {{ partial "sidebar.html" . }}
+      
+      <div class="content">
 
-        {{ partial "sidebar.html" . }}
-        
-        <div class="content">
+        {{ partial "hero.html" . }}
 
-          {{ partial "hero.html" . }}
+        <div class="content__header" data-decorative-text="{{ .Params.Title }}">
+          <h2 class="content__title">{{ .Params.Title }}</h2>
+          <p class="content__description">{{ .Params.Description }}</p>
+        </div>
 
-          <div class="content__header" data-decorative-text="{{ .Params.Title }}">
-            <h2 class="content__title">{{ .Params.Title }}</h2>
-            <p class="content__description">{{ .Params.Description }}</p>
-          </div>
+        <div class="content__body">
+          {{ .Content }}
+          <ul>
+            {{ range .Pages }}
+              <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+            {{ end }}
+          </ul>
 
-          <div class="content__body">
-            {{ .Content }}
-            <ul>
-              {{ range .Pages }}
-                <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-              {{ end }}
-            </ul>
-          </div>
-        </div><!-- .content -->
-      </div><!-- .content-wrapper -->
+        </div><!-- .content__body -->
+
+      </div><!-- .content -->
 
     </main><!-- .main -->
 
