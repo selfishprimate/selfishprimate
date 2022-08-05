@@ -1,0 +1,29 @@
+.social-media {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 2rem;
+  &__list {
+    display: flex;
+    justify-content: center;
+    &__item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: $border-radius;
+      @include except(last) {
+        margin-right: __remify(8px);
+      }
+      &__link {
+        color: $dark-gray;
+        line-height: 0;
+      }
+      &__icon {
+        line-height: 1;
+        stroke-width: 1;
+      }
+    }
+  }
+}

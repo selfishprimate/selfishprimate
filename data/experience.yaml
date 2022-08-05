@@ -1,9 +1,24 @@
 - title: VavaCars
   label: UI/UX Designer · Full Time · Present
-  description: Evaluate existing designs in terms of usability; if necessary re-designing some of the UI components, pages, and the entire website or the mobile app from scratch to make the end product easy to use.
+  description: I am gathering user requirements in collaboration with the product manager; wireframing, prototyping, and designing intuitive user interfaces.
+  more: I am evaluating existing designs in terms of usability; if necessary re-designing some of the UI components, pages, and the entire website or the mobile app from scratch to make the end product easy to use.
   image: vavacars.jpg
   link: https://tr.vava.cars/
- 
+
+- title: Gerillass
+  label: Founder · Jul 2020 · Present
+  description: Gerillass is an open-source Sass library built on top of Sass to help designers and developers rapidly produce consistent and scalable CSS outputs regardless of the size of the projects they are working on, aiming to make these processes easy and fun.
+  more: I've used Adobe XD for the user interface design, I've built the site with HTML5, CSS3, Sass, Gerillass, and React.js.
+  image: gerillass.jpg
+  link: https://www.gerillass.com/
+
+- title: Sketchize
+  label: Founder · Jan 2018 · Present
+  description: Sketchize is a free wireframing kit that contains a set of printable device sketch sheets. It is built for UI/UX Designers to help them design lovely apps for mobile, tablet and desktop devices.
+  more: In this project, I had practiced and implemented some of the core concepts I learned recently about React. I designed it by using Adobe Illustrator and Adobe Experience Design, and I code it with HTML5, CSS3, and React.js.
+  image: sketchize.jpg
+  link: https://www.sketchize.com/
+
 - title: Mobven
   label: UI/UX Designer · Full Time · Dec 2020 · Apr 2022
   description: Gathering and evaluating user requirements in collaboration with the product manager; wireframing, prototyping, designing user interfaces.
@@ -21,3 +36,15 @@
   description: As a UI/UX designer I'm responsible for the user interface design of the projects, to improve them in terms of usability and to implement these visual elements that users see and interact with in a web or mobile app.
   image: haberturk.jpg
   link: https://www.haberturk.com/
+
+- title: Sözcü Gazetesi
+  label: Web Designer · Full Time · Apr 2013 · Oct 2015
+  description: Designing, developing and updating a variety of websites and assisting other design staff members with various aspects of site maintenance as needed.
+  image: sozcu.jpg
+  link: https://www.sozcu.com.tr/
+
+- title: Beykent Üniversitesi
+  label: Freelance Web Designer · Mar 2010 · Jul 2010
+  description: As a freelance web designer, based on client requests and user needs I've designed a new user interface for the university's website.
+  image: beykent.jpg
+  link: https://www.beykent.edu.tr/
