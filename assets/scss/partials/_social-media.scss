@@ -6,7 +6,9 @@
   &__list {
     display: flex;
     justify-content: center;
+    margin-bottom: __remify(8px);
     &__item {
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -19,11 +21,22 @@
       &__link {
         color: $dark-gray;
         line-height: 0;
+        @include stretched-link;
       }
       &__icon {
         line-height: 1;
         stroke-width: 1;
       }
+      &:hover {
+        .social-media__list__item__link {
+          color: $primary-color;
+        }
+      }
     }
+  }
+  &__description {
+    font-size: __remify(13px);
+    text-align: center;
+    opacity: 0.6;
   }
 }
