@@ -31,6 +31,7 @@
       margin-bottom: 0;
     }
     &__label {
+      font-size: __remify(16px);
       margin-bottom: 1rem;
       margin-top: 0.2rem;
       color: $dark-gray;
@@ -43,6 +44,15 @@
       font-size: __remify(16px);
       text-decoration: none;
       color: $dark-gray;
+    }
+    &__skills {
+      font-size: __remify(16px);
+      margin-bottom: 1rem;
+      &__item {
+        @include except(last) {
+          @include after(", ");
+        }
+      }
     }
     @for $i from 1 through 20 {
       @include only($i) {

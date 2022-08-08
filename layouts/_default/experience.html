@@ -30,6 +30,14 @@
                   <div class="experience-list__item__label">{{ .label }}</div>
                   <p class="experience-list__item__description">{{ .description }}</p>
                   {{ if .more }}<p class="experience-list__item__description">{{ .more }}</p>{{ end }}
+
+                  {{ if .skills }}
+                    <div class="experience-list__item__skills">
+                      <strong>Skills: </strong>
+                      {{ range .skills }}<span class="experience-list__item__skills__item">{{ . }}</span>{{ end }}
+                    </div>
+                  {{ end }}
+
                   <a class="experience-list__item__link" href="{{ .link }}" target="_blank">{{ .link }}</a>
                 </div>
               </li>

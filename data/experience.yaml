@@ -4,6 +4,7 @@
   more: I am evaluating existing designs in terms of usability; if necessary re-designing some of the UI components, pages, and the entire website or the mobile app from scratch to make the end product easy to use.
   image: vavacars.jpg
   link: https://tr.vava.cars/
+  skills: ["UI Design", "UX Design", "Wireframing", "Prototyping", "Figma"]
 
 - title: Gerillass
   label: Founder · Jul 2020 · Present
@@ -11,6 +12,7 @@
   more: I've used Adobe XD for the user interface design, I've built the site with HTML5, CSS3, Sass, Gerillass, and React.js.
   image: gerillass.jpg
   link: https://www.gerillass.com/
+  skills: ["UI Design", "Adobe XD", "HTML5", "CSS3", "Sass", "React.js", "Hugo", "Git"]
 
 - title: Sketchize
   label: Founder · Jan 2018 · Present
