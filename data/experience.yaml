@@ -8,30 +8,31 @@
 
 - title: Gerillass
   label: Founder · Jul 2020 · Present
-  description: Gerillass is an open-source Sass library built on top of Sass to help designers and developers rapidly produce consistent and scalable CSS outputs regardless of the size of the projects they are working on, aiming to make these processes easy and fun.
-  more: I've used Adobe XD for the user interface design, I've built the site with HTML5, CSS3, Sass, Gerillass, and React.js.
+  description: I've created Gerillass to make web development easy and fun for everyone. It's an open-source Sass library built on top of Sass to help designers and developers rapidly produce consistent and scalable CSS outputs regardless of the size of the projects they are working on.
   image: gerillass.jpg
   link: https://www.gerillass.com/
   skills: ["UI Design", "Adobe XD", "HTML5", "CSS3", "Sass", "React.js", "Hugo", "Git"]
 
 - title: Sketchize
   label: Founder · Jan 2018 · Present
-  description: Sketchize is a free wireframing kit that contains a set of printable device sketch sheets. It is built for UI/UX Designers to help them design lovely apps for mobile, tablet and desktop devices.
-  more: In this project, I had practiced and implemented some of the core concepts I learned recently about React. I designed it by using Adobe Illustrator and Adobe Experience Design, and I code it with HTML5, CSS3, and React.js.
+  description: Sketchize is a free wireframing kit that contains a set of printable device sketch sheets. It is built for UI/UX Designers to help them design lovely apps for mobile, tablet, and desktop devices.
+  more: In this project, I've practiced some of the core concepts that I've learned recently about React. I designed it using Adobe Illustrator and Adobe Experience Design, and I code it with HTML5, CSS3, and React.js.
   image: sketchize.jpg
   link: https://www.sketchize.com/
   skills: ["UI/UX Design", "Wireframing", "Adobe XD", "Adobe Illustrator", "HTML5", "CSS3", "React.js", "Git"]
 
 - title: Mobven
   label: UI/UX Designer · Full Time · Dec 2020 · Apr 2022
-  description: Gathering and evaluating user requirements in collaboration with the product manager; wireframing, prototyping, designing user interfaces.
+  description: Mobven is a software company that provides 360-degree services from strategy to development to build delightful software solutions that make the customers successful. 
+  more: As a UI/UX Designer, I am responsible for gathering and evaluating user requirements in collaboration with the product managers, wireframing, prototyping, and designing user interfaces.	
   image: mobven.jpg
   link: https://www.mobven.com/
   skills: ["UI/UX Design", "Wireframing", "Prototyping", "Adobe XD", "Sketch App", "Figma", "Miro", "Notion"]
   
 - title: Turna.com
   label: UI/UX Designer · Aug 2018 · Dec 2020
-  description: Working closely with the backend development team to put the design ideas into life which we create together. Evaluating existing designs in terms of usability; if necessary re-designing some of the UI components, pages and the entire web site or the mobile app from scratch to make the end product easy to use.
+  description: Turna.com is one of the most popular booking web sites in Turkey.
+  more: As a UI/UX Designer, I am responsible for gathering and evaluating user requirements in collaboration with the product managers, wireframing, prototyping, and designing user interfaces.
   image: turna.jpg
   link: https://www.turna.com/
   skills: ["UI/UX Design", "Wireframing", "Prototyping", "Adobe XD"]
