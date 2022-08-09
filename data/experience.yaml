@@ -1,10 +1,18 @@
 - title: VavaCars
-  label: UI/UX Designer · Full Time · Present
+  label: UI/UX Designer · Full Time · Apr 2022 · Present
   description: VavaCars is one of the leading companies that offers a revolutionary way for people to buy and sell used cars.
   more: As a UI/UX Designer, some of my responsibilities are conducting a heuristic evaluation for the current products, gathering user requirements in collaboration with the product managers, ideating creative design solutions, wireframing, prototyping, usability testing, and designing intuitive user interfaces.
   image: vavacars.jpg
   link: https://tr.vava.cars/
   skills: ["UI/UX Design", "UX Research", "Wireframing", "Prototyping", "Usability Testing", "Figma"]
+
+- title: Mobven
+  label: UI/UX Designer · Full Time · Dec 2020 · Apr 2022
+  description: Mobven is a software company that provides 360-degree services from strategy to development to build delightful software solutions that make the customers successful. 
+  more: As a UI/UX Designer, I am responsible for gathering and evaluating user requirements in collaboration with the product managers, wireframing, prototyping, and designing user interfaces.	
+  image: mobven.jpg
+  link: https://www.mobven.com/
+  skills: ["UI/UX Design", "Wireframing", "Prototyping", "Adobe XD", "Sketch App", "Figma", "Miro", "Notion"]
 
 - title: Gerillass
   label: Founder · Jul 2020 · Present
@@ -21,14 +29,6 @@
   link: https://www.sketchize.com/
   skills: ["UI/UX Design", "Wireframing", "Adobe XD", "Adobe Illustrator", "HTML5", "CSS3", "React.js", "Git"]
 
-- title: Mobven
-  label: UI/UX Designer · Full Time · Dec 2020 · Apr 2022
-  description: Mobven is a software company that provides 360-degree services from strategy to development to build delightful software solutions that make the customers successful. 
-  more: As a UI/UX Designer, I am responsible for gathering and evaluating user requirements in collaboration with the product managers, wireframing, prototyping, and designing user interfaces.	
-  image: mobven.jpg
-  link: https://www.mobven.com/
-  skills: ["UI/UX Design", "Wireframing", "Prototyping", "Adobe XD", "Sketch App", "Figma", "Miro", "Notion"]
-  
 - title: Turna.com
   label: UI/UX Designer · Aug 2018 · Dec 2020
   description: Turna.com is one of the most popular booking web sites in Turkey.
