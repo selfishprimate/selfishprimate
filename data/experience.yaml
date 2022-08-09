@@ -1,17 +1,17 @@
 - title: VavaCars
   label: UI/UX Designer · Full Time · Present
   description: VavaCars is one of the leading companies that offers a revolutionary way for people to buy and sell used cars.
-  more: As a UI/UX Designer, some of my responsibilities are conducting a heuristic evaluation for the current product, gathering user requirements in collaboration with the product managers, ideating creative solutions, wireframing, prototyping, usability testing, and designing intuitive user interfaces.
+  more: As a UI/UX Designer, some of my responsibilities are conducting a heuristic evaluation for the current products, gathering user requirements in collaboration with the product managers, ideating creative design solutions, wireframing, prototyping, usability testing, and designing intuitive user interfaces.
   image: vavacars.jpg
   link: https://tr.vava.cars/
-  skills: ["UI Design", "UX Design", "Wireframing", "Prototyping", "Usability Testing", "Figma"]
+  skills: ["UI/UX Design", "UX Research", "Wireframing", "Prototyping", "Usability Testing", "Figma"]
 
 - title: Gerillass
   label: Founder · Jul 2020 · Present
   description: I've created Gerillass to make web development easy and fun for everyone. It's an open-source Sass library built on top of Sass to help designers and developers rapidly produce consistent and scalable CSS outputs regardless of the size of the projects they are working on.
   image: gerillass.jpg
   link: https://www.gerillass.com/
-  skills: ["UI Design", "Adobe XD", "HTML5", "CSS3", "Sass", "React.js", "Hugo", "Git"]
+  skills: ["UI Design", "Frontend Design", "Adobe XD", "HTML5", "CSS3", "Sass", "React.js", "Hugo", "Git"]
 
 - title: Sketchize
   label: Founder · Jan 2018 · Present
