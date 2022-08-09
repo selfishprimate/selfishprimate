@@ -1,10 +1,10 @@
 - title: VavaCars
   label: UI/UX Designer · Full Time · Present
-  description: I am gathering user requirements in collaboration with the product manager; wireframing, prototyping, and designing intuitive user interfaces.
-  more: I am evaluating existing designs in terms of usability; if necessary re-designing some of the UI components, pages, and the entire website or the mobile app from scratch to make the end product easy to use.
+  description: VavaCars is one of the leading companies that offers a revolutionary way for people to buy and sell used cars.
+  more: As a UI/UX Designer, some of my responsibilities are conducting a heuristic evaluation for the current product, gathering user requirements in collaboration with the product managers, ideating creative solutions, wireframing, prototyping, usability testing, and designing intuitive user interfaces.
   image: vavacars.jpg
   link: https://tr.vava.cars/
-  skills: ["UI Design", "UX Design", "Wireframing", "Prototyping", "Figma"]
+  skills: ["UI Design", "UX Design", "Wireframing", "Prototyping", "Usability Testing", "Figma"]
 
 - title: Gerillass
   label: Founder · Jul 2020 · Present
@@ -20,33 +20,40 @@
   more: In this project, I had practiced and implemented some of the core concepts I learned recently about React. I designed it by using Adobe Illustrator and Adobe Experience Design, and I code it with HTML5, CSS3, and React.js.
   image: sketchize.jpg
   link: https://www.sketchize.com/
+  skills: ["UI/UX Design", "Wireframing", "Adobe XD", "Adobe Illustrator", "HTML5", "CSS3", "React.js", "Git"]
 
 - title: Mobven
   label: UI/UX Designer · Full Time · Dec 2020 · Apr 2022
   description: Gathering and evaluating user requirements in collaboration with the product manager; wireframing, prototyping, designing user interfaces.
   image: mobven.jpg
   link: https://www.mobven.com/
+  skills: ["UI/UX Design", "Wireframing", "Prototyping", "Adobe XD", "Sketch App", "Figma", "Miro", "Notion"]
   
 - title: Turna.com
   label: UI/UX Designer · Aug 2018 · Dec 2020
   description: Working closely with the backend development team to put the design ideas into life which we create together. Evaluating existing designs in terms of usability; if necessary re-designing some of the UI components, pages and the entire web site or the mobile app from scratch to make the end product easy to use.
   image: turna.jpg
   link: https://www.turna.com/
+  skills: ["UI/UX Design", "Wireframing", "Prototyping", "Adobe XD"]
 
 - title: Habertürk
   label: UI Designer · Nov 2015 · Aug 2018
   description: As a UI/UX designer I'm responsible for the user interface design of the projects, to improve them in terms of usability and to implement these visual elements that users see and interact with in a web or mobile app.
   image: haberturk.jpg
   link: https://www.haberturk.com/
+  skills: ["UI/UX Design", "Wireframing", "Prototyping", "Adobe XD", "Photoshop", "Illustrator", "Bootstrap", "HTML5", "CSS3", "Sass"]
 
 - title: Sözcü Gazetesi
   label: Web Designer · Full Time · Apr 2013 · Oct 2015
   description: Designing, developing and updating a variety of websites and assisting other design staff members with various aspects of site maintenance as needed.
   image: sozcu.jpg
   link: https://www.sozcu.com.tr/
+  skills: ["UI Design", "Photoshop", "Illustrator", "HTML5", "CSS3", "Wordpress"]
 
 - title: Beykent Üniversitesi
   label: Freelance Web Designer · Mar 2010 · Jul 2010
   description: As a freelance web designer, based on client requests and user needs I've designed a new user interface for the university's website.
   image: beykent.jpg
   link: https://www.beykent.edu.tr/
+  skills: ["UI Design", "Photoshop"]
+  
