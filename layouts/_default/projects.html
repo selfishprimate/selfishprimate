@@ -29,7 +29,7 @@
                 <li class="card">
                   <a class="card__link" href="{{ .Permalink }}">
                     <figure class="card__figure">
-                      <img src="{{ .File.ContentBaseName }}/images/{{ .Params.image }}" alt="">
+                      <img src="{{ .File.ContentBaseName }}/images/{{ .Params.thumbnail_image }}" alt="{{ .Params.thumbnail_image_alt }}">
                     </figure>
 
                     <div class="card__header">

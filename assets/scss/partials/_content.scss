@@ -44,4 +44,9 @@
   p {
     margin-bottom: 1rem;
   }
+
+  img {
+    @include responsive-image;
+    border-radius: $border-radius;
+  }
 }
