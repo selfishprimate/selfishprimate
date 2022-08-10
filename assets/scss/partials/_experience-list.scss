@@ -1,6 +1,6 @@
 .experience-list {
   @include breakpoint(min, large) {
-    padding-right: 20rem;
+    padding-right: 6rem;
   }
   &__item {
     position: relative;

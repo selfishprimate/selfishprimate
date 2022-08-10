@@ -29,11 +29,16 @@
   &__title {
     position: relative;
     margin-top: 0;
+    margin-bottom: 1rem;
     z-index: 1;
   }
   &__description {
     position: relative;
-    z-index: 1;
+    font-size: 2rem;
+    font-weight: 200;
+    line-height: 1.2;
+    color: rgb(127,129,132);
+    margin-bottom: 3rem;
   }
   
   p {

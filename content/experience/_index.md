@@ -1,6 +1,6 @@
 ---
 title: "Experience"
-description: "I work as a UI/UX designer and front-end developer with more than 8 years of well-rounded experience. My skills include UI/UX design, prototyping, wireframing, and frontend development (HTML5, CSS3, and a little taste of JavaScript)."
+description: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing!"
 data: "experience"
 # featured_image: "articles.jpg"
 # hero_image: "articles.jpg"
@@ -8,4 +8,5 @@ data: "experience"
 weight: 2
 ---
 
+I work as a UI/UX designer and front-end developer with more than 10 years of well-rounded experience. My skills include UI/UX design, UX research, usability testing, prototyping, wireframing, and frontend development (HTML5, CSS3, and a little taste of JavaScript).
 
