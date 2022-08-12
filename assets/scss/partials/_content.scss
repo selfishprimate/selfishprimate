@@ -25,6 +25,20 @@
   &__body {
     position: relative;
     margin-bottom: 2rem;
+    figure {
+      margin-bottom: 2rem;
+      img {
+        margin-bottom: 1rem;
+      }
+      figcaption {
+        p {
+          font-size: 1rem;
+          text-align: center;
+          color: $dark-gray;
+          margin: 0;
+        }
+      }
+    }
   }
   &__title {
     position: relative;
