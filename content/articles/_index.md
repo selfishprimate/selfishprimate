@@ -1,6 +1,6 @@
 ---
 title: "Articles"
-description: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
+description: '"What people say, what people do, and what they say they do are entirely different things." - Margaret Mead'
 data: "articles"
 # featured_image: "articles.jpg"
 # hero_image: "articles.jpg"

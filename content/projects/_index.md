@@ -1,6 +1,6 @@
 ---
 title: "Projects"
-description: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
+description: '"People who wonder whether the glass is half empty or half full miss the point. The glass is refillable."'
 data: "projects"
 # featured_image: "projects.jpg"
 weight: 1
