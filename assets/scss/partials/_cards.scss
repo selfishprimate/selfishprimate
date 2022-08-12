@@ -2,7 +2,7 @@
 }
 
 .cards {
-  @include columnizer(1, 1rem);
+  @include columnizer(1, 2rem);
   .card {
     position: relative;
     background-color: $white;
