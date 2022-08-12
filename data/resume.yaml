@@ -21,14 +21,6 @@
   link: https://www.gerillass.com/
   skills: ["UI Design", "Frontend Design", "Adobe XD", "HTML5", "CSS3", "Sass", "React.js", "Hugo", "Git"]
 
-- title: Sketchize
-  label: Founder · Jan 2018 · Present
-  description: Sketchize is a free wireframing kit that contains a set of printable device sketch sheets. It is built for UI/UX Designers to help them design lovely apps for mobile, tablet, and desktop devices.
-  more: In this project, I've practiced some of the core concepts that I've learned recently about React. I designed it using Adobe Illustrator and Adobe Experience Design, and I code it with HTML5, CSS3, and React.js.
-  image: sketchize.jpg
-  link: https://www.sketchize.com/
-  skills: ["UI/UX Design", "Wireframing", "Adobe XD", "Adobe Illustrator", "HTML5", "CSS3", "React.js", "Git"]
-
 - title: Turna.com
   label: UI/UX Designer · Aug 2018 · Dec 2020
   description: Turna.com is one of the most popular booking web sites in Turkey.
@@ -36,6 +28,14 @@
   image: turna.jpg
   link: https://www.turna.com/
   skills: ["UI/UX Design", "Wireframing", "Prototyping", "Adobe XD"]
+
+- title: Sketchize
+  label: Founder · Jan 2018 · Present
+  description: Sketchize is a free wireframing kit that contains a set of printable device sketch sheets. It is built for UI/UX Designers to help them design lovely apps for mobile, tablet, and desktop devices.
+  more: In this project, I've practiced some of the core concepts that I've learned recently about React. I designed it using Adobe Illustrator and Adobe Experience Design, and I code it with HTML5, CSS3, and React.js.
+  image: sketchize.jpg
+  link: https://www.sketchize.com/
+  skills: ["UI/UX Design", "Wireframing", "Adobe XD", "Adobe Illustrator", "HTML5", "CSS3", "React.js", "Git"]
 
 - title: Habertürk
   label: UI Designer · Nov 2015 · Aug 2018

@@ -6,17 +6,15 @@
   .card {
     position: relative;
     background-color: $white;
-    min-height: 300px;
-    &:hover {}
     &__figure {
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
       border-radius: $border-radius;
       overflow: hidden;
       img {
         transition: $transition;
         @include responsive-image;
+        margin-bottom: 0;
       }
-
     }
     &__header {
       margin-bottom: 1rem;
@@ -27,17 +25,17 @@
       font-weight: 700;
       font-size: __remify(20px);
       line-height: 1.2;
-      margin-bottom: 0;
+      margin-bottom: 1rem;
     }
     &__label {
       font-size: __remify(16px);
-      margin-bottom: 1rem;
       margin-top: 0.2rem;
       color: $dark-gray;
     }
     &__description {
       font-size: __remify(17px);
       line-height: 1.4;
+      margin-bottom: 1rem;
     }
     &__link {
       @include stretched-link;
@@ -49,10 +47,13 @@
         @include loadify($i * 0.1s);
       }
     }
+    &--bordered {
+      border: 1px solid $border-color;
+      border-radius: $border-radius;
+      padding: 2rem;
+    }
     &:hover {
-      .card__label {
-        opacity: 1;
-      }
+      &.card--bordered {}
     }
   }
   &.min-large-2 {

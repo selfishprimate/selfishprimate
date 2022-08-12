@@ -1,7 +1,7 @@
 ---
-title: "Experience"
+title: "Resume"
 description: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing!"
-data: "experience"
+data: "resume"
 # featured_image: "articles.jpg"
 # hero_image: "articles.jpg"
 # hero_alt: "The best articles for user interface and user experience design."

@@ -26,13 +26,13 @@
 
             {{$data := string .Params.data }}
             <div class="cards-wrapper">
-              <ul class="cards min-large-3">
+              <ul class="cards min-large-2">
                 {{ range (index .Site.Data $data) }}
-                  <li class="card">
+                  <li class="card card--bordered">
                     <a class="card__link" href="{{ .link }}" target="_blank">
                       <h3 class="card__title">{{ .title }}</h3>
+                      <div class="card__description">{{ .description }}</div>
                       {{ if .label }}<div class="card__label">{{ .label }}</div>{{ end }}
-                      <p class="card__description">{{ .description }}</p>
                     </a>
                   </li>
                 {{ end }}

@@ -21,9 +21,10 @@
           </div>
 
           <div class="content__body">
-
             {{ .Content }}
+          </div>
 
+          <div class="content__footer">
             <div class="tag-container">
               {{ if .Params.tags }}
                 {{ range .Params.tags }}
@@ -31,7 +32,6 @@
                 {{ end }}
               {{ end }}
             </div>
-
           </div>
 
         </div><!-- .content -->
