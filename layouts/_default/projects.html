@@ -24,7 +24,7 @@
 
             {{ .Content }}
 
-            <ul class="cards min-large-2">
+            <ul class="cards cards--projects min-large-2">
               {{ range .Pages }}
                 <li class="card">
                   <a class="card__link" href="{{ .Permalink }}">
@@ -34,11 +34,10 @@
 
                     <div class="card__header">
                       <h3 class="card__title">{{ .Title }}</h3>
-                      
                     </div>
                     <div class="card__body">
-                      <p class="card__description">{{ .Description }}</p>
-                      {{ if .Params.label }}<div class="card__label">{{ .Params.label }}</div>{{ end }}
+                      <p class="card__description">{{ .Description | truncate 100 }}</p> 
+                      {{/*  {{ if .Params.label }}<div class="card__label">{{ .Params.label }}</div>{{ end }}  */}}
                     </div>
                   </a>
                 </li>

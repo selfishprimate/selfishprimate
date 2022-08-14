@@ -8,7 +8,6 @@
     background-color: $white;
     &__figure {
       margin-bottom: 1rem;
-      border-radius: $border-radius;
       overflow: hidden;
       img {
         transition: $transition;
@@ -16,16 +15,14 @@
         margin-bottom: 0;
       }
     }
-    &__header {
-      margin-bottom: 1rem;
-    }
+    &__header {}
     &__body {}
     &__title {
       font-family: $title-font;
-      font-weight: 700;
+      font-weight: 600;
       font-size: __remify(20px);
       line-height: 1.2;
-      margin-bottom: 1rem;
+      margin-bottom: __remify(8px);
     }
     &__label {
       font-size: __remify(16px);
@@ -33,7 +30,8 @@
       color: $dark-gray;
     }
     &__description {
-      font-size: __remify(17px);
+      font-size: __remify(16px);
+      font-weight: 300;
       line-height: 1.4;
       margin-bottom: 1rem;
     }
@@ -74,6 +72,11 @@
   &.min-xxlarge-4 {
     @include breakpoint(min, xxlarge) {
       @include columnizer(4, 2rem);
+    }
+  }
+  &--projects {
+    .card {
+      margin-bottom: 4rem;
     }
   }
 }

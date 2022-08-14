@@ -42,6 +42,16 @@
     p {
       margin-bottom: 1rem;
     }
+    & > p {
+      margin-bottom: 2rem;
+      font-size: 1.2rem;
+      &:first-of-type {
+        &::first-letter {}
+      }
+    }
+    & > h3 {
+      margin-top: 3rem;
+    }
   }
   &__footer {
     padding-top: 2rem;
