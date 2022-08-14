@@ -1,5 +1,5 @@
 ---
-title: "Dashboard UI Designs"
+title: "Dashboard UI Design"
 description: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing."
 quote: '"People ignore design that ignores people." - Frank Chimero'
 label: "Osmanlı Yatırım"
