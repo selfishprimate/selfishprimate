@@ -3,7 +3,7 @@
   margin-left: $sidebar-width;
   &__header {
     position: relative;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     @include after("data-decorative-text") {
       position: absolute;
       width: 100vw;
@@ -65,11 +65,10 @@
   }
   &__description {
     position: relative;
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 200;
     line-height: 1.3;
     color: rgb(127,129,132);
-    margin-bottom: 3rem;
   }
   img {
     @include responsive-image;

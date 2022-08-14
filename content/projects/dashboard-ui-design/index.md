@@ -1,6 +1,6 @@
 ---
 title: "Dashboard UI Design"
-description: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing."
+description: "Just another UI challenge that I’ve set for myself."
 quote: '"People ignore design that ignores people." - Frank Chimero'
 label: "Osmanlı Yatırım"
 thumbnail_image: "cover-small-1600x1200.jpg"
@@ -8,9 +8,13 @@ thumbnail_image_alt: "A dashboard design for a finance website."
 tags: ["Finance Website", "Banking UI Design", "Dashboard UI Design", "Dashboard Website Design"]
 ---
 
+I’ve tried to use some modern colors and UI components to make an old-fashioned user interface more usable, and spacious for the users.
+
 {{< figure 
     src="images/cover-large-3200x2400.jpg"
-    alt="Edenred digital wallet UI design by Halil İbrahim Çakıroğlu"
-    caption="Users can manage their wallets and see the monthly expenditure distribution information." >}}
+    alt="A modern dashboard design for a finance website by Halil İbrahim Çakıroğlu"
+    caption="A modern design approach for an online banking web application." >}}
 
-I’ve combined the results I obtained in some interviews with restaurant owners and customers with the problems I experienced and created some of the following screens in light of these data.
+Considering the large scope of the project and the endless small demands that come from the customer, it is obvious that this design is living in a fantasy world. But again, I had to see it.
+
+Thank you for reading.
