@@ -40,8 +40,8 @@ body {
     }
   }
 
-  &.resume {
-    .navigation__list__item.resume {
+  &.experience {
+    .navigation__list__item.experience {
       @extend %active-link;
     }
   }

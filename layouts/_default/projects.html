@@ -37,7 +37,7 @@
                     </div>
                     <div class="card__body">
                       <p class="card__description">{{ .Description | truncate 100 }}</p> 
-                      {{/*  {{ if .Params.label }}<div class="card__label">{{ .Params.label }}</div>{{ end }}  */}}
+                      {{ if .Params.label }}<div class="card__label">{{ .Params.label }}</div>{{ end }}
                     </div>
                   </a>
                 </li>

@@ -7,7 +7,7 @@
     position: relative;
     background-color: $white;
     &__figure {
-      margin-bottom: 1rem;
+      margin-bottom: __remify(24px);
       overflow: hidden;
       img {
         transition: $transition;
@@ -19,18 +19,17 @@
     &__body {}
     &__title {
       font-family: $title-font;
-      font-weight: 600;
-      font-size: __remify(20px);
+      font-size: __remify(22px);
       line-height: 1.2;
       margin-bottom: __remify(8px);
     }
     &__label {
-      font-size: __remify(16px);
+      font-size: 1.1rem;
       margin-top: 0.2rem;
       color: $dark-gray;
     }
     &__description {
-      font-size: __remify(16px);
+      font-size: 1.1rem;
       font-weight: 300;
       line-height: 1.4;
       margin-bottom: 1rem;
