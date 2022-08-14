@@ -1,6 +1,7 @@
 ---
 title: "About Me"
 description: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
+quote: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
 keywords: "Osman, Kamil, Samet, Simi"
 weight: 3
 layout: single
