@@ -1,25 +1,5 @@
-<!DOCTYPE html>
-<html lang="{{ .Site.Language.Lang }}">
+{{ partial "master-top.html" . }}
 
-  {{ partial "head.html" . }}
+  {{ partial "content.html" . }}
 
-  <body class="{{ if .IsHome }}home{{ else }}{{ .Section }}{{ end }} baseof">
-
-    <main class="main">
-
-      {{ partial "header.html" . }}
-
-      <div class="content-wrapper">
-        {{ partial "sidebar.html" . }}
-        {{ partial "content.html" . }}
-      </div><!-- .content-wrapper -->
-
-      {{ partial "footer.html" . }}
-
-    </main><!-- .main -->
-
-    {{ partial "foot.html" . }}
-    
-  </body>
-  
-</html>
+{{ partial "master-bottom.html" . }}

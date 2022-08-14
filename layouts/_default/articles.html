@@ -1,55 +1,32 @@
-<!DOCTYPE html>
-<html lang="{{ .Site.Language.Lang }}">
+{{ partial "master-top.html" . }}
 
-  {{ partial "head.html" . }}
+  <div class="content">
 
-  <body class="{{ if .IsHome }}home{{ else }}{{ .Section }}{{ end }} layout-articles">
+    {{ partial "hero.html" . }}
 
-    <main class="main">
+    <div class="content__header" data-decorative-text="{{ .Params.Title }}">
+      <h2 class="content__title">{{ .Params.Title }}</h2>
+      <p class="content__description">{{ .Params.Description }}</p>
+    </div>
 
-      <div class="content-wrapper">
+    <div class="content__body">
+      {{ .Content }}
+      {{$data := string .Params.data }}
+      <div class="cards-wrapper">
+        <ul class="cards min-large-2">
+          {{ range (index .Site.Data $data) }}
+            <li class="card card--bordered">
+              <a class="card__link" href="{{ .link }}" target="_blank">
+                <h3 class="card__title">{{ .title }}</h3>
+                <div class="card__description">{{ .description }}</div>
+                {{ if .label }}<div class="card__label">{{ .label }}</div>{{ end }}
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div><!-- .content-body -->
 
-        {{ partial "sidebar.html" . }}
-        
-        <div class="content">
-
-          {{ partial "hero.html" . }}
-
-          <div class="content__header" data-decorative-text="{{ .Params.Title }}">
-            <h2 class="content__title">{{ .Params.Title }}</h2>
-            <p class="content__description">{{ .Params.Description }}</p>
-          </div>
-
-          <div class="content__body">
-
-            {{ .Content }}
-
-            {{$data := string .Params.data }}
-            <div class="cards-wrapper">
-              <ul class="cards min-large-2">
-                {{ range (index .Site.Data $data) }}
-                  <li class="card card--bordered">
-                    <a class="card__link" href="{{ .link }}" target="_blank">
-                      <h3 class="card__title">{{ .title }}</h3>
-                      <div class="card__description">{{ .description }}</div>
-                      {{ if .label }}<div class="card__label">{{ .label }}</div>{{ end }}
-                    </a>
-                  </li>
-                {{ end }}
-              </ul>
-            </div>
-
-          </div>
-
-        </div><!-- .content -->
-      </div><!-- .content-wrapper -->
-
-    </main><!-- .main -->
-
-    {{ partial "featured-image.html" . }}
-
-    {{ partial "foot.html" . }}
-
-  </body>
+  </div><!-- .content -->
   
-</html>
+{{ partial "master-bottom.html" . }}

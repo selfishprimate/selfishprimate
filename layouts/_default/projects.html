@@ -1,61 +1,37 @@
-<!DOCTYPE html>
-<html lang="{{ .Site.Language.Lang }}">
-
-  {{ partial "head.html" . }}
-
-  <body class="{{ if .IsHome }}home{{ else }}{{ .Section }}{{ end }} layout-projects">
-
-    <main class="main">
-
-      <div class="content-wrapper">
-
-        {{ partial "sidebar.html" . }}
+{{ partial "master-top.html" . }}
         
-        <div class="content">
-          
-          {{ partial "hero.html" . }}
+  <div class="content">
+    
+    {{ partial "hero.html" . }}
 
-          <div class="content__header" data-decorative-text="{{ .Params.Title }}">
-            <h2 class="content__title">{{ .Params.Title }}</h2>
-            <p class="content__description">{{ .Params.Description }}</p>
-          </div>
+    <div class="content__header" data-decorative-text="{{ .Params.Title }}">
+      <h2 class="content__title">{{ .Params.Title }}</h2>
+      <p class="content__description">{{ .Params.Description }}</p>
+    </div>
 
-          <div class="content__body">
+    <div class="content__body">
+      {{ .Content }}
+      <ul class="cards cards--projects min-large-2">
+        {{ range .Pages }}
+          <li class="card">
+            <a class="card__link" href="{{ .Permalink }}">
+              <figure class="card__figure">
+                <img src="{{ .File.ContentBaseName }}/images/{{ .Params.thumbnail_image }}" alt="{{ .Params.thumbnail_image_alt }}">
+              </figure>
 
-            {{ .Content }}
+              <div class="card__header">
+                <h3 class="card__title">{{ .Title }}</h3>
+              </div>
+              <div class="card__body">
+                <p class="card__description">{{ .Description | truncate 100 }}</p> 
+                {{ if .Params.label }}<div class="card__label">{{ .Params.label }}</div>{{ end }}
+              </div>
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    </div><!-- .content__body -->
 
-            <ul class="cards cards--projects min-large-2">
-              {{ range .Pages }}
-                <li class="card">
-                  <a class="card__link" href="{{ .Permalink }}">
-                    <figure class="card__figure">
-                      <img src="{{ .File.ContentBaseName }}/images/{{ .Params.thumbnail_image }}" alt="{{ .Params.thumbnail_image_alt }}">
-                    </figure>
+  </div><!-- .content -->
 
-                    <div class="card__header">
-                      <h3 class="card__title">{{ .Title }}</h3>
-                    </div>
-                    <div class="card__body">
-                      <p class="card__description">{{ .Description | truncate 100 }}</p> 
-                      {{ if .Params.label }}<div class="card__label">{{ .Params.label }}</div>{{ end }}
-                    </div>
-                  </a>
-                </li>
-              {{ end }}
-            </ul>
-
-
-          </div>
-
-        </div><!-- .content -->
-      </div><!-- .content-wrapper -->
-
-    </main><!-- .main -->
-
-    {{ partial "featured-image.html" . }}
-
-    {{ partial "foot.html" . }}
-
-  </body>
-  
-</html>
+{{ partial "master-bottom.html" . }}

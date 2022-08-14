@@ -1,55 +1,40 @@
-<!DOCTYPE html>
-<html lang="{{ .Site.Language.Lang }}">
-
-  {{ partial "head.html" . }}
-
-  <body class="{{ if .IsHome }}home{{ else }}{{ .Section }}{{ end }} layout-articles">
-
-    <main class="main">
-
-      {{ partial "sidebar.html" . }}
+{{ partial "master-top.html" . }}
       
-      <div class="content">
-        {{ partial "hero.html" . }}
-        <div class="content__header" data-decorative-text="{{ .Params.Title }}">
-          <h2 class="content__title">{{ .Params.Title }}</h2>
-          <p class="content__description">{{ .Params.Description }}</p>
-        </div>
+  <div class="content">
+    {{ partial "hero.html" . }}
+    <div class="content__header" data-decorative-text="{{ .Params.Title }}">
+      <h2 class="content__title">{{ .Params.Title }}</h2>
+      <p class="content__description">{{ .Params.Description }}</p>
+    </div>
 
-        <div class="content__body">
-          {{ .Content }}
-          {{$data := string .Params.data }}
-          <ul class="experience-list">
-            {{ range (index .Site.Data $data) }}
-              <li class="experience-list__item">
-                <figure class="experience-list__item__figure">
-                  <img src="images/{{ .image }}" />
-                </figure>
-                <div class="experience-list__content">
-                  <h3 class="experience-list__item__title">{{ .title }}</h3>
-                  <div class="experience-list__item__label">{{ .label }}</div>
-                  <p class="experience-list__item__description">{{ .description }}</p>
-                  {{ if .more }}<p class="experience-list__item__description">{{ .more }}</p>{{ end }}
+    <div class="content__body">
+      {{ .Content }}
+      {{$data := string .Params.data }}
+      <ul class="experience-list">
+        {{ range (index .Site.Data $data) }}
+          <li class="experience-list__item">
+            <figure class="experience-list__item__figure">
+              <img src="images/{{ .image }}" />
+            </figure>
+            <div class="experience-list__content">
+              <h3 class="experience-list__item__title">{{ .title }}</h3>
+              <div class="experience-list__item__label">{{ .label }}</div>
+              <p class="experience-list__item__description">{{ .description }}</p>
+              {{ if .more }}<p class="experience-list__item__description">{{ .more }}</p>{{ end }}
 
-                  {{ if .skills }}
-                    <div class="experience-list__item__skills">
-                      <strong>Skills: </strong>
-                      {{ range .skills }}<span class="experience-list__item__skills__item">{{ . }}</span>{{ end }}
-                    </div>
-                  {{ end }}
-
-                  <a class="experience-list__item__link" href="{{ .link }}" target="_blank">{{ .link }}</a>
+              {{ if .skills }}
+                <div class="experience-list__item__skills">
+                  <strong>Skills: </strong>
+                  {{ range .skills }}<span class="experience-list__item__skills__item">{{ . }}</span>{{ end }}
                 </div>
-              </li>
-            {{ end }}
-          </ul>
-        </div><!-- .content__body -->
-      </div><!-- .content -->
+              {{ end }}
+              <a class="experience-list__item__link" href="{{ .link }}" target="_blank">{{ .link }}</a>
+            </div>
+          </li>
+        {{ end }}
+      </ul>
+    </div><!-- .content__body -->
 
-    </main><!-- .main -->
+  </div><!-- .content -->
 
-    {{ partial "foot.html" . }}
-
-  </body>
-  
-</html>
+{{ partial "master-bottom.html" . }}

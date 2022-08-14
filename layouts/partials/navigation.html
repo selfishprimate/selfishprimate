@@ -5,29 +5,11 @@
   </h2>
 
   <ul class="navigation__list">
-
     {{ range .Site.Sections }}
-
       <li class="navigation__list__item {{ .Section }}">
-
-        <!-- {{ if eq .Section "projects" }}
-        <ion-icon name="folder-open-outline"></ion-icon>
-        {{ end }}
-
-        {{ if eq .Section "articles" }}
-        <ion-icon name="book-outline"></ion-icon>
-        {{ end }}
-
-        {{ if eq .Section "about-me" }}
-        <ion-icon name="finger-print-outline"></ion-icon>
-        {{ end }} -->
-
         <a class="navigation__list__item__link" href="{{ .Permalink }}">{{ .Title }}</a>
-
       </li>
-
     {{ end }}
-
   </ul>
 
 </nav>
