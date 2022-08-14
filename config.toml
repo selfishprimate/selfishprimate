@@ -1,5 +1,3 @@
-# hugo server --minify --themesDir ... --baseURL=http://localhost:1313/theme/book/
-
 baseURL = "https://selfishprimate.com/"
 title = "Selfish Primate"
 
