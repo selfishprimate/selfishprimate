@@ -1,8 +1,8 @@
 ---
-title: "Dashboard UI Design"
-description: "Just another UI challenge that I’ve set for myself."
+title: "Car Rental App for iOS"
+description: "Considering the large scope of the project and the endless small demands that come from the customer, it is obvious that this design is living in a fantasy world."
 quote: '"People ignore design that ignores people." - Frank Chimero'
-label: "Osmanlı Yatırım"
+label: "Otorento"
 thumbnail_image: "cover-small-1600x1200.jpg"
 thumbnail_image_alt: "A dashboard design for a finance website."
 tags: ["UI/UX Design", "Finance Website", "Banking UI Design", "Dashboard UI Design", "Dashboard Website Design"]

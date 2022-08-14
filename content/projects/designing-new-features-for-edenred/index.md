@@ -3,7 +3,7 @@ title: "Designing New Features for Edenred"
 description: This project was one of the UI challenges that we set for ourselves at Mobven weekly basis.
 quote: '"If you as a human being transform yourself, you affect the consciousness of the rest of the world." - Krishnamurti'
 label: Edenred
-thumbnail_image: "cover-small-1600.jpg"
+thumbnail_image: "cover-small-1600x1200.jpg"
 thumbnail_image_alt: "New features for Edenred mobile application"
 tags: ["Edenred", "OTP Design", "UI Design", "Wallet Application", "Edenred UI Design"]
 ---
@@ -13,7 +13,7 @@ This project was one of the UI challenges that we set for ourselves at **Mobven*
 As the Design Studio Team (the design team at Mobven), after we experience some real-life problems with payments, defining cards to the system, etc. we’ve decided to design new features and improve some of the current screens.
 
 {{< figure 
-    src="images/cover-large-3200.jpg"
+    src="images/cover-large-3200x2400.jpg"
     alt="Edenred digital wallet UI design by Halil İbrahim Çakıroğlu"
     caption="Users can manage their wallets and see the monthly expenditure distribution information." >}}
 
