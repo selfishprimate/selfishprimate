@@ -63,6 +63,11 @@
       @include columnizer(3, 2rem);
     }
   }
+  &.min-xlarge-2 {
+    @include breakpoint(min, xlarge) {
+      @include columnizer(2, 2rem);
+    }
+  }
   &.min-xlarge-3 {
     @include breakpoint(min, xlarge) {
       @include columnizer(3, 2rem);

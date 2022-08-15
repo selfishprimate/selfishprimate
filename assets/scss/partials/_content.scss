@@ -1,6 +1,9 @@
 .content {
-  padding: 8rem 4rem 3rem 3rem;
-  margin-left: $sidebar-width;
+  padding: 8rem 3rem 3rem;
+  transition: $transition;
+  @include breakpoint(min, large) {
+    margin-left: $sidebar-width;
+  }
   &__header {
     position: relative;
     margin-bottom: 2rem;

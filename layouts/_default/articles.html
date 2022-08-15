@@ -13,7 +13,7 @@
       {{ .Content }}
       {{$data := string .Params.data }}
       <div class="cards-wrapper">
-        <ul class="cards min-large-2">
+        <ul class="cards min-xlarge-2">
           {{ range (index .Site.Data $data) }}
             <li class="card card--bordered">
               <a class="card__link" href="{{ .link }}" target="_blank">

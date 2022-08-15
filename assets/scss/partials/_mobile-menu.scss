@@ -1,0 +1,20 @@
+.mobile-menu {
+  &__input {
+    display: none;
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    z-index: 200;
+    &:checked {
+      & ~ .sidebar {
+        margin-left: 0;
+      }
+    }
+  }
+
+  &__toggler {}
+  &__icon {
+    &--menu {}
+    &--close {}
+  }
+}
