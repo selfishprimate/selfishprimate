@@ -20,11 +20,8 @@
               <figure class="card__figure">
                 <img src="{{ .File.ContentBaseName }}/images/{{ .Params.thumbnail_image }}" alt="{{ .Params.thumbnail_image_alt }}">
               </figure>
-
-              <div class="card__header">
-                <h3 class="card__title">{{ .Title }}</h3>
-              </div>
               <div class="card__body">
+                <h3 class="card__title">{{ .Title }}</h3>
                 <p class="card__description">{{ .Description | truncate 100 }}</p> 
                 {{ if .Params.label }}<div class="card__label">{{ .Params.label }}</div>{{ end }}
               </div>

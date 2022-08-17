@@ -16,7 +16,11 @@
       }
     }
     &__header {}
-    &__body {}
+    &__body {
+      & > *:not(:last-child){
+        margin-bottom: 0.5rem;
+      }
+    }
     &__title {
       font-family: $title-font;
       font-size: __remify(22px);
@@ -25,14 +29,12 @@
     }
     &__label {
       font-size: 1.1rem;
-      margin-top: 0.2rem;
       color: $dark-gray;
     }
     &__description {
       font-size: 1.1rem;
       font-weight: 300;
       line-height: 1.4;
-      margin-bottom: 1rem;
     }
     &__link {
       @include stretched-link;
