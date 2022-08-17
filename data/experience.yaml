@@ -15,7 +15,7 @@
   skills: ["UI/UX Design", "Wireframing", "Prototyping", "Adobe XD", "Sketch App", "Figma", "Miro", "Notion"]
 
 - title: Gerillass
-  label: Founder · Jul 2020 · Present
+  label: Founder, Product Designer · Jul 2020 · Present
   description: I've created Gerillass to make web development easy and fun for everyone. It's an open-source Sass library built on top of Sass to help designers and developers rapidly produce consistent and scalable CSS outputs regardless of the size of the projects they are working on.
   image: gerillass.jpg
   link: https://www.gerillass.com/
@@ -30,7 +30,7 @@
   skills: ["UI/UX Design", "Wireframing", "Prototyping", "Adobe XD"]
 
 - title: Sketchize
-  label: Founder · Jan 2018 · Present
+  label: Founder, Product Designer · Jan 2018 · Present
   description: Sketchize is a free wireframing kit that contains a set of printable device sketch sheets. It is built for UI/UX Designers to help them design lovely apps for mobile, tablet, and desktop devices.
   more: In this project, I've practiced some of the core concepts that I've learned recently about React. I designed it using Adobe Illustrator and Adobe Experience Design, and I code it with HTML5, CSS3, and React.js.
   image: sketchize.jpg
