@@ -26,15 +26,15 @@ Calendar screen where users select the pickup and return dates.
 
 {{< figure 
     src="images/otorento-booking-calendar-ui-design.jpg"
-    caption="Features like popular locations and the latest searches can reduce the users' task load." >}}
+    caption="The small feedback in the top navigation can encourage users to complete their tasks." >}}
 
 Rather than using a complex filtering screen, I've designed a smart filtering feature with horizontal scrolling located at the top of the search results.
 
 {{< figure 
     src="images/otorento-search-results-and-details-ui-design.jpg"
-    caption="The smart filtering feature allows users to filter quickly." >}}
+    caption="The smart filtering feature can make filtering quick and painless for the users." >}}
 
-The system should support users to use some of the basic functionalities without registering to the system. Here, the user can check his/her reservations without logging in to the system.
+The system should support users to use some of the basic functionalities without registering to the system.
 
 {{< figure 
     src="images/otorento-my-account-ui-design.jpg"
