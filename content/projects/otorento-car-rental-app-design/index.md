@@ -12,7 +12,7 @@ Otorento offers users one of the cheapest and safest ways to rent a car in Turke
 
 The challenge was to analyze the current product, define the well-functioning parts, and find solutions for the problematic ones. In the end, to make a synthesis of all these findings and design a user-centered application for the users.
 
-{{< figure 
+{{< figure
     src="images/cover-large.jpg"
     alt="A simplistic, task-oriented design can encourage users to complete their tasks."
     caption="A simplistic, task-oriented design can encourage users to complete their tasks." >}}

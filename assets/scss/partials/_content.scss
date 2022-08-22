@@ -41,6 +41,14 @@
           margin: 0;
         }
       }
+      &.large {
+        @include breakpoint(min, large) {
+          width: calc(100vw - (#{$sidebar-width} - -6rem));
+          figcaption {
+            display: none;
+          }
+        }
+      }
     }
     p {}
     & > p {
