@@ -4,11 +4,13 @@
   }
   &__item {
     position: relative;
-    display: flex;
     background-color: $white;
     padding: 3rem 0;
     @include except(last) {
       border-bottom: 1px solid $border-color;
+    }
+    @include breakpoint(min, small) {
+      display: flex;
     }
     &__figure {
       position: relative;
