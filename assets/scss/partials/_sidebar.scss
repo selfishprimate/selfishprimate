@@ -13,4 +13,37 @@
   @include breakpoint(min, large) {
     margin-left: 0;
   }
+
+  &__toggler {
+    &__backdrop {
+      display: none;
+      background-color: transparentize(white, 0.2);
+      z-index: 10;
+      @include position (fixed);
+    }
+    &__input {
+      display: none;
+      position: fixed;
+      left: 20px;
+      top: 20px;
+      z-index: 200;
+      &:checked {
+        & ~ .sidebar__toggler__backdrop {
+          display: block;
+        }
+        & ~ .main {
+          .sidebar {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+    &__icon {
+      display: flex;
+      align-items: center;
+      width: 48px;
+      height: 48px;
+    }
+  }
+
 }

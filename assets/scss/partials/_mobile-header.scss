@@ -1,0 +1,9 @@
+.mobile-header {
+  display: none;
+  height: 60px;
+  align-items: center;
+  margin-bottom: 1rem;
+  @include breakpoint(max, large) {
+    display: fleX;
+  }
+}

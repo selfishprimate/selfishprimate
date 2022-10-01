@@ -1,5 +1,5 @@
 .content {
-  padding: 8rem 3rem 3rem;
+  padding: 3rem 3rem 3rem;
   transition: $transition;
   @include breakpoint(min, large) {
     margin-left: $sidebar-width;

@@ -45,8 +45,9 @@
 
   <body class="{{ if .IsHome }}home{{ else }}{{ .Section }}{{ end }}">
 
+    <input class="sidebar__toggler__input" id="mobile-menu" type="checkbox">
+    <label class="sidebar__toggler sidebar__toggler__backdrop" for="mobile-menu"></label>
+
     <main class="main">
 
-      <input class="mobile-menu__input" id="mobile-menu" type="checkbox">
-  
       {{ partial "sidebar.html" . }}
