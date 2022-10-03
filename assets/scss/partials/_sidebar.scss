@@ -20,7 +20,7 @@
       z-index: 10;
       opacity: 0;
       visibility: hidden;
-      transition: visibility 0.3s, opacity 0.3s;
+      transition: visibility 0.1s, opacity 0.3s;
       @include position (fixed);
     }
     &__input {
