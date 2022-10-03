@@ -16,9 +16,11 @@
 
   &__toggler {
     &__backdrop {
-      display: none;
       background-color: transparentize(white, 0.2);
       z-index: 10;
+      opacity: 0;
+      visibility: hidden;
+      transition: visibility 0.3s, opacity 0.3s;
       @include position (fixed);
     }
     &__input {
@@ -29,7 +31,8 @@
       z-index: 200;
       &:checked {
         & ~ .sidebar__toggler__backdrop {
-          display: block;
+          opacity: 1;
+          visibility: visible;
         }
         & ~ .main {
           .sidebar {
