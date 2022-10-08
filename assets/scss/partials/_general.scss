@@ -41,7 +41,7 @@ body {
   background-color: $content-bg-color;
   @include adaptive();
   @include breakpoint(min, large) {
-    // float: left;
+    float: left;
   }
 }
 
