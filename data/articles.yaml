@@ -1,3 +1,9 @@
+- title: "Streamline your CSS with Gerillass: A Sass library for efficient styling"
+  description: Sass, which stands for Syntactically Awesome Style Sheets, is a CSS preprocessor that allows you to use variables, mixins, and other programming constructs to generate CSS.
+  link: https://medium.com/gerillass/streamline-your-css-with-gerillass-a-sass-library-for-efficient-styling-6e297bb658b5
+  label: Mar 05, 2023
+
+
 - title: "Gerillass: A short introduction"
   description: About a year ago I decided to make a small Sass library named Gerillass public, which I created for the company I’m currently working on.
   link: https://medium.com/gerillass/gerillass-a-short-introduction-to-say-hello-b379f8062098
