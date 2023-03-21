@@ -8,13 +8,15 @@ thumbnail_image_alt: "A dashboard design for a finance website."
 tags: ["UI/UX Design", "Finance Website", "Banking UI Design", "Dashboard UI Design", "Dashboard Website Design"]
 ---
 
-I’ve tried to use some modern colors and UI components to make an old-fashioned user interface more usable, and spacious for the users.
-
 {{< figure 
     src="images/cover-large.jpg"
     alt="A modern dashboard design for a finance website by Halil İbrahim Çakıroğlu"
     caption="A modern design approach for an online banking web application." >}}
 
-Considering the large scope of the project and the endless small demands that come from the customer, it is obvious that this design is living in a fantasy world. But again, I had to see it.
+As the Covid pandemic swept across the world, many of us found ourselves struggling to adapt to the new normal. For designers and developers, this meant finding new ways to collaborate and work together, even as we were forced to work remotely.
 
-Thank you for reading.
+During this challenging time, I decided to give back to the open-source community by building Gerillass, a powerful Sass library designed to streamline the front-end development process. With its comprehensive set of tools and utilities, Gerillass makes it easy for developers to create beautiful, responsive websites that look great on any device.
+
+But Gerillass is more than just a collection of code snippets and functions. It's a testament to the power of community and collaboration, and a reminder that even in the darkest of times, we can come together to create something truly remarkable.
+
+So if you're a front-end developer looking to simplify your workflow and take your skills to the next level, I invite you to give Gerillass a try. Together, we can build a better, more connected world, one line of code at a time.
