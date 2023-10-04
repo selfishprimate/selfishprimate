@@ -30,6 +30,10 @@
     margin-bottom: 5rem;
     figure {
       margin-bottom: 2rem;
+      @include breakpoint(max, small) {
+        margin-left: -3rem;
+        margin-right: -3rem;
+      }
       img {
         margin-bottom: 1rem;
       }

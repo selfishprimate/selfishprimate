@@ -9,6 +9,10 @@
     &__figure {
       margin-bottom: __remify(24px);
       overflow: hidden;
+      @include breakpoint(max, small) {
+        margin-left: -3rem;
+        margin-right: -3rem;
+      }
       img {
         transition: $transition;
         @include responsive-image;
