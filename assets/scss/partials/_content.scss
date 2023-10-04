@@ -63,13 +63,13 @@
       margin-top: 3rem;
     }
     a {
-      font-weight: bold;
+      font-weight: 600;
       color: $primary-color;
     }    
   }
   &__footer {
     padding-top: 2rem;
-    border-top: 1px solid $border-color;
+    // border-top: 1px solid $border-color;
   }
   &__title {
     position: relative;

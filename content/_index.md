@@ -9,4 +9,3 @@ I'm an experienced UI/UX designer with over a decade of industry experience. I'v
 
 Additionally, I'm great at working collaboratively with cross-functional teams and understand the importance of user-centered design in creating successful digital experiences. By leveraging my expertise, I deliver high-quality solutions that are visually appealing, highly functional, and user-friendly. Can't wait to work with you!
 
-

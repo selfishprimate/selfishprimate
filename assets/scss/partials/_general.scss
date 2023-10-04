@@ -32,6 +32,15 @@ body {
   overflow-x: hidden;
 }
 
+.featured-ornament {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  transform: translateX(30%) translateY(40%);
+  @include remove(max, 1446px);
+}
+
 .main {
   display: flex;
   flex-direction: column;
