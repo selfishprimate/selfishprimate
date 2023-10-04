@@ -25,12 +25,30 @@ I chose to divide each filtering section, enabling users to concentrate on parti
 {{< figure
     src="images/takko-fashion-separating-each-filtering-section.jpg"
     alt="A simplistic, task-oriented design can encourage users to complete their tasks."
-    caption="Understanding the diverse needs of Takko Fashion's audience, I prioritized simplicity and clarity." >}}
+    caption="Each filtering section was meticulously separated, allowing users to focus on specific criteria without feeling overwhelmed." >}}
 
 Embracing Google Material Design principles, I utilized familiar components such as radio buttons, checkboxes, and sliders. By incorporating these widely recognized elements, I aimed to create an interface that felt instantly intuitive to users.
+
+In the earlier version, filtering elements were highlighted in yellow upon selection. To enhance accessibility, I chose a color scheme emphasizing background/foreground contrast. This change enhances visibility and usability, particularly for users with impaired vision, fostering a more inclusive and user-friendly experience.
+
+To enhance accessibility, I've added descriptive text below the 'Apply' button, indicating the selected choices.
 
 {{< figure
     src="images/takko-fashion-material-design-components.jpg"
     alt="A simplistic, task-oriented design can encourage users to complete their tasks."
     caption="The choice of Material Design components not only ensures usability but also establishes a sense of trust and comfort among visitors." >}}
+
+In the previous design, the names of the selected colors were not displayed. Concerned about accessibility, especially for color-blind users, I chose to place the names of the colors right next to the color boxes to address this issue.
+
+{{< figure
+    src="images/takko-fashion-color-boxes.jpg"
+    alt="A simplistic, task-oriented design can encourage users to complete their tasks."
+    caption="Clear color names now accompany each selection, providing an inclusive browsing experience for all users, including those with color vision deficiencies." >}}
+
+These sorting and filtering screens may provide users with a seamless way to customize their search results. By integrating familiar components and emphasizing user-centric design, the proposed interface aims to enhance engagement, encouraging exploration and contributing to an enriched online shopping experience.
+
+[Click to see the Figma project file!](https://www.figma.com/file/M3DMbkGlKxkUJBisqCHBS9/Takko-Fashion-Case-Study?type=design&node-id=0%3A1&mode=design&t=ics1o05kJYozPHkI-1/")
+
+
+
 
