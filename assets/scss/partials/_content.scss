@@ -62,6 +62,10 @@
     & > h3 {
       margin-top: 3rem;
     }
+    a {
+      font-weight: bold;
+      color: $primary-color;
+    }    
   }
   &__footer {
     padding-top: 2rem;

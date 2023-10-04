@@ -5,7 +5,7 @@ quote: '"The details are not the details. They make the design. - Charles Eames'
 label: Takko Fashion
 thumbnail_image: "cover-small.jpg"
 thumbnail_image_alt: "A case study for redesigning a search filtering."
-tags: ["Takko Fashion", "Filtering Design", "Filtering Redesign Case Study", "Instant Filtering Design", "Bulk Filtering Design", "Advanced Filtering"]
+tags: ["Takko Fashion", "Filtering UI Design", "Mobile Filtering", "Sort and Filtering Design", "Filtering Design", "Filtering Redesign Case Study", "Instant Filtering Design", "Bulk Filtering Design", "Advanced Filtering"]
 ---
 
 
