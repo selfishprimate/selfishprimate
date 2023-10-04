@@ -13,15 +13,15 @@ I'm thrilled to present my latest project showcasing a modern approach to paywal
 In the first design alternative, I've integrated the elegance of Material Design into a standard web page format. A sleek header, intuitive navigational bar leading to subcategories, and strategically placed elements like search, subscribe, and sign-in buttons create a seamless user journey.
 
 {{< figure 
-    src="images/cover-large-3200x2400.jpg"
-    alt="The design not only adheres to the principles of Material Design but also prioritizes ease of navigation, ensuring users can effortlessly explore the platform while focusing on the content that matters."
-    caption="The design not only adheres to the principles of Material Design but also prioritizes ease of navigation, ensuring users can effortlessly explore the platform while focusing on the content that matters." >}}
+    src="images/paywall-as-static-page.png"
+    alt="Built upon Material Design components, this approach showcases the power of simplicity, allowing users to complete transactions with unparalleled ease."
+    caption="Built upon Material Design components, this approach showcases the power of simplicity, allowing users to complete transactions with unparalleled ease." >}}
 
 The second design takes a bold step towards minimalism. Stripping away unnecessary elements, this popup screen immerses users directly into the payment process. By eliminating distractions, the design emphasizes the user's focus on the crucial task at hand—entering payment details.
 
 {{< figure 
-    src="images/paywall-as-static-page.png"
-    alt="Built upon Material Design components, this approach showcases the power of simplicity, allowing users to complete transactions with unparalleled ease."
-    caption="Built upon Material Design components, this approach showcases the power of simplicity, allowing users to complete transactions with unparalleled ease." >}}
+    src="images/cover-large-3200x2400.jpg"
+    alt="The design not only adheres to the principles of Material Design but also prioritizes ease of navigation, ensuring users can effortlessly explore the platform while focusing on the content that matters."
+    caption="The design not only adheres to the principles of Material Design but also prioritizes ease of navigation, ensuring users can effortlessly explore the platform while focusing on the content that matters." >}}
 
 Thank you for your time, and I hope these designs inspire innovative solutions in the realm of digital interfaces.
