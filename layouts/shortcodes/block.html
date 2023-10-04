@@ -1,0 +1,11 @@
+<div class='block {{ with .Get "class"}}{{.}}{{end}}'>
+
+    <figure class="block__figure">
+        <img  {{ with .Get "image-src"}}src="{{.}}"{{end}} {{ with .Get "image-alt"}}alt="{{.}}"{{end}}>
+    </figure>
+    
+    <div class="block__content">
+        {{ .Inner | markdownify }}
+    </div>
+
+</div>

@@ -1,0 +1,14 @@
+.block {
+    display: flex;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $border-color;
+    &__figure {
+        flex: 0 0 40%;
+        margin-bottom: 0 !important;
+        padding-right: 2rem;
+    }
+    &__content {
+        flex: 1 1 60%;
+    }
+}

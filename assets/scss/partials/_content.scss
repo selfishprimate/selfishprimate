@@ -50,9 +50,10 @@
         }
       }
     }
-    p {}
-    & > p {
+    p {
       margin-bottom: 2rem;
+    }
+    & > p {
       font-size: 1.2rem;
       &:first-of-type {
         &::first-letter {}
