@@ -47,7 +47,7 @@ In the previous design, the names of the selected colors were not displayed. Con
 
 These sorting and filtering screens may provide users with a seamless way to customize their search results. By integrating familiar components and emphasizing user-centric design, the proposed interface aims to enhance engagement, encouraging exploration and contributing to an enriched online shopping experience.
 
-[Click to see the Figma project file!](https://www.figma.com/file/M3DMbkGlKxkUJBisqCHBS9/Takko-Fashion-Case-Study?type=design&node-id=0%3A1&mode=design&t=ics1o05kJYozPHkI-1/")
+[Click to see the Figma project file!](https://www.figma.com/file/M3DMbkGlKxkUJBisqCHBS9/Takko-Fashion-Case-Study?type=design&node-id=0%3A1&mode=design&t=plN5reMYvcrCNOI0-1)
 
 
 

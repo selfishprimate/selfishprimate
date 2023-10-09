@@ -4,8 +4,8 @@ description: "Gerillass is a website development tool built on top of Sass with 
 quote: '"People ignore design that ignores people." - Frank Chimero'
 label: "Gerillass"
 thumbnail_image: "cover-small.jpg"
-thumbnail_image_alt: "A dashboard design for a finance website."
-tags: ["UI/UX Design", "Finance Website", "Banking UI Design", "Dashboard UI Design", "Dashboard Website Design"]
+thumbnail_image_alt: "Meet the best Sass mixin library to build a website easily."
+tags: ["Gerillass", "Gerillass Sass Library", "Gerillass Documentation", "Sass", "What is Sass?", "Sass Library", "Web Design", "Web Development Tool"]
 ---
 
 {{< figure 
@@ -20,3 +20,10 @@ During this challenging time, I decided to give back to the open-source communit
 But Gerillass is more than just a collection of code snippets and functions. It's a testament to the power of community and collaboration, and a reminder that even in the darkest of times, we can come together to create something truly remarkable.
 
 So if you're a front-end developer looking to simplify your workflow and take your skills to the next level, I invite you to give Gerillass a try. Together, we can build a better, more connected world, one line of code at a time.
+
+See the below links for more information.
+
+- [Gerillass](https://gerillass.com/)
+- [Gerillass Documentation](https://docs.gerillass.com/)
+- [Github Repository](https://github.com/selfishprimate/gerillass)
+- [Medium](https://medium.com/gerillass)
