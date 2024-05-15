@@ -8,7 +8,8 @@ $map-for-breakpoints: (
   "small": 576px,
   "medium": 768px,
   "large": 992px,
-  "xlarge": 1200px
+  "xlarge": 1200px,
+  "xxlarge": 1400px
 );
 
 @include breakpointer {
@@ -50,6 +51,14 @@ body {
   @include adaptive();
   @include breakpoint(min, large) {
     float: left;
+  }
+
+  ol, ul {
+    list-style: auto;
+    list-style-position: inside;
+    li {
+      @include except(last) {} 
+    }
   }
 }
 

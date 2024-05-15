@@ -28,8 +28,14 @@
 }
 
 body {
-  &.projects {
-    .navigation__list__item.projects {
+  &.ui-ux-design {
+    .navigation__list__item.ui-ux-design {
+      @extend %active-link;
+    }
+  }
+
+  &.illustration {
+    .navigation__list__item.illustration {
       @extend %active-link;
     }
   }

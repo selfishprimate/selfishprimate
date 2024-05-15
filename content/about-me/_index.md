@@ -3,7 +3,7 @@ title: "About Me"
 description: "ey there! My name is Halil İbrahim Çakıroğlu, an İstanbul based UI/UX designer who loves to explore different creative avenues. When I'm not designing beautiful interfaces, you can find me jamming to my favorite tunes, sketching and drawing, or cruising around on my skateboard."
 quote: '"Design is thinking made visual." - Saul Bass'
 keywords: "Halil İbrahim Çakıroğlu, UX Designer in Istanbul, User Interface Design, User Experience Design, Istanbul based UX Designer, Freelance UX Designer, UX Designer, UI/UX Design"
-weight: 3
+weight: 5
 layout: single
 # hero_image: "accessibility.jpg"
 # hero_alt: "Acessibility design resources"
