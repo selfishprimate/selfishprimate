@@ -1,14 +1,15 @@
-<figure class="featured-ornament">
-  <img src="{{ .Site.BaseURL }}images/featured-image.jpg" alt="The portfolio page of Halil İbrahimÇakıroğlu">
-</figure>
+{{ if eq .Params.page_ornament false }}
+
+{{ else }}
+  <figure class="featured-ornament">
+    <img src="{{ .Site.BaseURL }}images/featured-image.jpg" alt="The portfolio page of Halil İbrahimÇakıroğlu">
+  </figure>
+{{ end }}
 
 <div class="mobile-header">
-
   <label class="sidebar__toggler" for="mobile-menu">
     <div class="sidebar__toggler__icon">
       <i data-feather="menu"></i>
     </div>
   </label>
-
 </div>
-

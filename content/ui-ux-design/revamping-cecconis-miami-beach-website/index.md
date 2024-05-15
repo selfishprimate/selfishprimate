@@ -51,5 +51,3 @@ Here are the design solutions I've come up with, meticulously crafted to embody 
 {{< figure src="images/reservation.jpg" >}}
 
 {{< figure src="images/about-us.jpg" >}}
-
-[Click here to see the project on Figma](https://www.figma.com/design/9TliAsPWSAX0VfqDkWeO6u/Cecconi's-Miami-Beach?node-id=1-2)
