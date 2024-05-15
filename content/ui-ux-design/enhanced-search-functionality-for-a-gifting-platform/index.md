@@ -71,6 +71,20 @@ Additionally, a list of **related products** is displayed based on the user's in
 
 **Smart Suggestions**: Developed an intelligent suggestion system that provides tailored recommendations based on user behavior and preferences. This feature analyzes user interactions and past searches to offer relevant product suggestions, making the search process more personalized and effective. By delivering smart suggestions, users are more likely to discover products that match their interests and needs.
 
+### Optimized Mobile Experience
+
+Designed mobile screens to ensure consistency with the desktop experience while enhancing usability for mobile users. Focused on creating an intuitive interface that maintains brand coherence and functionality across devices. Key features like recent searches and recently viewed products were seamlessly integrated, making the mobile browsing experience smooth and efficient.
+
+{{< figure 
+    src="images/advanced-search-design-mobile-01.jpg"
+    alt="Enhance your mobile search with autofill and smart suggestions, providing quick, personalized results right at your fingertips."
+    caption="Enhance your mobile search with autofill and smart suggestions, providing quick, personalized results right at your fingertips." >}}
+
+{{< figure 
+    src="images/advanced-search-design-mobile-02.jpg"
+    alt="Quickly access your recent searches and recently viewed products to effortlessly continue your shopping journey on mobile."
+    caption="Quickly access your recent searches and recently viewed products to effortlessly continue your shopping journey on mobile." >}}
+
 ### Outcome
 
 The implementation of these advanced search features resulted in a significantly improved user experience on the Joi Gifts platform. Users reported increased efficiency and satisfaction during the gift discovery process, leading to higher engagement and conversion rates. Additionally, the integration of social proof and intelligent suggestions helped guide users to relevant products, further enhancing the overall shopping experience.
