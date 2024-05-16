@@ -60,10 +60,13 @@ body {
     list-style-position: inside;
     @include except(".experience-list, .cards"){
       li{
-        list-style-position: inside;
-        @include except(last) {
-          margin-bottom: 0.5rem;
+        @include except(".experience-list__item, .card"){
+          list-style-position: inside;
+          @include except(last) {
+            margin-bottom: 0.5rem;
+          }
         }
+
       }
   
     }
