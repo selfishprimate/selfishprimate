@@ -39,7 +39,7 @@ body {
   right: 0;
   width: 50%;
   transform: translateX(30%) translateY(40%);
-  @include remove(max, 1446px);
+  @include remove(max, 1700px);
 }
 
 .main {
@@ -52,15 +52,40 @@ body {
   @include breakpoint(min, large) {
     float: left;
   }
+}
 
+
+.content {
   ol, ul {
-    list-style: auto;
     list-style-position: inside;
-    li {
-      @include except(last) {} 
+    @include except(".experience-list, .cards"){
+      li{
+        list-style-position: inside;
+        @include except(last) {
+          margin-bottom: 0.5rem;
+        }
+      }
+  
     }
+  }
+  
+  ol {
+    list-style-type:decimal;
+  }
+  
+  ul {
+    list-style: circle;
   }
 }
 
+
+figure {
+  @include except(".experience-list__item__figure"){
+    @include breakpoint(max, small) {
+      margin-left: -3rem;
+      margin-right: -3rem;
+    }
+  }
+}
 
 

@@ -6,6 +6,7 @@ label: "Otorento"
 thumbnail_image: "cover-small.jpg"
 thumbnail_image_alt: "A dashboard design for a finance website."
 tags: ["UI/UX Design", "Rent a Car Application", "Car Rental Applcation", "Booking UI Design", "Rent a Car iOS Application", "Otorento Rent a Car Application", "Otorento Car Rental App Design"]
+weight: 1
 ---
 
 Otorento offers users one of the cheapest and safest ways to rent a car in Turkey. Users rent cars safely using either desktop or mobile websites of Otorento.

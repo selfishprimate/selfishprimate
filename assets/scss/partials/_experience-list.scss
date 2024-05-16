@@ -1,4 +1,5 @@
 .experience-list {
+  list-style: none !important;
   @include breakpoint(min, large) {
     padding-right: 6rem;
   }

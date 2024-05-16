@@ -10,10 +10,6 @@
     &__figure {
       margin-bottom: __remify(24px);
       overflow: hidden;
-      @include breakpoint(max, small) {
-        margin-left: -3rem;
-        margin-right: -3rem;
-      }
       img {
         transition: $transition;
         @include responsive-image;
@@ -33,11 +29,10 @@
       margin-bottom: __remify(8px);
     }
     &__label {
-      font-size: 1.1rem;
+      font-weight: 400;
       color: $dark-gray;
     }
     &__description {
-      font-size: 1.1rem;
       font-weight: 300;
       line-height: 1.4;
     }

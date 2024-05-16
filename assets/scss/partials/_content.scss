@@ -30,10 +30,6 @@
     margin-bottom: 5rem;
     figure {
       margin-bottom: 2rem;
-      @include breakpoint(max, small) {
-        margin-left: -3rem;
-        margin-right: -3rem;
-      }
       img {
         margin-bottom: 1rem;
       }
@@ -43,6 +39,8 @@
           text-align: center;
           color: $dark-gray;
           margin: 0;
+          padding: 0 3rem;
+          line-height: 130%;
         }
       }
       &.large {

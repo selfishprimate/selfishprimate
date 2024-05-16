@@ -6,6 +6,7 @@ label: "Osmanlı Yatırım"
 thumbnail_image: "cover-small-1600x1200.jpg"
 thumbnail_image_alt: "A dashboard design for a finance website."
 tags: ["UI/UX Design", "Finance Website", "Banking UI Design", "Dashboard UI Design", "Dashboard Website Design"]
+weight: 10
 ---
 
 {{< figure 
