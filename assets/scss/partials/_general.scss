@@ -57,7 +57,6 @@ body {
 
 .content {
   ol, ul {
-    list-style-position: inside;
     @include except(".experience-list, .cards"){
       li{
         @include except(".experience-list__item, .card"){
@@ -66,18 +65,18 @@ body {
             margin-bottom: 0.5rem;
           }
         }
-
+        position: relative;
+        padding-left: 2rem;
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          display: list-item;
+          list-style-type: circle;
+        }
       }
-  
     }
-  }
-  
-  ol {
-    list-style-type:decimal;
-  }
-  
-  ul {
-    list-style: circle;
   }
 }
 

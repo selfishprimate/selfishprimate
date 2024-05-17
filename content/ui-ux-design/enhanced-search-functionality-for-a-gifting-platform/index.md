@@ -5,7 +5,8 @@ quote: '"A user interface is like a joke. If you have to explain it, it’s not 
 label: "Joi Gifts"
 thumbnail_image: "cover-small.jpg"
 thumbnail_image_alt: "Redesigned Joi Gifts' search functionality with features like a focus backdrop, recent searches, recently viewed items, autofill, and smart suggestions to streamline user experience and enhance personalization."
-tags: ["UI/UX Design", "Advanced Search Web Design ", "Smart Suggestions UI Design", "Advanced Search UX Design", "Search UX Design"]
+tags: ["UI/UX Design", "Advanced Search UX", "Advanced Search UX Design", "Smart Suggestions UI Design", "Advanced Search UX Design", "Search UX Design", "Advanced Search UX Principles", "The Best Practices for Advanced Search"]
+weight: 4
 ---
 
 {{< figure 
