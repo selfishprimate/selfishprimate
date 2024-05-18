@@ -59,7 +59,7 @@ body {
   ol, ul {
     @include except(".experience-list, .cards"){
       li{
-        @include except(".experience-list__item, .card"){
+        @include except(".experience-list__item, .card, .card--bordered"){
           list-style-position: inside;
           @include except(last) {
             margin-bottom: 0.5rem;
