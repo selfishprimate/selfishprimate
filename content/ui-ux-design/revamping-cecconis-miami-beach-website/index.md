@@ -6,6 +6,7 @@ label: "Cecconi's Miami Beach"
 thumbnail_image: "cover-small.jpg"
 thumbnail_image_alt: "Redesigned the desktop version of Cecconi's Miami Beach website with a focus on enhancing user engagement and providing a seamless browsing experience. Key pages revamped include the Home, About Us, and Reservation pages, with specific attention to improving visual appeal, usability, and functionality."
 tags: ["UI/UX Design", "Cecconi's Miami Beach", "Restaurant Web Design", "Restaurant UX Design"]
+weight: 5
 ---
 
 {{< figure 

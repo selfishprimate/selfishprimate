@@ -6,6 +6,7 @@ label: "Interesting Engineering"
 thumbnail_image: "cover-small-1600x1200.jpg"
 thumbnail_image_alt: "a paywall UI design for Interesting Engineering."
 tags: ["UI/UX Design", "Paywall UI Design", "Paywall UX Design", "Subscribtion UI Design", "Payment Form Design", "Material Design Payment Form Design"]
+weight: 6
 ---
 
 I'm thrilled to present my latest project showcasing a modern approach to paywall design, specifically crafted for Interesting Engineering. Leveraging the power of Google Material Design System, I've meticulously designed two alternative screens, each tailored to enhance user experience and captivate attention.

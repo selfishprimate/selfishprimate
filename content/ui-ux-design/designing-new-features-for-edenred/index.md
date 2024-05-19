@@ -6,7 +6,7 @@ label: Edenred
 thumbnail_image: "cover-small-1600x1200.jpg"
 thumbnail_image_alt: "New features for Edenred mobile application"
 tags: ["Edenred", "OTP Design", "UI Design", "Wallet Application", "Edenred UI Design"]
-weight: 3
+weight: 4
 ---
 
 This project was one of the UI challenges that we set for ourselves at **Mobven** on a weekly basis. Back then, the company had a partnership with **Edenred** and employees were paying for their meals with Edenred cards.
