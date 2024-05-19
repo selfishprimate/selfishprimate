@@ -114,7 +114,6 @@ By focusing on a streamlined and visually appealing design, the Product Listing 
     alt="Product Listing Page and Filtering Options Mobile UX Design"
     caption="Color selections include color labels and a tick icon to indicate when an option is selected. This design decision ensures that all users receive clear and accessible feedback, enhancing the overall usability of the filtering system." >}}
 
-
 ### Product Details
 
 Designing the Product Details page presented unique challenges due to the potential for design clutter when displaying comprehensive gift details. Additionally, asking users to choose the delivery date and time immediately after tapping the "Add to Cart" button risked overwhelming them.
@@ -137,3 +136,21 @@ To streamline the selection of delivery date and time, I incorporated automatica
     src="images/product-details-page-design-selecting-a-custom-day-and-time-for-delivery.jpg"
     alt="Product Details UX Design, Choosing a Custom Delivery Day and Time"
     caption="Even complex user flows where users can select different dates using a calendar have been simplified with designs that are simple, intuitive, and support user micro-tasks." >}}
+
+### Payment
+
+In designing the Payment section, my primary focus was on clarity and ease of use. I implemented clear radio selections for payment options, allowing users to choose from previously saved credit cards, new debit or credit cards, Apple Pay, and other options like Careem Pay or Tabby.
+
+To foster a sense of safety and trust, I included a "Secure Payment" label prominently within the payment options. This reassures users that their payment information is handled securely.
+
+Once users tap the "Checkout" button, an "Order Summary" screen appears in a bottom sheet. This screen provides a detailed overview of their payment, enabling users to review and confirm the details. If everything looks correct, they can proceed by tapping the "Checkout" button again, which then leads to the "Order Received" success screen.
+
+{{< figure 
+    src="images/payment-mobile-ux-design-saved-cards-orders-summary-and-order-reveived.jpg"
+    alt="Payment Mobile UX Design, Payment Options"
+    caption="This design ensures a smooth and intuitive payment process, minimizing confusion and enhancing user confidence during the checkout." >}}
+
+In conclusion, the design process for this project has been a journey of innovation and user-centricity. From crafting intuitive interfaces to implementing dynamic features, every decision has been carefully made to enhance the user experience. By prioritizing clarity, simplicity, and accessibility, as a team, we've created a platform that not only meets but exceeds user expectations.
+
+
+Thank you for watching. 
