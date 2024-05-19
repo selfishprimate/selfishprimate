@@ -96,6 +96,25 @@ When users tap the "Add New Address" button, they are taken to a screen where th
     alt="Address Management UX Design, Deleting an Available Address"
     caption="Users can see all their saved addresses clearly listed, with straightforward options to edit or remove each address. This ensures that managing addresses is hassle-free and intuitive." >}}
 
+### Product Listing & Filtering
+
+For the Product Listing page, my goal was to create a clean design that enhances user experience while providing essential information. The layout prominently displays the number of search results and visible filtering options, encouraging users to refine their searches easily. Impressive product cards were a crucial aspect, designed to attract attention and provide key details at a glance.
+
+One of the most challenging parts was designing dynamic product cards that could accommodate various types of information such as "Free Delivery," "Joi Express," "Discounts," and other promotional details. These dynamic cards are flexible, allowing the marketing team to effectively communicate campaign and promotion information directly within the product listings.
+
+By focusing on a streamlined and visually appealing design, the Product Listing page balances user needs with marketing objectives, ensuring a satisfying and efficient browsing experience.
+
+{{< figure 
+    src="images/product-listing-and-filtering-options-mobile-design-general-looking.jpg"
+    alt="Product listing page and dynamic product cards mobile UX design."
+    caption="The dynamic cards are flexible, allowing the marketing team to effectively communicate campaign and promotion information directly within the product listings." >}}
+
+{{< figure 
+    src="images/product-listing-and-filtering-options-mobile-design-filtering-applied.jpg"
+    alt="Product Listing Page and Filtering Options Mobile UX Design"
+    caption="Color selections include color labels and a tick icon to indicate when an option is selected. This design decision ensures that all users receive clear and accessible feedback, enhancing the overall usability of the filtering system." >}}
+
+
 ### Product Details
 
 Designing the Product Details page presented unique challenges due to the potential for design clutter when displaying comprehensive gift details. Additionally, asking users to choose the delivery date and time immediately after tapping the "Add to Cart" button risked overwhelming them.
