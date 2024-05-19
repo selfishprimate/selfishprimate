@@ -100,7 +100,9 @@ When users tap the "Add New Address" button, they are taken to a screen where th
 
 Designing the Product Details page presented unique challenges due to the potential for design clutter when displaying comprehensive gift details. Additionally, asking users to choose the delivery date and time immediately after tapping the "Add to Cart" button risked overwhelming them.
 
-To address these issues, I focused on creating a clean and user-friendly interface. Key design decisions included implementing a carousel slider to showcase different angles of the product, ensuring users could view all product details without cluttering the page. To streamline the selection of delivery date and time, I incorporated automatically opening bottom sheets. These bottom sheets support users' micro tasks, making the process intuitive and less overwhelming. The overall design prioritizes simplicity and ease of use, enhancing the user experience by providing clear, accessible information and smooth interactions.
+To address these issues, I focused on creating a clean and user-friendly interface. Key design decisions included implementing a carousel slider to showcase different angles of the product, ensuring users could view all product details without cluttering the page. 
+
+To streamline the selection of delivery date and time, I incorporated automatically opening bottom sheets. These bottom sheets support users' micro tasks, making the process intuitive and less overwhelming. The overall design prioritizes simplicity and ease of use, enhancing the user experience by providing clear, accessible information and smooth interactions.
 
 {{< figure 
     src="images/product-details-page-design-selecting-the-express-delivery.jpg"
@@ -110,11 +112,9 @@ To address these issues, I focused on creating a clean and user-friendly interfa
 {{< figure 
     src="images/product-details-page-design-changing-the-delivery-time.jpg"
     alt="Product Details UX Design, Changing the Delivery Time"
-    caption="" >}}
-
- Users can choose a custom delivery day from the calendar, seamlessly integrated into the design.
+    caption="Users can easily update expired delivery times." >}}
 
 {{< figure 
     src="images/product-details-page-design-selecting-a-custom-day-and-time-for-delivery.jpg"
     alt="Product Details UX Design, Choosing a Custom Delivery Day and Time"
-    caption="" >}}
+    caption="Even complex user flows where users can select different dates using a calendar have been simplified with designs that are simple, intuitive, and support user micro-tasks." >}}

@@ -56,17 +56,16 @@ body {
 
 
 .content {
-  ol, ul {
-    @include except(".experience-list, .cards"){
-      li{
-        @include except(".experience-list__item, .card, .card--bordered"){
-          list-style-position: inside;
-          @include except(last) {
-            margin-bottom: 0.5rem;
-          }
-        }
+
+  .content__body.single {
+    ol, ul {
+      li {
+        list-style-position: inside;
         position: relative;
         padding-left: 2rem;
+        @include except(last) {
+          margin-bottom: 0.5rem;
+        }
         &::before {
           content: "";
           position: absolute;
@@ -78,16 +77,14 @@ body {
       }
     }
   }
-}
 
-
-figure {
-  @include except(".experience-list__item__figure"){
-    @include breakpoint(max, small) {
-      margin-left: -3rem;
-      margin-right: -3rem;
+  figure {
+    @include except(".experience-list__item__figure"){
+      @include breakpoint(max, small) {
+        margin-left: -3rem;
+        margin-right: -3rem;
+      }
     }
   }
+
 }
-
-
