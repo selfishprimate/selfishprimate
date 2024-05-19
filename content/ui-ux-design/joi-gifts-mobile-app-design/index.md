@@ -5,7 +5,7 @@ quote: '"A user interface is like a joke. If you have to explain it, it’s not 
 label: "Joi Gifts"
 thumbnail_image: "cover-small.jpg"
 thumbnail_image_alt: "Joi Gifts mobile app design."
-tags: ["UI/UX Design", "Gifting App UX Design", "Gifting Platform UX Design", "Gifting App Design", "Joi Gifts Mobile UX Design"]
+tags: ["UI/UX Design", "Gifting App UX Design", "Gifting Platform UX Design", "Gifting App Design", "Joi Gifts Mobile App Design", "Joi Gifts Mobile UX Design"]
 weight: 1
 ---
 
@@ -96,3 +96,25 @@ When users tap the "Add New Address" button, they are taken to a screen where th
     alt="Address Management UX Design, Deleting an Available Address"
     caption="Users can see all their saved addresses clearly listed, with straightforward options to edit or remove each address. This ensures that managing addresses is hassle-free and intuitive." >}}
 
+### Product Details
+
+Designing the Product Details page presented unique challenges due to the potential for design clutter when displaying comprehensive gift details. Additionally, asking users to choose the delivery date and time immediately after tapping the "Add to Cart" button risked overwhelming them.
+
+To address these issues, I focused on creating a clean and user-friendly interface. Key design decisions included implementing a carousel slider to showcase different angles of the product, ensuring users could view all product details without cluttering the page. To streamline the selection of delivery date and time, I incorporated automatically opening bottom sheets. These bottom sheets support users' micro tasks, making the process intuitive and less overwhelming. The overall design prioritizes simplicity and ease of use, enhancing the user experience by providing clear, accessible information and smooth interactions.
+
+{{< figure 
+    src="images/product-details-page-design-selecting-the-express-delivery.jpg"
+    alt="Product Details UX Design, Choosing the Express Delivery"
+    caption="Express delivery can be selected conveniently from the top of the list." >}}
+
+{{< figure 
+    src="images/product-details-page-design-changing-the-delivery-time.jpg"
+    alt="Product Details UX Design, Changing the Delivery Time"
+    caption="" >}}
+
+ Users can choose a custom delivery day from the calendar, seamlessly integrated into the design.
+
+{{< figure 
+    src="images/product-details-page-design-selecting-a-custom-day-and-time-for-delivery.jpg"
+    alt="Product Details UX Design, Choosing a Custom Delivery Day and Time"
+    caption="" >}}
