@@ -153,4 +153,4 @@ Once users tap the "Checkout" button, an "Order Summary" screen appears in a bot
 In conclusion, the design process for this project has been a journey of innovation and user-centricity. From crafting intuitive interfaces to implementing dynamic features, every decision has been carefully made to enhance the user experience. By prioritizing clarity, simplicity, and accessibility, as a team, we've created a platform that not only meets but exceeds user expectations.
 
 
-Thank you for watching. 
+Thank you for watching.
