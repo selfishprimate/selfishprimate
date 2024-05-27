@@ -6,7 +6,7 @@ label: "Osmanlı Yatırım"
 thumbnail_image: "cover-small.jpg"
 thumbnail_image_alt: "Osmanlı Investment Bank data package trading website design."
 tags: ["UI/UX Design", "Fintech Web Design", "Banking Web Design", "Osmanlı Yatırım Bank Website Design", "Banking Web App Design", "Web Design", "Best UX Practices", "Data Package Trading Web Design"]
-weight: 1
+weight: 5
 ---
 
 {{< figure 
@@ -47,29 +47,31 @@ By breaking down the design into manageable chunks, we were able to deliver valu
 ### Final Design
 The final design was the result of a collaborative and iterative process. Adobe XD was used for designing, Miro for creating user flows, Overflow for sharing and collecting feedback, and Zeplin for sharing screens with the development team.
 
+Here are some of the mid-fidelity designs:
+
 {{< figure 
     src="images/data-package-trading-search.jpg"
-    caption="To understand the pain points and usability issues, I began by meeting with the vehicle inspectors. I listened to their pain points and gathered their ideas for improvement." >}}
+    caption="" >}}
 
 {{< figure 
     src="images/data-package-trading-home.jpg"
-    caption="To understand the pain points and usability issues, I began by meeting with the vehicle inspectors. I listened to their pain points and gathered their ideas for improvement." >}}
+    caption="" >}}
 
 {{< figure 
     src="images/data-package-trading-package-cancellation.jpg"
-    caption="To understand the pain points and usability issues, I began by meeting with the vehicle inspectors. I listened to their pain points and gathered their ideas for improvement." >}}
+    caption="" >}}
 
 {{< figure 
     src="images/data-package-trading-package-details.jpg"
-    caption="To understand the pain points and usability issues, I began by meeting with the vehicle inspectors. I listened to their pain points and gathered their ideas for improvement." >}}
+    caption="" >}}
 
 {{< figure 
     src="images/data-package-trading-package-details-expanded.jpg"
-    caption="To understand the pain points and usability issues, I began by meeting with the vehicle inspectors. I listened to their pain points and gathered their ideas for improvement." >}}
+    caption="" >}}
 
 {{< figure 
     src="images/data-package-trading-package-listing-page.jpg"
-    caption="To understand the pain points and usability issues, I began by meeting with the vehicle inspectors. I listened to their pain points and gathered their ideas for improvement." >}}
+    caption="" >}}
 
 ### Conclusion
 The redesign of Osmanlı Yatırım Bank's data package trading platform was a challenging but rewarding project. Through extensive research, iterative design, and continuous testing, we developed a modern, clean, and user-friendly interface that addresses the complexities of the original platform. By engaging with customer representatives and stakeholders, we ensured the design met their needs and reduced cognitive load.
