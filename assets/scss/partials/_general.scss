@@ -57,8 +57,8 @@ body {
 .articles {
   .cards {
     @include breakpoint(max, small) {
-      margin-left: -3rem;
-      margin-right: -3rem;
+      margin-left: -2rem;
+      margin-right: -2rem;
     }
   }
 }
