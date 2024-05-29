@@ -1,6 +1,9 @@
 .content {
-  padding: 3rem 3rem 3rem;
+  padding: 2rem 2rem 2rem;
   transition: $transition;
+  @include breakpoint(min, small) {
+    padding: 3rem 3rem 3rem;
+  }
   @include breakpoint(min, large) {
     margin-left: $sidebar-width;
   }
@@ -29,6 +32,12 @@
     position: relative;
     margin-bottom: 5rem;
     figure {
+      @include breakpoint (max, small) {
+        @include except(".experience-list__item__figure"){
+          margin-left: -2rem;
+          margin-right: -2rem;
+        }
+      }
       margin-bottom: 2rem;
       img {
         margin-bottom: 1rem;
@@ -67,6 +76,26 @@
     a {
       font-weight: 600;
       color: $primary-color;
+    }
+    &.single {
+      ol, ul {
+        li {
+          list-style-position: inside;
+          position: relative;
+          padding-left: 2rem;
+          @include except(last) {
+            margin-bottom: 0.5rem;
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: list-item;
+            list-style-type: circle;
+          }
+        }
+      }
     }    
   }
   &__footer {
