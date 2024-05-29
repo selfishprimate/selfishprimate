@@ -11,7 +11,7 @@ weight: 5
 
 {{< figure 
     src="images/cover-large.jpg"
-    caption="To understand the pain points and usability issues, I began by meeting with the vehicle inspectors. I listened to their pain points and gathered their ideas for improvement." >}}
+    caption="" >}}
 
 ### Overview
 This project involved redesigning Osmanlı Yatırım Bank's data package trading platform used by customer representatives. The goal was to simplify a complex, outdated interface to better support representatives in their trading activities for bank customers. The new design aimed to reduce cognitive load and streamline micro-tasks while maintaining the platform's robust functionality.
