@@ -10,7 +10,7 @@ layout: single
 # featured_image: "accessibility.jpg"
 ---
 
-Hey there! My name is Halil İbrahim Çakıroğlu, an İstanbul based UI/UX designer who loves to explore different creative avenues. When I'm not designing beautiful interfaces, you can find me jamming to my favorite tunes, sketching and drawing, or cruising around on my skateboard.
+When I'm not designing beautiful interfaces, you can find me jamming to my favorite tunes, sketching and drawing, or cruising around on my skateboard.
 
 I've always had a passion for creating and tinkering with things, which is what drew me to the world of UI/UX design. I love the challenge of crafting experiences that are not only functional and intuitive, but also visually appealing and delightful to use.
 
