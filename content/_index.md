@@ -1,11 +1,14 @@
 ---
 title: "Hey There!"
 quote: '"Simple is hard. Easy is harder. Invisible is hardest." - Jean-Louis Gasséé'
-description: "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
+description: "Discover the portfolio of Halil İbrahim Çakıroğlu, an Istanbul-based UI/UX designer with over 10 years of experience in web and mobile interface design. Explore innovative designs across various domains, including e-commerce, fintech, banking, travel, and more."
 layout: "single"
 ---
 
-I'm an experienced UI/UX designer with over a decade of industry experience. I've honed a broad range of skills that allow me to deeply understand the principles of UI/UX design. I'm highly skilled in areas such as UX research, usability testing, prototyping, wireframing, and frontend development using HTML5, CSS3, and a working knowledge of JavaScript. 
+Hello! I'm Halil, an Istanbul-based UI/UX designer with over 10 years of experience in crafting intuitive and engaging user interfaces. My expertise spans across web and mobile platforms, and I have a strong foundation in HTML, CSS, and a touch of JavaScript.
 
-Additionally, I'm great at working collaboratively with cross-functional teams and understand the importance of user-centered design in creating successful digital experiences. By leveraging my expertise, I deliver high-quality solutions that are visually appealing, highly functional, and user-friendly. Can't wait to work with you!
+Throughout my career, I have had the privilege of designing for a diverse range of domains, including **online media**, **e-commerce**, **fintech**, **banking**, **travel**, **retail**, **education**, and **technology**. Each project has enriched my skills and deepened my understanding of user-centered design.
 
+Feel free to explore my portfolio and see how my work brings ideas to life through thoughtful design.
+
+[Connect with me on LinkedIn](https://www.linkedin.com/in/selfishprimate/)
