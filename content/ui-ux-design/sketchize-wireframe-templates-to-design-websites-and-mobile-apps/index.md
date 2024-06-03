@@ -14,10 +14,10 @@ weight: 2
     caption="The easiest way to turn your ideas into lovely sketches!" >}}
 
 ### Overview
-Sketchize is a tool designed for UI/UX designers and anyone interested in design. It offers A4-sized, printable device templates for desktops, smartphones, and tablets. Additionally, Sketchize includes sketchpad models for freehand drawing. Each template is available in horizontal and vertical orientations, with dotted and plain versions. Smartphone templates come in single, double, and triple layouts.
+I designed Sketchize as a tool for UI/UX designers and anyone interested in design. It offers A4-sized, printable device templates for desktops, smartphones, and tablets. Additionally, Sketchize includes sketchpad models for freehand drawing. Each template is available in horizontal and vertical orientations, with dotted and plain versions. Smartphone templates come in single, double, and triple layouts.
 
 ### Why Sketchize?
-Sketchize was created to support user-centered design by providing essential tools for UI/UX designers. By offering free, printable wireframe templates, Sketchize aims to contribute to the design community and support the development of user-focused products. The goal is to facilitate rapid prototyping and idea iteration, making the design process more efficient and accessible.
+I designed Sketchize to support user-centered design by providing essential tools for UI/UX designers. By offering free, printable wireframe templates, my aim was to contribute to the design community and support the development of user-focused products. The goal is to facilitate rapid prototyping and idea iteration, making the design process more efficient and accessible.
 
 ### What's Inside?
 Sketchize includes a variety of templates for desktops, smartphones, and tablets, along with sketchpad models for freehand drawing. Nearly every template is available in both horizontal and vertical orientations, and in dotted and plain versions, offering versatility for different design needs. Smartphone templates come in single, double, and triple layouts.
