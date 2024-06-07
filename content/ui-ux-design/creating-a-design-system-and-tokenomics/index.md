@@ -14,7 +14,7 @@ weight: 1
     caption="" >}} -->
 
 ### Overview
-Creating this project for Joi Gifts aimed to establish a unified design system that ensures consistency and efficiency across all platforms, including desktop, mobile web, and native applications. The project started with a clear need to streamline design and development processes, ultimately leading to a more cohesive and user-friendly product.
+Creating this project for Joi Gifts aimed **to establish a unified design system that ensures consistency and efficiency across all platforms**, including desktop, mobile web, and native applications. The project started with a clear need to streamline design and development processes, ultimately leading to a more cohesive and user-friendly product.
 
 ### Objectives
 - Establish a comprehensive design system for Joi Gifts.
@@ -23,7 +23,7 @@ Creating this project for Joi Gifts aimed to establish a unified design system t
 - Create a more efficient workflow, reducing costs and effort in future developments.
 
 ### Introduction
-The project began with a clear articulation of the need for a design system to the entire team. Explaining that future developments would be more cost-effective and require less effort, I highlighted the importance of achieving consistency in design and usability across Joi Gifts' applications. This initiative aimed to eliminate the gaps between design and development, creating a more efficient workflow.
+The project began with a clear articulation of the need for a design system to the entire team. Explaining that future developments would be more cost-effective and require less effort, I highlighted the importance of achieving consistency in design and usability across Joi Gifts' applications. **This initiative aimed to eliminate the gaps between design and development, creating a more efficient workflow**.
 
 ### Research and Incremental Approach
 My approach was incrementalist, starting with the essentials and expanding the design system as needed. I began by creating a component checklist, identifying the necessary components for the initial phase and excluding non-essential ones.
