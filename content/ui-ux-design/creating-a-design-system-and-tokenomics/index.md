@@ -14,7 +14,7 @@ weight: 1
     caption="" >}} -->
 
 ### Overview
-The "Creating a Design System and Tokenomics" project for Joi Gifts aimed to establish a unified design system that ensures consistency and efficiency across all platforms, including desktop, mobile web, and native applications. The project started with a clear need to streamline design and development processes, ultimately leading to a more cohesive and user-friendly product.
+Creating this project for Joi Gifts aimed to establish a unified design system that ensures consistency and efficiency across all platforms, including desktop, mobile web, and native applications. The project started with a clear need to streamline design and development processes, ultimately leading to a more cohesive and user-friendly product.
 
 ### Objectives
 - Establish a comprehensive design system for Joi Gifts.
