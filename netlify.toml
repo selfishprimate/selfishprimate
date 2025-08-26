@@ -1,11 +1,12 @@
 [build]
 publish = "public"
-command = "npm install && hugo --gc --minify --ignoreCache"
+command = "npm install && export PATH=$PATH:./node_modules/.bin && hugo --gc --minify --ignoreCache"
 
 [build.environment]
 HUGO_VERSION = "0.147.2"
 NODE_VERSION = "20"
 NPM_FLAGS = "--legacy-peer-deps"
+SASS_PATH = "./node_modules/.bin/sass"
 
 [build.processing]
 skip_processing = false
@@ -24,7 +25,7 @@ NODE_VERSION = "20"
 NPM_FLAGS = "--legacy-peer-deps"
 
 [context.split1]
-command = "npm install && hugo --gc --minify --enableGitInfo"
+command = "npm install && export PATH=$PATH:./node_modules/.bin && hugo --gc --minify --enableGitInfo"
 
 [context.split1.environment]
 HUGO_VERSION = "0.147.2"
@@ -33,7 +34,7 @@ NODE_VERSION = "20"
 NPM_FLAGS = "--legacy-peer-deps"
 
 [context.deploy-preview]
-command = "npm install && hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
+command = "npm install && export PATH=$PATH:./node_modules/.bin && hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
 
 [context.deploy-preview.environment]
 HUGO_VERSION = "0.147.2"
@@ -41,7 +42,7 @@ NODE_VERSION = "20"
 NPM_FLAGS = "--legacy-peer-deps"
 
 [context.branch-deploy]
-command = "npm install && hugo --gc --minify -b $DEPLOY_PRIME_URL"
+command = "npm install && export PATH=$PATH:./node_modules/.bin && hugo --gc --minify -b $DEPLOY_PRIME_URL"
 
 [context.branch-deploy.environment]
 HUGO_VERSION = "0.147.2"
