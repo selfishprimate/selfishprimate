@@ -1,62 +1,29 @@
 [build]
-publish = "public"
-command = "npm install && export PATH=$PATH:./node_modules/.bin && hugo --gc --minify --ignoreCache"
+  # Use the local binaries (sass-embedded) and build with Hugo
+  command = "export PATH=$PATH:./node_modules/.bin && hugo --gc --minify --ignoreCache"
+  publish = "public"
 
 [build.environment]
-HUGO_VERSION = "0.147.2"
-NODE_VERSION = "20"
-NPM_FLAGS = "--legacy-peer-deps"
-SASS_PATH = "./node_modules/.bin/sass"
+  # Pin Hugo Extended (matches the version Netlify pulled in your logs)
+  HUGO_VERSION = "0.147.2"
+  HUGO_ENV = "production"
+  HUGO_ENABLEGITINFO = "true"
 
-[build.processing]
-skip_processing = false
-
-[build.processing.images]
-compress = true
+  # Ensure Node 20; Netlify will use npm when only package-lock.json exists
+  NODE_VERSION = "20"
+  NPM_FLAGS = "--no-audit --no-fund"
 
 [functions]
-node_bundler = "esbuild"
+  node_bundler = "esbuild"
 
-[context.production.environment]
-HUGO_VERSION = "0.147.2"
-HUGO_ENV = "production"
-HUGO_ENABLEGITINFO = "true"
-NODE_VERSION = "20"
-NPM_FLAGS = "--legacy-peer-deps"
-
-[context.split1]
-command = "npm install && export PATH=$PATH:./node_modules/.bin && hugo --gc --minify --enableGitInfo"
-
-[context.split1.environment]
-HUGO_VERSION = "0.147.2"
-HUGO_ENV = "production"
-NODE_VERSION = "20"
-NPM_FLAGS = "--legacy-peer-deps"
-
-[context.deploy-preview]
-command = "npm install && export PATH=$PATH:./node_modules/.bin && hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
-
-[context.deploy-preview.environment]
-HUGO_VERSION = "0.147.2"
-NODE_VERSION = "20"
-NPM_FLAGS = "--legacy-peer-deps"
-
-[context.branch-deploy]
-command = "npm install && export PATH=$PATH:./node_modules/.bin && hugo --gc --minify -b $DEPLOY_PRIME_URL"
-
-[context.branch-deploy.environment]
-HUGO_VERSION = "0.147.2"
-NODE_VERSION = "20"
-NPM_FLAGS = "--legacy-peer-deps"
-
-[context.next.environment]
-HUGO_ENABLEGITINFO = "true"
-
+# (Optional) Match your previous cache headers
 [[headers]]
   for = "/*"
   [headers.values]
-	cache-control = '''
-	max-age=0,
-	no-cache,
-	no-store,
-	must-revalidate'''
+    cache-control = "max-age=0, no-cache, no-store, must-revalidate"
+
+# (Optional) Keep Netlify’s image compression on
+[build.processing]
+  skip_processing = false
+  [build.processing.images]
+    compress = true
