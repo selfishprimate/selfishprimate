@@ -1,31 +1,44 @@
 [build]
 publish = "public"
-command = "hugo --gc --minify --ignoreCache"
+command = "npm install && hugo --gc --minify --ignoreCache"
+
+[build.environment]
+HUGO_VERSION = "0.147.2"
+NODE_VERSION = "18"
+NPM_FLAGS = "--legacy-peer-deps"
 
 [context.production.environment]
 HUGO_VERSION = "0.147.2"
 HUGO_ENV = "production"
 HUGO_ENABLEGITINFO = "true"
 NODE_VERSION = "18"
+NPM_FLAGS = "--legacy-peer-deps"
+YARN_VERSION = "1.22.22"
 
 [context.split1]
-command = "hugo --gc --minify --enableGitInfo"
+command = "npm install && hugo --gc --minify --enableGitInfo"
 
 [context.split1.environment]
 HUGO_VERSION = "0.147.2"
 HUGO_ENV = "production"
+NODE_VERSION = "18"
+NPM_FLAGS = "--legacy-peer-deps"
 
 [context.deploy-preview]
-command = "hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
+command = "npm install && hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
 
 [context.deploy-preview.environment]
 HUGO_VERSION = "0.147.2"
+NODE_VERSION = "18"
+NPM_FLAGS = "--legacy-peer-deps"
 
 [context.branch-deploy]
-command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
+command = "npm install && hugo --gc --minify -b $DEPLOY_PRIME_URL"
 
 [context.branch-deploy.environment]
 HUGO_VERSION = "0.147.2"
+NODE_VERSION = "18"
+NPM_FLAGS = "--legacy-peer-deps"
 
 [context.next.environment]
 HUGO_ENABLEGITINFO = "true"
