@@ -1,3 +1,13 @@
+- title: "First we shaped Figma, and now it shapes us: from a mere tool to a design ecosystem"
+  description: Figma’s relentless release of new features has become a hot topic within the design community. In my case, this extends beyond a simple concern — frankly, it directly disrupts my workflow.
+  link: https://medium.com/design-bootcamp/first-we-shaped-figma-and-now-it-shapes-us-319520a0ede2
+  label: May 20, 2025
+
+- title: "Do not try to design the box. Instead, only try to realize the truth… there is no box."
+  description: How utilizing the compose-first approach alongside Figma’s layout features like Auto Layout, Constraints, Fill, and Hug can help junior designers create dynamic, responsive designs with ease.
+  link: https://medium.com/design-bootcamp/do-not-try-to-design-the-box-instead-only-try-to-realize-the-truth-there-is-no-box-9cc3b81cb9ae
+  label: Oct 08, 2024
+
 - title: "The benefits of incrementalism in UI/UX Design over the holistic approach"
   description: In this article, I’ll try to explore the benefits of incrementalist design and explain why it’s a more effective approach to UI/UX design than the holistic approach.
   link: https://medium.com/design-bootcamp/the-benefits-of-incrementalism-in-ui-ux-design-over-holistic-approach-fd2d33891244

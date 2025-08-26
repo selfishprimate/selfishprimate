@@ -26,7 +26,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Theme stylesheet, you can customize scss by creating `assets/custom.scss` in your website -->
-    {{- $styles := resources.Get "scss/styles.scss" | resources.ExecuteAsTemplate "scss/styles.scss" . | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+    {{- $styles := resources.Get "scss/styles.scss" | resources.ExecuteAsTemplate "scss/styles.scss" . | toCSS (dict "transpiler" "dartsass") | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
 
     {{ if .Params.css }}

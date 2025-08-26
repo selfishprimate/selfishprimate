@@ -9,6 +9,10 @@ cleanDestinationDir = true
     filename = 'sitemap.xml'
     priority = 0.5
 
+[build]
+  [build.buildStats]
+    enable = true
+
 [params]
     Description = "Gerillass is an open-source Sass library built on top of Sass to help designers and developers rapidly-produce consistent and scalable CSS outputs regardless of the size of the projects they are working on, aiming to make these processes easy and fun."
 
