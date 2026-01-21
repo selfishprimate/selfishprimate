@@ -28,7 +28,7 @@ export function HomePage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
           style={{ opacity: imageOpacity }}
-          className="fixed top-24 right-0 translate-x-1/2 w-96 md:w-[450px] lg:w-[600px] pointer-events-none"
+          className="hidden lg:block fixed top-24 right-0 translate-x-1/2 lg:w-[600px] pointer-events-none"
         >
           <img
             src="/images/featured-image-for-light.svg"
