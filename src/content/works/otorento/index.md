@@ -6,7 +6,8 @@ category: "Mobile App Design"
 tags: ["Car Rental", "Mobile App", "UX Research", "Booking Interface"]
 coverImage: "./images/cover.jpg"
 images: []
-featured: false
+featured: true
+featuredOrder: 4
 year: "2022"
 ---
 

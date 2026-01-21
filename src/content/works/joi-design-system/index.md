@@ -6,7 +6,7 @@ category: "Design System"
 tags: ["Design System", "Tokenomics", "Mobile App", "E-commerce"]
 coverImage: "./images/cover.jpg"
 images: []
-featured: true
+featured: false
 year: "2024"
 ---
 

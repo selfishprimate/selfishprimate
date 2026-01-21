@@ -196,21 +196,6 @@ export function ProjectPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
-          {/* Meta */}
-          <div className="flex flex-wrap items-center gap-3 mb-4">
-            <span className="text-xs font-sans uppercase tracking-widest text-text-tertiary">
-              {project.company}
-            </span>
-            <span className="text-text-tertiary">·</span>
-            <span className="text-xs font-sans text-text-tertiary">
-              {project.category}
-            </span>
-            <span className="text-text-tertiary">·</span>
-            <span className="text-xs font-sans text-text-tertiary">
-              {project.year}
-            </span>
-          </div>
-
           {/* Title */}
           <h1 className="font-serif font-semibold tracking-tight text-3xl md:text-4xl lg:text-5xl text-text-primary max-w-4xl">
             {project.title}
@@ -221,17 +206,10 @@ export function ProjectPage() {
             {project.description}
           </p>
 
-          {/* Tags */}
-          <div className="mt-8 flex flex-wrap gap-2">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-3 py-1.5 text-xs font-sans text-text-secondary bg-border/50 rounded-full"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
+          {/* Meta */}
+          <p className="mt-6 text-xs font-sans text-text-tertiary uppercase tracking-wider">
+            {project.company}, {project.year}
+          </p>
         </motion.div>
       </section>
 
@@ -262,6 +240,20 @@ export function ProjectPage() {
         >
           {renderContentWithGalleries()}
         </motion.div>
+      </section>
+
+      {/* Tags */}
+      <section className="max-w-3xl mx-auto px-6 py-12">
+        <div className="flex flex-wrap gap-2">
+          {project.tags.map((tag) => (
+            <span
+              key={tag}
+              className="px-3 py-1.5 text-xs font-sans text-text-secondary bg-border/50 rounded-full"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
       </section>
 
       {/* Navigation */}

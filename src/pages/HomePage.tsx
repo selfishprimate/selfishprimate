@@ -135,7 +135,7 @@ export function HomePage() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-16">
-          {featuredProjects.slice(0, 6).map((project, index) => (
+          {featuredProjects.slice(0, 4).map((project, index) => (
             <ProjectCard
               key={project.slug}
               project={project}

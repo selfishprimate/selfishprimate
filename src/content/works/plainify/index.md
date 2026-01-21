@@ -7,6 +7,7 @@ tags: ["AI Tools", "Product Specifications", "Developer Tools", "Open Source"]
 coverImage: "./images/cover.jpg"
 images: []
 featured: true
+featuredOrder: 1
 year: "2024"
 ---
 

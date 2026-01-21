@@ -44,15 +44,9 @@ export function ProjectCard({ project, index, variant = 'default' }: ProjectCard
 
         {/* Content */}
         <div className="mt-5">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="text-xs font-sans text-text-secondary uppercase tracking-wider">
-              {project.company}
-            </span>
-            <span className="text-text-secondary">·</span>
-            <span className="text-xs font-sans text-text-secondary">
-              {project.year}
-            </span>
-          </div>
+          <p className="text-xs font-sans text-text-tertiary mb-2 uppercase tracking-wider">
+            {project.company}, {project.year}
+          </p>
           
           <h3 className={`font-serif font-semibold tracking-tight text-text-primary group-hover:text-text-secondary transition-colors ${
             isFeatured ? 'text-xl md:text-2xl' : 'text-xl md:text-2xl'

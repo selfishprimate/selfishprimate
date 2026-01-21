@@ -7,6 +7,7 @@ tags: ["Mobile App", "E-commerce", "iOS", "Android", "Gifting"]
 coverImage: "./images/cover.jpg"
 images: []
 featured: true
+featuredOrder: 2
 year: "2023"
 ---
 

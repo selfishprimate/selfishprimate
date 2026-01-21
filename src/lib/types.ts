@@ -8,6 +8,7 @@ export interface Project {
   coverImage: string;
   images: string[];
   featured: boolean;
+  featuredOrder?: number;
   year: string;
   content: string;
 }

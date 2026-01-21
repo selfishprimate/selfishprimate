@@ -130,6 +130,7 @@ export function getProjects(): Project[] {
       coverImage,
       images,
       featured: data.featured as boolean || false,
+      featuredOrder: data.featuredOrder as number | undefined,
       year: data.year as string || '',
       content: markdownContent,
     });
@@ -147,5 +148,7 @@ export function getProjectBySlug(slug: string): Project | undefined {
 }
 
 export function getFeaturedProjects(): Project[] {
-  return getProjects().filter(p => p.featured);
+  return getProjects()
+    .filter(p => p.featured)
+    .sort((a, b) => (a.featuredOrder || 999) - (b.featuredOrder || 999));
 }

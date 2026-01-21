@@ -6,7 +6,8 @@ category: "FinTech"
 tags: ["FinTech", "Banking", "Web App", "Enterprise UX"]
 coverImage: "./images/cover.jpg"
 images: []
-featured: false
+featured: true
+featuredOrder: 3
 year: "2021"
 ---
 
