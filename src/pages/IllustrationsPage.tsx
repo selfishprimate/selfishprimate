@@ -42,7 +42,7 @@ export function IllustrationsPage() {
                   className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-              <h3 className="mt-4 font-serif font-semibold tracking-tight text-xl text-text-primary">
+              <h3 className="mt-4 font-serif font-semibold text-xl text-text-primary">
                 {illustration.title}
               </h3>
               <p className="mt-2 text-text-secondary">

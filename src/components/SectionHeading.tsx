@@ -17,11 +17,11 @@ export function SectionHeading({ label, title, description, align = 'left' }: Se
       className={`mb-12 ${align === 'center' ? 'text-center' : ''}`}
     >
       {label && (
-        <span className="inline-block text-xs font-sans uppercase tracking-widest text-text-tertiary mb-3">
+        <span className="inline-block text-xs font-sans uppercase text-text-tertiary mb-3">
           {label}
         </span>
       )}
-      <h2 className="font-serif font-semibold tracking-tight text-3xl md:text-4xl lg:text-5xl text-text-primary">
+      <h2 className="font-serif font-semibold text-3xl md:text-4xl lg:text-5xl text-text-primary">
         {title}
       </h2>
       {description && (

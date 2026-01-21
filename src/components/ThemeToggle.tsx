@@ -32,7 +32,7 @@ export function ThemeToggle() {
       className="p-2 rounded-full text-text-secondary hover:text-text-primary transition-colors"
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
     >
-      {isDark ? <Sun size={20} /> : <Moon size={20} />}
+      {isDark ? <Sun size={20} strokeWidth={1.5} /> : <Moon size={20} strokeWidth={1.5} />}
     </motion.button>
   );
 }

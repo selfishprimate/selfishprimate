@@ -42,10 +42,10 @@ export function AboutPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <span className="text-xs font-sans uppercase tracking-widest text-text-tertiary">
+            <span className="text-xs font-sans uppercase text-text-tertiary">
               About Me
             </span>
-            <h1 className="mt-4 font-serif font-semibold tracking-tight text-4xl md:text-5xl text-text-primary">
+            <h1 className="mt-4 font-serif font-semibold text-4xl md:text-5xl text-text-primary">
               {siteConfig.name}
             </h1>
             <p className="mt-2 text-text-secondary text-lg">
@@ -118,7 +118,7 @@ export function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-serif font-semibold tracking-tight text-2xl text-text-primary mb-6">
+            <h2 className="font-serif font-semibold text-2xl text-text-primary mb-6">
               Skills & Tools
             </h2>
             <div className="flex flex-wrap gap-2">
@@ -140,7 +140,7 @@ export function AboutPage() {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <h2 className="font-serif font-semibold tracking-tight text-2xl text-text-primary mb-6">
+            <h2 className="font-serif font-semibold text-2xl text-text-primary mb-6">
               Industries & Domains
             </h2>
             <div className="flex flex-wrap gap-2">
@@ -189,13 +189,13 @@ export function AboutPage() {
                     href={exp.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 font-serif font-semibold tracking-tight text-xl text-text-primary hover:text-text-secondary transition-colors"
+                    className="inline-flex items-center gap-1.5 font-serif font-semibold text-xl text-text-primary hover:text-text-secondary transition-colors"
                   >
                     {exp.company}
                     <ArrowUpRight size={18} />
                   </a>
                 ) : (
-                  <h3 className="font-serif font-semibold tracking-tight text-xl text-text-primary">
+                  <h3 className="font-serif font-semibold text-xl text-text-primary">
                     {exp.company}
                   </h3>
                 )}
@@ -224,7 +224,7 @@ export function AboutPage() {
           viewport={{ once: true }}
           className="max-w-3xl"
         >
-          <h2 className="font-serif font-semibold tracking-tight text-2xl text-text-primary mb-6">
+          <h2 className="font-serif font-semibold text-2xl text-text-primary mb-6">
             Beyond Design
           </h2>
           <p className="text-text-secondary leading-relaxed">

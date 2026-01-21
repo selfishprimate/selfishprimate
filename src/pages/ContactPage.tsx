@@ -32,7 +32,7 @@ export function ContactPage() {
                   <div className="w-10 h-10 rounded-full bg-border flex items-center justify-center">
                     <Mail size={18} className="text-text-secondary" />
                   </div>
-                  <span className="text-xs font-sans uppercase tracking-widest text-text-tertiary">Email</span>
+                  <span className="text-xs font-sans uppercase text-text-tertiary">Email</span>
                 </div>
                 <a href={`mailto:${siteConfig.email}`} className="font-serif text-2xl md:text-3xl text-text-primary hover:text-text-secondary transition-colors">
                   {siteConfig.email}
@@ -43,7 +43,7 @@ export function ContactPage() {
                   <div className="w-10 h-10 rounded-full bg-border flex items-center justify-center">
                     <MapPin size={18} className="text-text-secondary" />
                   </div>
-                  <span className="text-xs font-sans uppercase tracking-widest text-text-tertiary">Location</span>
+                  <span className="text-xs font-sans uppercase text-text-tertiary">Location</span>
                 </div>
                 <p className="font-serif text-2xl md:text-3xl text-text-primary">{siteConfig.location}</p>
               </div>

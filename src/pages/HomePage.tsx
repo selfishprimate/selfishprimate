@@ -50,7 +50,7 @@ export function HomePage() {
             transition={{ duration: 0.6 }}
             className="mb-6"
           >
-            <span className="text-text-tertiary font-sans text-sm uppercase tracking-widest">
+            <span className="text-text-tertiary font-sans text-sm uppercase">
               {siteConfig.title} — {siteConfig.location}
             </span>
           </motion.div>
@@ -60,7 +60,7 @@ export function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-serif font-semibold tracking-tight text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-text-primary leading-[1.1]"
+            className="font-serif font-semibold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-text-primary leading-[1.1]"
           >
             Crafting intuitive digital experiences that{' '}
             <span className="italic text-accent">users love</span>
@@ -163,7 +163,7 @@ export function HomePage() {
           title="Where I've Worked"
         />
 
-        <div className="grid max-w-3xl mx-auto">
+        <div className="grid max-w-3xl">
           {experiences.slice(0, 4).map((exp, index) => (
             <motion.div
               key={exp.company + exp.period}
@@ -188,13 +188,13 @@ export function HomePage() {
                     href={exp.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 font-serif font-semibold tracking-tight text-xl text-text-primary hover:text-text-secondary transition-colors"
+                    className="inline-flex items-center gap-1.5 font-serif font-semibold text-xl text-text-primary hover:text-text-secondary transition-colors"
                   >
                     {exp.company}
                     <ArrowUpRight size={18} />
                   </a>
                 ) : (
-                  <h3 className="font-serif font-semibold tracking-tight text-xl text-text-primary">
+                  <h3 className="font-serif font-semibold text-xl text-text-primary">
                     {exp.company}
                   </h3>
                 )}

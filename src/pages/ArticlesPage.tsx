@@ -56,7 +56,7 @@ export function ArticlesPage() {
                     Medium
                   </span>
                 </div>
-                <h2 className="font-serif font-semibold tracking-tight text-xl md:text-2xl text-text-primary group-hover:text-text-secondary transition-colors">
+                <h2 className="font-serif font-semibold text-xl md:text-2xl text-text-primary group-hover:text-text-secondary transition-colors">
                   {article.title}
                 </h2>
                 <p className="mt-3 text-text-secondary leading-relaxed">

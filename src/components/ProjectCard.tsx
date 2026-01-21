@@ -44,17 +44,17 @@ export function ProjectCard({ project, index, variant = 'default' }: ProjectCard
 
         {/* Content */}
         <div className="mt-5">
-          <p className="text-xs font-sans text-text-tertiary mb-2 uppercase tracking-wider">
+          <p className="text-xs font-sans text-text-tertiary mb-2 uppercase">
             {project.company}, {project.year}
           </p>
           
-          <h3 className={`font-serif font-semibold tracking-tight text-text-primary group-hover:text-text-secondary transition-colors ${
+          <h3 className={`font-serif font-semibold text-text-primary group-hover:text-text-secondary transition-colors ${
             isFeatured ? 'text-xl md:text-2xl' : 'text-xl md:text-2xl'
           }`}>
             {project.title}
           </h3>
 
-          <p className="mt-2 text-text-secondary/70 leading-snug line-clamp-3">
+          <p className="mt-2 text-text-secondary/70 leading-snug line-clamp-2">
             {project.description}
           </p>
         </div>

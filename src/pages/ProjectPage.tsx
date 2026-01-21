@@ -197,7 +197,7 @@ export function ProjectPage() {
           transition={{ delay: 0.1 }}
         >
           {/* Title */}
-          <h1 className="font-serif font-semibold tracking-tight text-3xl md:text-4xl lg:text-5xl text-text-primary max-w-4xl">
+          <h1 className="font-serif font-semibold text-3xl md:text-4xl lg:text-5xl text-text-primary max-w-4xl">
             {project.title}
           </h1>
 
@@ -207,7 +207,7 @@ export function ProjectPage() {
           </p>
 
           {/* Meta */}
-          <p className="mt-6 text-xs font-sans text-text-tertiary uppercase tracking-wider">
+          <p className="mt-6 text-xs font-sans text-text-tertiary uppercase">
             {project.company}, {project.year}
           </p>
         </motion.div>
@@ -244,11 +244,11 @@ export function ProjectPage() {
 
       {/* Tags */}
       <section className="max-w-3xl mx-auto px-6 py-12">
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-3">
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="px-3 py-1.5 text-xs font-sans text-text-secondary bg-border/50 rounded-full"
+              className="px-4 py-2 text-sm font-sans text-text-secondary bg-border/50 rounded-full"
             >
               {tag}
             </span>
@@ -264,7 +264,7 @@ export function ProjectPage() {
             to={`/work/${prevProject.slug}`}
             className="group p-6 rounded-2xl border border-border hover:bg-border/30 transition-colors"
           >
-            <span className="text-xs font-sans uppercase tracking-wider text-text-tertiary">
+            <span className="text-xs font-sans uppercase text-text-tertiary">
               Previous Project
             </span>
             <h3 className="mt-2 font-serif text-xl text-text-primary group-hover:text-text-secondary transition-colors">
@@ -280,7 +280,7 @@ export function ProjectPage() {
             to={`/work/${nextProject.slug}`}
             className="group p-6 rounded-2xl border border-border hover:bg-border/30 transition-colors text-right"
           >
-            <span className="text-xs font-sans uppercase tracking-wider text-text-tertiary">
+            <span className="text-xs font-sans uppercase text-text-tertiary">
               Next Project
             </span>
             <h3 className="mt-2 font-serif text-xl text-text-primary group-hover:text-text-secondary transition-colors">

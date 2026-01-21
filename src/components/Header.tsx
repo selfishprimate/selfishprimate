@@ -8,8 +8,8 @@ import { ThemeToggle } from './ThemeToggle';
 const navItems = [
   { label: 'Work', path: '/work' },
   { label: 'Illustrations', path: '/illustrations' },
-  { label: 'About', path: '/about' },
   { label: 'Articles', path: '/articles' },
+  { label: 'About', path: '/about' },
   { label: 'Contact', path: '/contact' },
 ];
 
@@ -57,14 +57,14 @@ export function Header() {
             <Link to="/" className="group">
               <div className="flex flex-col items-start">
                 <div className="flex items-baseline">
-                  <span className="font-sans font-medium text-2xl tracking-tight text-text-primary">
+                  <span className="font-serif font-medium text-2xl text-text-primary" style={{ letterSpacing: '-0.03em' }}>
                     Selfish
                   </span>
                   <span className="font-serif italic font-semibold text-3xl text-accent">
                     primate
                   </span>
                 </div>
-                <span className="hidden sm:block text-xs text-text-secondary/60 mt-0.5">
+                <span className="hidden sm:block text-xs text-text-secondary/80 mt-0.5">
                   Portfolio of a technological caveman.
                 </span>
               </div>
@@ -103,8 +103,8 @@ export function Header() {
                 aria-label="Open menu"
               >
                 <div className="w-5 h-5 flex flex-col justify-center gap-[5px]">
-                  <span className="block w-full h-[1px] bg-current"></span>
-                  <span className="block w-full h-[1px] bg-current"></span>
+                  <span className="block w-full h-[1.3px] bg-current"></span>
+                  <span className="block w-full h-[1.3px] bg-current"></span>
                 </div>
               </button>
             </div>

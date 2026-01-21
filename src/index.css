@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/geist@1.2.0/dist/fonts/geist-sans/style.min.css');
 
 @import "tailwindcss";
 
 @theme {
-  --font-serif: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-serif: 'Geist Sans', system-ui, sans-serif;
+  --font-sans: 'Geist Sans', system-ui, sans-serif;
 
   --color-background: #FAFAFA;
   --color-surface: #FFFFFF;
@@ -94,7 +95,6 @@ i, em, .italic {
   line-height: 1.2;
   margin-top: 2em;
   margin-bottom: 0.75em;
-  letter-spacing: -0.02em;
 }
 
 .prose h1 { font-size: 2.75rem; }
