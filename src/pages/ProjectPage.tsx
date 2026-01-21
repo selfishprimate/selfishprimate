@@ -1,0 +1,398 @@
+import { useState, useMemo } from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { ArrowLeft, ArrowUpRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { getProjectBySlug, getProjects, resolveProjectImagePath } from '@/lib/projects';
+import { useSEO, generateTitle } from '@/hooks/useSEO';
+
+export function ProjectPage() {
+  const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
+  const project = slug ? getProjectBySlug(slug) : undefined;
+  const allProjects = getProjects();
+
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  useSEO({
+    title: generateTitle('Works', project?.title),
+    description: project?.description || 'UI/UX Design case study',
+    keywords: project?.tags || ['UI/UX Design', 'Case Study'],
+    ogImage: project?.coverImage,
+  });
+
+  // Type for image data with alt and caption
+  interface ImageData {
+    src: string;
+    alt: string;
+    caption: string;
+  }
+
+  // Collect all images from content for lightbox
+  const allImages = useMemo(() => {
+    if (!project || !slug) return [] as ImageData[];
+    const images: ImageData[] = [];
+
+    // Parse gallery blocks to extract figure elements
+    const galleryRegex = /<gallery[^>]*>([\s\S]*?)<\/gallery>/g;
+    const figureRegex = /<figure\s+src="([^"]+)"(?:\s+alt="([^"]*)")?\s*>([^<]*)<\/figure>/g;
+
+    let galleryMatch;
+    while ((galleryMatch = galleryRegex.exec(project.content)) !== null) {
+      const galleryContent = galleryMatch[1];
+      let figureMatch;
+      while ((figureMatch = figureRegex.exec(galleryContent)) !== null) {
+        const [, src, alt = '', caption = ''] = figureMatch;
+        const resolved = resolveProjectImagePath(src, slug);
+        images.push({
+          src: resolved,
+          alt: alt || project.title,
+          caption: caption.trim()
+        });
+      }
+    }
+
+    return images;
+  }, [project, slug]);
+
+  const openLightbox = (index: number) => setLightboxIndex(index);
+  const closeLightbox = () => setLightboxIndex(null);
+
+  const goToPrevious = () => {
+    if (lightboxIndex !== null) {
+      setLightboxIndex(lightboxIndex === 0 ? allImages.length - 1 : lightboxIndex - 1);
+    }
+  };
+
+  const goToNext = () => {
+    if (lightboxIndex !== null) {
+      setLightboxIndex(lightboxIndex === allImages.length - 1 ? 0 : lightboxIndex + 1);
+    }
+  };
+
+  if (!project) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="font-serif text-3xl text-text-primary mb-4">Project not found</h1>
+          <Link to="/work" className="text-text-secondary hover:text-text-primary transition-colors">
+            ← Back to work
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  // Get next and previous projects
+  const currentIndex = allProjects.findIndex(p => p.slug === slug);
+  const nextProject = allProjects[currentIndex + 1] || allProjects[0];
+  const prevProject = allProjects[currentIndex - 1] || allProjects[allProjects.length - 1];
+
+  // Helper to resolve image path
+  const resolveImagePath = (relativePath: string): string => {
+    return resolveProjectImagePath(relativePath, slug!);
+  };
+
+  // Get lightbox index for an image path
+  const getLightboxIndex = (relativePath: string): number => {
+    const resolved = resolveImagePath(relativePath);
+    return allImages.findIndex(img => img.src === resolved);
+  };
+
+  // Parse content and render with galleries
+  const renderContentWithGalleries = () => {
+    const content = project.content;
+
+    // Split content by gallery blocks
+    const parts = content.split(/(<gallery[^>]*>[\s\S]*?<\/gallery>)/g);
+
+    return parts.map((part, index) => {
+      // Check if this is a gallery block
+      const galleryMatch = part.match(/<gallery\s+cols="(\d+)">([\s\S]*?)<\/gallery>/);
+
+      if (galleryMatch) {
+        const cols = parseInt(galleryMatch[1]);
+        const galleryContent = galleryMatch[2];
+
+        // Parse figure elements
+        const figures: { src: string; alt: string; caption: string }[] = [];
+        let figureMatch;
+        const localFigureRegex = /<figure\s+src="([^"]+)"(?:\s+alt="([^"]*)")?\s*>([^<]*)<\/figure>/g;
+        while ((figureMatch = localFigureRegex.exec(galleryContent)) !== null) {
+          const [, src, alt = '', caption = ''] = figureMatch;
+          figures.push({ src, alt: alt || project.title, caption: caption.trim() });
+        }
+
+        let gridClass = 'grid-cols-1';
+        if (cols === 2) gridClass = 'grid-cols-1 md:grid-cols-2';
+        if (cols === 3) gridClass = 'grid-cols-1 md:grid-cols-3';
+        if (cols === 4) gridClass = 'grid-cols-2 md:grid-cols-4';
+
+        return (
+          <div key={index} className={`grid ${gridClass} gap-16 my-12`}>
+            {figures.map((figure, figIndex) => {
+              const resolvedPath = resolveImagePath(figure.src);
+              const lightboxIdx = getLightboxIndex(figure.src);
+              return (
+                <figure key={figIndex} className="m-0">
+                  <button
+                    onClick={() => openLightbox(lightboxIdx)}
+                    className="w-full overflow-hidden bg-border cursor-zoom-in"
+                  >
+                    <img
+                      src={resolvedPath}
+                      alt={figure.alt}
+                      className="w-full h-auto"
+                    />
+                  </button>
+                  {figure.caption && (
+                    <figcaption className="mt-2 text-sm text-text-tertiary text-center">
+                      {figure.caption}
+                    </figcaption>
+                  )}
+                </figure>
+              );
+            })}
+          </div>
+        );
+      }
+
+      if (part.trim()) {
+        return (
+          <div key={index} className="prose">
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {part}
+            </ReactMarkdown>
+          </div>
+        );
+      }
+
+      return null;
+    });
+  };
+
+  return (
+    <div className="min-h-screen">
+      {/* Back button */}
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        className="max-w-6xl mx-auto px-6 py-8"
+      >
+        <button
+          onClick={() => navigate(-1)}
+          className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors"
+        >
+          <ArrowLeft size={16} />
+          Back
+        </button>
+      </motion.div>
+
+      {/* Header */}
+      <section className="max-w-6xl mx-auto px-6 pb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+        >
+          {/* Meta */}
+          <div className="flex flex-wrap items-center gap-3 mb-4">
+            <span className="text-xs font-sans uppercase tracking-widest text-text-tertiary">
+              {project.company}
+            </span>
+            <span className="text-text-tertiary">·</span>
+            <span className="text-xs font-sans text-text-tertiary">
+              {project.category}
+            </span>
+            <span className="text-text-tertiary">·</span>
+            <span className="text-xs font-sans text-text-tertiary">
+              {project.year}
+            </span>
+          </div>
+
+          {/* Title */}
+          <h1 className="font-serif font-semibold tracking-tight text-3xl md:text-4xl lg:text-5xl text-text-primary max-w-4xl">
+            {project.title}
+          </h1>
+
+          {/* Description */}
+          <p className="mt-6 text-text-secondary text-lg leading-relaxed max-w-3xl">
+            {project.description}
+          </p>
+
+          {/* Tags */}
+          <div className="mt-8 flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <span
+                key={tag}
+                className="px-3 py-1.5 text-xs font-sans text-text-secondary bg-border/50 rounded-full"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Cover Image */}
+      {project.coverImage && (
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="max-w-7xl mx-auto px-6 pb-16"
+        >
+          <div className="overflow-hidden bg-border">
+            <img
+              src={project.coverImage}
+              alt={project.title}
+              className="w-full h-auto"
+            />
+          </div>
+        </motion.section>
+      )}
+
+      {/* Content with Galleries */}
+      <section className="max-w-3xl mx-auto px-6 py-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+        >
+          {renderContentWithGalleries()}
+        </motion.div>
+      </section>
+
+      {/* Navigation */}
+      <section className="max-w-6xl mx-auto px-6 py-16 border-t border-border mt-16">
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Previous */}
+          <Link
+            to={`/work/${prevProject.slug}`}
+            className="group p-6 rounded-2xl border border-border hover:bg-border/30 transition-colors"
+          >
+            <span className="text-xs font-sans uppercase tracking-wider text-text-tertiary">
+              Previous Project
+            </span>
+            <h3 className="mt-2 font-serif text-xl text-text-primary group-hover:text-text-secondary transition-colors">
+              {prevProject.title}
+            </h3>
+            <p className="mt-1 text-sm text-text-tertiary">
+              {prevProject.company}
+            </p>
+          </Link>
+
+          {/* Next */}
+          <Link
+            to={`/work/${nextProject.slug}`}
+            className="group p-6 rounded-2xl border border-border hover:bg-border/30 transition-colors text-right"
+          >
+            <span className="text-xs font-sans uppercase tracking-wider text-text-tertiary">
+              Next Project
+            </span>
+            <h3 className="mt-2 font-serif text-xl text-text-primary group-hover:text-text-secondary transition-colors">
+              {nextProject.title}
+            </h3>
+            <p className="mt-1 text-sm text-text-tertiary">
+              {nextProject.company}
+            </p>
+          </Link>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="max-w-6xl mx-auto px-6 py-16">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <h2 className="font-serif text-2xl md:text-3xl text-text-primary">
+            Interested in working together?
+          </h2>
+          <p className="mt-4 text-text-secondary">
+            Let's discuss your project and see how I can help.
+          </p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 mt-6 px-6 py-3 bg-text-primary text-surface font-sans text-sm rounded-full hover:bg-text-secondary transition-colors"
+          >
+            Get in touch
+            <ArrowUpRight size={16} />
+          </Link>
+        </motion.div>
+      </section>
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {lightboxIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-text-primary/95 flex items-center justify-center"
+            onClick={closeLightbox}
+          >
+            {/* Close button */}
+            <button
+              onClick={closeLightbox}
+              className="absolute top-6 right-6 w-12 h-12 flex items-center justify-center text-surface/80 hover:text-surface transition-colors"
+              aria-label="Close lightbox"
+            >
+              <X size={28} />
+            </button>
+
+            {/* Navigation */}
+            {allImages.length > 1 && (
+              <>
+                <button
+                  onClick={(e) => { e.stopPropagation(); goToPrevious(); }}
+                  className="absolute left-6 w-12 h-12 flex items-center justify-center text-surface/80 hover:text-surface transition-colors"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft size={32} />
+                </button>
+                <button
+                  onClick={(e) => { e.stopPropagation(); goToNext(); }}
+                  className="absolute right-6 w-12 h-12 flex items-center justify-center text-surface/80 hover:text-surface transition-colors"
+                  aria-label="Next image"
+                >
+                  <ChevronRight size={32} />
+                </button>
+              </>
+            )}
+
+            {/* Image */}
+            <motion.figure
+              key={lightboxIndex}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              className="flex flex-col items-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={allImages[lightboxIndex]?.src}
+                alt={allImages[lightboxIndex]?.alt || `${project.title} - Image ${lightboxIndex + 1}`}
+                className="max-w-[90vw] max-h-[80vh] object-contain"
+              />
+              {allImages[lightboxIndex]?.caption && (
+                <figcaption className="mt-4 text-surface/80 text-sm text-center max-w-2xl">
+                  {allImages[lightboxIndex].caption}
+                </figcaption>
+              )}
+            </motion.figure>
+
+            {/* Counter */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-surface/60 text-sm font-sans">
+              {lightboxIndex + 1} / {allImages.length}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
