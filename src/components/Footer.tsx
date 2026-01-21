@@ -117,7 +117,7 @@ export function Footer() {
             </h4>
             <nav className="flex flex-col gap-3">
               <a
-                href={siteConfig.social.github}
+                href="https://github.com/sponsors/selfishprimate"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 text-text-secondary hover:text-accent transition-colors text-sm group"
@@ -132,6 +132,15 @@ export function Footer() {
                 className="inline-flex items-center gap-1 text-text-secondary hover:text-accent transition-colors text-sm group"
               >
                 Patreon
+                <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
+              <a
+                href="https://buymeacoffee.com/selfishprimate"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-text-secondary hover:text-accent transition-colors text-sm group"
+              >
+                Buy Me A Coffee
                 <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
             </nav>

@@ -1,9 +1,9 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { ArrowLeft, ArrowUpRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { getProjectBySlug, getProjects, resolveProjectImagePath } from '@/lib/projects';
 import { useSEO, generateTitle } from '@/hooks/useSEO';
 
@@ -55,6 +55,22 @@ export function ProjectPage() {
 
     return images;
   }, [project, slug]);
+
+  // Lock body scroll when lightbox is open
+  useEffect(() => {
+    if (lightboxIndex !== null) {
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+    } else {
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    }
+  }, [lightboxIndex]);
 
   const openLightbox = (index: number) => setLightboxIndex(index);
   const closeLightbox = () => setLightboxIndex(null);
@@ -257,14 +273,15 @@ export function ProjectPage() {
       </section>
 
       {/* Navigation */}
-      <section className="max-w-6xl mx-auto px-6 py-16 border-t border-border mt-16">
+      <section className="max-w-6xl mx-auto py-16 border-t border-border mt-16">
         <div className="grid md:grid-cols-2 gap-8">
           {/* Previous */}
           <Link
             to={`/work/${prevProject.slug}`}
-            className="group p-6 rounded-2xl border border-border hover:bg-border/30 transition-colors"
+            className="group"
           >
-            <span className="text-xs font-sans uppercase text-text-tertiary">
+            <span className="inline-flex items-center gap-2 text-xs font-sans uppercase text-text-tertiary">
+              <ArrowLeft size={14} />
               Previous Project
             </span>
             <h3 className="mt-2 font-serif text-xl text-text-primary group-hover:text-text-secondary transition-colors">
@@ -278,10 +295,11 @@ export function ProjectPage() {
           {/* Next */}
           <Link
             to={`/work/${nextProject.slug}`}
-            className="group p-6 rounded-2xl border border-border hover:bg-border/30 transition-colors text-right"
+            className="group text-right"
           >
-            <span className="text-xs font-sans uppercase text-text-tertiary">
+            <span className="inline-flex items-center justify-end gap-2 text-xs font-sans uppercase text-text-tertiary">
               Next Project
+              <ArrowRight size={14} />
             </span>
             <h3 className="mt-2 font-serif text-xl text-text-primary group-hover:text-text-secondary transition-colors">
               {nextProject.title}
@@ -311,7 +329,7 @@ export function ProjectPage() {
             to="/contact"
             className="inline-flex items-center gap-2 mt-6 px-6 py-3 bg-text-primary text-surface font-sans text-sm rounded-full hover:bg-text-secondary transition-colors"
           >
-            Get in touch
+            Get In Touch
             <ArrowUpRight size={16} />
           </Link>
         </motion.div>

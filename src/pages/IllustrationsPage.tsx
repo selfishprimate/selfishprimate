@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { SectionHeading } from '@/components/SectionHeading';
@@ -13,6 +13,22 @@ export function IllustrationsPage() {
     description: 'A collection of digital illustrations and creative artwork exploring various styles and themes.',
     keywords: ['Illustrations', 'Digital Art', 'Creative', 'Artwork', 'Drawing'],
   });
+
+  // Lock body scroll when lightbox is open
+  useEffect(() => {
+    if (selectedImage !== null) {
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+    } else {
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    }
+  }, [selectedImage]);
 
   return (
     <div className="min-h-screen">

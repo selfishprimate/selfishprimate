@@ -87,7 +87,7 @@ export function HomePage() {
               to="/work"
               className="inline-flex items-center gap-2 px-6 py-3 bg-text-primary text-surface font-sans text-sm rounded-full hover:bg-text-secondary transition-colors"
             >
-              View my work
+              View My Work
               <ArrowRight size={16} />
             </Link>
             <a
@@ -251,7 +251,7 @@ export function HomePage() {
                 to="/contact"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-surface text-text-primary font-sans text-sm rounded-full hover:bg-surface/90 transition-colors"
               >
-                Get in touch
+                Get In Touch
                 <ArrowRight size={16} />
               </Link>
             </div>
