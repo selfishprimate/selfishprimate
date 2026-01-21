@@ -175,7 +175,7 @@ export function AboutPage() {
               className="group flex gap-6 py-8 border-b border-border"
             >
               {exp.logo && (
-                <div className="w-20 h-20 rounded-2xl bg-border overflow-hidden flex-shrink-0">
+                <div className="w-20 h-20 bg-border overflow-hidden flex-shrink-0">
                   <img
                     src={exp.logo}
                     alt={exp.company}

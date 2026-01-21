@@ -163,7 +163,7 @@ export function HomePage() {
           title="Where I've Worked"
         />
 
-        <div className="grid gap-6">
+        <div className="grid max-w-3xl mx-auto">
           {experiences.slice(0, 4).map((exp, index) => (
             <motion.div
               key={exp.company + exp.period}
@@ -171,10 +171,10 @@ export function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group flex items-center gap-5 py-6 border-b border-border"
+              className="group flex items-start gap-5 py-6 border-b border-border"
             >
               {exp.logo && (
-                <div className="w-16 h-16 rounded-2xl bg-border overflow-hidden flex-shrink-0">
+                <div className="w-16 h-16 bg-border overflow-hidden flex-shrink-0">
                   <img
                     src={exp.logo}
                     alt={exp.company}
@@ -201,6 +201,11 @@ export function HomePage() {
                 <p className="mt-1 text-text-secondary">
                   {exp.role} · Full Time · {exp.period.replace(' — ', ' · ')}
                 </p>
+                {exp.description && (
+                  <p className="mt-2 text-text-secondary text-sm leading-relaxed">
+                    {exp.description}
+                  </p>
+                )}
               </div>
             </motion.div>
           ))}
