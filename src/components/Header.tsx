@@ -65,7 +65,7 @@ export function Header() {
                   </span>
                 </div>
                 <span className="hidden sm:block text-xs text-text-secondary/80 mt-0.5">
-                  Monkeying with design and code!
+                  Portfolio of a technological caveman.
                 </span>
               </div>
             </Link>
