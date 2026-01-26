@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
@@ -16,7 +16,32 @@ const navItems = [
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [enableTransition, setEnableTransition] = useState(false);
+  const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
+  const navRefs = useRef<(HTMLAnchorElement | null)[]>([]);
   const location = useLocation();
+
+  // Get active nav item index
+  const activeIndex = navItems.findIndex(
+    item => location.pathname === item.path || location.pathname.startsWith(item.path + '/')
+  );
+
+  // Update underline position when active index changes
+  useEffect(() => {
+    if (activeIndex !== -1 && navRefs.current[activeIndex]) {
+      const el = navRefs.current[activeIndex];
+      setUnderlineStyle({
+        left: el?.offsetLeft ?? 0,
+        width: el?.offsetWidth ?? 0
+      });
+    }
+  }, [activeIndex]);
+
+  // Enable transition only after first render
+  useEffect(() => {
+    const timer = setTimeout(() => setEnableTransition(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -73,25 +98,32 @@ export function Header() {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-8">
               <h2 className="sr-only">Main Navigation</h2>
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`relative font-sans text-sm transition-colors hover:text-text-primary ${
-                    location.pathname === item.path || location.pathname.startsWith(item.path + '/')
-                      ? 'text-text-primary'
-                      : 'text-text-secondary'
-                  }`}
-                >
-                  {item.label}
-                  {(location.pathname === item.path || location.pathname.startsWith(item.path + '/')) && (
-                    <motion.div
-                      layoutId="nav-underline"
-                      className="absolute -bottom-1 left-0 right-0 h-px bg-text-primary"
-                    />
-                  )}
-                </Link>
-              ))}
+              <div className="relative flex items-center gap-8">
+                {navItems.map((item, index) => (
+                  <Link
+                    key={item.path}
+                    ref={el => { navRefs.current[index] = el; }}
+                    to={item.path}
+                    className={`relative font-sans text-sm transition-colors hover:text-text-primary ${
+                      location.pathname === item.path || location.pathname.startsWith(item.path + '/')
+                        ? 'text-text-primary'
+                        : 'text-text-secondary'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+                {activeIndex !== -1 && underlineStyle.width > 0 && (
+                  <span
+                    className="absolute -bottom-1 h-px bg-text-primary"
+                    style={{
+                      left: underlineStyle.left,
+                      width: underlineStyle.width,
+                      transition: enableTransition ? 'left 0.3s ease, width 0.3s ease' : 'none'
+                    }}
+                  />
+                )}
+              </div>
               <ThemeToggle />
             </nav>
 
