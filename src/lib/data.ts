@@ -135,7 +135,7 @@ export const articles: Article[] = [
     description: "As AI agents handle shopping, research, and form-filling on our behalf, does it still matter how a website looks? Exploring the future of web design in an AI-driven world.",
     date: "January 23, 2026",
     url: "https://medium.com/design-bootcamp/could-visiting-a-website-soon-stop-being-a-necessity-and-turn-into-a-hobby-a0e3be9d5b05",
-    tags: ["Design", "Future", "UX Design"],
+    tags: ["Design", "Future", "UX Design", "Artificial Intelligence", "UX"],
     coverImage: "/images/articles/could-visiting-a-website-soon-stop-being-a-necessi.jpg"
   },
   {
@@ -143,7 +143,7 @@ export const articles: Article[] = [
     description: "How AI-powered code generation tools are transforming design workflows by enabling designers to create directly in code editors rather than traditional design applications.",
     date: "November 25, 2025",
     url: "https://medium.com/design-bootcamp/design-in-figma-is-dead-long-live-design-in-code-56cd97a19173",
-    tags: ["Design", "AI", "Web Development"],
+    tags: ["Design", "Web Development", "Product Design", "Artificial Intelligence", "Technology"],
     coverImage: "/images/articles/design-in-code.jpg"
   },
   {
@@ -151,7 +151,7 @@ export const articles: Article[] = [
     description: "A critical examination of Figma's rapid expansion into multiple product categories and what it means for designers.",
     date: "May 20, 2025",
     url: "https://medium.com/design-bootcamp/first-we-shaped-figma-and-now-it-shapes-us-319520a0ede2",
-    tags: ["Figma", "Design Tools", "Product Design"],
+    tags: ["Figma", "Design Tools", "Product Design", "UI Design", "UX Design"],
     coverImage: "/images/articles/figma-ecosystem.jpg"
   },
   {
@@ -159,7 +159,7 @@ export const articles: Article[] = [
     description: "Guidance for junior designers on adopting a compose-first approach using Figma's layout features.",
     date: "October 7, 2024",
     url: "https://medium.com/design-bootcamp/do-not-try-to-design-the-box-instead-only-try-to-realize-the-truth-there-is-no-box-9cc3b81cb9ae",
-    tags: ["Figma", "UI Design", "Design Tips"],
+    tags: ["Design Tools", "Figma", "UI Design", "Product Design", "Design"],
     coverImage: "/images/articles/no-box.jpg"
   },
   {
@@ -167,7 +167,7 @@ export const articles: Article[] = [
     description: "Why iterative, incremental design approaches lead to better outcomes than comprehensive upfront design.",
     date: "April 3, 2023",
     url: "https://medium.com/design-bootcamp/the-benefits-of-incrementalism-in-ui-ux-design-over-holistic-approach-fd2d33891244",
-    tags: ["UX Design", "Design Thinking", "Process"],
+    tags: ["User Experience", "UI Design", "UX Design", "Design Thinking", "Design"],
     coverImage: "/images/articles/the-benefits-of-incrementalism-in-ui-ux-design-ove.jpg"
   },
   {
@@ -175,7 +175,7 @@ export const articles: Article[] = [
     description: "Introduction to Gerillass, a Sass mixins library designed to streamline CSS development through reusable components.",
     date: "March 5, 2023",
     url: "https://medium.com/gerillass/streamline-your-css-with-gerillass-a-sass-library-for-efficient-styling-6e297bb658b5",
-    tags: ["Sass", "CSS", "Web Development"],
+    tags: ["Sass", "Gerillass", "Front End Development", "CSS", "Web Development"],
     coverImage: "/images/articles/gerillass-streamline.jpg"
   },
   {
@@ -183,7 +183,7 @@ export const articles: Article[] = [
     description: "Practical tutorial covering Sass installation methods and an overview of the Gerillass library for web development.",
     date: "September 26, 2020",
     url: "https://medium.com/gerillass/up-and-running-with-sass-and-gerillass-b2e9ab2a85c1",
-    tags: ["Sass", "CSS", "Tutorial"],
+    tags: ["Front End Development", "CSS", "Web Development", "Web Design", "Sass"],
     coverImage: "/images/articles/gerillass-setup.jpg"
   }
 ];

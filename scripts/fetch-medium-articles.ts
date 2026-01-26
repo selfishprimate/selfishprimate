@@ -97,8 +97,8 @@ async function fetchMediumArticles(username: string): Promise<MediumArticle[]> {
         return cat._ || cat;
       }) || [];
 
-      // Format tags nicely (capitalize words)
-      const formattedTags = tags.slice(0, 3).map((tag: string) =>
+      // Format tags nicely (capitalize words) - get all tags
+      const formattedTags = tags.map((tag: string) =>
         tag.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
       );
 
