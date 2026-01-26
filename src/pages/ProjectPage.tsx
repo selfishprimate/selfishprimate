@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
@@ -6,6 +6,7 @@ import remarkGfm from 'remark-gfm';
 import { ArrowLeft, ArrowRight, ArrowUpRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { getProjectBySlug, getProjects, resolveProjectImagePath } from '@/lib/projects';
 import { useSEO, generateTitle } from '@/hooks/useSEO';
+import { useBodyScrollLock } from '@/hooks/useBodyScrollLock';
 
 export function ProjectPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -57,20 +58,7 @@ export function ProjectPage() {
   }, [project, slug]);
 
   // Lock body scroll when lightbox is open
-  useEffect(() => {
-    if (lightboxIndex !== null) {
-      const scrollY = window.scrollY;
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = '100%';
-    } else {
-      const scrollY = document.body.style.top;
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      window.scrollTo(0, parseInt(scrollY || '0') * -1);
-    }
-  }, [lightboxIndex]);
+  useBodyScrollLock(lightboxIndex !== null);
 
   const openLightbox = (index: number) => setLightboxIndex(index);
   const closeLightbox = () => setLightboxIndex(null);
@@ -154,7 +142,7 @@ export function ProjectPage() {
                 <figure key={figIndex} className="m-0">
                   <button
                     onClick={() => openLightbox(lightboxIdx)}
-                    className="w-full overflow-hidden bg-border cursor-zoom-in"
+                    className="w-full overflow-hidden cursor-zoom-in"
                   >
                     <img
                       src={resolvedPath}
@@ -237,7 +225,7 @@ export function ProjectPage() {
           transition={{ delay: 0.2 }}
           className="max-w-7xl mx-auto px-6 pb-16"
         >
-          <div className="overflow-hidden bg-border">
+          <div className="overflow-hidden">
             <img
               src={project.coverImage}
               alt={project.title}

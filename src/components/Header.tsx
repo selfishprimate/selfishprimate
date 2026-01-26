@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { siteConfig } from '@/lib/data';
 import { ThemeToggle } from './ThemeToggle';
+import { useBodyScrollLock } from '@/hooks/useBodyScrollLock';
 
 const navItems = [
   { label: 'Works', path: '/work' },
@@ -52,20 +53,7 @@ export function Header() {
   }, []);
 
   // Lock body scroll when menu is open
-  useEffect(() => {
-    if (isMenuOpen) {
-      const scrollY = window.scrollY;
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = '100%';
-    } else {
-      const scrollY = document.body.style.top;
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      window.scrollTo(0, parseInt(scrollY || '0') * -1);
-    }
-  }, [isMenuOpen]);
+  useBodyScrollLock(isMenuOpen);
 
   const closeMenu = () => setIsMenuOpen(false);
 

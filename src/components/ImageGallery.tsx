@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useBodyScrollLock } from '@/hooks/useBodyScrollLock';
 
 interface ImageGalleryProps {
   images: string[];
@@ -10,15 +11,18 @@ interface ImageGalleryProps {
 export function ImageGallery({ images, title }: ImageGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
+  // Lock body scroll when lightbox is open
+  useBodyScrollLock(selectedIndex !== null);
+
   const openLightbox = (index: number) => setSelectedIndex(index);
   const closeLightbox = () => setSelectedIndex(null);
-  
+
   const goToPrevious = () => {
     if (selectedIndex !== null) {
       setSelectedIndex(selectedIndex === 0 ? images.length - 1 : selectedIndex - 1);
     }
   };
-  
+
   const goToNext = () => {
     if (selectedIndex !== null) {
       setSelectedIndex(selectedIndex === images.length - 1 ? 0 : selectedIndex + 1);
@@ -31,22 +35,6 @@ export function ImageGallery({ images, title }: ImageGalleryProps) {
     if (e.key === 'ArrowLeft') goToPrevious();
     if (e.key === 'ArrowRight') goToNext();
   };
-
-  // Lock body scroll when lightbox is open
-  useEffect(() => {
-    if (selectedIndex !== null) {
-      const scrollY = window.scrollY;
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = '100%';
-    } else {
-      const scrollY = document.body.style.top;
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      window.scrollTo(0, parseInt(scrollY || '0') * -1);
-    }
-  }, [selectedIndex]);
 
   if (images.length === 0) return null;
 
