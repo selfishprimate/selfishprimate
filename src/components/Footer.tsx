@@ -7,6 +7,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-border mt-32">
+      <h2 className="sr-only">Footer</h2>
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-[1.5fr_1fr_1fr_1fr] gap-12 md:gap-8">
           {/* Brand */}
@@ -43,107 +44,131 @@ export function Footer() {
 
           {/* Navigation */}
           <div>
-            <h4 className="font-sans text-xs uppercase text-text-tertiary mb-4">
+            <h3 className="font-sans text-xs uppercase text-text-tertiary mb-4">
               Navigation
-            </h4>
-            <nav className="flex flex-col gap-3">
-              <Link to="/work" className="text-text-secondary hover:text-accent transition-colors text-sm">
-                Work
-              </Link>
-              <Link to="/illustrations" className="text-text-secondary hover:text-accent transition-colors text-sm">
-                Illustrations
-              </Link>
-              <Link to="/articles" className="text-text-secondary hover:text-accent transition-colors text-sm">
-                Articles
-              </Link>
-              <Link to="/about" className="text-text-secondary hover:text-accent transition-colors text-sm">
-                About
-              </Link>
-              <Link to="/contact" className="text-text-secondary hover:text-accent transition-colors text-sm">
-                Contact
-              </Link>
-            </nav>
+            </h3>
+            <ul className="flex flex-col gap-1 list-none">
+              <li>
+                <Link to="/work" className="text-text-secondary hover:text-accent transition-colors text-sm">
+                  Works
+                </Link>
+              </li>
+              <li>
+                <Link to="/illustrations" className="text-text-secondary hover:text-accent transition-colors text-sm">
+                  Illustrations
+                </Link>
+              </li>
+              <li>
+                <Link to="/articles" className="text-text-secondary hover:text-accent transition-colors text-sm">
+                  Articles
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="text-text-secondary hover:text-accent transition-colors text-sm">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-text-secondary hover:text-accent transition-colors text-sm">
+                  Contact
+                </Link>
+              </li>
+            </ul>
           </div>
 
           {/* Projects */}
           <div>
-            <h4 className="font-sans text-xs uppercase text-text-tertiary mb-4">
+            <h3 className="font-sans text-xs uppercase text-text-tertiary mb-4">
               Projects
-            </h4>
-            <nav className="flex flex-col gap-3">
-              <a
-                href="https://sketchize.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-text-secondary hover:text-accent transition-colors text-sm group"
-              >
-                Sketchize
-                <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
-              <a
-                href="https://gerillass.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-text-secondary hover:text-accent transition-colors text-sm group"
-              >
-                Gerillass
-                <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
-              <a
-                href="https://github.com/selfishprimate/plain"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-text-secondary hover:text-accent transition-colors text-sm group"
-              >
-                Plain
-                <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
-              <a
-                href="https://plainify.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-text-secondary hover:text-accent transition-colors text-sm group"
-              >
-                Plainify
-                <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
-            </nav>
+            </h3>
+            <ul className="flex flex-col gap-1 list-none">
+              <li>
+                <a
+                  href="https://sketchize.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-text-secondary hover:text-accent transition-colors text-sm group"
+                >
+                  Sketchize
+                  <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://gerillass.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-text-secondary hover:text-accent transition-colors text-sm group"
+                >
+                  Gerillass
+                  <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/selfishprimate/plain"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-text-secondary hover:text-accent transition-colors text-sm group"
+                >
+                  Plain
+                  <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://plainify.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-text-secondary hover:text-accent transition-colors text-sm group"
+                >
+                  Plainify
+                  <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              </li>
+            </ul>
           </div>
 
           {/* Support */}
           <div>
-            <h4 className="font-sans text-xs uppercase text-text-tertiary mb-4">
+            <h3 className="font-sans text-xs uppercase text-text-tertiary mb-4">
               Support
-            </h4>
-            <nav className="flex flex-col gap-3">
-              <a
-                href="https://github.com/sponsors/selfishprimate"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-text-secondary hover:text-accent transition-colors text-sm group"
-              >
-                GitHub
-                <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
-              <a
-                href="https://patreon.com/selfishprimate"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-text-secondary hover:text-accent transition-colors text-sm group"
-              >
-                Patreon
-                <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
-              <a
-                href="https://buymeacoffee.com/selfishprimate"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-text-secondary hover:text-accent transition-colors text-sm group"
-              >
-                Buy Me A Coffee
-                <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
-            </nav>
+            </h3>
+            <ul className="flex flex-col gap-1 list-none">
+              <li>
+                <a
+                  href="https://github.com/sponsors/selfishprimate"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-text-secondary hover:text-accent transition-colors text-sm group"
+                >
+                  GitHub
+                  <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://patreon.com/selfishprimate"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-text-secondary hover:text-accent transition-colors text-sm group"
+                >
+                  Patreon
+                  <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://buymeacoffee.com/selfishprimate"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-text-secondary hover:text-accent transition-colors text-sm group"
+                >
+                  Buy Me A Coffee
+                  <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 

@@ -1,10 +1,9 @@
-import { motion } from 'framer-motion';
 import { getProjects } from '@/lib/projects';
 import { ProjectCard } from '@/components/ProjectCard';
 import { SectionHeading } from '@/components/SectionHeading';
 import { useSEO, generateTitle } from '@/hooks/useSEO';
 
-export function WorkPage() {
+export function WorksPage() {
   const allProjects = getProjects();
 
   useSEO({
@@ -15,18 +14,15 @@ export function WorkPage() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero */}
+      {/* Projects */}
       <section className="max-w-6xl mx-auto px-6 py-16 md:py-24">
         <SectionHeading
           label="Portfolio"
-          title="Selected Work"
+          title="Selected Works"
           description="A collection of projects I've worked on, showcasing my expertise in UI/UX design across various industries and platforms."
         />
-      </section>
 
-      {/* Projects Grid */}
-      <section className="max-w-6xl mx-auto px-6 pb-24">
-        <div className="grid md:grid-cols-2 gap-16">
+        <div className="grid md:grid-cols-2 gap-16 mt-16 md:mt-24">
           {allProjects.map((project, index) => (
             <ProjectCard
               key={project.slug}

@@ -6,7 +6,7 @@ import { siteConfig } from '@/lib/data';
 import { ThemeToggle } from './ThemeToggle';
 
 const navItems = [
-  { label: 'Work', path: '/work' },
+  { label: 'Works', path: '/work' },
   { label: 'Illustrations', path: '/illustrations' },
   { label: 'Articles', path: '/articles' },
   { label: 'About', path: '/about' },
@@ -51,19 +51,19 @@ export function Header() {
           isScrolled ? 'bg-surface/80 backdrop-blur-lg' : ''
         }`}
       >
-        <nav className="max-w-6xl mx-auto px-6 py-6">
+        <div className="max-w-6xl mx-auto px-6 py-6">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link to="/" className="group">
               <div className="flex flex-col items-start">
-                <div className="flex items-baseline">
+                <h1 className="flex items-baseline">
                   <span className="font-serif font-medium text-2xl text-text-primary" style={{ letterSpacing: '-0.03em' }}>
                     Selfish
                   </span>
                   <span className="font-serif italic font-semibold text-3xl text-accent">
                     primate
                   </span>
-                </div>
+                </h1>
                 <span className="hidden sm:block text-xs text-text-secondary/80 mt-0.5">
                   Portfolio of a technological caveman.
                 </span>
@@ -71,7 +71,8 @@ export function Header() {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-8">
+            <nav className="hidden md:flex items-center gap-8">
+              <h2 className="sr-only">Main Navigation</h2>
               {navItems.map((item) => (
                 <Link
                   key={item.path}
@@ -92,7 +93,7 @@ export function Header() {
                 </Link>
               ))}
               <ThemeToggle />
-            </div>
+            </nav>
 
             {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center gap-2">
@@ -109,7 +110,7 @@ export function Header() {
               </button>
             </div>
           </div>
-        </nav>
+        </div>
       </header>
 
       {/* Mobile Menu - Outside header for proper z-index stacking */}

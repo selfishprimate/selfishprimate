@@ -1,5 +1,5 @@
 export { HomePage } from './HomePage';
-export { WorkPage } from './WorkPage';
+export { WorksPage } from './WorksPage';
 export { ProjectPage } from './ProjectPage';
 export { AboutPage } from './AboutPage';
 export { ContactPage } from './ContactPage';

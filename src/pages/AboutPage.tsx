@@ -45,9 +45,9 @@ export function AboutPage() {
             <span className="text-xs font-sans uppercase text-text-tertiary">
               About Me
             </span>
-            <h1 className="mt-4 font-serif font-semibold text-4xl md:text-5xl text-text-primary">
+            <h2 className="mt-4 font-serif font-semibold text-4xl md:text-5xl text-text-primary">
               {siteConfig.name}
-            </h1>
+            </h2>
             <p className="mt-2 text-text-secondary text-lg">
               {siteConfig.title} · {siteConfig.location}
             </p>
@@ -94,6 +94,7 @@ export function AboutPage() {
 
       {/* Quote */}
       <section className="max-w-6xl mx-auto px-6 py-16">
+        <h2 className="sr-only">Quote</h2>
         <motion.blockquote
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -111,6 +112,7 @@ export function AboutPage() {
 
       {/* Skills & Domains */}
       <section className="max-w-6xl mx-auto px-6 py-16">
+        <h2 className="sr-only">Skills & Domains</h2>
         <div className="grid md:grid-cols-2 gap-16">
           {/* Skills */}
           <motion.div
@@ -118,9 +120,9 @@ export function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-serif font-semibold text-2xl text-text-primary mb-6">
+            <h3 className="font-serif font-semibold text-2xl text-text-primary mb-6">
               Skills & Tools
-            </h2>
+            </h3>
             <div className="flex flex-wrap gap-2">
               {skills.map((skill) => (
                 <span
@@ -140,9 +142,9 @@ export function AboutPage() {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <h2 className="font-serif font-semibold text-2xl text-text-primary mb-6">
+            <h3 className="font-serif font-semibold text-2xl text-text-primary mb-6">
               Industries & Domains
-            </h2>
+            </h3>
             <div className="flex flex-wrap gap-2">
               {domains.map((domain) => (
                 <span
@@ -165,54 +167,64 @@ export function AboutPage() {
         />
 
         <div className="mt-12 space-y-0">
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={exp.company + exp.period}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
-              className="group flex gap-6 py-8 border-b border-border"
-            >
-              {exp.logo && (
-                <div className="w-20 h-20 bg-border overflow-hidden flex-shrink-0">
-                  <img
-                    src={exp.logo}
-                    alt={exp.company}
-                    className="w-full h-full object-cover"
-                  />
+          {experiences.map((exp, index) => {
+            const content = (
+              <>
+                {exp.logo && (
+                  <div className="w-20 h-20 bg-border overflow-hidden flex-shrink-0">
+                    <img
+                      src={exp.logo}
+                      alt={exp.company}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
+                <div className="flex-1">
+                  <h3 className="inline-flex items-center gap-1.5 font-serif font-semibold text-xl text-text-primary group-hover:text-text-secondary transition-colors">
+                    {exp.company}
+                    {exp.url && <ArrowUpRight size={18} />}
+                  </h3>
+                  <p className="mt-1 text-text-secondary">
+                    {exp.role} · Full Time · {exp.period.replace(' — ', ' · ')}
+                  </p>
+                  <p className="mt-4 text-text-secondary leading-snug">
+                    {exp.description}
+                  </p>
+                  {exp.skills && exp.skills.length > 0 && (
+                    <p className="mt-4 text-text-tertiary text-sm">
+                      <span className="font-medium">Skills:</span> {exp.skills.join(', ')}
+                    </p>
+                  )}
                 </div>
-              )}
-              <div className="flex-1">
+              </>
+            );
+
+            return (
+              <motion.div
+                key={exp.company + exp.period}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                className="border-b border-border"
+              >
                 {exp.url ? (
                   <a
                     href={exp.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 font-serif font-semibold text-xl text-text-primary hover:text-text-secondary transition-colors"
+                    className="group flex gap-6 py-8"
                   >
-                    {exp.company}
-                    <ArrowUpRight size={18} />
+                    {content}
                   </a>
                 ) : (
-                  <h3 className="font-serif font-semibold text-xl text-text-primary">
-                    {exp.company}
-                  </h3>
+                  <div className="group flex gap-6 py-8">
+                    {content}
+                  </div>
                 )}
-                <p className="mt-1 text-text-secondary">
-                  {exp.role} · Full Time · {exp.period.replace(' — ', ' · ')}
-                </p>
-                <p className="mt-4 text-text-secondary leading-relaxed">
-                  {exp.description}
-                </p>
-                {exp.skills && exp.skills.length > 0 && (
-                  <p className="mt-4 text-text-tertiary text-sm">
-                    <span className="font-medium">Skills:</span> {exp.skills.join(', ')}
-                  </p>
-                )}
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </section>
 

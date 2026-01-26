@@ -91,7 +91,7 @@ export function ProjectPage() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="font-serif text-3xl text-text-primary mb-4">Project not found</h1>
+          <h2 className="font-serif text-3xl text-text-primary mb-4">Project not found</h2>
           <Link to="/work" className="text-text-secondary hover:text-text-primary transition-colors">
             ← Back to work
           </Link>
@@ -213,9 +213,9 @@ export function ProjectPage() {
           transition={{ delay: 0.1 }}
         >
           {/* Title */}
-          <h1 className="font-serif font-semibold text-3xl md:text-4xl lg:text-5xl text-text-primary max-w-4xl">
+          <h2 className="font-serif font-semibold text-3xl md:text-4xl lg:text-5xl text-text-primary max-w-4xl">
             {project.title}
-          </h1>
+          </h2>
 
           {/* Description */}
           <p className="mt-6 text-text-secondary text-lg leading-relaxed max-w-3xl">

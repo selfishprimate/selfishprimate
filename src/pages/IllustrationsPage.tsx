@@ -38,10 +38,8 @@ export function IllustrationsPage() {
           title="Illustrations"
           description="Personal artwork and creative explorations beyond UI/UX design."
         />
-      </section>
 
-      <section className="max-w-6xl mx-auto px-6 pb-24">
-        <div className="grid md:grid-cols-2 gap-16">
+        <div className="grid md:grid-cols-2 gap-16 mt-16 md:mt-24">
           {illustrations.map((illustration, index) => (
             <motion.div
               key={illustration.title}

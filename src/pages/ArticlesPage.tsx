@@ -19,10 +19,8 @@ export function ArticlesPage() {
           title="Articles"
           description="Thoughts on design, development, and the creative process."
         />
-      </section>
 
-      <section className="max-w-6xl mx-auto px-6 pb-24">
-        <div className="grid">
+        <div className="grid mt-16 md:mt-24">
           {articles.map((article, index) => (
             <motion.a
               key={article.url}
@@ -56,9 +54,9 @@ export function ArticlesPage() {
                     Medium
                   </span>
                 </div>
-                <h2 className="font-serif font-semibold text-xl md:text-2xl text-text-primary group-hover:text-text-secondary transition-colors">
+                <h3 className="font-serif font-semibold text-xl md:text-2xl text-text-primary group-hover:text-text-secondary transition-colors">
                   {article.title}
-                </h2>
+                </h3>
                 <p className="mt-3 text-text-secondary leading-relaxed">
                   {article.description}
                 </p>

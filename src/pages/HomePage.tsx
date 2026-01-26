@@ -87,7 +87,7 @@ export function HomePage() {
               to="/work"
               className="inline-flex items-center gap-2 px-6 py-3 bg-text-primary text-surface font-sans text-sm rounded-full hover:bg-text-secondary transition-colors"
             >
-              View My Work
+              View My Works
               <ArrowRight size={16} />
             </Link>
             <a
@@ -129,7 +129,7 @@ export function HomePage() {
             to="/work"
             className="hidden md:inline-flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors"
           >
-            View all work
+            View all works
             <ArrowRight size={16} />
           </Link>
         </div>
@@ -150,7 +150,7 @@ export function HomePage() {
             to="/work"
             className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors"
           >
-            View all work
+            View all works
             <ArrowRight size={16} />
           </Link>
         </div>
@@ -164,51 +164,61 @@ export function HomePage() {
         />
 
         <div className="grid max-w-3xl">
-          {experiences.slice(0, 4).map((exp, index) => (
-            <motion.div
-              key={exp.company + exp.period}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="group flex items-start gap-5 py-6 border-b border-border"
-            >
-              {exp.logo && (
-                <div className="w-16 h-16 bg-border overflow-hidden flex-shrink-0">
-                  <img
-                    src={exp.logo}
-                    alt={exp.company}
-                    className="w-full h-full object-cover"
-                  />
+          {experiences.slice(0, 4).map((exp, index) => {
+            const content = (
+              <>
+                {exp.logo && (
+                  <div className="w-16 h-16 bg-border overflow-hidden flex-shrink-0">
+                    <img
+                      src={exp.logo}
+                      alt={exp.company}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
+                <div>
+                  <h3 className="inline-flex items-center gap-1.5 font-serif font-semibold text-xl text-text-primary group-hover:text-text-secondary transition-colors">
+                    {exp.company}
+                    {exp.url && <ArrowUpRight size={18} />}
+                  </h3>
+                  <p className="mt-1 text-text-secondary">
+                    {exp.role} · Full Time · {exp.period.replace(' — ', ' · ')}
+                  </p>
+                  {exp.description && (
+                    <p className="mt-2 text-text-secondary text-sm leading-snug">
+                      {exp.description}
+                    </p>
+                  )}
                 </div>
-              )}
-              <div>
+              </>
+            );
+
+            return (
+              <motion.div
+                key={exp.company + exp.period}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="border-b border-border"
+              >
                 {exp.url ? (
                   <a
                     href={exp.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 font-serif font-semibold text-xl text-text-primary hover:text-text-secondary transition-colors"
+                    className="group flex items-start gap-5 py-6"
                   >
-                    {exp.company}
-                    <ArrowUpRight size={18} />
+                    {content}
                   </a>
                 ) : (
-                  <h3 className="font-serif font-semibold text-xl text-text-primary">
-                    {exp.company}
-                  </h3>
+                  <div className="group flex items-start gap-5 py-6">
+                    {content}
+                  </div>
                 )}
-                <p className="mt-1 text-text-secondary">
-                  {exp.role} · Full Time · {exp.period.replace(' — ', ' · ')}
-                </p>
-                {exp.description && (
-                  <p className="mt-2 text-text-secondary text-sm leading-relaxed">
-                    {exp.description}
-                  </p>
-                )}
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
 
         <motion.div
