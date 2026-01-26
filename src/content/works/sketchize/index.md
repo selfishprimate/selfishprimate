@@ -14,19 +14,19 @@ year: "2022"
 
 **The easiest way to turn your ideas into lovely sketches!**
 
-## Overview
+### Overview
 
 Sketchize is a free tool designed for UI/UX designers and anyone interested in design. It offers A4-sized, printable device templates for desktops, smartphones, and tablets, including sketchpad models. Templates are available in horizontal and vertical orientations with dotted and plain versions.
 
-## Why Sketchize?
+### Why Sketchize?
 
 As designers, we often start with pen and paper before moving to digital tools. Sketchize supports user-centered design, promotes rapid prototyping, and aims to contribute to the design community with free, accessible resources. I noticed that while there were many digital wireframing tools, there weren't many good resources for physical sketching with proper device frames and grids.
 
-## What's Inside?
+### What's Inside?
 
 The tool offers comprehensive template variety with orientation and style options, plus smartphone multi-layout configurations.
 
-## iPhone Templates
+### iPhone Templates
 
 Single, 2up, and 3up layouts available in plain and dotted grid versions. Landscape versions included for game designers.
 
@@ -35,7 +35,7 @@ Single, 2up, and 3up layouts available in plain and dotted grid versions. Landsc
 <figure src="./images/iphone-2up.jpg" alt="iPhone 2-up wireframe template">Two-up iPhone wireframe sheet for flow design</figure>
 </gallery>
 
-## Android Templates
+### Android Templates
 
 Galaxy S20 templates with single, double, and triple layouts. Plain and dotted grid options with landscape-rotated sheets available.
 
@@ -44,7 +44,7 @@ Galaxy S20 templates with single, double, and triple layouts. Plain and dotted g
 <figure src="./images/galaxy-2up.jpg" alt="Galaxy 2-up wireframe template">Two-up Galaxy wireframe sheet for flow design</figure>
 </gallery>
 
-## Smartwatch Templates
+### Smartwatch Templates
 
 Apple Watch and Galaxy Watch templates for wearable designs with single and 2-up layouts in plain and dotted grid versions.
 
@@ -53,7 +53,7 @@ Apple Watch and Galaxy Watch templates for wearable designs with single and 2-up
 <figure src="./images/galaxy-watch.jpg" alt="Galaxy Watch wireframe template">Galaxy Watch wireframe sheet with circular design focus</figure>
 </gallery>
 
-## Tablet & Desktop Templates
+### Tablet & Desktop Templates
 
 iPad Pro templates with single and 2-up layouts, plus desktop browser wireframes in portrait and landscape orientations.
 
@@ -62,7 +62,7 @@ iPad Pro templates with single and 2-up layouts, plus desktop browser wireframes
 <figure src="./images/desktop.jpg" alt="Desktop browser wireframe template">Browser wireframe sheet for web design</figure>
 </gallery>
 
-## E-Reader Templates
+### E-Reader Templates
 
 Kindle Paperwhite templates for e-reader app designs in plain and dotted versions.
 
@@ -70,7 +70,7 @@ Kindle Paperwhite templates for e-reader app designs in plain and dotted version
 <figure src="./images/kindle.jpg" alt="Kindle wireframe template">Kindle Paperwhite wireframe sheet for eBook interfaces</figure>
 </gallery>
 
-## Testimonials
+### Testimonials
 
 > "Sketchize has the square designs representing pixels template that can also suffice." — Sylvester Marquant
 
@@ -78,11 +78,11 @@ Kindle Paperwhite templates for e-reader app designs in plain and dotted version
 
 > "The smartphone sketch sheets will make it super easy for you to think and design user-centered mobile apps." — Mike Taylor
 
-## Community
+### Community
 
 Sketchize has been downloaded over 50,000 times and is used by designers and students worldwide. The project represents an open-source contribution to the design community.
 
-## Links
+### Links
 
 - [Sketchize Website](https://sketchize.com/)
 - [GitHub Repository](https://github.com/selfishprimate/sketchize)

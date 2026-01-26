@@ -12,11 +12,11 @@ year: "2021"
 
 > "Your old site is the best prototype of your new site." — Hoa Loranger
 
-## Overview
+### Overview
 
 The redesign focused on the desktop version, targeting the Home, About Us, and Reservation pages with emphasis on visual enhancement, usability improvements, and operational functionality.
 
-## Objectives
+### Objectives
 
 - Create an inviting, vibrant homepage to attract visitors
 - Integrate social media to boost engagement and credibility
@@ -25,7 +25,7 @@ The redesign focused on the desktop version, targeting the Home, About Us, and R
 - Reorganize information architecture for improved navigation
 - Embed the menu directly into the website for accessibility and search engine optimization
 
-## Homepage Design
+### Homepage Design
 
 The hero section was redesigned with atmospheric restaurant imagery emphasizing psychological impact through visual storytelling to establish warmth and connection. Social links were positioned prominently with user-generated content demonstrating positive customer experiences and establishing trust through social proof.
 
@@ -33,7 +33,7 @@ The hero section was redesigned with atmospheric restaurant imagery emphasizing 
 <figure src="./images/home.jpg" alt="Homepage design">Atmospheric hero section with social media integration and user-generated content</figure>
 </gallery>
 
-## Reservation Experience
+### Reservation Experience
 
 Enhanced visibility of the reservation button with alternative placement below the hero section. The restaurant partners with OpenTable for secure, instant confirmations.
 
@@ -41,7 +41,7 @@ Enhanced visibility of the reservation button with alternative placement below t
 <figure src="./images/reservation.jpg" alt="Reservation page">Prominent booking CTA with OpenTable integration for secure reservations</figure>
 </gallery>
 
-## About Us Page
+### About Us Page
 
 Location and contact details were relocated to the top bar for optimal device accessibility. Content was separated across multiple pages to reduce cognitive overload while improving organization, cleanliness, and search engine friendliness.
 
@@ -49,10 +49,10 @@ Location and contact details were relocated to the top bar for optimal device ac
 <figure src="./images/about-us.jpg" alt="About page">Reorganized content with accessible contact information</figure>
 </gallery>
 
-## Menu Integration
+### Menu Integration
 
 Replaced PDF files with embedded menu pages organized by category for improved accessibility and search optimization.
 
-## Typography & Imagery
+### Typography & Imagery
 
 The Barlow font family was used for readability and aesthetic cohesion. Stock images were employed temporarily pending final client collaboration.

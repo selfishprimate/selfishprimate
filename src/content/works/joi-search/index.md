@@ -12,11 +12,11 @@ year: "2023"
 
 > "A user interface is like a joke. If you have to explain it, it's not that good." — Martin LeBlanc
 
-## Overview
+### Overview
 
 The advanced search design aimed to improve user experience through key enhancements simplifying gift discovery and increasing engagement across desktop and mobile platforms.
 
-## Objectives
+### Objectives
 
 - Increase user focus and efficiency during search interactions
 - Reduce task load through quick access to recent searches
@@ -24,7 +24,7 @@ The advanced search design aimed to improve user experience through key enhancem
 - Enhance user retention through recently viewed products
 - Streamline search with autofill and smart suggestion features
 
-## Design Process
+### Design Process
 
 The design process followed four key stages:
 
@@ -34,7 +34,7 @@ The design process followed four key stages:
 - **Iteration:** Refinement based on user feedback
 - **UI Design:** High-fidelity mockups integrated with brand aesthetic
 
-## Backdrop Component
+### Backdrop Component
 
 The backdrop dims the background when users type, reducing distractions and enhancing focus on search queries.
 
@@ -42,7 +42,7 @@ The backdrop dims the background when users type, reducing distractions and enha
 <figure src="./images/backdrop.jpg" alt="Search focus backdrop">Dims background when users type, reducing distractions and enhancing focus</figure>
 </gallery>
 
-## Recent Searches
+### Recent Searches
 
 A section below the search box displays previous queries, reducing retype effort and encouraging repeated use.
 
@@ -50,7 +50,7 @@ A section below the search box displays previous queries, reducing retype effort
 <figure src="./images/recently-searched.jpg" alt="Recent searches list">Quick access to previous queries reduces typing effort</figure>
 </gallery>
 
-## Recently Viewed Products
+### Recently Viewed Products
 
 Showcases products users previously viewed, improving retention and shopping continuity.
 
@@ -58,7 +58,7 @@ Showcases products users previously viewed, improving retention and shopping con
 <figure src="./images/recently-viewed.jpg" alt="Recently viewed items">Product carousel enabling users to pick up where they left off</figure>
 </gallery>
 
-## Autofill and Related Products
+### Autofill and Related Products
 
 Predictive suggestions appear as users type, plus related product recommendations based on input, accelerating discovery.
 
@@ -66,7 +66,7 @@ Predictive suggestions appear as users type, plus related product recommendation
 <figure src="./images/autofill.jpg" alt="Search autofill suggestions">Predictive suggestions guide users toward relevant results faster</figure>
 </gallery>
 
-## Mobile Experience
+### Mobile Experience
 
 Mobile screens maintain desktop consistency while optimizing for mobile usability, seamlessly integrating key features for smooth browsing.
 
@@ -75,6 +75,6 @@ Mobile screens maintain desktop consistency while optimizing for mobile usabilit
 <figure src="./images/mobile-02.jpg" alt="Mobile search results">Consistent feature parity across all screen sizes</figure>
 </gallery>
 
-## Outcome
+### Outcome
 
 The implementation resulted in improved user experience with increased efficiency, satisfaction, higher engagement, and conversion rates. Social proof and intelligent suggestions guided users to relevant products effectively.

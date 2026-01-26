@@ -131,6 +131,14 @@ export const domains = [
 
 export const articles: Article[] = [
   {
+    title: "Could visiting a website soon stop being a necessity and turn into a hobby?",
+    description: "As AI agents handle shopping, research, and form-filling on our behalf, does it still matter how a website looks? Exploring the future of web design in an AI-driven world.",
+    date: "January 23, 2026",
+    url: "https://medium.com/design-bootcamp/could-visiting-a-website-soon-stop-being-a-necessity-and-turn-into-a-hobby-a0e3be9d5b05",
+    tags: ["Design", "Future", "UX Design"],
+    coverImage: "/images/articles/could-visiting-a-website-soon-stop-being-a-necessi.jpg"
+  },
+  {
     title: "Design in Figma is Dead, Long Live Design in Code!",
     description: "How AI-powered code generation tools are transforming design workflows by enabling designers to create directly in code editors rather than traditional design applications.",
     date: "November 25, 2025",
@@ -159,7 +167,8 @@ export const articles: Article[] = [
     description: "Why iterative, incremental design approaches lead to better outcomes than comprehensive upfront design.",
     date: "April 3, 2023",
     url: "https://medium.com/design-bootcamp/the-benefits-of-incrementalism-in-ui-ux-design-over-holistic-approach-fd2d33891244",
-    tags: ["UX Design", "Design Thinking", "Process"]
+    tags: ["UX Design", "Design Thinking", "Process"],
+    coverImage: "/images/articles/the-benefits-of-incrementalism-in-ui-ux-design-ove.jpg"
   },
   {
     title: "Streamline your CSS with Gerillass: A Sass library for efficient styling",

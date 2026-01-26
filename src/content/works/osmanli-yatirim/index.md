@@ -13,11 +13,11 @@ year: "2021"
 
 > "Good design, when it's done well, becomes invisible. It's only when it's done poorly that we notice it." — Jared Spool
 
-## Overview
+### Overview
 
 The initiative involved modernizing Osmanlı Yatırım Bank's data package trading platform for customer representatives. The objective was to streamline an aging, complex interface and reduce user cognitive burden while preserving comprehensive functionality.
 
-## Challenges
+### Challenges
 
 - Outdated and intricate existing platform hindering efficient navigation
 - Team lacked domain expertise in trading data packages
@@ -25,26 +25,26 @@ The initiative involved modernizing Osmanlı Yatırım Bank's data package tradi
 - Non-linear design requiring continuous feedback incorporation
 - Balancing development speed with rigorous testing protocols
 
-## Objectives
+### Objectives
 
 - Develop contemporary, uncluttered interface reducing cognitive strain
 - Integrate all sophisticated features without user overwhelm
 - Strengthen overall experience for micro-transaction support
 - Expedite development via pre-built design systems
 
-## Research Methodology
+### Research Methodology
 
 Competitive analysis examined industry standards. Regular collaborative sessions with bank representatives and stakeholders informed user flow development in Miro. Feedback-driven refinement ensured alignment with organizational requirements.
 
-## Ideation and Prototyping
+### Ideation and Prototyping
 
 Mid-fidelity screen creation preceded stakeholder consultation. Weekly design studio sessions facilitated team ideation. Continuous user representative testing validated design efficacy and informed iterative enhancements.
 
-## Design Approach
+### Design Approach
 
 Incrementalist Design methodology broke projects into testable micro-components. Material Design UI Component Library accelerated production timelines. Tools utilized: Adobe XD for design, Miro for workflows, Overflow for feedback, and Zeplin for developer handoff.
 
-## Home Dashboard
+### Home Dashboard
 
 The main dashboard provides an overview of key metrics and quick access to frequently used features.
 
@@ -52,7 +52,7 @@ The main dashboard provides an overview of key metrics and quick access to frequ
 <figure src="./images/home.jpg" alt="Trading dashboard">Main dashboard with key metrics and quick actions</figure>
 </gallery>
 
-## Search Functionality
+### Search Functionality
 
 Enhanced search allows representatives to quickly find specific data packages and customer information.
 
@@ -60,7 +60,7 @@ Enhanced search allows representatives to quickly find specific data packages an
 <figure src="./images/search.jpg" alt="Package search">Advanced search for data packages and customers</figure>
 </gallery>
 
-## Package Listing
+### Package Listing
 
 A clean, scannable list view makes it easy to browse and compare available packages.
 
@@ -68,7 +68,7 @@ A clean, scannable list view makes it easy to browse and compare available packa
 <figure src="./images/package-listing.jpg" alt="Package list view">Scannable list of available data packages</figure>
 </gallery>
 
-## Package Details
+### Package Details
 
 Detailed view showing comprehensive package information with clear visual hierarchy.
 
@@ -77,7 +77,7 @@ Detailed view showing comprehensive package information with clear visual hierar
 <figure src="./images/package-details-expanded.jpg" alt="Expanded package details">Detailed breakdown with expanded sections</figure>
 </gallery>
 
-## Package Cancellation
+### Package Cancellation
 
 Streamlined cancellation flow with clear confirmation steps to prevent accidental actions.
 
@@ -85,6 +85,6 @@ Streamlined cancellation flow with clear confirmation steps to prevent accidenta
 <figure src="./images/package-cancellation.jpg" alt="Cancellation flow">Confirmation dialog for package cancellation</figure>
 </gallery>
 
-## Conclusion
+### Conclusion
 
 Through systematic research, iterative methodology, and continuous validation, the team created an intuitive interface addressing original platform complexities while meeting stakeholder expectations.

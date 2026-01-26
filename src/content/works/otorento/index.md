@@ -13,11 +13,11 @@ year: "2022"
 
 > "Good design is actually harder to notice than poor design, because good designs fit our needs so well that the design becomes invisible." — Don Norman
 
-## Overview
+### Overview
 
 Otorento provides affordable and secure car rental services in Turkey through desktop and mobile platforms. My task involved analyzing the existing product, identifying functional elements, addressing problem areas, and creating a user-focused mobile application.
 
-## Simplified Search Interface
+### Simplified Search Interface
 
 The original app featured cluttered interfaces with limited user support. The redesigned search interface incorporates geolocation services, search history, and popular location suggestions to reduce cognitive load. By eliminating unnecessary design elements, users can focus on what matters most: finding and booking a car.
 
@@ -25,7 +25,7 @@ The original app featured cluttered interfaces with limited user support. The re
 <figure src="./images/search-location.jpg" alt="Location search interface">Streamlined search with geolocation, recent searches, and popular locations</figure>
 </gallery>
 
-## Calendar Selection
+### Calendar Selection
 
 The calendar selection for pickup and return dates includes top navigation feedback to encourage task completion. Users can clearly see their selected dates and easily modify their choices.
 
@@ -33,7 +33,7 @@ The calendar selection for pickup and return dates includes top navigation feedb
 <figure src="./images/booking-calendar.jpg" alt="Date selection calendar">Pickup and return date selection with clear visual feedback</figure>
 </gallery>
 
-## Smart Filtering & Search Results
+### Smart Filtering & Search Results
 
 A horizontal-scrolling smart filter system was implemented as a simplified alternative to complex filtering. This approach addresses limited development resources while covering essential options like fuel type, vehicle body, and transmission.
 
@@ -41,7 +41,7 @@ A horizontal-scrolling smart filter system was implemented as a simplified alter
 <figure src="./images/search-results.jpg" alt="Car search results">Available vehicles with horizontal-scrolling filter bar</figure>
 </gallery>
 
-## Account Management
+### Account Management
 
 The system enables basic functionality access without registration, allowing users to check reservations without logging in. This reduces friction for first-time users while still providing full features for registered members.
 
@@ -49,7 +49,7 @@ The system enables basic functionality access without registration, allowing use
 <figure src="./images/my-account.jpg" alt="Account dashboard">Account access with reservation checking capability</figure>
 </gallery>
 
-## Streamlined Registration
+### Streamlined Registration
 
 Registration was streamlined using one-time passwords sent via SMS for quick account creation. This approach minimizes the steps required to create an account while maintaining security.
 

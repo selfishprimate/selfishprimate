@@ -12,23 +12,23 @@ year: "2023"
 
 > "Good design, when it's done well, becomes invisible. It's only when it's done poorly that we notice it." — Jared Spool
 
-## Overview
+### Overview
 
 I was tasked with resolving UX issues in a tablet-based vehicle inspection web application used by car inspectors. The goal involved identifying pain points and streamlining the inspection workflow to enhance efficiency and user satisfaction.
 
-## Objectives
+### Objectives
 
 - Identify and resolve usability issues
 - Streamline the inspection process for efficiency
 - Create user-friendly interface meeting inspector needs
 
-## Research
+### Research
 
 To understand the pain points and usability issues, I began by meeting with the vehicle inspectors. I listened to their pain points and gathered their ideas for improvement.
 
 Research methodology included direct inspector interviews, observational studies, competitive analysis, and gathering feedback on previous experiences with similar applications.
 
-### Key Research Findings
+#### Key Research Findings
 
 1. **Search functionality gap:** Inspectors struggled locating checkpoints; solution implemented global search feature from main menu
 
@@ -46,19 +46,19 @@ Research methodology included direct inspector interviews, observational studies
 
 8. **Option discovery:** Non-alphabetical listing hindered quick access; alphabetized all options
 
-## Ideation and Prototyping
+### Ideation and Prototyping
 
 I created mid-fidelity prototypes based on research, tested with inspectors iteratively, and refined designs through feedback cycles.
 
-## Challenges
+### Challenges
 
 Two major obstacles emerged: developing genuine understanding of inspector workflows through extended observation and interaction, and managing the legacy codebase (no reusable components, disorganized design files, absence of design tokens).
 
-## Design Approach
+### Design Approach
 
 Used Continuous Discovery methodology, focusing on minimal viable elements delivered in shippable increments (checkpoint updates, UI refinements, feature additions) to gather early feedback.
 
-## Native Radio Buttons
+### Native Radio Buttons
 
 Enhanced usability and performance with Material Design radio buttons, mitigating fat finger interaction issues.
 
@@ -66,7 +66,7 @@ Enhanced usability and performance with Material Design radio buttons, mitigatin
 <figure src="./images/radio-buttons.jpg" alt="Radio button components">Material Design radio buttons for improved usability and reduced interaction errors</figure>
 </gallery>
 
-## Native Checkboxes
+### Native Checkboxes
 
 Streamlined interactions with Material Design checkboxes while minimizing fat finger errors.
 
@@ -74,7 +74,7 @@ Streamlined interactions with Material Design checkboxes while minimizing fat fi
 <figure src="./images/checkboxes.jpg" alt="Checkbox components">Streamlined checkbox interactions for multi-option selection</figure>
 </gallery>
 
-## Dropdown Menus
+### Dropdown Menus
 
 Enabled color specification through dropdown interfaces for efficient data entry in limited screen space.
 
@@ -82,7 +82,7 @@ Enabled color specification through dropdown interfaces for efficient data entry
 <figure src="./images/dropdown.jpg" alt="Dropdown menu">Compact dropdown for efficient color specification</figure>
 </gallery>
 
-## Color Selection
+### Color Selection
 
 Added checkbox feature allowing inspectors to indicate two-color vehicles with corresponding dropdown menus for accurate representation. Combined color labels with color boxes to support inspectors with color blindness or visual impairments.
 
@@ -90,7 +90,7 @@ Added checkbox feature allowing inspectors to indicate two-color vehicles with c
 <figure src="./images/color-selection.jpg" alt="Vehicle color picker">Accessible color selection with labels supporting visual impairments</figure>
 </gallery>
 
-## Accordion Organization
+### Accordion Organization
 
 Grouped options under relevant accordion menus reducing cognitive load for locating car parts.
 
@@ -98,7 +98,7 @@ Grouped options under relevant accordion menus reducing cognitive load for locat
 <figure src="./images/accordion.jpg" alt="Accordion navigation">Collapsible sections reducing cognitive load when locating parts</figure>
 </gallery>
 
-## Global Search
+### Global Search
 
 Enabled effortless vehicle part location throughout the application regardless of current location.
 
@@ -106,7 +106,7 @@ Enabled effortless vehicle part location throughout the application regardless o
 <figure src="./images/global-search.jpg" alt="Global search feature">Search across all inspection sections from anywhere in the app</figure>
 </gallery>
 
-## Selective Photo Capture
+### Selective Photo Capture
 
 Implemented photo documentation exclusively for vehicle parts requiring photographic evidence, saving significant time.
 
@@ -114,7 +114,7 @@ Implemented photo documentation exclusively for vehicle parts requiring photogra
 <figure src="./images/photo-capturing.jpg" alt="Photo capture interface">Guided photo capture only for parts requiring documentation</figure>
 </gallery>
 
-## Impact
+### Impact
 
 The updates aimed to improve usability, functionality, and efficiency using native design components (checkboxes, radio buttons, inputs). Results achieved approximately 5-10 minute savings per inspection:
 

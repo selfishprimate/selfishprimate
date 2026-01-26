@@ -12,11 +12,11 @@ year: "2022"
 
 > "People ignore design that ignores people." — Frank Chimero
 
-## Overview
+### Overview
 
 This project presents a modern paywall design for Interesting Engineering, built on Google Material Design System principles with two alternative screen approaches.
 
-## Design Alternative 1: Integrated Web Format
+### Design Alternative 1: Integrated Web Format
 
 The first design integrates Material Design into standard web formatting with a sleek header, intuitive navigational bar leading to subcategories, and strategically placed elements like search, subscribe, and sign-in buttons. This approach prioritizes simplicity and transaction ease.
 
@@ -24,11 +24,11 @@ The first design integrates Material Design into standard web formatting with a 
 <figure src="./images/paywall-as-static-page.png" alt="Integrated paywall design">Built upon Material Design components, this approach showcases the power of simplicity, allowing users to complete transactions with unparalleled ease</figure>
 </gallery>
 
-## Design Alternative 2: Minimalist Popup
+### Design Alternative 2: Minimalist Popup
 
 The second design embraces minimalism by stripping away extraneous elements and presenting a focused popup experience. This strategy eliminates distractions to concentrate users on entering payment information.
 
-## Design Principles
+### Design Principles
 
 Both solutions follow Material Design principles while prioritizing:
 - Navigation clarity

@@ -12,15 +12,15 @@ year: "2020"
 
 > "The details are not the details. They make the design." — Charles Eames
 
-## Overview
+### Overview
 
 The objective was to conduct a design evaluation identifying usability problems, then redesign the filtering system for ease of use, efficiency, predictability, and user appeal.
 
-## Design Approach
+### Design Approach
 
 The design prioritized simplicity and clarity for diverse user needs, creating a prominent Sort and Filter button while improving surrounding spacing consistency.
 
-## Organized Filter Sections
+### Organized Filter Sections
 
 Individual filtering sections were separated to help users focus on specific criteria without overwhelm. The uncluttered approach enables efficient search narrowing.
 
@@ -28,7 +28,7 @@ Individual filtering sections were separated to help users focus on specific cri
 <figure src="./images/filtering-sections.jpg" alt="Filter sections">Organized filter categories helping users focus on specific criteria</figure>
 </gallery>
 
-## Material Design Implementation
+### Material Design Implementation
 
 Familiar components including radio buttons, checkboxes, and sliders were incorporated to create intuitive interfaces that build user trust.
 
@@ -36,7 +36,7 @@ Familiar components including radio buttons, checkboxes, and sliders were incorp
 <figure src="./images/material-design.jpg" alt="Material Design controls">Radio buttons and checkboxes following Material Design for intuitive interactions</figure>
 </gallery>
 
-## Accessibility Enhancements
+### Accessibility Enhancements
 
 - Color contrast enhanced for vision-impaired users
 - Descriptive text added below the Apply button to clarify selected filters
@@ -47,6 +47,6 @@ Familiar components including radio buttons, checkboxes, and sliders were incorp
 <figure src="./images/color-boxes.jpg" alt="Accessible color selection">Color swatches with descriptive text labels supporting colorblind users</figure>
 </gallery>
 
-## Conclusion
+### Conclusion
 
 The redesigned interface integrates familiar components with user-centric design, aiming to enhance engagement and improve the shopping experience through task-oriented simplification.
