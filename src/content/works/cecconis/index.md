@@ -6,7 +6,7 @@ category: "Web Design"
 tags: ["Restaurant", "Web Design", "UX Design", "Hospitality"]
 coverImage: "./images/cover.jpg"
 images: []
-featured: false
+order: 10
 year: "2021"
 ---
 

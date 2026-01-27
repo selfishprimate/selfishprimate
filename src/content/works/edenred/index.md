@@ -6,7 +6,7 @@ category: "Mobile App Design"
 tags: ["Digital Wallet", "Payment Systems", "NFC", "QR Code", "Fintech", "AR"]
 coverImage: "./images/cover.jpg"
 images: []
-featured: false
+order: 3
 year: "2020"
 ---
 

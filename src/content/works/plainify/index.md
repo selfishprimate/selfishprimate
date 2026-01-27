@@ -6,9 +6,10 @@ category: "Web Application"
 tags: ["AI Tools", "Product Specifications", "Developer Tools", "Open Source"]
 coverImage: "./images/cover.jpg"
 images: []
+order: 1
+year: "2026"
 featured: true
 featuredOrder: 1
-year: "2024"
 ---
 
 Plainify is a product specification tool built to generate AI-ready spec files. I built it to transform fragmented product ideas into structured, machine-readable documentation, ensuring AI agents have the perfect context to build complete, production-ready applications.

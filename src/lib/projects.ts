@@ -131,14 +131,21 @@ export function getProjects(): Project[] {
       images,
       featured: data.featured as boolean || false,
       featuredOrder: data.featuredOrder as number | undefined,
+      order: data.order ? parseInt(data.order as string) : undefined,
       year: data.year as string || '',
       content: markdownContent,
     });
   }
 
+  // Sort by order (ascending), then by year (descending) for items without order
   return projects.sort((a, b) => {
-    if (a.featured && !b.featured) return -1;
-    if (!a.featured && b.featured) return 1;
+    // Items with order come first, sorted by order ascending
+    if (a.order !== undefined && b.order !== undefined) {
+      return a.order - b.order;
+    }
+    if (a.order !== undefined) return -1;
+    if (b.order !== undefined) return 1;
+    // Items without order sorted by year descending
     return parseInt(b.year) - parseInt(a.year);
   });
 }

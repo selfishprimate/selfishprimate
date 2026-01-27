@@ -9,6 +9,7 @@ export interface Project {
   images: string[];
   featured: boolean;
   featuredOrder?: number;
+  order?: number;
   year: string;
   content: string;
 }

@@ -6,9 +6,10 @@ category: "FinTech"
 tags: ["FinTech", "Banking", "Web App", "Enterprise UX"]
 coverImage: "./images/cover.jpg"
 images: []
+order: 9
+year: "2021"
 featured: true
 featuredOrder: 3
-year: "2021"
 ---
 
 > "Good design, when it's done well, becomes invisible. It's only when it's done poorly that we notice it." — Jared Spool

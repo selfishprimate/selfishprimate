@@ -6,7 +6,7 @@ category: "UI Design"
 tags: ["Paywall", "Subscription UI", "Payment Form", "Material Design"]
 coverImage: "./images/cover.jpg"
 images: []
-featured: false
+order: 12
 year: "2022"
 ---
 

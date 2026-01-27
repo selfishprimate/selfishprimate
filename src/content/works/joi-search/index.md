@@ -6,7 +6,7 @@ category: "UI/UX Design"
 tags: ["Search UX", "Smart Suggestions", "E-commerce", "Mobile Design"]
 coverImage: "./images/cover.jpg"
 images: []
-featured: false
+order: 4
 year: "2023"
 ---
 
