@@ -10,22 +10,32 @@ interface ImageGalleryProps {
 
 export function ImageGallery({ images, title }: ImageGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [isZoomed, setIsZoomed] = useState(false);
+  const isTouchDevice = typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0);
 
   // Lock body scroll when lightbox is open
   useBodyScrollLock(selectedIndex !== null);
 
-  const openLightbox = (index: number) => setSelectedIndex(index);
-  const closeLightbox = () => setSelectedIndex(null);
+  const openLightbox = (index: number) => {
+    setSelectedIndex(index);
+    setIsZoomed(false);
+  };
+  const closeLightbox = () => {
+    setSelectedIndex(null);
+    setIsZoomed(false);
+  };
 
   const goToPrevious = () => {
     if (selectedIndex !== null) {
       setSelectedIndex(selectedIndex === 0 ? images.length - 1 : selectedIndex - 1);
+      setIsZoomed(false);
     }
   };
 
   const goToNext = () => {
     if (selectedIndex !== null) {
       setSelectedIndex(selectedIndex === images.length - 1 ? 0 : selectedIndex + 1);
+      setIsZoomed(false);
     }
   };
 
@@ -85,16 +95,35 @@ export function ImageGallery({ images, title }: ImageGalleryProps) {
 
             {/* Image Area */}
             <div
-              className="flex-1 flex items-center justify-center p-4"
-              onClick={closeLightbox}
+              className={`flex-1 ${isZoomed ? 'overflow-auto scrollbar-hide' : 'flex items-center justify-center overflow-hidden'}`}
+              onClick={(e) => {
+                if (e.target === e.currentTarget) {
+                  isZoomed ? setIsZoomed(false) : closeLightbox();
+                }
+              }}
             >
-              <img
-                src={images[selectedIndex]}
-                alt={`${title} - Image ${selectedIndex + 1}`}
-                className="max-w-[92vw] max-h-[calc(100vh-8rem)] object-contain"
-                onClick={(e) => e.stopPropagation()}
-                draggable={false}
-              />
+              {isZoomed ? (
+                <div className="inline-block p-4">
+                  <img
+                    src={images[selectedIndex]}
+                    alt={`${title} - Image ${selectedIndex + 1}`}
+                    className="w-[130vw] h-auto cursor-zoom-out"
+                    onClick={() => setIsZoomed(false)}
+                    draggable={false}
+                  />
+                </div>
+              ) : (
+                <img
+                  src={images[selectedIndex]}
+                  alt={`${title} - Image ${selectedIndex + 1}`}
+                  className={`max-w-[92vw] max-h-[calc(100vh-8rem)] object-contain ${!isTouchDevice ? 'cursor-zoom-in' : ''}`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (!isTouchDevice) setIsZoomed(true);
+                  }}
+                  draggable={false}
+                />
+              )}
             </div>
 
             {/* Bottom Navigation - Sticky */}

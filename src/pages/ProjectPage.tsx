@@ -15,6 +15,8 @@ export function ProjectPage() {
   const allProjects = getProjects();
 
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [isZoomed, setIsZoomed] = useState(false);
+  const isTouchDevice = typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0);
 
   useSEO({
     title: generateTitle('Works', project?.title),
@@ -60,18 +62,26 @@ export function ProjectPage() {
   // Lock body scroll when lightbox is open
   useBodyScrollLock(lightboxIndex !== null);
 
-  const openLightbox = (index: number) => setLightboxIndex(index);
-  const closeLightbox = () => setLightboxIndex(null);
+  const openLightbox = (index: number) => {
+    setLightboxIndex(index);
+    setIsZoomed(false);
+  };
+  const closeLightbox = () => {
+    setLightboxIndex(null);
+    setIsZoomed(false);
+  };
 
   const goToPrevious = () => {
     if (lightboxIndex !== null) {
       setLightboxIndex(lightboxIndex === 0 ? allImages.length - 1 : lightboxIndex - 1);
+      setIsZoomed(false);
     }
   };
 
   const goToNext = () => {
     if (lightboxIndex !== null) {
       setLightboxIndex(lightboxIndex === allImages.length - 1 ? 0 : lightboxIndex + 1);
+      setIsZoomed(false);
     }
   };
 
@@ -364,16 +374,35 @@ export function ProjectPage() {
 
             {/* Image Area */}
             <div
-              className="flex-1 flex items-center justify-center p-4"
-              onClick={closeLightbox}
+              className={`flex-1 ${isZoomed ? 'overflow-auto scrollbar-hide' : 'flex items-center justify-center overflow-hidden'}`}
+              onClick={(e) => {
+                if (e.target === e.currentTarget) {
+                  isZoomed ? setIsZoomed(false) : closeLightbox();
+                }
+              }}
             >
-              <img
-                src={allImages[lightboxIndex]?.src}
-                alt={allImages[lightboxIndex]?.alt || `${project.title} - Image ${lightboxIndex + 1}`}
-                className="max-w-[92vw] max-h-[calc(100vh-8rem)] object-contain"
-                onClick={(e) => e.stopPropagation()}
-                draggable={false}
-              />
+              {isZoomed ? (
+                <div className="inline-block p-4">
+                  <img
+                    src={allImages[lightboxIndex]?.src}
+                    alt={allImages[lightboxIndex]?.alt || `${project.title} - Image ${lightboxIndex + 1}`}
+                    className="w-[130vw] h-auto cursor-zoom-out"
+                    onClick={() => setIsZoomed(false)}
+                    draggable={false}
+                  />
+                </div>
+              ) : (
+                <img
+                  src={allImages[lightboxIndex]?.src}
+                  alt={allImages[lightboxIndex]?.alt || `${project.title} - Image ${lightboxIndex + 1}`}
+                  className={`max-w-[92vw] max-h-[calc(100vh-8rem)] object-contain ${!isTouchDevice ? 'cursor-zoom-in' : ''}`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (!isTouchDevice) setIsZoomed(true);
+                  }}
+                  draggable={false}
+                />
+              )}
             </div>
 
             {/* Bottom Navigation - Sticky */}
