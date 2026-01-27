@@ -109,7 +109,7 @@ export function IllustrationsPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-surface/95 flex flex-col"
+            className="fixed inset-0 z-50 bg-neutral-950/95 flex flex-col"
             onClick={closeLightbox}
           >
             {/* Close button */}
@@ -123,7 +123,7 @@ export function IllustrationsPage() {
 
             {/* Image Area */}
             <div
-              className={`flex-1 ${isZoomed ? 'overflow-auto scrollbar-hide' : 'flex items-center justify-center overflow-hidden'}`}
+              className={`flex-1 ${isZoomed ? 'overflow-auto scrollbar-hide' : 'flex items-center justify-center overflow-hidden pt-12'}`}
               onClick={(e) => {
                 if (e.target === e.currentTarget) {
                   isZoomed ? setIsZoomed(false) : closeLightbox();
@@ -157,7 +157,7 @@ export function IllustrationsPage() {
             {/* Bottom Navigation */}
             {illustrations.length > 1 && (
               <div
-                className="sticky bottom-0 left-0 right-0 flex items-center justify-center py-4 bg-surface/90 backdrop-blur-sm"
+                className="sticky bottom-0 left-0 right-0 flex items-center justify-center py-4"
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="flex items-center gap-4">
