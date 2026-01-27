@@ -49,7 +49,7 @@ export function Footer() {
             </h3>
             <ul className="flex flex-col gap-1 list-none">
               <li>
-                <Link to="/work" className="text-text-secondary hover:text-accent transition-colors text-sm">
+                <Link to="/works" className="text-text-secondary hover:text-accent transition-colors text-sm">
                   Works
                 </Link>
               </li>

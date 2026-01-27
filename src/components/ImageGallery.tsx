@@ -10,22 +10,32 @@ interface ImageGalleryProps {
 
 export function ImageGallery({ images, title }: ImageGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [isZoomed, setIsZoomed] = useState(false);
 
   // Lock body scroll when lightbox is open
   useBodyScrollLock(selectedIndex !== null);
 
-  const openLightbox = (index: number) => setSelectedIndex(index);
-  const closeLightbox = () => setSelectedIndex(null);
+  const openLightbox = (index: number) => {
+    setSelectedIndex(index);
+    setIsZoomed(false);
+  };
+  const closeLightbox = () => {
+    setSelectedIndex(null);
+    setIsZoomed(false);
+  };
+  const toggleZoom = () => setIsZoomed(!isZoomed);
 
   const goToPrevious = () => {
     if (selectedIndex !== null) {
       setSelectedIndex(selectedIndex === 0 ? images.length - 1 : selectedIndex - 1);
+      setIsZoomed(false);
     }
   };
 
   const goToNext = () => {
     if (selectedIndex !== null) {
       setSelectedIndex(selectedIndex === images.length - 1 ? 0 : selectedIndex + 1);
+      setIsZoomed(false);
     }
   };
 
@@ -69,7 +79,7 @@ export function ImageGallery({ images, title }: ImageGalleryProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-text-primary/95 flex items-center justify-center"
+            className="fixed inset-0 z-50 bg-text-primary/95 flex flex-col"
             onClick={closeLightbox}
             onKeyDown={handleKeyDown}
             tabIndex={0}
@@ -77,48 +87,69 @@ export function ImageGallery({ images, title }: ImageGalleryProps) {
             {/* Close button */}
             <button
               onClick={closeLightbox}
-              className="absolute top-6 right-6 w-12 h-12 flex items-center justify-center text-surface/80 hover:text-surface transition-colors"
+              className="absolute top-6 right-6 z-10 w-12 h-12 flex items-center justify-center text-surface/80 hover:text-surface transition-colors"
               aria-label="Close lightbox"
             >
               <X size={28} />
             </button>
 
-            {/* Image */}
-            <motion.img
-              key={selectedIndex}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.2 }}
-              src={images[selectedIndex]}
-              alt={`${title} - Image ${selectedIndex + 1}`}
-              className="max-w-[90vw] max-h-[80vh] object-contain"
-              onClick={(e) => e.stopPropagation()}
-            />
+            {/* Image Area */}
+            <div
+              className={`flex-1 scrollbar-hide ${
+                isZoomed
+                  ? 'overflow-auto cursor-grab active:cursor-grabbing'
+                  : 'overflow-hidden flex items-center justify-center'
+              }`}
+              onClick={(e) => {
+                if (e.target === e.currentTarget) closeLightbox();
+              }}
+            >
+              <motion.img
+                key={selectedIndex}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.2 }}
+                src={images[selectedIndex]}
+                alt={`${title} - Image ${selectedIndex + 1}`}
+                className={`${
+                  isZoomed
+                    ? 'max-w-[105vw] cursor-zoom-out'
+                    : 'max-w-[90vw] max-h-[calc(100vh-8rem)] object-contain cursor-zoom-in'
+                }`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleZoom();
+                }}
+                draggable={false}
+              />
+            </div>
 
-            {/* Bottom Navigation */}
+            {/* Bottom Navigation - Sticky */}
             {images.length > 1 && (
               <div
-                className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-4"
+                className="sticky bottom-0 left-0 right-0 flex items-center justify-center py-4 bg-text-primary/90 backdrop-blur-sm"
                 onClick={(e) => e.stopPropagation()}
               >
-                <button
-                  onClick={goToPrevious}
-                  className="w-10 h-10 flex items-center justify-center text-surface/60 hover:text-surface transition-colors"
-                  aria-label="Previous image"
-                >
-                  <ChevronLeft size={24} />
-                </button>
-                <span className="text-surface/60 text-sm font-sans min-w-[3rem] text-center">
-                  {selectedIndex + 1} / {images.length}
-                </span>
-                <button
-                  onClick={goToNext}
-                  className="w-10 h-10 flex items-center justify-center text-surface/60 hover:text-surface transition-colors"
-                  aria-label="Next image"
-                >
-                  <ChevronRight size={24} />
-                </button>
+                <div className="flex items-center gap-4">
+                  <button
+                    onClick={goToPrevious}
+                    className="w-10 h-10 flex items-center justify-center text-surface/60 hover:text-surface transition-colors"
+                    aria-label="Previous image"
+                  >
+                    <ChevronLeft size={24} />
+                  </button>
+                  <span className="text-surface/60 text-sm font-sans min-w-[3rem] text-center">
+                    {selectedIndex + 1} / {images.length}
+                  </span>
+                  <button
+                    onClick={goToNext}
+                    className="w-10 h-10 flex items-center justify-center text-surface/60 hover:text-surface transition-colors"
+                    aria-label="Next image"
+                  >
+                    <ChevronRight size={24} />
+                  </button>
+                </div>
               </div>
             )}
           </motion.div>

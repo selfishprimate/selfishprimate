@@ -20,7 +20,7 @@ export function ProjectCard({ project, index, variant = 'default' }: ProjectCard
       transition={{ duration: 0.6, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
     >
       <Link
-        to={`/work/${project.slug}`}
+        to={`/works/${project.slug}`}
         className={`group block ${isFeatured ? '' : ''}`}
       >
         {/* Image Container */}

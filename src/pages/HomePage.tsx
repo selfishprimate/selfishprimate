@@ -84,7 +84,7 @@ export function HomePage() {
             className="mt-10 flex flex-wrap gap-4"
           >
             <Link
-              to="/work"
+              to="/works"
               className="inline-flex items-center gap-2 px-6 py-3 bg-text-primary text-surface font-sans text-sm rounded-full hover:bg-text-secondary transition-colors"
             >
               View My Works
@@ -126,7 +126,7 @@ export function HomePage() {
             title="Featured Projects"
           />
           <Link
-            to="/work"
+            to="/works"
             className="hidden md:inline-flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors"
           >
             View all works
@@ -147,7 +147,7 @@ export function HomePage() {
 
         <div className="mt-12 md:hidden">
           <Link
-            to="/work"
+            to="/works"
             className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors"
           >
             View all works

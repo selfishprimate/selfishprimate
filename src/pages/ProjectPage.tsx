@@ -15,6 +15,7 @@ export function ProjectPage() {
   const allProjects = getProjects();
 
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [isZoomed, setIsZoomed] = useState(false);
 
   useSEO({
     title: generateTitle('Works', project?.title),
@@ -60,18 +61,27 @@ export function ProjectPage() {
   // Lock body scroll when lightbox is open
   useBodyScrollLock(lightboxIndex !== null);
 
-  const openLightbox = (index: number) => setLightboxIndex(index);
-  const closeLightbox = () => setLightboxIndex(null);
+  const openLightbox = (index: number) => {
+    setLightboxIndex(index);
+    setIsZoomed(false);
+  };
+  const closeLightbox = () => {
+    setLightboxIndex(null);
+    setIsZoomed(false);
+  };
+  const toggleZoom = () => setIsZoomed(!isZoomed);
 
   const goToPrevious = () => {
     if (lightboxIndex !== null) {
       setLightboxIndex(lightboxIndex === 0 ? allImages.length - 1 : lightboxIndex - 1);
+      setIsZoomed(false);
     }
   };
 
   const goToNext = () => {
     if (lightboxIndex !== null) {
       setLightboxIndex(lightboxIndex === allImages.length - 1 ? 0 : lightboxIndex + 1);
+      setIsZoomed(false);
     }
   };
 
@@ -80,7 +90,7 @@ export function ProjectPage() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h2 className="font-serif text-3xl text-text-primary mb-4">Project not found</h2>
-          <Link to="/work" className="text-text-secondary hover:text-text-primary transition-colors">
+          <Link to="/works" className="text-text-secondary hover:text-text-primary transition-colors">
             ← Back to work
           </Link>
         </div>
@@ -265,7 +275,7 @@ export function ProjectPage() {
         <div className="grid md:grid-cols-2 gap-8">
           {/* Previous */}
           <Link
-            to={`/work/${prevProject.slug}`}
+            to={`/works/${prevProject.slug}`}
             className="group"
           >
             <span className="inline-flex items-center gap-2 text-xs font-sans uppercase text-text-tertiary">
@@ -282,7 +292,7 @@ export function ProjectPage() {
 
           {/* Next */}
           <Link
-            to={`/work/${nextProject.slug}`}
+            to={`/works/${nextProject.slug}`}
             className="group text-right"
           >
             <span className="inline-flex items-center justify-end gap-2 text-xs font-sans uppercase text-text-tertiary">
@@ -330,64 +340,77 @@ export function ProjectPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-text-primary/95 flex items-center justify-center"
+            className="fixed inset-0 z-50 bg-text-primary/95 flex flex-col"
             onClick={closeLightbox}
           >
             {/* Close button */}
             <button
               onClick={closeLightbox}
-              className="absolute top-6 right-6 w-12 h-12 flex items-center justify-center text-surface/80 hover:text-surface transition-colors"
+              className="absolute top-6 right-6 z-10 w-12 h-12 flex items-center justify-center text-surface/80 hover:text-surface transition-colors"
               aria-label="Close lightbox"
             >
               <X size={28} />
             </button>
 
-            {/* Navigation */}
-            {allImages.length > 1 && (
-              <>
-                <button
-                  onClick={(e) => { e.stopPropagation(); goToPrevious(); }}
-                  className="absolute left-6 w-12 h-12 flex items-center justify-center text-surface/80 hover:text-surface transition-colors"
-                  aria-label="Previous image"
-                >
-                  <ChevronLeft size={32} />
-                </button>
-                <button
-                  onClick={(e) => { e.stopPropagation(); goToNext(); }}
-                  className="absolute right-6 w-12 h-12 flex items-center justify-center text-surface/80 hover:text-surface transition-colors"
-                  aria-label="Next image"
-                >
-                  <ChevronRight size={32} />
-                </button>
-              </>
-            )}
-
-            {/* Image */}
-            <motion.figure
-              key={lightboxIndex}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.2 }}
-              className="flex flex-col items-center"
-              onClick={(e) => e.stopPropagation()}
+            {/* Image Area */}
+            <div
+              className={`flex-1 scrollbar-hide ${
+                isZoomed
+                  ? 'overflow-auto cursor-grab active:cursor-grabbing'
+                  : 'overflow-hidden flex items-center justify-center'
+              }`}
+              onClick={(e) => {
+                if (e.target === e.currentTarget) closeLightbox();
+              }}
             >
-              <img
+              <motion.img
+                key={lightboxIndex}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.2 }}
                 src={allImages[lightboxIndex]?.src}
                 alt={allImages[lightboxIndex]?.alt || `${project.title} - Image ${lightboxIndex + 1}`}
-                className="max-w-[90vw] max-h-[80vh] object-contain"
+                className={`${
+                  isZoomed
+                    ? 'max-w-[105vw] cursor-zoom-out'
+                    : 'max-w-[90vw] max-h-[calc(100vh-8rem)] object-contain cursor-zoom-in'
+                }`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleZoom();
+                }}
+                draggable={false}
               />
-              {allImages[lightboxIndex]?.caption && (
-                <figcaption className="mt-4 text-surface/80 text-sm text-center max-w-2xl">
-                  {allImages[lightboxIndex].caption}
-                </figcaption>
-              )}
-            </motion.figure>
-
-            {/* Counter */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-surface/60 text-sm font-sans">
-              {lightboxIndex + 1} / {allImages.length}
             </div>
+
+            {/* Bottom Navigation - Sticky */}
+            {allImages.length > 1 && (
+              <div
+                className="sticky bottom-0 left-0 right-0 flex items-center justify-center py-4 bg-text-primary/90 backdrop-blur-sm"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="flex items-center gap-4">
+                  <button
+                    onClick={goToPrevious}
+                    className="w-10 h-10 flex items-center justify-center text-surface/60 hover:text-surface transition-colors"
+                    aria-label="Previous image"
+                  >
+                    <ChevronLeft size={24} />
+                  </button>
+                  <span className="text-surface/60 text-sm font-sans min-w-[3rem] text-center">
+                    {lightboxIndex + 1} / {allImages.length}
+                  </span>
+                  <button
+                    onClick={goToNext}
+                    className="w-10 h-10 flex items-center justify-center text-surface/60 hover:text-surface transition-colors"
+                    aria-label="Next image"
+                  >
+                    <ChevronRight size={24} />
+                  </button>
+                </div>
+              </div>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

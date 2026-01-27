@@ -88,6 +88,15 @@ i, em, .italic {
   background: var(--color-text-tertiary);
 }
 
+/* Hide scrollbar utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* Markdown prose styles */
 .prose h1, .prose h2, .prose h3, .prose h4 {
   font-family: var(--font-serif);

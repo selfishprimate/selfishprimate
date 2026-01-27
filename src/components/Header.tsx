@@ -7,7 +7,7 @@ import { ThemeToggle } from './ThemeToggle';
 import { useBodyScrollLock } from '@/hooks/useBodyScrollLock';
 
 const navItems = [
-  { label: 'Works', path: '/work' },
+  { label: 'Works', path: '/works' },
   { label: 'Illustrations', path: '/illustrations' },
   { label: 'Articles', path: '/articles' },
   { label: 'About', path: '/about' },
