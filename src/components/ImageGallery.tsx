@@ -83,26 +83,6 @@ export function ImageGallery({ images, title }: ImageGalleryProps) {
               <X size={28} />
             </button>
 
-            {/* Navigation */}
-            {images.length > 1 && (
-              <>
-                <button
-                  onClick={(e) => { e.stopPropagation(); goToPrevious(); }}
-                  className="absolute left-6 w-12 h-12 flex items-center justify-center text-surface/80 hover:text-surface transition-colors"
-                  aria-label="Previous image"
-                >
-                  <ChevronLeft size={32} />
-                </button>
-                <button
-                  onClick={(e) => { e.stopPropagation(); goToNext(); }}
-                  className="absolute right-6 w-12 h-12 flex items-center justify-center text-surface/80 hover:text-surface transition-colors"
-                  aria-label="Next image"
-                >
-                  <ChevronRight size={32} />
-                </button>
-              </>
-            )}
-
             {/* Image */}
             <motion.img
               key={selectedIndex}
@@ -112,14 +92,35 @@ export function ImageGallery({ images, title }: ImageGalleryProps) {
               transition={{ duration: 0.2 }}
               src={images[selectedIndex]}
               alt={`${title} - Image ${selectedIndex + 1}`}
-              className="max-w-[90vw] max-h-[85vh] object-contain"
+              className="max-w-[90vw] max-h-[80vh] object-contain"
               onClick={(e) => e.stopPropagation()}
             />
 
-            {/* Counter */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-surface/60 text-sm font-sans">
-              {selectedIndex + 1} / {images.length}
-            </div>
+            {/* Bottom Navigation */}
+            {images.length > 1 && (
+              <div
+                className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-4"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  onClick={goToPrevious}
+                  className="w-10 h-10 flex items-center justify-center text-surface/60 hover:text-surface transition-colors"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft size={24} />
+                </button>
+                <span className="text-surface/60 text-sm font-sans min-w-[3rem] text-center">
+                  {selectedIndex + 1} / {images.length}
+                </span>
+                <button
+                  onClick={goToNext}
+                  className="w-10 h-10 flex items-center justify-center text-surface/60 hover:text-surface transition-colors"
+                  aria-label="Next image"
+                >
+                  <ChevronRight size={24} />
+                </button>
+              </div>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
