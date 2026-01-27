@@ -14,6 +14,7 @@ import cecconisMd from '../content/works/cecconis/index.md?raw';
 import edenredMd from '../content/works/edenred/index.md?raw';
 import interestingEngineeringMd from '../content/works/interesting-engineering/index.md?raw';
 import takkoFashionMd from '../content/works/takko-fashion/index.md?raw';
+import turnaCarRentalMd from '../content/works/turna-com-app-rent-a-car/index.md?raw';
 
 // Import all images using Vite's glob import
 const imageModules = import.meta.glob('../content/works/*/images/*.(jpg|jpeg|png|gif|webp|svg)', { eager: true, query: '?url', import: 'default' });
@@ -55,6 +56,7 @@ const projectFiles: Record<string, string> = {
   'edenred': edenredMd,
   'interesting-engineering': interestingEngineeringMd,
   'takko-fashion': takkoFashionMd,
+  'turna-com-app-rent-a-car': turnaCarRentalMd,
 };
 
 function parseFrontmatter(content: string): { data: Record<string, unknown>; content: string } {
