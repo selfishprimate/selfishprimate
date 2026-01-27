@@ -10,32 +10,22 @@ interface ImageGalleryProps {
 
 export function ImageGallery({ images, title }: ImageGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const [isZoomed, setIsZoomed] = useState(false);
 
   // Lock body scroll when lightbox is open
   useBodyScrollLock(selectedIndex !== null);
 
-  const openLightbox = (index: number) => {
-    setSelectedIndex(index);
-    setIsZoomed(false);
-  };
-  const closeLightbox = () => {
-    setSelectedIndex(null);
-    setIsZoomed(false);
-  };
-  const toggleZoom = () => setIsZoomed(!isZoomed);
+  const openLightbox = (index: number) => setSelectedIndex(index);
+  const closeLightbox = () => setSelectedIndex(null);
 
   const goToPrevious = () => {
     if (selectedIndex !== null) {
       setSelectedIndex(selectedIndex === 0 ? images.length - 1 : selectedIndex - 1);
-      setIsZoomed(false);
     }
   };
 
   const goToNext = () => {
     if (selectedIndex !== null) {
       setSelectedIndex(selectedIndex === images.length - 1 ? 0 : selectedIndex + 1);
-      setIsZoomed(false);
     }
   };
 
@@ -95,32 +85,14 @@ export function ImageGallery({ images, title }: ImageGalleryProps) {
 
             {/* Image Area */}
             <div
-              className={`flex-1 scrollbar-hide ${
-                isZoomed
-                  ? 'overflow-auto cursor-grab active:cursor-grabbing'
-                  : 'overflow-hidden flex items-center justify-center'
-              }`}
-              onClick={(e) => {
-                if (e.target === e.currentTarget) closeLightbox();
-              }}
+              className="flex-1 flex items-center justify-center p-4"
+              onClick={closeLightbox}
             >
-              <motion.img
-                key={selectedIndex}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.2 }}
+              <img
                 src={images[selectedIndex]}
                 alt={`${title} - Image ${selectedIndex + 1}`}
-                className={`${
-                  isZoomed
-                    ? 'max-w-[105vw] cursor-zoom-out'
-                    : 'max-w-[90vw] max-h-[calc(100vh-8rem)] object-contain cursor-zoom-in'
-                }`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  toggleZoom();
-                }}
+                className="max-w-[92vw] max-h-[calc(100vh-8rem)] object-contain"
+                onClick={(e) => e.stopPropagation()}
                 draggable={false}
               />
             </div>
