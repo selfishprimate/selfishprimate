@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, useCallback } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
@@ -74,6 +74,26 @@ export function ProjectPage() {
       setLightboxIndex(lightboxIndex === allImages.length - 1 ? 0 : lightboxIndex + 1);
     }
   };
+
+  // Keyboard navigation for lightbox
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (lightboxIndex === null) return;
+
+    if (e.key === 'Escape') {
+      closeLightbox();
+    } else if (e.key === 'ArrowLeft') {
+      setLightboxIndex(lightboxIndex === 0 ? allImages.length - 1 : lightboxIndex - 1);
+    } else if (e.key === 'ArrowRight') {
+      setLightboxIndex(lightboxIndex === allImages.length - 1 ? 0 : lightboxIndex + 1);
+    }
+  }, [lightboxIndex, allImages.length]);
+
+  useEffect(() => {
+    if (lightboxIndex !== null) {
+      window.addEventListener('keydown', handleKeyDown);
+      return () => window.removeEventListener('keydown', handleKeyDown);
+    }
+  }, [lightboxIndex, handleKeyDown]);
 
   if (!project) {
     return (
