@@ -79,7 +79,7 @@ export function ImageGallery({ images, title }: ImageGalleryProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-text-primary/95 flex flex-col"
+            className="fixed inset-0 z-50 bg-surface/95 flex flex-col"
             onClick={closeLightbox}
             onKeyDown={handleKeyDown}
             tabIndex={0}
@@ -87,7 +87,7 @@ export function ImageGallery({ images, title }: ImageGalleryProps) {
             {/* Close button */}
             <button
               onClick={closeLightbox}
-              className="absolute top-6 right-6 z-10 w-12 h-12 flex items-center justify-center text-surface/80 hover:text-surface transition-colors"
+              className="absolute top-6 right-6 z-10 w-12 h-12 flex items-center justify-center text-text-secondary hover:text-text-primary transition-colors"
               aria-label="Close lightbox"
             >
               <X size={28} />
@@ -129,23 +129,23 @@ export function ImageGallery({ images, title }: ImageGalleryProps) {
             {/* Bottom Navigation - Sticky */}
             {images.length > 1 && (
               <div
-                className="sticky bottom-0 left-0 right-0 flex items-center justify-center py-4 bg-text-primary/90 backdrop-blur-sm"
+                className="sticky bottom-0 left-0 right-0 flex items-center justify-center py-4 bg-surface/90 backdrop-blur-sm"
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="flex items-center gap-4">
                   <button
                     onClick={goToPrevious}
-                    className="w-10 h-10 flex items-center justify-center text-surface/60 hover:text-surface transition-colors"
+                    className="w-10 h-10 flex items-center justify-center text-text-tertiary hover:text-text-primary transition-colors"
                     aria-label="Previous image"
                   >
                     <ChevronLeft size={24} />
                   </button>
-                  <span className="text-surface/60 text-sm font-sans min-w-[3rem] text-center">
+                  <span className="text-text-tertiary text-sm font-sans min-w-[3rem] text-center">
                     {selectedIndex + 1} / {images.length}
                   </span>
                   <button
                     onClick={goToNext}
-                    className="w-10 h-10 flex items-center justify-center text-surface/60 hover:text-surface transition-colors"
+                    className="w-10 h-10 flex items-center justify-center text-text-tertiary hover:text-text-primary transition-colors"
                     aria-label="Next image"
                   >
                     <ChevronRight size={24} />
