@@ -22,16 +22,18 @@ twitter: https://twitter.com/selfishprimate
 patreon: https://www.patreon.com/selfishprimate
 
 # Skills
-title: Skills & Tools
+title: Skills
 description: The tools and methodologies I use to bring ideas to life.
 items: UI Design, UX Design, Design Systems, Prototyping, User Research, Wireframing, Figma, HTML/CSS, JavaScript, React
 
 # Domains
-title: Industries & Domains
+title: Industries
 description: Sectors where I've delivered impactful design solutions.
 items: E-commerce, Fintech, Banking, Travel, Retail, Education, Technology, Online Media
 
 # Beyond Design
+title: Beyond Design
+
 When I'm not designing beautiful interfaces, you can find me jamming to my favorite tunes, sketching and drawing, or cruising around on my skateboard. I've always had a passion for creating and tinkering with things, which is what drew me to the world of UI/UX design.
 
 I'm also a big advocate for open-source software and tools. I believe that technology should be accessible to everyone, regardless of their background or financial means. That's why I'm working on a number of open-source projects that aim to make design and development more accessible to people all over the world.

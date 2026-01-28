@@ -173,9 +173,9 @@ export function AboutPage() {
           className="text-center"
         >
           <h2 className="font-serif font-semibold text-2xl text-text-primary mb-6">
-            Beyond Design
+            {about.beyondDesign.title}
           </h2>
-          {about.beyondDesign.map((paragraph, index) => (
+          {about.beyondDesign.paragraphs.map((paragraph, index) => (
             <p key={index} className={`text-text-secondary leading-relaxed ${index > 0 ? 'mt-4' : ''}`}>
               {paragraph}
             </p>

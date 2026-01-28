@@ -46,6 +46,11 @@ export interface AboutSection {
   items: string[];
 }
 
+export interface AboutBeyondDesign {
+  title: string;
+  paragraphs: string[];
+}
+
 export interface AboutContent {
   profile: AboutProfile;
   bio: string;
@@ -53,7 +58,7 @@ export interface AboutContent {
   social: AboutSocial;
   skills: AboutSection;
   domains: AboutSection;
-  beyondDesign: string[];
+  beyondDesign: AboutBeyondDesign;
 }
 
 // Parse the markdown format
@@ -74,7 +79,7 @@ function parseAboutContent(content: string): AboutContent {
     social: { linkedin: '', github: '', twitter: '', patreon: '' },
     skills: { title: '', description: '', items: [] },
     domains: { title: '', description: '', items: [] },
-    beyondDesign: [],
+    beyondDesign: { title: '', paragraphs: [] },
   };
 
   for (const section of sections) {
@@ -167,8 +172,16 @@ function parseAboutContent(content: string): AboutContent {
 
     // Beyond Design section
     else if (headerLine === '# Beyond Design') {
-      const paragraphs = lines.slice(1).filter(l => l.trim());
-      aboutContent.beyondDesign = paragraphs;
+      const paragraphs: string[] = [];
+      for (const line of lines.slice(1)) {
+        const trimmed = line.trim();
+        if (trimmed.startsWith('title: ')) {
+          aboutContent.beyondDesign.title = trimmed.slice(7);
+        } else if (trimmed) {
+          paragraphs.push(trimmed);
+        }
+      }
+      aboutContent.beyondDesign.paragraphs = paragraphs;
     }
   }
 
