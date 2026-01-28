@@ -40,13 +40,18 @@ export interface AboutSocial {
   patreon: string;
 }
 
+export interface AboutSection {
+  title: string;
+  items: string[];
+}
+
 export interface AboutContent {
   profile: AboutProfile;
   bio: string;
   quote: AboutQuote;
   social: AboutSocial;
-  skills: string[];
-  domains: string[];
+  skills: AboutSection;
+  domains: AboutSection;
   beyondDesign: string[];
 }
 
@@ -66,8 +71,8 @@ function parseAboutContent(content: string): AboutContent {
     bio: '',
     quote: { text: '', author: '' },
     social: { linkedin: '', github: '', twitter: '', patreon: '' },
-    skills: [],
-    domains: [],
+    skills: { title: '', items: [] },
+    domains: { title: '', items: [] },
     beyondDesign: [],
   };
 
@@ -131,17 +136,29 @@ function parseAboutContent(content: string): AboutContent {
 
     // Skills section
     else if (headerLine === '# Skills') {
-      const skillsLine = lines.slice(1).find(l => l.trim());
-      if (skillsLine) {
-        aboutContent.skills = skillsLine.split(', ').map(s => s.trim());
+      for (const line of lines.slice(1)) {
+        const trimmed = line.trim();
+        if (trimmed.includes(': ')) {
+          const colonIndex = trimmed.indexOf(': ');
+          const key = trimmed.slice(0, colonIndex).trim();
+          const value = trimmed.slice(colonIndex + 2).trim();
+          if (key === 'title') aboutContent.skills.title = value;
+          if (key === 'items') aboutContent.skills.items = value.split(', ').map(s => s.trim());
+        }
       }
     }
 
     // Domains section
     else if (headerLine === '# Domains') {
-      const domainsLine = lines.slice(1).find(l => l.trim());
-      if (domainsLine) {
-        aboutContent.domains = domainsLine.split(', ').map(d => d.trim());
+      for (const line of lines.slice(1)) {
+        const trimmed = line.trim();
+        if (trimmed.includes(': ')) {
+          const colonIndex = trimmed.indexOf(': ');
+          const key = trimmed.slice(0, colonIndex).trim();
+          const value = trimmed.slice(colonIndex + 2).trim();
+          if (key === 'title') aboutContent.domains.title = value;
+          if (key === 'items') aboutContent.domains.items = value.split(', ').map(d => d.trim());
+        }
       }
     }
 

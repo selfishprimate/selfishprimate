@@ -22,10 +22,12 @@ twitter: https://twitter.com/selfishprimate
 patreon: https://www.patreon.com/selfishprimate
 
 # Skills
-UI Design, UX Design, Design Systems, Prototyping, User Research, Wireframing, Figma, HTML/CSS, JavaScript, React
+title: Skills & Tools
+items: UI Design, UX Design, Design Systems, Prototyping, User Research, Wireframing, Figma, HTML/CSS, JavaScript, React
 
 # Domains
-E-commerce, Fintech, Banking, Travel, Retail, Education, Technology, Online Media
+title: Industries & Domains
+items: E-commerce, Fintech, Banking, Travel, Retail, Education, Technology, Online Media
 
 # Beyond Design
 When I'm not designing beautiful interfaces, you can find me jamming to my favorite tunes, sketching and drawing, or cruising around on my skateboard. I've always had a passion for creating and tinkering with things, which is what drew me to the world of UI/UX design.

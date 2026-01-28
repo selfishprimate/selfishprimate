@@ -120,10 +120,10 @@ export function AboutPage() {
             viewport={{ once: true }}
           >
             <h3 className="font-serif font-semibold text-2xl text-text-primary mb-6">
-              Skills & Tools
+              {about.skills.title}
             </h3>
             <div className="flex flex-wrap justify-center gap-2">
-              {about.skills.map((skill) => (
+              {about.skills.items.map((skill) => (
                 <span
                   key={skill}
                   className="px-4 py-2 text-sm font-sans text-text-secondary border border-border rounded-full"
@@ -142,10 +142,10 @@ export function AboutPage() {
             transition={{ delay: 0.1 }}
           >
             <h3 className="font-serif font-semibold text-2xl text-text-primary mb-6">
-              Industries & Domains
+              {about.domains.title}
             </h3>
             <div className="flex flex-wrap justify-center gap-2">
-              {about.domains.map((domain) => (
+              {about.domains.items.map((domain) => (
                 <span
                   key={domain}
                   className="px-4 py-2 text-sm font-sans text-text-secondary border border-border rounded-full"
