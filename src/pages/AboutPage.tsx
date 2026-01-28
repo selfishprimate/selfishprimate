@@ -92,13 +92,13 @@ export function AboutPage() {
       </section>
 
       {/* Quote */}
-      <section className="max-w-6xl mx-auto px-6 py-16">
+      <section className="max-w-3xl mx-auto px-6 py-16">
         <h2 className="sr-only">Quote</h2>
         <motion.blockquote
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-3xl mx-auto text-center"
+          className="text-center"
         >
           <p className="font-serif italic text-2xl md:text-3xl text-text-primary">
             "{about.quote.text}"
@@ -110,9 +110,9 @@ export function AboutPage() {
       </section>
 
       {/* Skills & Domains */}
-      <section className="max-w-6xl mx-auto px-6 py-16">
+      <section className="max-w-3xl mx-auto px-6 py-16">
         <h2 className="sr-only">Skills & Domains</h2>
-        <div className="grid md:grid-cols-2 gap-16">
+        <div className="flex flex-col gap-12 text-center">
           {/* Skills */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -122,7 +122,7 @@ export function AboutPage() {
             <h3 className="font-serif font-semibold text-2xl text-text-primary mb-6">
               Skills & Tools
             </h3>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap justify-center gap-2">
               {about.skills.map((skill) => (
                 <span
                   key={skill}
@@ -144,7 +144,7 @@ export function AboutPage() {
             <h3 className="font-serif font-semibold text-2xl text-text-primary mb-6">
               Industries & Domains
             </h3>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap justify-center gap-2">
               {about.domains.map((domain) => (
                 <span
                   key={domain}
@@ -159,18 +159,18 @@ export function AboutPage() {
       </section>
 
       {/* Personal */}
-      <section className="max-w-6xl mx-auto px-6 py-16">
+      <section className="max-w-3xl mx-auto px-6 py-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-3xl"
+          className="text-center"
         >
           <h2 className="font-serif font-semibold text-2xl text-text-primary mb-6">
             Beyond Design
           </h2>
           {about.beyondDesign.map((paragraph, index) => (
-            <p key={index} className={`text-text-secondary leading-relaxed ${index > 0 ? 'mt-4' : ''}`}>
+            <p key={index} className={`text-text-secondary leading-relaxed text-left ${index > 0 ? 'mt-4' : ''}`}>
               {paragraph}
             </p>
           ))}
