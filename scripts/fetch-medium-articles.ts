@@ -129,17 +129,16 @@ interface MediumConfig {
 }
 
 function loadConfig(): MediumConfig {
-  const configPath = path.join(process.cwd(), 'medium.config.json');
+  const configPath = path.join(process.cwd(), 'medium.config.js');
 
   if (!fs.existsSync(configPath)) {
-    console.error('Error: medium.config.json not found.');
-    console.error('Please create a medium.config.json file with your Medium username:');
-    console.error('{\n  "username": "your-medium-username"\n}');
+    console.error('Error: medium.config.js not found.');
+    console.error('Please create a medium.config.js file with your Medium username.');
     process.exit(1);
   }
 
-  const configContent = fs.readFileSync(configPath, 'utf-8');
-  return JSON.parse(configContent);
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  return require(configPath);
 }
 
 async function main() {
