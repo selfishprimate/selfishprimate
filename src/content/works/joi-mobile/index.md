@@ -1,102 +1,134 @@
 ---
-title: "Joi Gifts Mobile App Design"
-description: "This project entailed defining requirements, establishing robust design tokenomics, and creating a comprehensive mobile application for the leading gifting platform."
+title: "Joi Gifts: Native Mobile App Experience"
+description: "A ground-up redesign of the Middle East's leading gifting platform, migrating from webview to native mobile while establishing a scalable design system that powers seamless gift discovery, scheduling, and checkout."
 company: "Joi Gifts"
 category: "Mobile App"
 tags: ["Mobile App", "E-commerce", "iOS", "Android", "Gifting"]
 coverImage: "./images/cover.jpg"
 images: []
-order: 4
+order: 3
 year: "2023"
 featured: true
-featuredOrder: 2
+featuredOrder: 3
 ---
 
-> "A user interface is like a joke. If you have to explain it, it's not that good." — Martin LeBlanc
+Joi Gifts had grown into the Middle East's go-to platform for sending flowers, cakes, and curated gifts across the UAE, Saudi Arabia, and beyond. But the mobile experience—built on webview technology—was showing its age. Slow load times, clunky interactions, and an inability to leverage native device features were driving users away. I was brought in to lead the complete redesign and migration to a native mobile application.
 
-### Overview
+### The Challenge
 
-This initiative involved establishing requirements, creating design tokens, and building a comprehensive design system. The project aimed to transform Joi Gifts by migrating from outdated webview technology to a native mobile application, addressing existing experience challenges while leveraging native functionality for improved usability.
+The existing app suffered from fundamental limitations that no amount of optimization could fix:
 
-### Objectives
+- **Performance bottlenecks** — Webview rendering created noticeable lag, especially during checkout
+- **Limited native integration** — Push notifications, biometric authentication, and smooth animations were impossible
+- **Inconsistent experience** — The app felt like a wrapped website, not a native mobile product
+- **Design debt** — Years of incremental changes had created an inconsistent, fragmented interface
 
-- Transition to native mobile platform to resolve performance and UX issues
-- Improve usability through native features (notifications, bottom sheets, dialogs)
-- Establish design tokenomics and system for consistency
-- Generate JSON design tokens for development team via GitHub
-- Design essential components aligned with system principles
+Beyond fixing these issues, we needed to establish a design system that could scale across iOS, Android, and future platforms.
 
-### Research
+### Design Principles
 
-The team conducted heuristic evaluation against usability principles, analyzed user behavior through analytics, and gathered direct feedback from customer care departments to identify pain points and guide design improvements.
+Three principles guided every design decision:
 
-### Ideation and Prototyping
+**Progressive disclosure** — Show only what's needed, when it's needed. Complex flows like delivery scheduling unfold through intuitive bottom sheets rather than overwhelming users upfront.
 
-Process included competitor analysis, low-fidelity wireframes for stakeholder discussions, and interactive prototypes for complex flows like delivery scheduling and AI-generated gift messaging.
+**Familiar patterns** — Leverage native iOS and Android conventions so users feel instantly at home. No learning curve, no friction.
 
-### Challenges
+**Trust through clarity** — Gift-giving involves emotion and money. Every screen should reinforce that the user is in control and their gift will arrive perfectly.
 
-Primary obstacle involved demonstrating the design system's value to the team through examples and collaborative feedback.
+### Shopping Cart: Confidence at Every Step
 
-### Design Process Tools
+The cart experience was redesigned around a simple insight: users need confidence that their gift will arrive when expected. The new design prominently displays delivery information—city, date, and time slot—with an easy "Change" option if plans shift.
 
-Primary tools: Figma for high-fidelity designs and Token Studio plugin for design token management.
-
-### Shopping Cart
-
-The cart experience includes quantity adjustment functionality, product management capabilities, prominently displayed delivery information, and a quick summary bottom sheet for checkout review.
+The empty state encourages exploration rather than feeling like a dead end. When items are added, quantity controls are inline, and a collapsible order summary lets users review totals without leaving the cart.
 
 <gallery cols="1">
-<figure src="./images/cart-general.jpg" alt="Shopping cart overview">Users may take a moment to explore and fine-tune their selections before proceeding to checkout</figure>
-<figure src="./images/cart-expired.jpg" alt="Expired delivery notification">No need to backtrack to the product detail page if the delivery slot has expired</figure>
+<figure src="./images/cart-general.jpg" alt="Shopping cart experience">Cart flow from empty state through item management to order summary review</figure>
 </gallery>
 
-### Gift Reminder
-
-Users can create reminders for birthdays, Valentine's Day, Mother's Day, Father's Day, and custom occasions. The system supports one-time or annual recurring options, with reminders stored in a dedicated section on the Account page. Upcoming reminders are highlighted in green, with easy edit and removal options.
+A key innovation: if a delivery slot expires while the user is browsing, they're notified immediately with an option to update—no need to navigate back to product details.
 
 <gallery cols="1">
-<figure src="./images/reminder-add.jpg" alt="Add reminder form">Users may effortlessly create reminders for birthdays, Valentine's Day, Mother's Day, Father's Day, and more</figure>
-<figure src="./images/reminder-list.jpg" alt="Reminder list view">Users may edit or remove reminders with ease using the intuitive interface</figure>
+<figure src="./images/cart-expired.jpg" alt="Expired delivery handling">Proactive notification when delivery slots expire, with inline correction</figure>
 </gallery>
 
-### Address Management
+### Gift Reminders: Never Miss a Moment
 
-The address management feature is accessible from the Account page, allowing users to view, edit, and remove saved addresses. The "Add New Address" button provides two input methods: manual address entry and interactive map view. This dual approach caters to both novice users who prefer straightforward input and advanced users who benefit from a more visual method.
+Gift-giving is often tied to occasions—birthdays, anniversaries, holidays. The reminder feature transforms Joi from a transactional app into a proactive gifting assistant.
+
+Users can create reminders for any occasion, with options for one-time or annual recurrence. The form captures recipient name, occasion type, date, and an optional personal note. A custom date picker using native scroll wheels makes selection feel natural on mobile.
 
 <gallery cols="1">
-<figure src="./images/address-list.jpg" alt="Saved addresses list">Users can navigate to the Addresses section from their Account page</figure>
-<figure src="./images/address-add.jpg" alt="Add new address form">This screen offers two options: manually entering the address details or using the map view for a more interactive experience</figure>
-<figure src="./images/address-delete.jpg" alt="Delete address confirmation">Users can see all their saved addresses clearly listed, with straightforward options to edit or remove each address</figure>
+<figure src="./images/reminder-add.jpg" alt="Create reminder flow">Reminder creation from empty state through form completion with date selection</figure>
 </gallery>
 
-### Product Listing & Filtering
-
-The product listing features a clean interface displaying search result counts, visible filtering options, and impressive product cards with key information. Dynamic cards accommodate promotional details like "Free Delivery," "Joi Express," and discounts, balancing user needs with marketing objectives.
+The reminder list surfaces upcoming occasions prominently, with visual hierarchy that highlights imminent dates. Edit and delete actions are easily accessible without cluttering the interface.
 
 <gallery cols="1">
-<figure src="./images/listing-general.jpg" alt="Gift product listing">The dynamic cards are flexible, allowing the marketing team to effectively communicate campaign and promotion information directly within the product listings</figure>
-<figure src="./images/listing-filtered.jpg" alt="Filtered product results">Color selections include color labels and a tick icon to indicate when an option is selected, ensuring clear and accessible feedback</figure>
+<figure src="./images/reminder-list.jpg" alt="Reminder management">Reminder list with upcoming occasions highlighted and easy management options</figure>
 </gallery>
 
-### Product Details
+### Address Management: Flexibility Without Friction
 
-The product details design addresses two key challenges: preventing interface clutter with comprehensive information and avoiding overwhelming users with immediate delivery date/time selection. Solutions include a carousel slider for multi-angle product viewing, auto-opening bottom sheets for delivery selection, and streamlined support for intuitive micro-tasks.
+Delivery addresses in gift-giving are unique—users often send to recipients, not themselves. The address flow accommodates this by separating recipient information from location details.
+
+Two input methods serve different user preferences: manual entry for those who know the exact address, and map selection for visual confirmation. The map view includes real-time delivery validation—if an area isn't serviceable, users know immediately rather than discovering it at checkout.
 
 <gallery cols="1">
-<figure src="./images/product-express.jpg" alt="Express delivery option">Express delivery can be selected conveniently from the top of the list</figure>
-<figure src="./images/product-time.jpg" alt="Time slot selection">Users can easily update expired delivery times</figure>
-<figure src="./images/product-custom.jpg" alt="Custom delivery date">Even complex user flows where users can select different dates using a calendar have been simplified with designs that are simple and intuitive</figure>
+<figure src="./images/address-list.jpg" alt="Saved addresses">Address list with clear edit and remove options for each saved location</figure>
 </gallery>
-
-### Payment
-
-The payment design features clear radio button selections for payment methods including saved credit cards, new cards, Apple Pay, Careem Pay, and Tabby. A "Secure Payment" label builds trust and safety. The Order Summary bottom sheet appears before final checkout, followed by an Order Received success screen confirmation.
 
 <gallery cols="1">
-<figure src="./images/payment.jpg" alt="Payment screen">Secure checkout showing saved cards, order summary, and order confirmation flow</figure>
+<figure src="./images/address-add.jpg" alt="Add address flow">Dual input methods: manual form entry and interactive map selection with delivery validation</figure>
 </gallery>
 
-### Closing
+<gallery cols="1">
+<figure src="./images/address-delete.jpg" alt="Address deletion">Confirmation dialog prevents accidental deletion of saved addresses</figure>
+</gallery>
 
-The design process for this project has been a journey of innovation and user-centricity. From crafting intuitive interfaces to implementing dynamic features, every decision has been carefully made to enhance the user experience. By prioritizing clarity, simplicity, and accessibility, as a team, we've created a platform that not only meets but exceeds user expectations.
+### Product Discovery: Browse with Intent
+
+The product listing balances information density with scannability. Each card displays the essential details—image, name, price—while dynamic badges communicate promotions like "Free Delivery," "Joi Express," and percentage discounts.
+
+Filtering and sorting are accessible from a persistent header, with active filter counts providing clear feedback. The filter panel itself uses familiar patterns: expandable categories, clear selections, and a live count of matching results.
+
+<gallery cols="1">
+<figure src="./images/listing-general.jpg" alt="Product listing">Product grid with dynamic promotional badges and accessible filtering</figure>
+</gallery>
+
+<gallery cols="1">
+<figure src="./images/listing-filtered.jpg" alt="Filter experience">Filter panel with clear category organization and real-time result counts</figure>
+</gallery>
+
+### Product Details: Guided Decision Making
+
+Product pages faced a unique challenge: users need comprehensive information (multiple images, descriptions, delivery options, add-ons) without feeling overwhelmed. The solution uses progressive disclosure through native bottom sheets.
+
+When users tap "Add to Cart," a delivery selection sheet slides up—not a new page. Options are clearly prioritized: Joi Express (90-minute delivery) appears first for urgent gifts, followed by same-day and scheduled options. A calendar picker handles custom dates.
+
+<gallery cols="1">
+<figure src="./images/product-express.jpg" alt="Product and delivery selection">Product details with delivery scheduling through progressive bottom sheets</figure>
+</gallery>
+
+<gallery cols="1">
+<figure src="./images/product-time.jpg" alt="Time slot selection">Time slot picker with clear availability and pricing information</figure>
+</gallery>
+
+<gallery cols="1">
+<figure src="./images/product-custom.jpg" alt="Calendar selection">Calendar interface for scheduling future deliveries with intuitive date picking</figure>
+</gallery>
+
+### Payment: Trust and Speed
+
+The checkout flow was designed to minimize friction while maximizing trust. A progress indicator (Cart → Address → Card Message → Payment) orients users throughout the journey.
+
+Payment options are presented as clear radio selections: saved cards appear first for returning customers, followed by new card entry, Apple Pay, regional options like Careem Pay, and buy-now-pay-later through Tabby. A "Secure Payment" badge reinforces safety.
+
+Before final submission, an order summary bottom sheet displays all details—products, delivery info, pricing breakdown—for one last confirmation. The success screen celebrates the completed gift with order details and a clear path back to shopping.
+
+<gallery cols="1">
+<figure src="./images/payment.jpg" alt="Payment flow">Complete checkout: payment selection, saved cards, order summary, and confirmation</figure>
+</gallery>
+
+### Reflection
+
+This project reinforced a core belief: native mobile apps aren't just about performance—they're about meeting users where they are. By embracing platform conventions, leveraging native capabilities, and establishing a consistent design language, we transformed Joi Gifts from a functional tool into a delightful experience. The result is an app that feels inevitable, as if it couldn't have been designed any other way.

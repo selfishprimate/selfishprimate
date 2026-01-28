@@ -1,80 +1,82 @@
 ---
-title: "Enhanced Search Functionality for a Gifting Platform"
-description: "Redesigned search functionality incorporating focus backdrop, recent searches, recently viewed items, autofill, and smart suggestions to streamline gift discovery and boost user engagement."
+title: "Joi Gifts: Reimagining Search for Gift Discovery"
+description: "A comprehensive search experience redesign for the Middle East's leading gifting platform, introducing intelligent suggestions, personalized shortcuts, and contextual product discovery to transform how users find the perfect gift."
 company: "Joi Gifts"
 category: "UI/UX Design"
 tags: ["Search UX", "Smart Suggestions", "E-commerce", "Mobile Design"]
 coverImage: "./images/cover.jpg"
 images: []
-order: 4
+order: 5
 year: "2023"
+featured: true
+featuredOrder: 4
 ---
 
-> "A user interface is like a joke. If you have to explain it, it's not that good." — Martin LeBlanc
+Joi Gifts is the leading online gifting platform in the Middle East, offering same-day delivery of flowers, cakes, and curated gifts across the UAE, Saudi Arabia, and beyond. As the product catalog expanded to thousands of items, the existing search functionality became a bottleneck—users struggled to find what they wanted, often abandoning their search in frustration. I was tasked with reimagining the entire search experience across desktop and mobile.
 
-### Overview
+### The Challenge
 
-The advanced search design aimed to improve user experience through key enhancements simplifying gift discovery and increasing engagement across desktop and mobile platforms.
+Through user research and analytics review, I identified several pain points with the existing search:
 
-### Objectives
+- **Blank slate problem** — Users faced an empty search field with no guidance on what to search for
+- **High cognitive load** — Every search required typing full queries from scratch, even for repeat customers
+- **Missed discovery opportunities** — The search only returned exact matches, missing chances to surface relevant products
+- **Lost context** — Users who browsed products but didn't purchase had no easy way to return to those items
 
-- Increase user focus and efficiency during search interactions
-- Reduce task load through quick access to recent searches
-- Utilize social proof to guide users to popular products
-- Enhance user retention through recently viewed products
-- Streamline search with autofill and smart suggestion features
+### Design Philosophy
 
-### Design Process
+I approached this redesign with a core belief: search isn't just about finding—it's about discovering. The best search experiences anticipate user needs, reduce effort, and create serendipitous moments of discovery. Every feature was designed to move users closer to the perfect gift with less friction.
 
-The design process followed four key stages:
+### Focus Mode: The Backdrop
 
-- **Research:** Competitor analysis and heuristic evaluation identifying pain points
-- **Wireframing:** Layout and flow visualization for all features
-- **Prototyping:** Interactive prototypes tested with stakeholders via guerrilla testing
-- **Iteration:** Refinement based on user feedback
-- **UI Design:** High-fidelity mockups integrated with brand aesthetic
-
-### Backdrop Component
-
-The backdrop dims the background when users type, reducing distractions and enhancing focus on search queries.
+The first interaction sets the tone. When users tap the search field, a subtle backdrop dims the rest of the page, creating a focused environment for discovery. This isn't just visual polish—it signals to users that they've entered a dedicated search mode where the platform is ready to help them find exactly what they need.
 
 <gallery cols="1">
-<figure src="./images/backdrop.jpg" alt="Search focus backdrop">Dims background when users type, reducing distractions and enhancing focus</figure>
+<figure src="./images/backdrop.jpg" alt="Search focus backdrop">Backdrop dims the interface, creating a focused search environment that reduces visual noise</figure>
 </gallery>
 
-### Recent Searches
+### Recent Searches: Memory as a Feature
 
-A section below the search box displays previous queries, reducing retype effort and encouraging repeated use.
+Returning customers shouldn't start from zero. The "Your recent searches" feature immediately surfaces previous queries—cake, flower, balloon—allowing one-tap access to repeat searches. A "Clear All" option gives users control over their history. This small addition dramatically reduced time-to-result for our most valuable users: repeat customers.
 
 <gallery cols="1">
-<figure src="./images/recently-searched.jpg" alt="Recent searches list">Quick access to previous queries reduces typing effort</figure>
+<figure src="./images/recently-searched.jpg" alt="Recent searches">Recent searches eliminate repetitive typing and help users pick up where they left off</figure>
 </gallery>
 
-### Recently Viewed Products
+### Recently Viewed: Bridging Sessions
 
-Showcases products users previously viewed, improving retention and shopping continuity.
+Gift-buying is rarely impulsive. Users browse, compare, leave, and return—sometimes days later. The "You recently viewed" section bridges these sessions, displaying products with images and prices for instant recognition. This feature acknowledges a fundamental truth about e-commerce: the buying journey spans multiple visits.
 
 <gallery cols="1">
-<figure src="./images/recently-viewed.jpg" alt="Recently viewed items">Product carousel enabling users to pick up where they left off</figure>
+<figure src="./images/recently-viewed.jpg" alt="Recently viewed products">Recently viewed products create continuity across shopping sessions</figure>
 </gallery>
 
-### Autofill and Related Products
+### Intelligent Autofill: Anticipating Intent
 
-Predictive suggestions appear as users type, plus related product recommendations based on input, accelerating discovery.
+As users type, the search transforms into a discovery engine. For a query like "ball," the system provides three layers of assistance:
+
+**Query suggestions** complete the user's thought—Balloon, balloon bouquet, Balloons—reducing keystrokes and typos.
+
+**Category shortcuts** surface relevant collections—Balloon Bundles, Balloon Kits, Hot Air Balloon Rides—helping users who know what type of gift they want but not the specific product.
+
+**Related products** appear below with images and prices, letting users jump directly to promising options without completing the search. This progressive disclosure keeps the interface clean while packing it with utility.
 
 <gallery cols="1">
-<figure src="./images/autofill.jpg" alt="Search autofill suggestions">Predictive suggestions guide users toward relevant results faster</figure>
+<figure src="./images/autofill.jpg" alt="Autofill and suggestions">Intelligent autofill combines query completion, category shortcuts, and product previews</figure>
 </gallery>
 
-### Mobile Experience
+### Mobile: Full Parity, Native Feel
 
-Mobile screens maintain desktop consistency while optimizing for mobile usability, seamlessly integrating key features for smooth browsing.
+The mobile experience maintains complete feature parity while respecting platform conventions. The dedicated search screen uses the full viewport, with the keyboard immediately available. Autofill suggestions appear as the user types, with categories and products adapting to the smaller screen. Recent searches and recently viewed products are accessible from the empty state, ensuring mobile users get the same shortcuts as desktop users.
 
 <gallery cols="1">
-<figure src="./images/mobile-01.jpg" alt="Mobile search interface">Search experience optimized for mobile devices</figure>
-<figure src="./images/mobile-02.jpg" alt="Mobile search results">Consistent feature parity across all screen sizes</figure>
+<figure src="./images/mobile-01.jpg" alt="Mobile search experience">Mobile search with full-screen focus, autofill suggestions, and category shortcuts</figure>
 </gallery>
 
-### Outcome
+<gallery cols="1">
+<figure src="./images/mobile-02.jpg" alt="Mobile personalization">Mobile empty state with recent searches and recently viewed products for instant access</figure>
+</gallery>
 
-The implementation resulted in improved user experience with increased efficiency, satisfaction, higher engagement, and conversion rates. Social proof and intelligent suggestions guided users to relevant products effectively.
+### Reflection
+
+Search is often treated as a utility—a box that returns results. This project reinforced my belief that search can be so much more. By treating every interaction as an opportunity to reduce friction and surface relevant options, we transformed search from a necessary step into a discovery experience. The result: users found gifts faster, explored more products, and converted at higher rates.

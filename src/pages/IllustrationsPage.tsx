@@ -136,7 +136,7 @@ export function IllustrationsPage() {
                     src={illustrations[selectedIndex].image}
                     alt={illustrations[selectedIndex].title}
                     className="w-[130vw] h-auto cursor-zoom-out"
-                    onClick={() => setIsZoomed(false)}
+                    onClick={(e) => { e.stopPropagation(); setIsZoomed(false); }}
                     draggable={false}
                   />
                 </div>

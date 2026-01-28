@@ -6,10 +6,9 @@ category: "Mobile App Design"
 tags: ["Car Rental", "Mobile App", "UX Research", "Booking Interface", "Travel"]
 coverImage: "./images/cover.jpg"
 images: []
-order: 2
+order: 9
 year: "2022"
-featured: true
-featuredOrder: 4
+featured: false
 ---
 
 Otorento is one of Turkey's leading car rental aggregators, connecting travelers with rental companies across the country. When I joined the project, the existing mobile app was functional but dated—cluttered interfaces, confusing flows, and a registration process that drove users away. My task was to reimagine the entire mobile experience from the ground up.

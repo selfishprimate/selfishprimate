@@ -6,10 +6,10 @@ category: "Mobile App Design"
 tags: ["Car Rental", "Mobile App", "React Native", "Design System", "Travel"]
 coverImage: "./images/cover.jpg"
 images: []
-order: 3
+order: 2
 year: "2023"
 featured: true
-featuredOrder: 5
+featuredOrder: 2
 ---
 
 Turna.com is Turkey's comprehensive travel platform, offering flights, hotels, and transportation services. When the team decided to expand into car rentals, I was tasked with designing the complete mobile experience—from initial search to final payment—within a demanding timeline.

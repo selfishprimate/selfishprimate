@@ -108,7 +108,7 @@ export function ImageGallery({ images, title }: ImageGalleryProps) {
                     src={images[selectedIndex]}
                     alt={`${title} - Image ${selectedIndex + 1}`}
                     className="w-[130vw] h-auto cursor-zoom-out"
-                    onClick={() => setIsZoomed(false)}
+                    onClick={(e) => { e.stopPropagation(); setIsZoomed(false); }}
                     draggable={false}
                   />
                 </div>

@@ -291,7 +291,7 @@ export function ProjectPage() {
       </section>
 
       {/* Navigation */}
-      <section className="max-w-6xl mx-auto py-16 border-t border-border mt-16">
+      <section className="max-w-6xl mx-auto px-6 py-16 border-t border-border mt-16">
         <div className="grid md:grid-cols-2 gap-8">
           {/* Previous */}
           <Link
@@ -387,7 +387,7 @@ export function ProjectPage() {
                     src={allImages[lightboxIndex]?.src}
                     alt={allImages[lightboxIndex]?.alt || `${project.title} - Image ${lightboxIndex + 1}`}
                     className="w-[130vw] h-auto cursor-zoom-out"
-                    onClick={() => setIsZoomed(false)}
+                    onClick={(e) => { e.stopPropagation(); setIsZoomed(false); }}
                     draggable={false}
                   />
                 </div>
