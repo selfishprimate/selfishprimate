@@ -4,12 +4,17 @@ import * as path from 'path';
 
 interface MediumArticle {
   title: string;
+  slug: string;
   description: string;
   date: string;
   url: string;
   tags: string[];
-  coverImage?: string;
+  image: string;
   imageUrl?: string;
+}
+
+interface MediumConfig {
+  username: string;
 }
 
 function slugify(text: string): string {
@@ -55,6 +60,7 @@ async function fetchMediumArticles(username: string): Promise<MediumArticle[]> {
     const articles: MediumArticle[] = items.map((item: any) => {
       // Extract title
       const title = item.title?.[0] || '';
+      const slug = slugify(title);
 
       // Extract URL (clean the RSS tracking params)
       let url = item.link?.[0] || '';
@@ -97,22 +103,19 @@ async function fetchMediumArticles(username: string): Promise<MediumArticle[]> {
         return cat._ || cat;
       }) || [];
 
-      // Format tags nicely (capitalize words) - get all tags
+      // Format tags nicely (capitalize words)
       const formattedTags = tags.map((tag: string) =>
         tag.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
       );
 
-      // Generate cover image path
-      const slug = slugify(title);
-      const coverImage = `/images/articles/${slug}.jpg`;
-
       return {
         title,
+        slug,
         description,
         date,
         url,
         tags: formattedTags,
-        coverImage,
+        image: `./images/${slug}.jpg`,
         imageUrl
       };
     });
@@ -122,10 +125,6 @@ async function fetchMediumArticles(username: string): Promise<MediumArticle[]> {
     console.error('Error fetching Medium articles:', error);
     throw error;
   }
-}
-
-interface MediumConfig {
-  username: string;
 }
 
 function loadConfig(): MediumConfig {
@@ -141,12 +140,43 @@ function loadConfig(): MediumConfig {
   return require(configPath);
 }
 
+function parseExistingArticles(content: string): { frontmatter: string; existingSlugs: Set<string> } {
+  // Extract frontmatter
+  const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---\n/);
+  const frontmatter = frontmatterMatch ? frontmatterMatch[0] : '---\nlabel: Medium\ntitle: Articles\ndescription: Thoughts on design, development, and the creative process.\n---\n';
+
+  // Extract existing article slugs
+  const slugMatches = content.matchAll(/^slug: (.+)$/gm);
+  const existingSlugs = new Set<string>();
+  for (const match of slugMatches) {
+    existingSlugs.add(match[1].trim());
+  }
+
+  return { frontmatter, existingSlugs };
+}
+
+function generateArticleMarkdown(article: MediumArticle): string {
+  const lines = [
+    `# ${article.title}`,
+    `slug: ${article.slug}`,
+    `image: ${article.image}`,
+    `description: ${article.description}`,
+    `date: ${article.date}`,
+    `url: ${article.url}`,
+    `tags: ${article.tags.join(', ')}`,
+    ''
+  ];
+  return lines.join('\n');
+}
+
 async function main() {
   const config = loadConfig();
   const username = config.username;
-  const imagesDir = path.join(process.cwd(), 'public/images/articles');
+  const contentDir = path.join(process.cwd(), 'src/content/articles');
+  const imagesDir = path.join(contentDir, 'images');
+  const indexPath = path.join(contentDir, 'index.md');
 
-  // Ensure images directory exists
+  // Ensure directories exist
   if (!fs.existsSync(imagesDir)) {
     fs.mkdirSync(imagesDir, { recursive: true });
   }
@@ -155,45 +185,65 @@ async function main() {
 
   try {
     const articles = await fetchMediumArticles(username);
+    console.log(`Found ${articles.length} articles.\n`);
 
-    console.log('Found', articles.length, 'articles:\n');
+    // Read existing index.md
+    let existingContent = '';
+    let frontmatter = '---\nlabel: Medium\ntitle: Articles\ndescription: Thoughts on design, development, and the creative process.\n---\n';
+    let existingSlugs = new Set<string>();
 
-    // Download missing images
-    console.log('Checking for missing images...\n');
-    for (const article of articles) {
-      if (article.imageUrl) {
-        const filename = slugify(article.title) + '.jpg';
-        const filepath = path.join(imagesDir, filename);
-
-        if (!fs.existsSync(filepath)) {
-          console.log(`Downloading image for: ${article.title.substring(0, 50)}...`);
-          await downloadImage(article.imageUrl, filepath);
-        } else {
-          console.log(`  ✓ Already exists: ${filename}`);
-        }
-      } else {
-        console.log(`  ⚠ No image found for: ${article.title.substring(0, 50)}...`);
-      }
+    if (fs.existsSync(indexPath)) {
+      existingContent = fs.readFileSync(indexPath, 'utf-8');
+      const parsed = parseExistingArticles(existingContent);
+      frontmatter = parsed.frontmatter;
+      existingSlugs = parsed.existingSlugs;
     }
 
-    // Output as TypeScript array format for easy copy-paste
-    console.log('\n// Copy this to src/lib/data.ts\n');
-    console.log('export const articles: Article[] = [');
+    // Find new articles
+    const newArticles = articles.filter(a => !existingSlugs.has(a.slug));
 
-    articles.forEach((article, index) => {
-      console.log('  {');
-      console.log(`    title: "${article.title.replace(/"/g, '\\"')}",`);
-      console.log(`    description: "${article.description.replace(/"/g, '\\"')}",`);
-      console.log(`    date: "${article.date}",`);
-      console.log(`    url: "${article.url}",`);
-      console.log(`    tags: [${article.tags.map(t => `"${t}"`).join(', ')}],`);
-      if (article.imageUrl) {
-        console.log(`    coverImage: "${article.coverImage}"`);
+    if (newArticles.length === 0) {
+      console.log('No new articles found.\n');
+    } else {
+      console.log(`Found ${newArticles.length} new article(s):\n`);
+
+      // Download images for new articles
+      for (const article of newArticles) {
+        console.log(`• ${article.title.substring(0, 60)}...`);
+
+        if (article.imageUrl) {
+          const filename = `${article.slug}.jpg`;
+          const filepath = path.join(imagesDir, filename);
+
+          if (!fs.existsSync(filepath)) {
+            await downloadImage(article.imageUrl, filepath);
+          } else {
+            console.log(`  ✓ Image already exists`);
+          }
+        } else {
+          console.log(`  ⚠ No image found`);
+        }
       }
-      console.log(`  }${index < articles.length - 1 ? ',' : ''}`);
-    });
 
-    console.log('];');
+      // Generate new content
+      const newArticlesMarkdown = newArticles
+        .map(a => generateArticleMarkdown(a))
+        .join('\n');
+
+      // Append new articles after frontmatter
+      const bodyStart = existingContent.indexOf('---\n', 4);
+      const existingBody = bodyStart !== -1
+        ? existingContent.substring(bodyStart + 4).trim()
+        : '';
+
+      const newContent = frontmatter + '\n' + newArticlesMarkdown + (existingBody ? '\n' + existingBody : '');
+
+      // Write updated index.md
+      fs.writeFileSync(indexPath, newContent);
+      console.log(`\n✓ Updated ${indexPath}`);
+    }
+
+    console.log('\nDone!');
 
   } catch (error) {
     console.error('Failed to fetch articles:', error);

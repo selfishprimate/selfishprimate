@@ -9,10 +9,11 @@
  *
  * What it does:
  *   1. Fetches articles from the specified Medium profile's RSS feed
- *   2. Downloads cover images to public/images/articles/
- *   3. Outputs article data in TypeScript format for easy copy-paste
+ *   2. Downloads cover images to src/content/articles/images/
+ *   3. Adds new articles to src/content/articles/index.md
+ *   4. Skips articles that already exist (based on slug)
  *
- * After running, copy the output to src/content/articles/ as needed.
+ * Note: Only new articles are added. Existing articles are preserved.
  */
 
 module.exports = {
