@@ -2,19 +2,19 @@
  * Medium Article Fetcher Configuration
  * =====================================
  *
- * Bu script Medium profilinizdeki makaleleri otomatik olarak çeker
- * ve portfolio sitenize ekler.
+ * This script automatically fetches articles from your Medium profile
+ * and adds them to your portfolio.
  *
- * Kullanım:
+ * Usage:
  *   npx tsx scripts/fetch-medium-articles.ts
  *
- * Ne yapar:
- *   1. Belirtilen Medium profilinin RSS feed'ini çeker
- *   2. Kapak görsellerini src/content/articles/images/ klasörüne indirir
- *   3. Yeni makaleleri src/content/articles/index.md dosyasına ekler
- *   4. Mevcut makaleleri (slug'a göre) atlar
+ * What it does:
+ *   1. Fetches articles from the specified Medium profile's RSS feed
+ *   2. Downloads cover images to src/content/articles/images/
+ *   3. Adds new articles to src/content/articles/index.md
+ *   4. Skips existing articles (detected by URL)
  *
- * Not: Sadece yeni makaleler eklenir, mevcut içerik korunur.
+ * Note: Only new articles are added. Existing content is preserved.
  */
 
 export const config = {
