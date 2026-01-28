@@ -51,7 +51,7 @@ export function AboutPage() {
               {about.profile.title} · {about.profile.location}
             </p>
 
-            <div className="mt-8 space-y-6 text-text-secondary leading-relaxed text-left">
+            <div className="mt-8 space-y-6 text-text-secondary leading-relaxed">
               {about.bio.split('\n\n').map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
@@ -170,7 +170,7 @@ export function AboutPage() {
             Beyond Design
           </h2>
           {about.beyondDesign.map((paragraph, index) => (
-            <p key={index} className={`text-text-secondary leading-relaxed text-left ${index > 0 ? 'mt-4' : ''}`}>
+            <p key={index} className={`text-text-secondary leading-relaxed ${index > 0 ? 'mt-4' : ''}`}>
               {paragraph}
             </p>
           ))}
