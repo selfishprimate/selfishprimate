@@ -124,8 +124,27 @@ async function fetchMediumArticles(username: string): Promise<MediumArticle[]> {
   }
 }
 
+interface MediumConfig {
+  username: string;
+}
+
+function loadConfig(): MediumConfig {
+  const configPath = path.join(process.cwd(), 'medium.config.json');
+
+  if (!fs.existsSync(configPath)) {
+    console.error('Error: medium.config.json not found.');
+    console.error('Please create a medium.config.json file with your Medium username:');
+    console.error('{\n  "username": "your-medium-username"\n}');
+    process.exit(1);
+  }
+
+  const configContent = fs.readFileSync(configPath, 'utf-8');
+  return JSON.parse(configContent);
+}
+
 async function main() {
-  const username = 'selfishprimate';
+  const config = loadConfig();
+  const username = config.username;
   const imagesDir = path.join(process.cwd(), 'public/images/articles');
 
   // Ensure images directory exists
