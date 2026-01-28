@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
-import { siteConfig } from '@/lib/data';
 import { ThemeToggle } from './ThemeToggle';
 import { useBodyScrollLock } from '@/hooks/useBodyScrollLock';
 
@@ -10,8 +9,8 @@ const navItems = [
   { label: 'Works', path: '/works' },
   { label: 'Illustrations', path: '/illustrations' },
   { label: 'Articles', path: '/articles' },
+  { label: 'Experience', path: '/experience' },
   { label: 'About', path: '/about' },
-  { label: 'Contact', path: '/contact' },
 ];
 
 export function Header() {

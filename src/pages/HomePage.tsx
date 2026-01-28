@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
-import { siteConfig, experiences } from '@/lib/data';
+import { siteConfig } from '@/lib/data';
+import { getExperiences } from '@/lib/experience';
 import { getFeaturedProjects } from '@/lib/projects';
 import { ProjectCard } from '@/components/ProjectCard';
 import { SectionHeading } from '@/components/SectionHeading';
@@ -9,6 +10,7 @@ import { useSEO, generateTitle } from '@/hooks/useSEO';
 
 export function HomePage() {
   const featuredProjects = getFeaturedProjects();
+  const experiences = getExperiences();
 
   useSEO({
     title: generateTitle(),
@@ -228,10 +230,10 @@ export function HomePage() {
           className="mt-8"
         >
           <Link
-            to="/about"
+            to="/experience"
             className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors"
           >
-            Read more about me
+            View full experience
             <ArrowRight size={16} />
           </Link>
         </motion.div>
@@ -248,7 +250,7 @@ export function HomePage() {
           {/* Decorative elements */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
-          
+
           <div className="relative">
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-surface max-w-xl">
               Let's create something amazing together
@@ -257,13 +259,15 @@ export function HomePage() {
               Have a project in mind? I'd love to hear about it. Let's discuss how we can work together.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                to="/contact"
+              <a
+                href={siteConfig.social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-surface text-text-primary font-sans text-sm rounded-full hover:bg-surface/90 transition-colors"
               >
-                Get In Touch
-                <ArrowRight size={16} />
-              </Link>
+                Connect on LinkedIn
+                <ArrowUpRight size={16} />
+              </a>
             </div>
           </div>
         </motion.div>

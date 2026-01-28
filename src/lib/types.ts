@@ -35,7 +35,9 @@ export interface Experience {
 }
 
 export interface Illustration {
+  slug: string;
   title: string;
   description: string;
+  caption: string;
   image: string;
 }

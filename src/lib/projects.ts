@@ -1,5 +1,8 @@
 import type { Project } from './types';
 
+// Import page meta
+import worksIndexMd from '../content/works/index.md?raw';
+
 // Import markdown files from new folder structure
 import plainifyMd from '../content/works/plainify/index.md?raw';
 import joiDesignSystemMd from '../content/works/joi-design-system/index.md?raw';
@@ -160,4 +163,24 @@ export function getFeaturedProjects(): Project[] {
   return getProjects()
     .filter(p => p.featured)
     .sort((a, b) => (a.featuredOrder || 999) - (b.featuredOrder || 999));
+}
+
+export interface WorksPageMeta {
+  label: string;
+  title: string;
+  description: string;
+}
+
+let cachedWorksMeta: WorksPageMeta | null = null;
+
+export function getWorksMeta(): WorksPageMeta {
+  if (!cachedWorksMeta) {
+    const { data } = parseFrontmatter(worksIndexMd);
+    cachedWorksMeta = {
+      label: (data.label as string) || 'Portfolio',
+      title: (data.title as string) || 'Selected Works',
+      description: (data.description as string) || '',
+    };
+  }
+  return cachedWorksMeta;
 }

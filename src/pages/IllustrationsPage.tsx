@@ -2,18 +2,19 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { SectionHeading } from '@/components/SectionHeading';
-import { illustrations } from '@/lib/data';
+import { getIllustrationsContent } from '@/lib/illustrations';
 import { useSEO, generateTitle } from '@/hooks/useSEO';
 import { useBodyScrollLock } from '@/hooks/useBodyScrollLock';
 
 export function IllustrationsPage() {
+  const { meta, illustrations } = getIllustrationsContent();
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [isZoomed, setIsZoomed] = useState(false);
   const isTouchDevice = typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0);
 
   useSEO({
-    title: generateTitle('Illustrations'),
-    description: 'A collection of digital illustrations and creative artwork exploring various styles and themes.',
+    title: generateTitle(meta.title),
+    description: meta.description,
     keywords: ['Illustrations', 'Digital Art', 'Creative', 'Artwork', 'Drawing'],
   });
 
@@ -56,7 +57,7 @@ export function IllustrationsPage() {
       setSelectedIndex(selectedIndex === illustrations.length - 1 ? 0 : selectedIndex + 1);
       setIsZoomed(false);
     }
-  }, [selectedIndex]);
+  }, [selectedIndex, illustrations.length]);
 
   useEffect(() => {
     if (selectedIndex !== null) {
@@ -69,34 +70,28 @@ export function IllustrationsPage() {
     <div className="min-h-screen">
       <section className="max-w-6xl mx-auto px-6 py-16 md:py-24">
         <SectionHeading
-          label="Creative"
-          title="Illustrations"
-          description="Personal artwork and creative explorations beyond UI/UX design."
+          label={meta.label}
+          title={meta.title}
+          description={meta.description}
         />
 
-        <div className="grid md:grid-cols-2 gap-16 mt-16 md:mt-24">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mt-16 md:mt-24">
           {illustrations.map((illustration, index) => (
             <motion.div
               key={illustration.title}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.05 }}
               className="group cursor-pointer"
               onClick={() => openLightbox(index)}
             >
-              <div className="overflow-hidden bg-border">
+              <div className="aspect-square overflow-hidden bg-border">
                 <img
                   src={illustration.image}
                   alt={illustration.title}
-                  className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-              <h3 className="mt-4 font-serif font-semibold text-xl text-text-primary">
-                {illustration.title}
-              </h3>
-              <p className="mt-2 text-text-secondary">
-                {illustration.description}
-              </p>
             </motion.div>
           ))}
         </div>

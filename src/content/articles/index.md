@@ -1,0 +1,61 @@
+---
+label: Medium
+title: Articles
+description: Thoughts on design, development, and the creative process.
+---
+
+# Could visiting a website soon stop being a necessity and turn into a hobby?
+slug: could-visiting-a-website-soon-stop-being-a-necessity
+image: ./images/could-visiting-a-website-soon-stop-being-a-necessi.jpg
+description: As AI agents handle shopping, research, and form-filling on our behalf, does it still matter how a website looks? Exploring the future of web design in an AI-driven world.
+date: January 23, 2026
+url: https://medium.com/design-bootcamp/could-visiting-a-website-soon-stop-being-a-necessity-and-turn-into-a-hobby-a0e3be9d5b05
+tags: Design, Future, UX Design, Artificial Intelligence, UX
+
+# Design in Figma is Dead, Long Live Design in Code!
+slug: design-in-figma-is-dead
+image: ./images/design-in-code.jpg
+description: How AI-powered code generation tools are transforming design workflows by enabling designers to create directly in code editors rather than traditional design applications.
+date: November 25, 2025
+url: https://medium.com/design-bootcamp/design-in-figma-is-dead-long-live-design-in-code-56cd97a19173
+tags: Design, Web Development, Product Design, Artificial Intelligence, Technology
+
+# First we shaped Figma, and now it shapes us
+slug: first-we-shaped-figma
+image: ./images/figma-ecosystem.jpg
+description: A critical examination of Figma's rapid expansion into multiple product categories and what it means for designers.
+date: May 20, 2025
+url: https://medium.com/design-bootcamp/first-we-shaped-figma-and-now-it-shapes-us-319520a0ede2
+tags: Figma, Design Tools, Product Design, UI Design, UX Design
+
+# Do not try to design the box. Instead, only try to realize the truth… there is no box.
+slug: there-is-no-box
+image: ./images/no-box.jpg
+description: Guidance for junior designers on adopting a compose-first approach using Figma's layout features.
+date: October 7, 2024
+url: https://medium.com/design-bootcamp/do-not-try-to-design-the-box-instead-only-try-to-realize-the-truth-there-is-no-box-9cc3b81cb9ae
+tags: Design Tools, Figma, UI Design, Product Design, Design
+
+# The benefits of incrementalism in UI/UX Design over the holistic approach
+slug: benefits-of-incrementalism
+image: ./images/the-benefits-of-incrementalism-in-ui-ux-design-ove.jpg
+description: Why iterative, incremental design approaches lead to better outcomes than comprehensive upfront design.
+date: April 3, 2023
+url: https://medium.com/design-bootcamp/the-benefits-of-incrementalism-in-ui-ux-design-over-holistic-approach-fd2d33891244
+tags: User Experience, UI Design, UX Design, Design Thinking, Design
+
+# Streamline your CSS with Gerillass: A Sass library for efficient styling
+slug: streamline-your-css-with-gerillass
+image: ./images/gerillass-streamline.jpg
+description: Introduction to Gerillass, a Sass mixins library designed to streamline CSS development through reusable components.
+date: March 5, 2023
+url: https://medium.com/gerillass/streamline-your-css-with-gerillass-a-sass-library-for-efficient-styling-6e297bb658b5
+tags: Sass, Gerillass, Front End Development, CSS, Web Development
+
+# Up and running with Sass and Gerillass
+slug: up-and-running-with-sass-and-gerillass
+image: ./images/gerillass-setup.jpg
+description: Practical tutorial covering Sass installation methods and an overview of the Gerillass library for web development.
+date: September 26, 2020
+url: https://medium.com/gerillass/up-and-running-with-sass-and-gerillass-b2e9ab2a85c1
+tags: Front End Development, CSS, Web Development, Web Design, Sass

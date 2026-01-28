@@ -64,13 +64,13 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-text-secondary hover:text-accent transition-colors text-sm">
-                  About
+                <Link to="/experience" className="text-text-secondary hover:text-accent transition-colors text-sm">
+                  Experience
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-text-secondary hover:text-accent transition-colors text-sm">
-                  Contact
+                <Link to="/about" className="text-text-secondary hover:text-accent transition-colors text-sm">
+                  About
                 </Link>
               </li>
             </ul>

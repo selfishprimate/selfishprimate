@@ -1,13 +1,15 @@
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { SectionHeading } from '@/components/SectionHeading';
-import { articles } from '@/lib/data';
+import { getArticlesContent } from '@/lib/articles';
 import { useSEO, generateTitle } from '@/hooks/useSEO';
 
 export function ArticlesPage() {
+  const { meta, articles } = getArticlesContent();
+
   useSEO({
-    title: generateTitle('Articles'),
-    description: 'Thoughts on design, development, and the creative process. Articles and insights from a UI/UX designer perspective.',
+    title: generateTitle(meta.title),
+    description: meta.description,
     keywords: ['Articles', 'Blog', 'Design', 'UI/UX', 'Thoughts', 'Insights'],
   });
 
@@ -15,9 +17,9 @@ export function ArticlesPage() {
     <div className="min-h-screen">
       <section className="max-w-6xl mx-auto px-6 py-16 md:py-24">
         <SectionHeading
-          label="Blog"
-          title="Articles"
-          description="Thoughts on design, development, and the creative process."
+          label={meta.label}
+          title={meta.title}
+          description={meta.description}
         />
 
         <div className="grid mt-16 md:mt-24">
