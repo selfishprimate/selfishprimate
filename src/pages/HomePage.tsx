@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
-import { siteConfig } from '@/lib/data';
+import { getHomeContent } from '@/lib/home';
 import { getExperiences } from '@/lib/experience';
 import { getFeaturedProjects } from '@/lib/projects';
 import { ProjectCard } from '@/components/ProjectCard';
@@ -9,12 +9,13 @@ import { SectionHeading } from '@/components/SectionHeading';
 import { useSEO, generateTitle } from '@/hooks/useSEO';
 
 export function HomePage() {
+  const home = getHomeContent();
   const featuredProjects = getFeaturedProjects();
   const experiences = getExperiences();
 
   useSEO({
     title: generateTitle(),
-    description: 'Portfolio of Halil Ibrahim Cakiroglu, a technological caveman crafting digital experiences. UI/UX Designer with over 10 years of experience.',
+    description: home.hero.subtitle,
     keywords: ['UI/UX Designer', 'Product Designer', 'Istanbul', 'Portfolio', 'Web Design', 'Mobile App Design'],
   });
   const { scrollY } = useScroll();
@@ -53,7 +54,7 @@ export function HomePage() {
             className="mb-6"
           >
             <span className="text-text-tertiary font-sans text-sm uppercase">
-              {siteConfig.title} — {siteConfig.location}
+              {home.hero.title} — {home.hero.location}
             </span>
           </motion.div>
 
@@ -64,8 +65,8 @@ export function HomePage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-serif font-semibold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-text-primary leading-[1.1]"
           >
-            Crafting intuitive digital experiences that{' '}
-            <span className="italic text-accent">users love</span>
+            {home.hero.headline}{' '}
+            <span className="italic text-accent">{home.hero.headlineAccent}</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -75,7 +76,7 @@ export function HomePage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-8 text-text-secondary text-lg md:text-xl leading-relaxed max-w-2xl"
           >
-            {siteConfig.bio.split('.')[0]}.
+            {home.hero.subtitle}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -93,7 +94,7 @@ export function HomePage() {
               <ArrowRight size={16} />
             </Link>
             <a
-              href={siteConfig.social.linkedin}
+              href={home.social.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 border border-border text-text-primary font-sans text-sm rounded-full hover:bg-border/50 transition-colors"
@@ -112,10 +113,10 @@ export function HomePage() {
           className="mt-24 pt-12 border-t border-border"
         >
           <p className="font-serif italic text-xl md:text-2xl text-text-secondary max-w-2xl">
-            "{siteConfig.quote.text}"
+            "{home.quote.text}"
           </p>
           <cite className="mt-3 block text-sm text-text-tertiary not-italic">
-            — {siteConfig.quote.author}
+            — {home.quote.author}
           </cite>
         </motion.blockquote>
       </section>
@@ -124,8 +125,8 @@ export function HomePage() {
       <section className="max-w-6xl mx-auto px-6 py-24 md:py-32">
         <div className="flex items-end justify-between mb-12">
           <SectionHeading
-            label="Selected Work"
-            title="Featured Projects"
+            label={home.featuredWork.label}
+            title={home.featuredWork.title}
           />
           <Link
             to="/works"
@@ -161,8 +162,8 @@ export function HomePage() {
       {/* Experience Preview */}
       <section className="max-w-6xl mx-auto px-6 py-24 md:py-32">
         <SectionHeading
-          label="Experience"
-          title="Where I've Worked"
+          label={home.experiencePreview.label}
+          title={home.experiencePreview.title}
         />
 
         <div className="grid max-w-3xl">
@@ -253,19 +254,19 @@ export function HomePage() {
 
           <div className="relative">
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-surface max-w-xl">
-              Let's create something amazing together
+              {home.cta.title}
             </h2>
             <p className="mt-6 text-surface/70 text-lg max-w-lg">
-              Have a project in mind? I'd love to hear about it. Let's discuss how we can work together.
+              {home.cta.description}
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a
-                href={siteConfig.social.linkedin}
+                href={home.social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-surface text-text-primary font-sans text-sm rounded-full hover:bg-surface/90 transition-colors"
               >
-                Connect on LinkedIn
+                {home.cta.buttonText}
                 <ArrowUpRight size={16} />
               </a>
             </div>
