@@ -13,7 +13,7 @@ url: https://roofstacks.com/
 description: Spearheading design for the Bilet Dükkanı platform, collaborating across teams to deliver user-centered solutions aligned with business objectives. Leading design system initiatives and mentoring junior designers.
 skills: UI/UX Design, Design Systems, AI for Design, Design for AI, UX Research, Wireframing, Prototyping, Usability Testing, Figma
 
-# Turna.com (Head of Design)
+# Turna.com
 role: Head of UI/UX Design
 period: Jul 2024 — Dec 2024
 location: Istanbul, Turkey
