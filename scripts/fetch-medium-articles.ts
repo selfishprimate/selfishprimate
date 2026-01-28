@@ -128,16 +128,17 @@ async function fetchMediumArticles(username: string): Promise<MediumArticle[]> {
 }
 
 function loadConfig(): MediumConfig {
-  const configPath = path.join(process.cwd(), 'medium.config.js');
+  const configPath = path.join(process.cwd(), 'medium.config.json');
 
   if (!fs.existsSync(configPath)) {
-    console.error('Error: medium.config.js not found.');
-    console.error('Please create a medium.config.js file with your Medium username.');
+    console.error('Error: medium.config.json not found.');
+    console.error('Please create a medium.config.json file:');
+    console.error('{\n  "username": "your-medium-username"\n}');
     process.exit(1);
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  return require(configPath);
+  const configContent = fs.readFileSync(configPath, 'utf-8');
+  return JSON.parse(configContent);
 }
 
 function parseExistingArticles(content: string): { frontmatter: string; existingSlugs: Set<string> } {

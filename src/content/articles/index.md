@@ -20,6 +20,14 @@ date: November 25, 2025
 url: https://medium.com/design-bootcamp/design-in-figma-is-dead-long-live-design-in-code-56cd97a19173
 tags: Design, Web Development, Product Design, Artificial Intelligence, Technology
 
+# Figma'da Tasarım Öldü! Çok Yaşa Kod Editöründe Tasarım!
+slug: figma-da-tasarim-oldu
+image: ./images/figma-da-tasar-m-ld-ok-ya-a-kod-edit-r-nde-tasar-m.jpg
+description: Aylardır yapay zekânın tasarım dünyasını nasıl dönüştürdüğünü izledikten ve birkaç deneme yaptıktan sonra, birikmiş düşüncelerimi ve deneyimlerimi yazmak istedim.
+date: November 6, 2025
+url: https://medium.com/@selfishprimate/figmada-tasar%C4%B1m-%C3%B6ld%C3%BC-%C3%A7ok-ya%C5%9Fa-kod-edit%C3%B6r%C3%BCnde-tasar%C4%B1m-3afc782cea8c
+tags: Artificial Intelligence, Product Design, UI Design, Figma, Design
+
 # First we shaped Figma, and now it shapes us
 slug: first-we-shaped-figma
 image: ./images/figma-ecosystem.jpg
@@ -51,6 +59,22 @@ description: Introduction to Gerillass, a Sass mixins library designed to stream
 date: March 5, 2023
 url: https://medium.com/gerillass/streamline-your-css-with-gerillass-a-sass-library-for-efficient-styling-6e297bb658b5
 tags: Sass, Gerillass, Front End Development, CSS, Web Development
+
+# Creating a beautiful card-based design layout with Sass and Gerillass
+slug: creating-a-card-based-layout
+image: ./images/creating-a-beautiful-card-based-design-layout-with.jpg
+description: Creating a card-based design layout can often be challenging. Here is a flexible and straightforward solution using Sass and Gerillass.
+date: August 13, 2020
+url: https://medium.com/gerillass/creating-a-beautiful-card-based-design-layout-with-sass-and-gerillass-c0fcc8c09f9
+tags: Web Design, Cards, Frontend, Web Development, Sass
+
+# Gerillass: A short introduction to say hello
+slug: gerillass-introduction
+image: ./images/gerillass-a-short-introduction-to-say-hello.jpg
+description: About a year ago I decided to make a small Sass library named Gerillass public, which I created for the company I'm currently working on.
+date: July 28, 2020
+url: https://medium.com/gerillass/gerillass-a-short-introduction-to-say-hello-b379f8062098
+tags: Web Development, CSS, UI, Sass, Web Design
 
 # Up and running with Sass and Gerillass
 slug: up-and-running-with-sass-and-gerillass
