@@ -22,9 +22,9 @@ export function AboutPage() {
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="relative"
+            className="flex justify-center lg:justify-start"
           >
-            <div className="aspect-[4/5] rounded-2xl bg-border overflow-hidden">
+            <div className="w-64 h-64 md:w-72 md:h-72 rounded-full bg-border overflow-hidden">
               {about.profile.avatar && (
                 <img
                   src={about.profile.avatar}
@@ -33,8 +33,6 @@ export function AboutPage() {
                 />
               )}
             </div>
-            {/* Decorative element */}
-            <div className="absolute -bottom-4 -right-4 w-32 h-32 border border-border rounded-2xl -z-10" />
           </motion.div>
 
           {/* Content */}
