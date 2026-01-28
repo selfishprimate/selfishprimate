@@ -3,7 +3,7 @@ title: UI/UX Designer
 location: Istanbul, Turkey
 headline: Crafting intuitive digital experiences that
 headlineAccent: users love
-subtitle: Hello! I'm Halil, an Istanbul-based UI/UX designer with over 10 years of experience in crafting intuitive and engaging user interfaces.
+subtitle: Hello! I'm Halil, an Istanbul-based UI/UX designer with over 15 years of experience in crafting intuitive and engaging user interfaces.
 ---
 
 # Quote
@@ -16,7 +16,7 @@ title: Featured Projects
 
 # Experience Preview
 label: Experience
-title: Where I've Worked
+title: Work Experience
 
 # CTA Section
 title: Let's create something amazing together
