@@ -42,6 +42,7 @@ export interface AboutSocial {
 
 export interface AboutSection {
   title: string;
+  description: string;
   items: string[];
 }
 
@@ -71,8 +72,8 @@ function parseAboutContent(content: string): AboutContent {
     bio: '',
     quote: { text: '', author: '' },
     social: { linkedin: '', github: '', twitter: '', patreon: '' },
-    skills: { title: '', items: [] },
-    domains: { title: '', items: [] },
+    skills: { title: '', description: '', items: [] },
+    domains: { title: '', description: '', items: [] },
     beyondDesign: [],
   };
 
@@ -143,6 +144,7 @@ function parseAboutContent(content: string): AboutContent {
           const key = trimmed.slice(0, colonIndex).trim();
           const value = trimmed.slice(colonIndex + 2).trim();
           if (key === 'title') aboutContent.skills.title = value;
+          if (key === 'description') aboutContent.skills.description = value;
           if (key === 'items') aboutContent.skills.items = value.split(', ').map(s => s.trim());
         }
       }
@@ -157,6 +159,7 @@ function parseAboutContent(content: string): AboutContent {
           const key = trimmed.slice(0, colonIndex).trim();
           const value = trimmed.slice(colonIndex + 2).trim();
           if (key === 'title') aboutContent.domains.title = value;
+          if (key === 'description') aboutContent.domains.description = value;
           if (key === 'items') aboutContent.domains.items = value.split(', ').map(d => d.trim());
         }
       }

@@ -23,10 +23,12 @@ patreon: https://www.patreon.com/selfishprimate
 
 # Skills
 title: Skills & Tools
+description: The tools and methodologies I use to bring ideas to life.
 items: UI Design, UX Design, Design Systems, Prototyping, User Research, Wireframing, Figma, HTML/CSS, JavaScript, React
 
 # Domains
 title: Industries & Domains
+description: Sectors where I've delivered impactful design solutions.
 items: E-commerce, Fintech, Banking, Travel, Retail, Education, Technology, Online Media
 
 # Beyond Design

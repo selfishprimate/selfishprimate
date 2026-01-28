@@ -119,9 +119,12 @@ export function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h3 className="font-serif font-semibold text-2xl text-text-primary mb-6">
+            <h3 className="font-serif font-semibold text-2xl text-text-primary mb-2">
               {about.skills.title}
             </h3>
+            {about.skills.description && (
+              <p className="text-text-tertiary mb-6">{about.skills.description}</p>
+            )}
             <div className="flex flex-wrap justify-center gap-2">
               {about.skills.items.map((skill) => (
                 <span
@@ -141,9 +144,12 @@ export function AboutPage() {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <h3 className="font-serif font-semibold text-2xl text-text-primary mb-6">
+            <h3 className="font-serif font-semibold text-2xl text-text-primary mb-2">
               {about.domains.title}
             </h3>
+            {about.domains.description && (
+              <p className="text-text-tertiary mb-6">{about.domains.description}</p>
+            )}
             <div className="flex flex-wrap justify-center gap-2">
               {about.domains.items.map((domain) => (
                 <span
