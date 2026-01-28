@@ -15,16 +15,15 @@ export function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="max-w-6xl mx-auto px-6 py-16 md:py-24">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+      <section className="max-w-3xl mx-auto px-6 py-16 md:py-24">
+        <div className="flex flex-col items-center text-center">
           {/* Image */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex justify-center lg:justify-start"
           >
-            <div className="w-64 h-64 md:w-72 md:h-72 rounded-full bg-border overflow-hidden">
+            <div className="w-48 h-48 md:w-56 md:h-56 rounded-full bg-border overflow-hidden">
               {about.profile.avatar && (
                 <img
                   src={about.profile.avatar}
@@ -37,9 +36,10 @@ export function AboutPage() {
 
           {/* Content */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-8"
           >
             <span className="text-xs font-sans uppercase text-text-tertiary">
               About Me
@@ -51,14 +51,14 @@ export function AboutPage() {
               {about.profile.title} · {about.profile.location}
             </p>
 
-            <div className="mt-8 space-y-6 text-text-secondary leading-relaxed">
+            <div className="mt-8 space-y-6 text-text-secondary leading-relaxed text-left">
               {about.bio.split('\n\n').map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
             </div>
 
             {/* Social Links */}
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-10 flex flex-wrap justify-center gap-4">
               <a
                 href={about.social.linkedin}
                 target="_blank"
