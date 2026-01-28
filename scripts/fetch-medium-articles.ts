@@ -127,33 +127,32 @@ async function fetchMediumArticles(username: string): Promise<MediumArticle[]> {
   }
 }
 
-function loadConfig(): MediumConfig {
-  const configPath = path.join(process.cwd(), 'medium.config.json');
+async function loadConfig(): Promise<MediumConfig> {
+  const configPath = path.join(process.cwd(), 'medium.config.ts');
 
   if (!fs.existsSync(configPath)) {
-    console.error('Error: medium.config.json not found.');
-    console.error('Please create a medium.config.json file:');
-    console.error('{\n  "username": "your-medium-username"\n}');
+    console.error('Error: medium.config.ts not found.');
+    console.error('Please create a medium.config.ts file with your Medium username.');
     process.exit(1);
   }
 
-  const configContent = fs.readFileSync(configPath, 'utf-8');
-  return JSON.parse(configContent);
+  const { config } = await import(configPath);
+  return config;
 }
 
-function parseExistingArticles(content: string): { frontmatter: string; existingSlugs: Set<string> } {
+function parseExistingArticles(content: string): { frontmatter: string; existingUrls: Set<string> } {
   // Extract frontmatter
   const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---\n/);
   const frontmatter = frontmatterMatch ? frontmatterMatch[0] : '---\nlabel: Medium\ntitle: Articles\ndescription: Thoughts on design, development, and the creative process.\n---\n';
 
-  // Extract existing article slugs
-  const slugMatches = content.matchAll(/^slug: (.+)$/gm);
-  const existingSlugs = new Set<string>();
-  for (const match of slugMatches) {
-    existingSlugs.add(match[1].trim());
+  // Extract existing article URLs (more reliable than slugs)
+  const urlMatches = content.matchAll(/^url: (.+)$/gm);
+  const existingUrls = new Set<string>();
+  for (const match of urlMatches) {
+    existingUrls.add(match[1].trim());
   }
 
-  return { frontmatter, existingSlugs };
+  return { frontmatter, existingUrls };
 }
 
 function generateArticleMarkdown(article: MediumArticle): string {
@@ -171,7 +170,7 @@ function generateArticleMarkdown(article: MediumArticle): string {
 }
 
 async function main() {
-  const config = loadConfig();
+  const config = await loadConfig();
   const username = config.username;
   const contentDir = path.join(process.cwd(), 'src/content/articles');
   const imagesDir = path.join(contentDir, 'images');
@@ -191,17 +190,17 @@ async function main() {
     // Read existing index.md
     let existingContent = '';
     let frontmatter = '---\nlabel: Medium\ntitle: Articles\ndescription: Thoughts on design, development, and the creative process.\n---\n';
-    let existingSlugs = new Set<string>();
+    let existingUrls = new Set<string>();
 
     if (fs.existsSync(indexPath)) {
       existingContent = fs.readFileSync(indexPath, 'utf-8');
       const parsed = parseExistingArticles(existingContent);
       frontmatter = parsed.frontmatter;
-      existingSlugs = parsed.existingSlugs;
+      existingUrls = parsed.existingUrls;
     }
 
-    // Find new articles
-    const newArticles = articles.filter(a => !existingSlugs.has(a.slug));
+    // Find new articles (by URL to avoid duplicates with different slugs)
+    const newArticles = articles.filter(a => !existingUrls.has(a.url));
 
     if (newArticles.length === 0) {
       console.log('No new articles found.\n');
