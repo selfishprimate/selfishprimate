@@ -46,6 +46,11 @@ export interface AboutSection {
   items: string[];
 }
 
+export interface AboutTextSection {
+  title: string;
+  description: string;
+}
+
 export interface AboutBeyondDesign {
   title: string;
   paragraphs: string[];
@@ -56,6 +61,9 @@ export interface AboutContent {
   bio: string;
   quote: AboutQuote;
   social: AboutSocial;
+  whatSetsApart: AboutTextSection;
+  openSource: AboutTextSection;
+  theHandle: AboutTextSection;
   skills: AboutSection;
   domains: AboutSection;
   beyondDesign: AboutBeyondDesign;
@@ -77,6 +85,9 @@ function parseAboutContent(content: string): AboutContent {
     bio: '',
     quote: { text: '', author: '' },
     social: { linkedin: '', github: '', twitter: '', patreon: '' },
+    whatSetsApart: { title: '', description: '' },
+    openSource: { title: '', description: '' },
+    theHandle: { title: '', description: '' },
     skills: { title: '', description: '', items: [] },
     domains: { title: '', description: '', items: [] },
     beyondDesign: { title: '', paragraphs: [] },
@@ -136,6 +147,42 @@ function parseAboutContent(content: string): AboutContent {
           if (key === 'github') aboutContent.social.github = value;
           if (key === 'twitter') aboutContent.social.twitter = value;
           if (key === 'patreon') aboutContent.social.patreon = value;
+        }
+      }
+    }
+
+    // What Sets Me Apart section
+    else if (headerLine === '# What Sets Me Apart') {
+      for (const line of lines.slice(1)) {
+        const trimmed = line.trim();
+        if (trimmed.startsWith('title: ')) {
+          aboutContent.whatSetsApart.title = trimmed.slice(7);
+        } else if (trimmed) {
+          aboutContent.whatSetsApart.description += (aboutContent.whatSetsApart.description ? ' ' : '') + trimmed;
+        }
+      }
+    }
+
+    // Open Source section
+    else if (headerLine === '# Open Source') {
+      for (const line of lines.slice(1)) {
+        const trimmed = line.trim();
+        if (trimmed.startsWith('title: ')) {
+          aboutContent.openSource.title = trimmed.slice(7);
+        } else if (trimmed) {
+          aboutContent.openSource.description += (aboutContent.openSource.description ? ' ' : '') + trimmed;
+        }
+      }
+    }
+
+    // The Handle section
+    else if (headerLine === '# The Handle') {
+      for (const line of lines.slice(1)) {
+        const trimmed = line.trim();
+        if (trimmed.startsWith('title: ')) {
+          aboutContent.theHandle.title = trimmed.slice(7);
+        } else if (trimmed) {
+          aboutContent.theHandle.description += (aboutContent.theHandle.description ? ' ' : '') + trimmed;
         }
       }
     }

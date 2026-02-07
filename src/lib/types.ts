@@ -12,6 +12,7 @@ export interface Project {
   order?: number;
   year: string;
   content: string;
+  draft?: boolean;
 }
 
 export interface Article {

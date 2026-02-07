@@ -3,6 +3,38 @@ import { ArrowUpRight } from 'lucide-react';
 import { getAboutContent } from '@/lib/about';
 import { useSEO, generateTitle } from '@/hooks/useSEO';
 
+// Helper to render text with markdown links
+function renderWithLinks(text: string) {
+  const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  const parts: (string | JSX.Element)[] = [];
+  let lastIndex = 0;
+  let match;
+
+  while ((match = linkRegex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+    parts.push(
+      <a
+        key={match.index}
+        href={match[2]}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-text-primary underline hover:no-underline"
+      >
+        {match[1]}
+      </a>
+    );
+    lastIndex = match.index + match[0].length;
+  }
+
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+
+  return parts.length > 0 ? parts : text;
+}
+
 export function AboutPage() {
   const about = getAboutContent();
 
@@ -107,6 +139,69 @@ export function AboutPage() {
             — {about.quote.author}
           </cite>
         </motion.blockquote>
+      </section>
+
+      {/* What Sets Me Apart, Open Source, The Handle */}
+      <section className="max-w-3xl mx-auto px-6 py-16">
+        <div className="flex flex-col gap-12 text-center">
+          {about.whatSetsApart.title && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="font-serif font-semibold text-2xl text-text-primary mb-4">
+                {about.whatSetsApart.title}
+              </h3>
+              <p className="text-text-secondary leading-relaxed">
+                {about.whatSetsApart.description}
+              </p>
+            </motion.div>
+          )}
+
+          {about.openSource.title && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
+              <h3 className="font-serif font-semibold text-2xl text-text-primary mb-4">
+                {about.openSource.title}
+              </h3>
+              <p className="text-text-secondary leading-relaxed">
+                {about.openSource.description}
+              </p>
+            </motion.div>
+          )}
+
+          {about.theHandle.title && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <h3 className="font-serif font-semibold text-2xl text-text-primary mb-4">
+                {about.theHandle.title}
+              </h3>
+              <p className="text-text-secondary leading-relaxed">
+                {renderWithLinks(about.theHandle.description)}
+              </p>
+              <div className="mt-6 max-w-md mx-auto">
+                <iframe
+                  src="https://open.spotify.com/embed/track/06cCNvDC89aT8m6J5VCmpv?utm_source=generator&theme=0"
+                  width="100%"
+                  height="152"
+                  frameBorder="0"
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy"
+                  className="rounded-xl"
+                />
+              </div>
+            </motion.div>
+          )}
+        </div>
       </section>
 
       {/* Skills & Domains */}

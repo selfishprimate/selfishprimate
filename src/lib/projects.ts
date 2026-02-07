@@ -18,6 +18,7 @@ import edenredMd from '../content/works/edenred/index.md?raw';
 import interestingEngineeringMd from '../content/works/interesting-engineering/index.md?raw';
 import takkoFashionMd from '../content/works/takko-fashion/index.md?raw';
 import turnaCarRentalMd from '../content/works/turna-com-app-rent-a-car/index.md?raw';
+import osmanliYatirimDigitalBankingMd from '../content/works/osmanli-yatirim-digital-banking/index.md?raw';
 
 // Import all images using Vite's glob import
 const imageModules = import.meta.glob('../content/works/*/images/*.(jpg|jpeg|png|gif|webp|svg)', { eager: true, query: '?url', import: 'default' });
@@ -60,6 +61,7 @@ const projectFiles: Record<string, string> = {
   'interesting-engineering': interestingEngineeringMd,
   'takko-fashion': takkoFashionMd,
   'turna-com-app-rent-a-car': turnaCarRentalMd,
+  'osmanli-yatirim-digital-banking': osmanliYatirimDigitalBankingMd,
 };
 
 function parseFrontmatter(content: string): { data: Record<string, unknown>; content: string } {
@@ -139,11 +141,12 @@ export function getProjects(): Project[] {
       order: data.order ? parseInt(data.order as string) : undefined,
       year: data.year as string || '',
       content: markdownContent,
+      draft: data.draft as boolean | undefined,
     });
   }
 
-  // Sort by order (ascending), then by year (descending) for items without order
-  return projects.sort((a, b) => {
+  // Filter out draft projects and sort by order (ascending), then by year (descending)
+  return projects.filter(p => p.draft !== true).sort((a, b) => {
     // Items with order come first, sorted by order ascending
     if (a.order !== undefined && b.order !== undefined) {
       return a.order - b.order;

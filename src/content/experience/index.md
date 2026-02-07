@@ -6,7 +6,7 @@ description: Crafting intuitive interfaces for travel booking, gifting platforms
 
 # RoofStacks
 role: Lead UI/UX Designer
-period: Dec 2024 — Present
+period: Dec 2024 — Jan 2026
 location: Istanbul, Turkey
 logo: ./images/roofstacks.jpg
 url: https://roofstacks.com/
