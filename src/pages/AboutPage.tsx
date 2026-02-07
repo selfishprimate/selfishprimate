@@ -6,7 +6,7 @@ import { useSEO, generateTitle } from '@/hooks/useSEO';
 // Helper to render text with markdown links
 function renderWithLinks(text: string) {
   const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
-  const parts: (string | JSX.Element)[] = [];
+  const parts: (string | React.ReactNode)[] = [];
   let lastIndex = 0;
   let match;
 
