@@ -35,6 +35,7 @@ export interface AboutQuote {
 
 export interface AboutSocial {
   linkedin: string;
+  medium: string;
   github: string;
   twitter: string;
   patreon: string;
@@ -84,7 +85,7 @@ function parseAboutContent(content: string): AboutContent {
     },
     bio: '',
     quote: { text: '', author: '' },
-    social: { linkedin: '', github: '', twitter: '', patreon: '' },
+    social: { linkedin: '', medium: '', github: '', twitter: '', patreon: '' },
     whatSetsApart: { title: '', description: '' },
     openSource: { title: '', description: '' },
     theHandle: { title: '', description: '' },
@@ -144,6 +145,7 @@ function parseAboutContent(content: string): AboutContent {
           const key = trimmed.slice(0, colonIndex).trim();
           const value = trimmed.slice(colonIndex + 2).trim();
           if (key === 'linkedin') aboutContent.social.linkedin = value;
+          if (key === 'medium') aboutContent.social.medium = value;
           if (key === 'github') aboutContent.social.github = value;
           if (key === 'twitter') aboutContent.social.twitter = value;
           if (key === 'patreon') aboutContent.social.patreon = value;

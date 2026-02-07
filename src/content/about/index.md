@@ -17,6 +17,7 @@ author: Saul Bass
 
 # Social
 linkedin: https://www.linkedin.com/in/selfishprimate/
+medium: https://medium.com/@selfishprimate
 github: https://github.com/selfishprimate
 twitter: https://twitter.com/selfishprimate
 patreon: https://www.patreon.com/selfishprimate

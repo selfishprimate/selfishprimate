@@ -101,6 +101,15 @@ export function AboutPage() {
                 <ArrowUpRight size={14} />
               </a>
               <a
+                href={about.social.medium}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 border border-border text-text-primary font-sans text-sm rounded-full hover:bg-border/50 transition-colors"
+              >
+                Medium
+                <ArrowUpRight size={14} />
+              </a>
+              <a
                 href={about.social.github}
                 target="_blank"
                 rel="noopener noreferrer"
