@@ -39,8 +39,8 @@ The name comes from two sources that shaped my creative path. "Selfish" is from 
 
 # Skills
 title: Skills
-description: The tools and methodologies I use to bring ideas to life.
-items: UI Design, UX Design, Design Systems, Prototyping, User Research, Wireframing, Figma, HTML/CSS, JavaScript, React, AI-Assisted Design
+description: The disciplines, tools, and approaches I use to bring ideas to life.
+items: UI Design, UX Design, Product Design, Design Systems, Prototyping, User Research, Wireframing, Figma, HTML, CSS, Sass, JavaScript, React, Static Site Generators, Vibe Coding, Vibe Designing, Claude Code, AI-Assisted Design, AI-Powered Design
 
 # Domains
 title: Industries
