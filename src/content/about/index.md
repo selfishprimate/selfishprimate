@@ -35,7 +35,7 @@ Building tools that help other designers and developers is one of my greatest pa
 # The Handle
 title: Why "selfishprimate"?
 
-The name comes from two sources that shaped my creative path. "Selfish" is from Damon Albarn's track "[The Selfish Giant](https://open.spotify.com/track/06cCNvDC89aT8m6J5VCmpv)." "Primate" is a tribute to [James Williamson](https://www.linkedin.com/in/jameswillweb/) and his blog [simpleprimate.com](https://simpleprimate.netlify.app/). James was one of the most talented, intelligent, and genuinely funny web educators I've ever followed—from his Lynda.com days through his writing on HTML, static site generators, and accessibility. He passed away from ALS, but his work continues to inspire me. Carrying a piece of his legacy in my handle feels right.
+The name comes from two sources that shaped my creative path. "Selfish" is from Damon Albarn's track "[The Selfish Giant](https://open.spotify.com/track/06cCNvDC89aT8m6J5VCmpv)." "Primate" is a tribute to [James Williamson](https://www.linkedin.com/in/jameswillweb/) and his blog [Simple Primate](https://simpleprimate.netlify.app/). James was one of the most talented, intelligent, and genuinely funny web educators I've ever followed—from his Lynda.com days through his writing on HTML, static site generators, and accessibility. He passed away from ALS, but his work continues to inspire me. Carrying a piece of his legacy in my handle feels right.
 
 # Skills
 title: Skills
