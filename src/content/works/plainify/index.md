@@ -28,6 +28,11 @@ I developed Plainify to automate the creation of the PLAIN (Product Language for
 
 The application integrates LLM connectivity and handles Edge Functions for real-time processing to ensure seamless specification generation. The 14-section framework covers all aspects of product specifications, with real-time markdown preview and direct compatibility with major AI assistants like Claude and GPT.
 
+<gallery cols="1">
+<figure src="./images/ipad-air-home.png" alt="Plainify homepage">The main interface with a product description ready to generate—users simply describe their idea and select an AI model</figure>
+<figure src="./images/ipad-air-home-generating.png" alt="AI generation in progress">Real-time feedback as the AI processes each section of the specification sequentially</figure>
+</gallery>
+
 #### AI-Native Design Process
 
 One of the most significant aspects of this project was the design workflow. I challenged the traditional "Figma-to-Code" handoff by designing the entire UI "on the fly" through intuitive collaboration with AI assistants. I call this approach "Design in Code." I only utilized Figma for branding essentials (logo, favicon, OG images); every other interface element, layout, and interaction was architected within the terminal using Claude Code CLI.
@@ -42,6 +47,18 @@ While the concept was proven during the Vibe Coding workshop, the final product 
 - **Real-Time Preview** — See your markdown output as you build your specification
 - **AI-Ready Export** — Direct compatibility with major AI assistants like Claude and GPT
 - **Free & Open Source** — Available on GitHub for the community to use and contribute
+
+<gallery cols="1">
+<figure src="./images/ipad-air-markdown-preview-user-stories.png" alt="Markdown preview modal">The preview modal displaying generated User Stories section with options to copy or download the full specification</figure>
+</gallery>
+
+### Documentation & Support
+
+Plainify comes with comprehensive documentation covering everything from project overview to technical implementation details. The docs include guidance on design language, typography, color palette, icons, and functional requirements—making it easy for contributors to understand and extend the project.
+
+<gallery cols="1">
+<figure src="./images/ipad-air-docs-support.png" alt="Documentation and support page">The support page explaining how contributions help maintain free access and improve AI capabilities</figure>
+</gallery>
 
 ### Links
 

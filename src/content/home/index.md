@@ -1,9 +1,9 @@
 ---
-title: UI/UX Designer
+title: Product Designer
 location: Istanbul, Turkey
 headline: Crafting intuitive digital experiences that
 headlineAccent: users love
-subtitle: Hello! I'm Halil, an Istanbul-based UI/UX designer with over 15 years of experience in crafting intuitive and engaging user interfaces.
+subtitle: Hello! I'm Halil, an Istanbul-based Product Designer with over 15 years of experience in crafting intuitive and engaging user interfaces.
 ---
 
 # Quote

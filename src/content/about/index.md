@@ -1,13 +1,13 @@
 # Profile
 name: Halil İbrahim Çakıroğlu
 handle: selfishprimate
-title: UI/UX Designer
+title: Product Designer
 location: Istanbul, Turkey
 email: ibrahimchll@hotmail.com
 avatar: ./images/avatar.png
 
 # Bio
-Hello! I'm Halil, an Istanbul-based UI/UX designer with over 15 years of experience crafting intuitive digital experiences. My journey into design started in the most analog way possible—drawing heavy metal band logos in my school notebooks and creating flip-book animations in the margins, one frame per page.
+Hello! I'm Halil, an Istanbul-based Product Designer with over 15 years of experience crafting intuitive digital experiences. My journey into design started in the most analog way possible—drawing heavy metal band logos in my school notebooks and creating flip-book animations in the margins, one frame per page.
 
 That obsession with visual creation eventually led me to WordPress and Joomla, where I taught myself web design by building blogs to share my ideas. What started as tinkering with CMS themes evolved into a career spanning online media, fintech, banking, travel, e-commerce, and technology.
 
@@ -30,7 +30,7 @@ I'm obsessed with details. My frontend background—years of writing HTML, CSS, 
 # Open Source
 title: Why do I build open-source tools?
 
-Building tools that help other designers and developers is one of my greatest passions. I believe the best way to push the industry forward is to share knowledge openly. That's why I maintain open-source projects like Gerillass, Sketchize, and Plainify.
+Building tools that help other designers and developers is one of my greatest passions. I believe the best way to push the industry forward is to share knowledge openly. That's why I maintain open-source projects like [Gerillass](https://gerillass.com/), [Sketchize](https://sketchize.com/), and [Plainify](https://plainify.app/).
 
 # The Handle
 title: Why "selfishprimate"?

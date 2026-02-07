@@ -83,7 +83,7 @@ export function AboutPage() {
               {about.profile.title} · {about.profile.location}
             </p>
 
-            <div className="mt-8 space-y-6 text-text-secondary leading-relaxed">
+            <div className="mt-8 space-y-6 text-text-secondary leading-relaxed text-left">
               {about.bio.split('\n\n').map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
@@ -152,7 +152,7 @@ export function AboutPage() {
 
       {/* What Sets Me Apart, Open Source, The Handle */}
       <section className="max-w-3xl mx-auto px-6 py-16">
-        <div className="flex flex-col gap-12 text-center">
+        <div className="flex flex-col gap-12">
           {about.whatSetsApart.title && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -179,7 +179,7 @@ export function AboutPage() {
                 {about.openSource.title}
               </h3>
               <p className="text-text-secondary leading-relaxed">
-                {about.openSource.description}
+                {renderWithLinks(about.openSource.description)}
               </p>
             </motion.div>
           )}
@@ -197,7 +197,7 @@ export function AboutPage() {
               <p className="text-text-secondary leading-relaxed">
                 {renderWithLinks(about.theHandle.description)}
               </p>
-              <div className="mt-6 max-w-md mx-auto">
+              <div className="mt-6 max-w-md">
                 <iframe
                   src="https://open.spotify.com/embed/track/06cCNvDC89aT8m6J5VCmpv?utm_source=generator&theme=0"
                   width="100%"
@@ -216,7 +216,7 @@ export function AboutPage() {
       {/* Skills & Domains */}
       <section className="max-w-3xl mx-auto px-6 py-16">
         <h2 className="sr-only">Skills & Domains</h2>
-        <div className="flex flex-col gap-12 text-center">
+        <div className="flex flex-col gap-12">
           {/* Skills */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -229,7 +229,7 @@ export function AboutPage() {
             {about.skills.description && (
               <p className="text-text-tertiary mb-6">{about.skills.description}</p>
             )}
-            <div className="flex flex-wrap justify-center gap-2">
+            <div className="flex flex-wrap gap-2">
               {about.skills.items.map((skill) => (
                 <span
                   key={skill}
@@ -254,7 +254,7 @@ export function AboutPage() {
             {about.domains.description && (
               <p className="text-text-tertiary mb-6">{about.domains.description}</p>
             )}
-            <div className="flex flex-wrap justify-center gap-2">
+            <div className="flex flex-wrap gap-2">
               {about.domains.items.map((domain) => (
                 <span
                   key={domain}
@@ -274,7 +274,6 @@ export function AboutPage() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center"
         >
           <h2 className="font-serif font-semibold text-2xl text-text-primary mb-6">
             {about.beyondDesign.title}
