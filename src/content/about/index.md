@@ -50,6 +50,6 @@ items: E-commerce, Fintech, Banking, Travel, Retail, Education, Technology, Onli
 # Beyond Design
 title: Beyond Design
 
-When I'm not pushing pixels, I'm probably making noise. I play bass, guitar, and do vocals—until recently with Clickers, a cover rock band that got me on stages playing the music I love. Heavy metal and grunge are my go-to genres, both for listening and playing.
+When I'm not pushing pixels, I'm probably making noise. I play bass, guitar, and do vocals—until recently with [Clickers](https://www.instagram.com/clickerstheband/), a cover rock band that got me on stages playing the music I love. Heavy metal and grunge are my go-to genres, both for listening and playing.
 
 I also sketch regularly on my iPad with Procreate, keeping that original spark alive—the same one that had me drawing band logos in school notebooks all those years ago.

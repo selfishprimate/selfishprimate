@@ -280,7 +280,7 @@ export function AboutPage() {
           </h2>
           {about.beyondDesign.paragraphs.map((paragraph, index) => (
             <p key={index} className={`text-text-secondary leading-relaxed ${index > 0 ? 'mt-4' : ''}`}>
-              {paragraph}
+              {renderWithLinks(paragraph)}
             </p>
           ))}
         </motion.div>
