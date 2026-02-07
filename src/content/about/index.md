@@ -4,7 +4,7 @@ handle: selfishprimate
 title: UI/UX Designer
 location: Istanbul, Turkey
 email: ibrahimchll@hotmail.com
-avatar: ./images/avatar.jpg
+avatar: ./images/avatar.png
 
 # Bio
 Hello! I'm Halil, an Istanbul-based UI/UX designer with over 15 years of experience crafting intuitive digital experiences. My journey into design started in the most analog way possible—drawing heavy metal band logos in my school notebooks and creating flip-book animations in the margins, one frame per page.
