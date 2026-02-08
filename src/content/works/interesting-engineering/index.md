@@ -10,7 +10,7 @@ order: 13
 year: "2022"
 ---
 
-> "People ignore design that ignores people." — Frank Chimero
+> "People ignore design that ignores people." - Frank Chimero
 
 ### Overview
 

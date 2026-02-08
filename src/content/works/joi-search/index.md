@@ -12,24 +12,24 @@ featured: true
 featuredOrder: 4
 ---
 
-Joi Gifts is the leading online gifting platform in the Middle East, offering same-day delivery of flowers, cakes, and curated gifts across the UAE, Saudi Arabia, and beyond. As the product catalog expanded to thousands of items, the existing search functionality became a bottleneck—users struggled to find what they wanted, often abandoning their search in frustration. I was tasked with reimagining the entire search experience across desktop and mobile.
+Joi Gifts is the leading online gifting platform in the Middle East, offering same-day delivery of flowers, cakes, and curated gifts across the UAE, Saudi Arabia, and beyond. As the product catalog expanded to thousands of items, the existing search functionality became a bottleneck. Users struggled to find what they wanted, often abandoning their search in frustration. I was tasked with reimagining the entire search experience across desktop and mobile.
 
 ### The Challenge
 
 Through user research and analytics review, I identified several pain points with the existing search:
 
-- **Blank slate problem** — Users faced an empty search field with no guidance on what to search for
-- **High cognitive load** — Every search required typing full queries from scratch, even for repeat customers
-- **Missed discovery opportunities** — The search only returned exact matches, missing chances to surface relevant products
-- **Lost context** — Users who browsed products but didn't purchase had no easy way to return to those items
+- **Blank slate problem:** Users faced an empty search field with no guidance on what to search for
+- **High cognitive load:** Every search required typing full queries from scratch, even for repeat customers
+- **Missed discovery opportunities:** The search only returned exact matches, missing chances to surface relevant products
+- **Lost context:** Users who browsed products but didn't purchase had no easy way to return to those items
 
 ### Design Philosophy
 
-I approached this redesign with a core belief: search isn't just about finding—it's about discovering. The best search experiences anticipate user needs, reduce effort, and create serendipitous moments of discovery. Every feature was designed to move users closer to the perfect gift with less friction.
+I approached this redesign with a core belief: search isn't just about finding, it's about discovering. The best search experiences anticipate user needs, reduce effort, and create serendipitous moments of discovery. Every feature was designed to move users closer to the perfect gift with less friction.
 
 ### Focus Mode: The Backdrop
 
-The first interaction sets the tone. When users tap the search field, a subtle backdrop dims the rest of the page, creating a focused environment for discovery. This isn't just visual polish—it signals to users that they've entered a dedicated search mode where the platform is ready to help them find exactly what they need.
+The first interaction sets the tone. When users tap the search field, a subtle backdrop dims the rest of the page, creating a focused environment for discovery. This isn't just visual polish, it signals to users that they've entered a dedicated search mode where the platform is ready to help them find exactly what they need.
 
 <gallery cols="1">
 <figure src="./images/backdrop.jpg" alt="Search focus backdrop">Backdrop dims the interface, creating a focused search environment that reduces visual noise</figure>
@@ -37,7 +37,7 @@ The first interaction sets the tone. When users tap the search field, a subtle b
 
 ### Recent Searches: Memory as a Feature
 
-Returning customers shouldn't start from zero. The "Your recent searches" feature immediately surfaces previous queries—cake, flower, balloon—allowing one-tap access to repeat searches. A "Clear All" option gives users control over their history. This small addition dramatically reduced time-to-result for our most valuable users: repeat customers.
+Returning customers shouldn't start from zero. The "Your recent searches" feature immediately surfaces previous queries (cake, flower, balloon) allowing one-tap access to repeat searches. A "Clear All" option gives users control over their history. This small addition dramatically reduced time-to-result for our most valuable users: repeat customers.
 
 <gallery cols="1">
 <figure src="./images/recently-searched.jpg" alt="Recent searches">Recent searches eliminate repetitive typing and help users pick up where they left off</figure>
@@ -45,7 +45,7 @@ Returning customers shouldn't start from zero. The "Your recent searches" featur
 
 ### Recently Viewed: Bridging Sessions
 
-Gift-buying is rarely impulsive. Users browse, compare, leave, and return—sometimes days later. The "You recently viewed" section bridges these sessions, displaying products with images and prices for instant recognition. This feature acknowledges a fundamental truth about e-commerce: the buying journey spans multiple visits.
+Gift-buying is rarely impulsive. Users browse, compare, leave, and return, sometimes days later. The "You recently viewed" section bridges these sessions, displaying products with images and prices for instant recognition. This feature acknowledges a fundamental truth about e-commerce: the buying journey spans multiple visits.
 
 <gallery cols="1">
 <figure src="./images/recently-viewed.jpg" alt="Recently viewed products">Recently viewed products create continuity across shopping sessions</figure>
@@ -55,9 +55,9 @@ Gift-buying is rarely impulsive. Users browse, compare, leave, and return—some
 
 As users type, the search transforms into a discovery engine. For a query like "ball," the system provides three layers of assistance:
 
-**Query suggestions** complete the user's thought—Balloon, balloon bouquet, Balloons—reducing keystrokes and typos.
+**Query suggestions** complete the user's thought (Balloon, balloon bouquet, Balloons) reducing keystrokes and typos.
 
-**Category shortcuts** surface relevant collections—Balloon Bundles, Balloon Kits, Hot Air Balloon Rides—helping users who know what type of gift they want but not the specific product.
+**Category shortcuts** surface relevant collections (Balloon Bundles, Balloon Kits, Hot Air Balloon Rides) helping users who know what type of gift they want but not the specific product.
 
 **Related products** appear below with images and prices, letting users jump directly to promising options without completing the search. This progressive disclosure keeps the interface clean while packing it with utility.
 
@@ -79,4 +79,4 @@ The mobile experience maintains complete feature parity while respecting platfor
 
 ### Reflection
 
-Search is often treated as a utility—a box that returns results. This project reinforced my belief that search can be so much more. By treating every interaction as an opportunity to reduce friction and surface relevant options, we transformed search from a necessary step into a discovery experience. The result: users found gifts faster, explored more products, and converted at higher rates.
+Search is often treated as a utility, a box that returns results. This project reinforced my belief that search can be so much more. By treating every interaction as an opportunity to reduce friction and surface relevant options, we transformed search from a necessary step into a discovery experience. The result: users found gifts faster, explored more products, and converted at higher rates.

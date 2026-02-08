@@ -10,7 +10,7 @@ order: 4
 year: "2024"
 ---
 
-> "Design systems provide a shared language and set of guidelines that enable teams to work more efficiently and create cohesive user experiences." — Nathan Curtis
+> "Design systems provide a shared language and set of guidelines that enable teams to work more efficiently and create cohesive user experiences." - Nathan Curtis
 
 ### Overview
 

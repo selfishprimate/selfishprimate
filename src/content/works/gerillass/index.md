@@ -10,7 +10,7 @@ order: 8
 year: "2021"
 ---
 
-> "People ignore design that ignores people." — Frank Chimero
+> "People ignore design that ignores people." - Frank Chimero
 
 ### Overview
 
@@ -21,16 +21,16 @@ The project represents shared effort during challenging times, emphasizing commu
 ### Philosophy
 
 The library is built around the idea that CSS should be:
-- **Predictable** — Consistent naming and behavior
-- **Maintainable** — Easy to update and extend
-- **Performant** — Minimal output, maximum efficiency
+- **Predictable:** Consistent naming and behavior
+- **Maintainable:** Easy to update and extend
+- **Performant:** Minimal output, maximum efficiency
 
 ### Key Features
 
-- **Responsive Mixins** — Easy breakpoint management
-- **Animation Utilities** — Pre-built animation patterns
-- **Layout Helpers** — Flexbox and Grid shortcuts
-- **Typography Scale** — Modular type scaling
+- **Responsive Mixins:** Easy breakpoint management
+- **Animation Utilities:** Pre-built animation patterns
+- **Layout Helpers:** Flexbox and Grid shortcuts
+- **Typography Scale:** Modular type scaling
 
 ### Documentation
 

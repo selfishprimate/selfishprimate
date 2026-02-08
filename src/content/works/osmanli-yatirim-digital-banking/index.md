@@ -12,11 +12,11 @@ featured: false
 draft: true
 ---
 
-> "The best investment platforms are the ones that make complex financial decisions feel simple." — Anonymous
+> "The best investment platforms are the ones that make complex financial decisions feel simple." - Anonymous
 
 ### Overview
 
-Osmanli Yatirim's Digital Banking Platform (E-Branch) is a comprehensive online investment management system designed for retail investors. The platform consolidates multiple investment instruments—stocks, mutual funds, futures, and warrants—into a single, cohesive experience, enabling customers to monitor their portfolios, execute trades, and manage their financial assets with ease.
+Osmanli Yatirim's Digital Banking Platform (E-Branch) is a comprehensive online investment management system designed for retail investors. The platform consolidates multiple investment instruments (stocks, mutual funds, futures, and warrants) into a single, cohesive experience, enabling customers to monitor their portfolios, execute trades, and manage their financial assets with ease.
 
 ### Challenges
 

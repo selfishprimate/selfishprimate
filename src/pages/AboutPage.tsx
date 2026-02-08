@@ -20,7 +20,7 @@ function renderWithLinks(text: string) {
         href={match[2]}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-text-primary underline hover:no-underline"
+        className="text-text-primary underline hover:opacity-60 transition-opacity"
       >
         {match[1]}
       </a>

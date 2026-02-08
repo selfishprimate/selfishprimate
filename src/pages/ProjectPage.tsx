@@ -195,7 +195,21 @@ export function ProjectPage() {
       if (part.trim()) {
         return (
           <div key={index} className="prose">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                a: ({ href, children }) => (
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-text-primary underline hover:opacity-60 transition-opacity"
+                  >
+                    {children}
+                  </a>
+                )
+              }}
+            >
               {part}
             </ReactMarkdown>
           </div>

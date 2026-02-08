@@ -10,7 +10,7 @@ order: 7
 year: "2022"
 ---
 
-> "Wireframes provide a fundamental map that helps designers and stakeholders visualize the structure of a website or application." — Nick Finck
+> "Wireframes provide a fundamental map that helps designers and stakeholders visualize the structure of a website or application." - Nick Finck
 
 **The easiest way to turn your ideas into lovely sketches!**
 
@@ -72,11 +72,11 @@ Kindle Paperwhite templates for e-reader app designs in plain and dotted version
 
 ### Testimonials
 
-> "Sketchize has the square designs representing pixels template that can also suffice." — Sylvester Marquant
+> "Sketchize has the square designs representing pixels template that can also suffice." - Sylvester Marquant
 
-> "Great resource for quick sketches of early concept designs and prototypes." — Aaron Percival
+> "Great resource for quick sketches of early concept designs and prototypes." - Aaron Percival
 
-> "The smartphone sketch sheets will make it super easy for you to think and design user-centered mobile apps." — Mike Taylor
+> "The smartphone sketch sheets will make it super easy for you to think and design user-centered mobile apps." - Mike Taylor
 
 ### Community
 

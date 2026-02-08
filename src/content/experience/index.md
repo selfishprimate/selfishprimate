@@ -6,7 +6,7 @@ description: Crafting intuitive interfaces for travel booking, gifting platforms
 
 # RoofStacks
 role: Lead UI/UX Designer
-period: Dec 2024 — Jan 2026
+period: Dec 2024 - Jan 2026
 location: Istanbul, Turkey
 logo: ./images/roofstacks.jpg
 url: https://roofstacks.com/
@@ -15,7 +15,7 @@ skills: UI/UX Design, Design Systems, AI for Design, Design for AI, UX Research,
 
 # Turna.com
 role: Head of UI/UX Design
-period: Jul 2024 — Dec 2024
+period: Jul 2024 - Dec 2024
 location: Istanbul, Turkey
 logo: ./images/turna.jpg
 url: https://www.turna.com/
@@ -24,7 +24,7 @@ skills: UI/UX Design, UX Research, Wireframing, Prototyping, Usability Testing, 
 
 # Joi Gifts
 role: UI/UX Designer
-period: Oct 2022 — Jul 2024
+period: Oct 2022 - Jul 2024
 location: Remote
 logo: ./images/joigifts.jpg
 url: https://www.joigifts.com/
@@ -33,7 +33,7 @@ skills: UI/UX Design, UX Research, Wireframing, Prototyping, Usability Testing, 
 
 # VavaCars
 role: UI/UX Designer
-period: Apr 2022 — Oct 2022
+period: Apr 2022 - Oct 2022
 location: Istanbul, Turkey
 logo: ./images/vavacars.jpg
 url: https://tr.vava.cars/
@@ -42,7 +42,7 @@ skills: UI/UX Design, UX Research, Wireframing, Prototyping, Usability Testing, 
 
 # Mobven
 role: UI/UX Designer
-period: Dec 2020 — Apr 2022
+period: Dec 2020 - Apr 2022
 location: Istanbul, Turkey
 logo: ./images/mobven.jpg
 url: https://www.mobven.com/
@@ -51,7 +51,7 @@ skills: UI/UX Design, Wireframing, Prototyping, Adobe XD, Sketch App, Figma, Mir
 
 # Turna.com
 role: UI/UX Designer
-period: Aug 2018 — Dec 2020
+period: Aug 2018 - Dec 2020
 location: Istanbul, Turkey
 logo: ./images/turna.jpg
 url: https://www.turna.com/
@@ -60,7 +60,7 @@ skills: UI/UX Design, Wireframing, Prototyping, Adobe XD
 
 # Habertürk
 role: UI Designer
-period: Nov 2015 — Aug 2018
+period: Nov 2015 - Aug 2018
 location: Istanbul, Turkey
 logo: ./images/haberturk.jpg
 url: https://www.haberturk.com/
@@ -69,7 +69,7 @@ skills: UI/UX Design, Wireframing, Prototyping, Adobe XD, Photoshop, Illustrator
 
 # Sözcü Gazetesi
 role: Web Designer
-period: Apr 2013 — Oct 2015
+period: Apr 2013 - Oct 2015
 location: Istanbul, Turkey
 logo: ./images/sozcu.jpg
 url: https://www.sozcu.com.tr/

@@ -16,18 +16,18 @@ Cecconi's Miami Beach is a critically acclaimed Italian restaurant nestled in th
 
 The existing website suffered from a disconnect between the restaurant's refined dining experience and its digital representation. Through analysis of the current site and competitive research, I identified several opportunities:
 
-- **Lost atmosphere** — The website failed to convey the warmth and sophistication that guests experience in person
-- **Buried booking flow** — The reservation process was hidden, requiring multiple clicks to reach
-- **Weak social proof** — User-generated content and social validation were completely absent
-- **Information overload** — Essential details like location and hours were difficult to find
+- **Lost atmosphere:** The website failed to convey the warmth and sophistication that guests experience in person
+- **Buried booking flow:** The reservation process was hidden, requiring multiple clicks to reach
+- **Weak social proof:** User-generated content and social validation were completely absent
+- **Information overload:** Essential details like location and hours were difficult to find
 
 ### Design Approach
 
-I approached this redesign with a clear philosophy: the website should feel like a digital extension of the restaurant itself. Every design decision was made to evoke the same feelings a guest would experience walking through the doors—warmth, sophistication, and anticipation.
+I approached this redesign with a clear philosophy: the website should feel like a digital extension of the restaurant itself. Every design decision was made to evoke the same feelings a guest would experience walking through the doors, warmth, sophistication, and anticipation.
 
 ### Homepage: Setting the Scene
 
-The redesigned homepage leads with atmospheric photography that immediately transports visitors into the dining experience. Rather than static food shots, I chose imagery of people enjoying moments together—clinking glasses, sharing plates, laughing. This human-centered approach establishes emotional connection before any text is read.
+The redesigned homepage leads with atmospheric photography that immediately transports visitors into the dining experience. Rather than static food shots, I chose imagery of people enjoying moments together, clinking glasses, sharing plates, laughing. This human-centered approach establishes emotional connection before any text is read.
 
 The reservation widget is embedded directly in the hero section, answering the most common user intent immediately. Party size, date, and time selection are visible without scrolling, with OpenTable integration providing instant confirmation.
 
@@ -35,13 +35,13 @@ The reservation widget is embedded directly in the hero section, answering the m
 <figure src="./images/home.jpg" alt="Homepage design">Homepage featuring atmospheric hero imagery, inline reservation widget, menu discovery, and social proof through user-generated content</figure>
 </gallery>
 
-Below the fold, a visual menu discovery section invites exploration across categories—Breakfast, All Day, Brunch, Drinks, Dessert, Kids—each represented by appetizing imagery. A personal message from the chef adds authenticity and human touch, while a curated feed of guest moments under #CecconisMoments provides powerful social proof.
+Below the fold, a visual menu discovery section invites exploration across categories (Breakfast, All Day, Brunch, Drinks, Dessert, Kids) each represented by appetizing imagery. A personal message from the chef adds authenticity and human touch, while a curated feed of guest moments under #CecconisMoments provides powerful social proof.
 
 ### Reservation Experience: Friction-Free Booking
 
 The dedicated reservation page was designed around one principle: get guests to "Book a Table" with minimal friction. The two-step flow (Find a Table → Your Details) breaks the process into digestible actions.
 
-Available time slots appear immediately after selecting preferences, giving users instant feedback and control. The sidebar maintains persistent access to essential information—location with an interactive map, phone number, and operating hours—so users never need to hunt for details.
+Available time slots appear immediately after selecting preferences, giving users instant feedback and control. The sidebar maintains persistent access to essential information (location with an interactive map, phone number, and operating hours) so users never need to hunt for details.
 
 <gallery cols="1">
 <figure src="./images/reservation.jpg" alt="Reservation page">Streamlined two-step booking flow with OpenTable integration and persistent location information</figure>
@@ -51,7 +51,7 @@ The prominent OpenTable badge serves dual purposes: it signals trust through a r
 
 ### About Page: Story and Membership
 
-The About page balances storytelling with practical information. The hero showcases the kitchen in action—an intentional choice that communicates craftsmanship and authenticity. The narrative below traces Cecconi's journey from Venice to Miami Beach, establishing heritage and credibility.
+The About page balances storytelling with practical information. The hero showcases the kitchen in action, an intentional choice that communicates craftsmanship and authenticity. The narrative below traces Cecconi's journey from Venice to Miami Beach, establishing heritage and credibility.
 
 For Soho House members, a dedicated section highlights exclusive benefits: priority booking, 20% discounts, and special events. This not only serves existing members but creates aspiration for non-members, with a clear CTA to apply for membership.
 
@@ -65,4 +65,4 @@ Typography plays a crucial role in establishing the brand's personality. The Bar
 
 ### Reflection
 
-Restaurant websites often make the mistake of prioritizing visual flair over function. With Cecconi's, I found the balance: a design that captures the restaurant's soul while ruthlessly optimizing for the primary business goal—filling tables. By embedding the booking flow into every key page, surfacing social proof, and ensuring essential information is always accessible, the redesign transforms casual browsers into confirmed reservations.
+Restaurant websites often make the mistake of prioritizing visual flair over function. With Cecconi's, I found the balance: a design that captures the restaurant's soul while ruthlessly optimizing for the primary business goal, filling tables. By embedding the booking flow into every key page, surfacing social proof, and ensuring essential information is always accessible, the redesign transforms casual browsers into confirmed reservations.

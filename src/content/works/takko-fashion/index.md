@@ -10,7 +10,7 @@ order: 14
 year: "2020"
 ---
 
-> "The details are not the details. They make the design." — Charles Eames
+> "The details are not the details. They make the design." - Charles Eames
 
 ### Overview
 

@@ -10,16 +10,16 @@ order: 12
 year: "2020"
 ---
 
-This project was born from a weekly UI challenge at Mobven while partnering with Edenred, Turkey's leading meal card provider. Rather than treating it as a simple visual exercise, our design team approached it as a full-fledged product exploration—conducting user interviews, analyzing pain points, and designing solutions that addressed real-world problems faced by millions of meal card users.
+This project was born from a weekly UI challenge at Mobven while partnering with Edenred, Turkey's leading meal card provider. Rather than treating it as a simple visual exercise, our design team approached it as a full-fledged product exploration, conducting user interviews, analyzing pain points, and designing solutions that addressed real-world problems faced by millions of meal card users.
 
 ### The Challenge
 
 Edenred's existing mobile application served its basic purpose but fell short of modern user expectations. Through user interviews and our own experiences as meal card users, we identified several friction points:
 
-- **Payment friction** — Users still relied heavily on physical cards, missing opportunities for faster, contactless transactions
-- **Tedious onboarding** — Adding a new card required manual entry of 16-digit numbers, a process prone to errors
-- **Limited visibility** — Users lacked insights into their spending patterns and couldn't easily track where their money went
-- **Discovery problems** — Finding partner restaurants that accepted Edenred cards was cumbersome and unintuitive
+- **Payment friction:** Users still relied heavily on physical cards, missing opportunities for faster, contactless transactions
+- **Tedious onboarding:** Adding a new card required manual entry of 16-digit numbers, a process prone to errors
+- **Limited visibility:** Users lacked insights into their spending patterns and couldn't easily track where their money went
+- **Discovery problems:** Finding partner restaurants that accepted Edenred cards was cumbersome and unintuitive
 
 ### Solution & Approach
 
@@ -27,7 +27,7 @@ We reimagined the Edenred experience from the ground up, focusing on three core 
 
 ### Contactless Payments with OTP
 
-The flagship feature: one-time password generation for cardless payments. Users can generate a 6-digit code directly from the app, share it with the cashier, and complete the transaction—no physical card needed. The code expires after 120 seconds, ensuring security without sacrificing convenience.
+The flagship feature: one-time password generation for cardless payments. Users can generate a 6-digit code directly from the app, share it with the cashier, and complete the transaction, no physical card needed. The code expires after 120 seconds, ensuring security without sacrificing convenience.
 
 <gallery cols="1">
 <figure src="./images/otp-payment.png" alt="OTP payment flow">One-time password generation enables secure, cardless payments at any partner restaurant</figure>
@@ -38,7 +38,7 @@ The flagship feature: one-time password generation for cardless payments. Users 
 For an even faster experience, we designed a QR-based payment flow. Users simply scan the merchant's QR code, verify the amount on the confirmation screen, and approve the transaction. The entire process takes less than 10 seconds.
 
 <gallery cols="1">
-<figure src="./images/qr-payment.png" alt="QR code payment">Scan, confirm, pay—QR payments reduce checkout time to under 10 seconds</figure>
+<figure src="./images/qr-payment.png" alt="QR code payment">Scan, confirm, pay. QR payments reduce checkout time to under 10 seconds</figure>
 </gallery>
 
 ### Smart Card Registration
@@ -59,7 +59,7 @@ The redesigned wallet view puts essential information front and center: current 
 
 ### AR Restaurant Discovery
 
-The most experimental feature: an augmented reality view that transforms restaurant discovery into an interactive experience. Point your camera at your surroundings, and partner restaurants appear as floating markers. Tap any marker to see details, ratings, and available discounts—perfect for exploring new lunch spots in unfamiliar areas.
+The most experimental feature: an augmented reality view that transforms restaurant discovery into an interactive experience. Point your camera at your surroundings, and partner restaurants appear as floating markers. Tap any marker to see details, ratings, and available discounts, perfect for exploring new lunch spots in unfamiliar areas.
 
 <gallery cols="1">
 <figure src="./images/augmented-reality.png" alt="AR restaurant finder">Augmented reality transforms restaurant discovery into an interactive, gamified experience</figure>
@@ -67,7 +67,7 @@ The most experimental feature: an augmented reality view that transforms restaur
 
 ### Wearable Extension
 
-To complete the ecosystem, we designed an Apple Watch companion app. Users can check their balance at a glance and make NFC payments directly from their wrist—ideal for quick coffee runs or when your phone isn't readily accessible.
+To complete the ecosystem, we designed an Apple Watch companion app. Users can check their balance at a glance and make NFC payments directly from their wrist, ideal for quick coffee runs or when your phone isn't readily accessible.
 
 <gallery cols="1">
 <figure src="./images/smartwatch.png" alt="Apple Watch app">Apple Watch companion app for balance checks and wrist-based NFC payments</figure>

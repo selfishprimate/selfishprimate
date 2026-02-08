@@ -43,7 +43,7 @@ caption: Retro boombox with hand-lettered typography
 # Self Portrait
 slug: self-portrait
 image: ./images/self-portrait.jpg
-description: A quirky self-portrait. Yes, that's me—head in a vase, thoughts scattered like lavender.
+description: A quirky self-portrait. Yes, that's me, head in a vase, thoughts scattered like lavender.
 caption: Surreal self-portrait illustration
 
 
