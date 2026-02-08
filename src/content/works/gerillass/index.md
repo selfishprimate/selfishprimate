@@ -5,36 +5,59 @@ company: "Gerillass"
 category: "Developer Tool"
 tags: ["Sass", "CSS", "Developer Tools", "Open Source", "Frontend"]
 coverImage: "./images/cover.jpg"
-images: []
-order: 8
+images: ["./images/gerillass-mockup.jpg"]
+order: 6
 year: "2021"
 ---
 
-> "People ignore design that ignores people." - Frank Chimero
+### The Story Behind Gerillass
 
-### Overview
+Since my early days writing HTML and CSS, I had been building a personal Sass library. A collection of mixins and utilities that I used across projects, solving real problems I encountered in frontend development. I always wanted to make it public, to help other developers streamline their workflows and save them the time I spent figuring things out.
 
-I created Gerillass during the Covid pandemic as an open-source contribution to the developer community. The library serves as a Sass toolkit for frontend developers, offering utilities to build responsive websites efficiently.
-
-The project represents shared effort during challenging times, emphasizing community collaboration and open-source values.
+When the pandemic hit and we found ourselves locked indoors, I finally had the time to focus on this project alone. I restructured the codebase, wrote comprehensive documentation, and prepared everything for public release. What started as a personal toolkit evolved into Gerillass, a library now used by thousands of developers worldwide.
 
 ### Philosophy
 
-The library is built around the idea that CSS should be:
-- **Predictable:** Consistent naming and behavior
-- **Maintainable:** Easy to update and extend
+Gerillass is built on top of Sass to give developers flexibility and accelerate both performance and creativity. The utilities were developed based on real frontend challenges I faced over the years, drawing inspiration from established frameworks like Bourbon, Susy, Scut, and Bootstrap.
+
+The core principles:
+- **Practical:** Every mixin solves a real problem
+- **Flexible:** Adapts to your workflow, not the other way around
 - **Performant:** Minimal output, maximum efficiency
 
-### Key Features
+### Features
 
-- **Responsive Mixins:** Easy breakpoint management
-- **Animation Utilities:** Pre-built animation patterns
-- **Layout Helpers:** Flexbox and Grid shortcuts
-- **Typography Scale:** Modular type scaling
+The library includes 50+ utilities covering essential frontend needs:
 
-### Documentation
+**Layout & Positioning**
+Mixins like Center, Position, Sizer, and Ratio Box handle common layout challenges. The Escape to Parent utility lets child elements break out of their container constraints.
 
-Comprehensive documentation with examples for every mixin and function is available to help developers adopt Gerillass and enhance their workflow efficiency and skills.
+**Responsive Design**
+Breakpoint management made simple with Adaptive, Breakpoint, and device-specific mixins for Smartphone and Tablet. Responsive Image and Responsive Video utilities handle media scaling.
+
+**Visual Effects**
+Create shapes with Triangle and Circle mixins. Apply gradients with Linear Gradient, Radial Gradient, and the unique Text Gradient. Add depth with Text Shadow and Text Stroke.
+
+**Background Utilities**
+Generate patterns with Background Dots and Background Stripes. Manage images efficiently with Background Image mixin.
+
+**Typography**
+Handle text overflow with Ellipsis, customize input placeholders, and control text selection styles.
+
+**Structural Tools**
+Clearfix, Border Box, Reset CSS, and Columnizer provide foundational structure for any project.
+
+<gallery cols="1">
+<figure src="./images/gerillass-mockup.jpg" alt="Gerillass Website Design">Made with the loving music of [Anna German](https://open.spotify.com/track/7cmusjrA2X3w6eExZuskZp?si=9908e91075844cf2) and dedicated to [James Williamson](https://simpleprimate.netlify.app/): The best web educator ever.</figure>
+</gallery>
+
+### Installation
+
+Gerillass can be installed via npm, Yarn, or as a Git submodule. It integrates seamlessly with build tools like Gulp, Grunt, and React projects.
+
+```bash
+npm install gerillass
+```
 
 ### Links
 

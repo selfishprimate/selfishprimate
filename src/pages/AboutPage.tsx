@@ -61,6 +61,8 @@ export function AboutPage() {
                 <img
                   src={about.profile.avatar}
                   alt={about.profile.name}
+                  loading="eager"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               )}
@@ -201,6 +203,7 @@ export function AboutPage() {
               <div className="mt-6 max-w-md">
                 <iframe
                   src="https://open.spotify.com/embed/track/06cCNvDC89aT8m6J5VCmpv?utm_source=generator&theme=0"
+                  title="The Selfish Giant by Damon Albarn on Spotify"
                   width="100%"
                   height="152"
                   frameBorder="0"

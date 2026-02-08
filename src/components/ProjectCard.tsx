@@ -29,6 +29,8 @@ export function ProjectCard({ project, index, variant = 'default' }: ProjectCard
             <img
               src={project.coverImage}
               alt={project.title}
+              loading="lazy"
+              decoding="async"
               className="w-full h-auto transition-transform duration-700 ease-out group-hover:scale-105"
             />
           )}

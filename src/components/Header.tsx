@@ -118,9 +118,11 @@ export function Header() {
             <div className="md:hidden flex items-center gap-2">
               <ThemeToggle />
               <button
+                type="button"
                 onClick={() => setIsMenuOpen(true)}
                 className="p-2 rounded-full text-text-secondary hover:text-text-primary transition-colors"
                 aria-label="Open menu"
+                aria-expanded={isMenuOpen}
               >
                 <div className="w-5 h-5 flex flex-col justify-center gap-[5px]">
                   <span className="block w-full h-[1.3px] bg-current"></span>
@@ -144,6 +146,7 @@ export function Header() {
           >
             {/* Close button */}
             <button
+              type="button"
               onClick={closeMenu}
               className="absolute top-6 right-6 p-2 rounded-full text-text-secondary hover:text-text-primary transition-colors"
               aria-label="Close menu"
@@ -151,7 +154,7 @@ export function Header() {
               <X size={20} strokeWidth={1.5} />
             </button>
 
-            <div className="flex flex-col items-center justify-center h-full gap-8">
+            <nav aria-label="Mobile navigation" className="flex flex-col items-center justify-center h-full gap-8">
               {navItems.map((item, index) => (
                 <motion.div
                   key={item.path}
@@ -172,7 +175,7 @@ export function Header() {
                   </Link>
                 </motion.div>
               ))}
-            </div>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>

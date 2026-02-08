@@ -37,11 +37,13 @@ export function HomePage() {
           <img
             src="/images/featured-image-for-light.svg"
             alt=""
+            aria-hidden="true"
             className="w-full h-auto light-only"
           />
           <img
             src="/images/featured-image-for-dark.svg"
             alt=""
+            aria-hidden="true"
             className="w-full h-auto dark-only"
           />
         </motion.div>
@@ -176,6 +178,8 @@ export function HomePage() {
                     <img
                       src={exp.logo}
                       alt={exp.company}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover"
                     />
                   </div>

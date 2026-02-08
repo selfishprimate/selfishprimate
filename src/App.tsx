@@ -1,23 +1,34 @@
+import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { ScrollToTop } from './components/ScrollToTop';
-import { HomePage, WorksPage, ProjectPage, AboutPage, ExperiencePage, ArticlesPage, IllustrationsPage } from './pages';
+
+// Lazy load pages for code splitting
+const HomePage = lazy(() => import('./pages/HomePage').then(m => ({ default: m.HomePage })));
+const WorksPage = lazy(() => import('./pages/WorksPage').then(m => ({ default: m.WorksPage })));
+const ProjectPage = lazy(() => import('./pages/ProjectPage').then(m => ({ default: m.ProjectPage })));
+const AboutPage = lazy(() => import('./pages/AboutPage').then(m => ({ default: m.AboutPage })));
+const ExperiencePage = lazy(() => import('./pages/ExperiencePage').then(m => ({ default: m.ExperiencePage })));
+const ArticlesPage = lazy(() => import('./pages/ArticlesPage').then(m => ({ default: m.ArticlesPage })));
+const IllustrationsPage = lazy(() => import('./pages/IllustrationsPage').then(m => ({ default: m.IllustrationsPage })));
 
 function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="works" element={<WorksPage />} />
-          <Route path="works/:slug" element={<ProjectPage />} />
-          <Route path="about" element={<AboutPage />} />
-          <Route path="articles" element={<ArticlesPage />} />
-          <Route path="illustrations" element={<IllustrationsPage />} />
-          <Route path="experience" element={<ExperiencePage />} />
-        </Route>
-      </Routes>
+      <Suspense fallback={<div className="min-h-screen" />}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<HomePage />} />
+            <Route path="works" element={<WorksPage />} />
+            <Route path="works/:slug" element={<ProjectPage />} />
+            <Route path="about" element={<AboutPage />} />
+            <Route path="articles" element={<ArticlesPage />} />
+            <Route path="illustrations" element={<IllustrationsPage />} />
+            <Route path="experience" element={<ExperiencePage />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 }

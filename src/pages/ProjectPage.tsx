@@ -178,18 +178,38 @@ export function ProjectPage() {
               return (
                 <figure key={figIndex} className="m-0">
                   <button
+                    type="button"
                     onClick={() => openLightbox(lightboxIdx)}
+                    aria-label={`View ${figure.alt} in full size`}
                     className="w-full overflow-hidden cursor-zoom-in"
                   >
                     <img
                       src={resolvedPath}
                       alt={figure.alt}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-auto"
                     />
                   </button>
                   {figure.caption && (
                     <figcaption className="mt-2 text-sm text-text-tertiary text-center">
-                      {figure.caption}
+                      <ReactMarkdown
+                        components={{
+                          p: ({ children }) => <>{children}</>,
+                          a: ({ href, children }) => (
+                            <a
+                              href={href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-text-tertiary underline hover:text-text-secondary transition-colors"
+                            >
+                              {children}
+                            </a>
+                          )
+                        }}
+                      >
+                        {figure.caption}
+                      </ReactMarkdown>
                     </figcaption>
                   )}
                 </figure>
@@ -280,6 +300,8 @@ export function ProjectPage() {
             <img
               src={project.coverImage}
               alt={project.title}
+              loading="eager"
+              decoding="async"
               className="w-full h-auto"
             />
           </div>

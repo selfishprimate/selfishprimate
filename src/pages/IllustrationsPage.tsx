@@ -77,22 +77,26 @@ export function IllustrationsPage() {
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mt-16 md:mt-24">
           {illustrations.map((illustration, index) => (
-            <motion.div
+            <motion.button
+              type="button"
               key={illustration.title}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05 }}
-              className="group cursor-pointer"
+              className="group cursor-pointer text-left"
               onClick={() => openLightbox(index)}
+              aria-label={`View ${illustration.title} in full size`}
             >
               <div className="aspect-square overflow-hidden bg-border">
                 <img
                   src={illustration.image}
                   alt={illustration.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-            </motion.div>
+            </motion.button>
           ))}
         </div>
       </section>
