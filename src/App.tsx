@@ -11,6 +11,7 @@ const AboutPage = lazy(() => import('./pages/AboutPage').then(m => ({ default: m
 const ExperiencePage = lazy(() => import('./pages/ExperiencePage').then(m => ({ default: m.ExperiencePage })));
 const ArticlesPage = lazy(() => import('./pages/ArticlesPage').then(m => ({ default: m.ArticlesPage })));
 const IllustrationsPage = lazy(() => import('./pages/IllustrationsPage').then(m => ({ default: m.IllustrationsPage })));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then(m => ({ default: m.NotFoundPage })));
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="articles" element={<ArticlesPage />} />
             <Route path="illustrations" element={<IllustrationsPage />} />
             <Route path="experience" element={<ExperiencePage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
       </Suspense>

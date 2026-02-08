@@ -5,3 +5,4 @@ export { AboutPage } from './AboutPage';
 export { ExperiencePage } from './ExperiencePage';
 export { ArticlesPage } from './ArticlesPage';
 export { IllustrationsPage } from './IllustrationsPage';
+export { NotFoundPage } from './NotFoundPage';

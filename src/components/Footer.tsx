@@ -14,14 +14,14 @@ export function Footer() {
           <div className="md:pr-8">
             <Link to="/" className="inline-block mb-4">
               <img
-                src="/images/sp-logo-dark.svg"
-                alt="SelfishPrimate"
-                className="h-10 w-auto dark:hidden"
-              />
-              <img
                 src="/images/sp-logo-light.png"
                 alt="SelfishPrimate"
-                className="h-10 w-auto hidden dark:block"
+                className="h-10 w-auto light-only"
+              />
+              <img
+                src="/images/sp-logo-dark.svg"
+                alt="SelfishPrimate"
+                className="h-10 w-auto dark-only"
               />
             </Link>
             <p className="text-text-secondary text-sm leading-relaxed max-w-xs mb-5">

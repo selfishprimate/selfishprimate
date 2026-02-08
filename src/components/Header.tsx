@@ -70,14 +70,14 @@ export function Header() {
               <h1>
                 <span className="sr-only">SelfishPrimate</span>
                 <img
-                  src="/images/sp-logo-dark.svg"
-                  alt="SelfishPrimate"
-                  className="h-10 w-auto dark:hidden"
-                />
-                <img
                   src="/images/sp-logo-light.png"
                   alt="SelfishPrimate"
-                  className="h-10 w-auto hidden dark:block"
+                  className="h-10 w-auto light-only"
+                />
+                <img
+                  src="/images/sp-logo-dark.svg"
+                  alt="SelfishPrimate"
+                  className="h-10 w-auto dark-only"
                 />
               </h1>
             </Link>

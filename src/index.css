@@ -32,7 +32,6 @@
 }
 .dark-only {
   display: none;
-  opacity: 0.2;
 }
 .dark .light-only {
   display: none;
