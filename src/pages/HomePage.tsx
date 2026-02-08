@@ -6,7 +6,7 @@ import { getExperiences } from '@/lib/experience';
 import { getFeaturedProjects } from '@/lib/projects';
 import { ProjectCard } from '@/components/ProjectCard';
 import { SectionHeading } from '@/components/SectionHeading';
-import { useSEO, generateTitle } from '@/hooks/useSEO';
+import { useSEO, generateTitle, schemas } from '@/hooks/useSEO';
 
 export function HomePage() {
   const home = getHomeContent();
@@ -17,6 +17,7 @@ export function HomePage() {
     title: generateTitle(),
     description: home.hero.subtitle,
     keywords: ['UI/UX Designer', 'Product Designer', 'Istanbul', 'Portfolio', 'Web Design', 'Mobile App Design'],
+    jsonLd: schemas.website(),
   });
   const { scrollY } = useScroll();
   const imageOpacity = useTransform(scrollY, [0, 400], [1, 0]);

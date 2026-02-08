@@ -1,0 +1,7 @@
+# robots.txt for selfishprimate.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://selfishprimate.com/sitemap.xml

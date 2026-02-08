@@ -67,19 +67,19 @@ export function Header() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link to="/" className="group">
-              <div className="flex flex-col items-start">
-                <h1 className="flex items-baseline">
-                  <span className="font-serif font-medium text-2xl text-text-primary" style={{ letterSpacing: '-0.03em' }}>
-                    Selfish
-                  </span>
-                  <span className="font-serif italic font-semibold text-3xl text-accent">
-                    primate
-                  </span>
-                </h1>
-                <span className="hidden sm:block text-xs text-text-secondary/80 mt-0.5">
-                  Portfolio of a technological caveman.
-                </span>
-              </div>
+              <h1>
+                <span className="sr-only">SelfishPrimate</span>
+                <img
+                  src="/images/sp-logo-dark.svg"
+                  alt="SelfishPrimate"
+                  className="h-10 w-auto dark:hidden"
+                />
+                <img
+                  src="/images/sp-logo-light.png"
+                  alt="SelfishPrimate"
+                  className="h-10 w-auto hidden dark:block"
+                />
+              </h1>
             </Link>
 
             {/* Desktop Navigation */}

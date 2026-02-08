@@ -5,10 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "npx tsx scripts/generate-sitemap.ts",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "fetch-articles": "npx tsx scripts/fetch-medium-articles.ts"
+    "fetch-articles": "npx tsx scripts/fetch-medium-articles.ts",
+    "generate-sitemap": "npx tsx scripts/generate-sitemap.ts",
+    "generate-favicons": "npx tsx scripts/generate-favicons.ts"
   },
   "dependencies": {
     "framer-motion": "^12.27.5",

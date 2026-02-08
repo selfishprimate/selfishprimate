@@ -1,7 +1,7 @@
 import { getProjects, getWorksMeta } from '@/lib/projects';
 import { ProjectCard } from '@/components/ProjectCard';
 import { SectionHeading } from '@/components/SectionHeading';
-import { useSEO, generateTitle } from '@/hooks/useSEO';
+import { useSEO, generateTitle, schemas } from '@/hooks/useSEO';
 
 export function WorksPage() {
   const allProjects = getProjects();
@@ -11,6 +11,7 @@ export function WorksPage() {
     title: generateTitle(meta.title),
     description: meta.description,
     keywords: ['UI/UX Design', 'Portfolio', 'Mobile App Design', 'Web Design', 'Design System', 'Case Studies'],
+    jsonLd: schemas.portfolio(),
   });
 
   return (

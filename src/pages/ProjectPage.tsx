@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { ArrowLeft, ArrowRight, ArrowUpRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { getProjectBySlug, getProjects, resolveProjectImagePath } from '@/lib/projects';
-import { useSEO, generateTitle } from '@/hooks/useSEO';
+import { useSEO, generateTitle, schemas } from '@/hooks/useSEO';
 import { useBodyScrollLock } from '@/hooks/useBodyScrollLock';
 
 export function ProjectPage() {
@@ -23,6 +23,13 @@ export function ProjectPage() {
     description: project?.description || 'UI/UX Design case study',
     keywords: project?.tags || ['UI/UX Design', 'Case Study'],
     ogImage: project?.coverImage,
+    jsonLd: project && slug ? schemas.project({
+      title: project.title,
+      description: project.description,
+      slug,
+      year: project.year,
+      coverImage: project.coverImage,
+    }) : undefined,
   });
 
   // Type for image data with alt and caption

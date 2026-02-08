@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { getAboutContent } from '@/lib/about';
-import { useSEO, generateTitle } from '@/hooks/useSEO';
+import { useSEO, generateTitle, schemas } from '@/hooks/useSEO';
 
 // Helper to render text with markdown links
 function renderWithLinks(text: string) {
@@ -42,6 +42,7 @@ export function AboutPage() {
     title: generateTitle('About'),
     description: 'Learn about Halil Ibrahim Cakiroglu, a UI/UX Designer with over 10 years of experience crafting digital experiences across mobile, web, and enterprise platforms.',
     keywords: ['About', 'UI/UX Designer', 'Experience', 'Skills', 'Background'],
+    jsonLd: schemas.person(),
   });
 
   return (

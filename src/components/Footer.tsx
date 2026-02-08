@@ -12,13 +12,17 @@ export function Footer() {
         <div className="grid md:grid-cols-[1.5fr_1fr_1fr_1fr] gap-12 md:gap-8">
           {/* Brand */}
           <div className="md:pr-8">
-            <Link to="/" className="inline-flex items-baseline mb-4">
-              <span className="font-serif font-medium text-2xl text-text-primary" style={{ letterSpacing: '-0.03em' }}>
-                Selfish
-              </span>
-              <span className="font-serif italic font-semibold text-3xl text-accent">
-                primate
-              </span>
+            <Link to="/" className="inline-block mb-4">
+              <img
+                src="/images/sp-logo-dark.svg"
+                alt="SelfishPrimate"
+                className="h-10 w-auto dark:hidden"
+              />
+              <img
+                src="/images/sp-logo-light.png"
+                alt="SelfishPrimate"
+                className="h-10 w-auto hidden dark:block"
+              />
             </Link>
             <p className="text-text-secondary text-sm leading-relaxed max-w-xs mb-5">
               Crafting intuitive digital experiences through thoughtful UI/UX design. AI for Design, Design for AI.
