@@ -5,17 +5,17 @@ import worksIndexMd from '../content/works/index.md?raw';
 
 // Import markdown files from new folder structure
 import plainifyMd from '../content/works/plainify/index.md?raw';
-import joiDesignSystemMd from '../content/works/joi-design-system/index.md?raw';
-import joiMobileMd from '../content/works/joi-mobile/index.md?raw';
-import joiSearchMd from '../content/works/joi-search/index.md?raw';
+import joiDesignSystemMd from '../content/works/joi-gifts-design-system/index.md?raw';
+import joiMobileMd from '../content/works/joi-gifts-mobile-app-design/index.md?raw';
+import joiSearchMd from '../content/works/joi-gifts-advanced-search/index.md?raw';
 import vavacarsMd from '../content/works/vavacars/index.md?raw';
 import sketchizeMd from '../content/works/sketchize/index.md?raw';
 import gerillassMd from '../content/works/gerillass/index.md?raw';
 import otorentoMd from '../content/works/otorento/index.md?raw';
-import osmanliYatirimMd from '../content/works/osmanli-yatirim/index.md?raw';
+import osmanliYatirimMd from '../content/works/osmanli-yatirim-data-package-trading-website/index.md?raw';
 import cecconisMd from '../content/works/cecconis/index.md?raw';
 import edenredMd from '../content/works/edenred/index.md?raw';
-import interestingEngineeringMd from '../content/works/interesting-engineering/index.md?raw';
+import interestingEngineeringMd from '../content/works/interesting-engineering-paywall-design/index.md?raw';
 import takkoFashionMd from '../content/works/takko-fashion/index.md?raw';
 import turnaCarRentalMd from '../content/works/turna-com-app-rent-a-car/index.md?raw';
 import osmanliYatirimDigitalBankingMd from '../content/works/osmanli-yatirim-digital-banking/index.md?raw';
@@ -49,17 +49,17 @@ const resolveImagePath = resolveProjectImagePath;
 
 const projectFiles: Record<string, string> = {
   'plainify': plainifyMd,
-  'joi-design-system': joiDesignSystemMd,
-  'joi-mobile': joiMobileMd,
-  'joi-search': joiSearchMd,
+  'joi-gifts-design-system': joiDesignSystemMd,
+  'joi-gifts-mobile-app-design': joiMobileMd,
+  'joi-gifts-advanced-search': joiSearchMd,
   'vavacars': vavacarsMd,
   'sketchize': sketchizeMd,
   'gerillass': gerillassMd,
   'otorento': otorentoMd,
-  'osmanli-yatirim': osmanliYatirimMd,
+  'osmanli-yatirim-data-package-trading-website': osmanliYatirimMd,
   'cecconis': cecconisMd,
   'edenred': edenredMd,
-  'interesting-engineering': interestingEngineeringMd,
+  'interesting-engineering-paywall-design': interestingEngineeringMd,
   'takko-fashion': takkoFashionMd,
   'turna-com-app-rent-a-car': turnaCarRentalMd,
   'osmanli-yatirim-digital-banking': osmanliYatirimDigitalBankingMd,

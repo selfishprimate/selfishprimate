@@ -40,6 +40,11 @@
   display: block;
 }
 
+/* Hero ornament transparency in dark mode */
+.dark .hero-ornament {
+  opacity: 0.2;
+}
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

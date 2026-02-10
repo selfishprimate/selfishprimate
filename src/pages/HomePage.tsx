@@ -44,7 +44,7 @@ export function HomePage() {
             src="/images/featured-image-for-dark.svg"
             alt=""
             aria-hidden="true"
-            className="w-full h-auto dark-only"
+            className="w-full h-auto dark-only hero-ornament"
           />
         </motion.div>
 

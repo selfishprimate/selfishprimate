@@ -1,1 +1,9 @@
+# 301 Redirects for renamed project URLs
+/works/joi-mobile /works/joi-gifts-mobile-app-design 301
+/works/joi-search /works/joi-gifts-advanced-search 301
+/works/joi-design-system /works/joi-gifts-design-system 301
+/works/osmanli-yatirim /works/osmanli-yatirim-data-package-trading-website 301
+/works/interesting-engineering /works/interesting-engineering-paywall-design 301
+
+# SPA fallback
 /* /index.html 200
