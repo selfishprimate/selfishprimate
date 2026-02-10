@@ -84,3 +84,9 @@ After successful payment, users who entered a new card are offered a seamless op
 ### Reflection
 
 The Turna car rental project reinforced an important lesson about design under pressure: investing in foundations, even when time is scarce, pays off exponentially. The design system approach transformed what could have been a stressful sprint into a methodical build where each screen informed the next. Working closely with the React Native developer, we delivered on schedule without compromising on quality or future scalability.
+
+### Figma Screens
+
+Explore the complete design file below, including all screens, components, and interaction flows.
+
+<figma src="https://embed.figma.com/design/yGHl3YZb1rBugcBIbk3U6p/Turna.com--Rent-a-Car-App-Redesign?node-id=10335-36640&embed-host=share" height="600" />
