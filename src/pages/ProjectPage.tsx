@@ -145,12 +145,32 @@ export function ProjectPage() {
   const renderContentWithGalleries = () => {
     const content = project.content;
 
-    // Split content by gallery blocks
-    const parts = content.split(/(<gallery[^>]*>[\s\S]*?<\/gallery>)/g);
+    // Split content by gallery blocks and figma embeds
+    const parts = content.split(/(<gallery[^>]*>[\s\S]*?<\/gallery>|<figma[^>]*\/>)/g);
 
     return parts.map((part, index) => {
       // Check if this is a gallery block
       const galleryMatch = part.match(/<gallery\s+cols="(\d+)">([\s\S]*?)<\/gallery>/);
+
+      // Check if this is a figma embed
+      const figmaMatch = part.match(/<figma\s+src="([^"]+)"(?:\s+height="(\d+)")?(?:\s+title="([^"]*)")?\s*\/>/);
+
+      if (figmaMatch) {
+        const [, src, height = '600', title = 'Figma Design'] = figmaMatch;
+        return (
+          <div key={index} className="my-12 -mx-6 md:-mx-24 lg:-mx-48">
+            <div className="relative w-full overflow-hidden rounded-lg border border-border" style={{ height: `${height}px` }}>
+              <iframe
+                src={src}
+                title={title}
+                className="absolute inset-0 w-full h-full"
+                style={{ border: 'none' }}
+                allowFullScreen
+              />
+            </div>
+          </div>
+        );
+      }
 
       if (galleryMatch) {
         const cols = parseInt(galleryMatch[1]);

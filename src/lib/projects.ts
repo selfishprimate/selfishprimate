@@ -19,6 +19,7 @@ import interestingEngineeringMd from '../content/works/interesting-engineering/i
 import takkoFashionMd from '../content/works/takko-fashion/index.md?raw';
 import turnaCarRentalMd from '../content/works/turna-com-app-rent-a-car/index.md?raw';
 import osmanliYatirimDigitalBankingMd from '../content/works/osmanli-yatirim-digital-banking/index.md?raw';
+import letgoFilteringAndSortingMd from '../content/works/letgo-filtering-and-sorting/index.md?raw';
 
 // Import all images using Vite's glob import
 const imageModules = import.meta.glob('../content/works/*/images/*.(jpg|jpeg|png|gif|webp|svg)', { eager: true, query: '?url', import: 'default' });
@@ -62,6 +63,7 @@ const projectFiles: Record<string, string> = {
   'takko-fashion': takkoFashionMd,
   'turna-com-app-rent-a-car': turnaCarRentalMd,
   'osmanli-yatirim-digital-banking': osmanliYatirimDigitalBankingMd,
+  'letgo-filtering-and-sorting': letgoFilteringAndSortingMd,
 };
 
 function parseFrontmatter(content: string): { data: Record<string, unknown>; content: string } {

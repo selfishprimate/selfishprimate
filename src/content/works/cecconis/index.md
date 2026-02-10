@@ -66,3 +66,9 @@ Typography plays a crucial role in establishing the brand's personality. The Bar
 ### Reflection
 
 Restaurant websites often make the mistake of prioritizing visual flair over function. With Cecconi's, I found the balance: a design that captures the restaurant's soul while ruthlessly optimizing for the primary business goal, filling tables. By embedding the booking flow into every key page, surfacing social proof, and ensuring essential information is always accessible, the redesign transforms casual browsers into confirmed reservations.
+
+### Figma Screens
+
+Explore the complete design file below, including all screens, components, and interaction flows.
+
+<figma src="https://embed.figma.com/design/9TliAsPWSAX0VfqDkWeO6u/Cecconi-s-Miami-Beach?node-id=1-2&embed-host=share" height="600" />
