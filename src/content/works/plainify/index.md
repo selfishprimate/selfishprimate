@@ -1,9 +1,9 @@
 ---
 title: "Plainify: AI-Ready Product Specifications"
-description: "A product specification tool built to generate AI-ready spec files, transforming fragmented product ideas into structured, machine-readable documentation."
+description: "A free web tool that turns your product idea into a structured spec file covering everything from design direction to tech stack, so AI can build exactly what you have in mind."
 company: "Plainify"
 category: "Web Application"
-tags: ["AI Tools", "Product Specifications", "Developer Tools", "Open Source"]
+tags: ["AI Tools", "Product Specifications", "Developer Tools", "Open Source", "Vibe Coding"]
 coverImage: "./images/cover.jpg"
 images: []
 order: 1
@@ -12,55 +12,88 @@ featured: true
 featuredOrder: 1
 ---
 
-Plainify is a product specification tool built to generate AI-ready spec files. I built it to transform fragmented product ideas into structured, machine-readable documentation, ensuring AI agents have the perfect context to build complete, production-ready applications.
+Plainify emerged from a recurring friction point I observed while working with AI coding assistants. Designers and developers often have a clear mental model of what they want to build, but struggle to communicate that vision in a way that produces quality output from AI tools like Claude, Cursor, or Bolt. I built Plainify to bridge that gap.
 
-### The Problem & The Spark
+### The Challenge
 
-The idea for Plainify emerged from a real-world necessity. During a "Vibe Coding" workshop I conducted with my design team, we faced a recurring bottleneck: every time we wanted to build a feature with an LLM, we had to manually craft detailed Markdown specification files. This repetitive process was draining our creative momentum. We needed a way to generate these "AI-ready" docs on the fly, without sacrificing depth or technical detail.
+Working with AI coding tools introduced a new communication problem. Traditional design handoffs weren't built for machine consumption, and ad-hoc prompts rarely captured the full scope of a product idea. Teams would describe the UI but omit the tech stack, or nail the color palette but forget to specify navigation patterns.
 
-As AI coding assistants become increasingly integral to the development workflow, communicating requirements effectively has become a new challenge. Vague or unstructured briefs often lead to suboptimal AI outputs, wasting time and effort. Traditional product requirements documents weren't designed for AI consumption.
+During a "Vibe Designing" workshop I organized for my design team, this friction became even more apparent. Every participant spent significant time crafting prompts, only to realize they'd left out critical details. The iterative rewriting slowed down the creative momentum we were trying to build.
 
-### The Solution & Methodology
+### Research & Discovery
 
-I developed Plainify to automate the creation of the PLAIN (Product Language for AI Notation) format. This project served as a milestone in my Vibe Coding journey, moving beyond simple UI tweaks into complex system architecture.
+I started documenting what made AI outputs successful versus problematic. The pattern was consistent: well-structured, comprehensive specification files dramatically improved initial results and reduced back-and-forth corrections. Scattered requirements across Figma files, Notion docs, and Slack threads led to fragmented AI outputs.
 
-#### Tech Deep-Dive
+This research led me to develop **PLAIN (Product Language for AI Notation)** — an open-source specification format that consolidates everything a product needs into a single markdown file. The format covers 14 distinct sections, from project overview and value proposition to design direction, component inventory, and technical architecture.
 
-The application integrates LLM connectivity and handles Edge Functions for real-time processing to ensure seamless specification generation. The 14-section framework covers all aspects of product specifications, with real-time markdown preview and direct compatibility with major AI assistants like Claude and GPT.
+### Design Objectives
+
+- Create an interface that eliminates blank-page anxiety when defining product specifications
+- Support both quick ideation and detailed customization workflows
+- Maintain user privacy by keeping all data client-side
+- Generate output compatible with any AI coding assistant
+- Make the tool accessible without accounts or sign-ups
+
+### Solution: Two Distinct Workflows
+
+The application offers two complementary approaches based on user context and time constraints.
+
+**Relax Mode** targets rapid ideation. Users input a brief product description — as simple as "A recipe app that suggests meals based on available ingredients" — select an AI model, and receive a complete 14-section specification within seconds. This mode works well for early exploration or when time is limited.
 
 <gallery cols="1">
-<figure src="./images/ipad-air-home.png" alt="Plainify homepage">The main interface with a product description ready to generate, users simply describe their idea and select an AI model</figure>
-<figure src="./images/ipad-air-home-generating.png" alt="AI generation in progress">Real-time feedback as the AI processes each section of the specification sequentially</figure>
+<figure src="./images/relax-mode.jpg" alt="Plainify Relax Mode">Relax Mode accepts a brief product description and optional visual references, generating a complete specification with minimal input</figure>
 </gallery>
 
-#### AI-Native Design Process
+**Custom Mode** provides granular control over every section. The interface walks users through curated options, contextual examples, and intelligent defaults. Design style, color palette, typography, tech stack, UI library — each choice is guided rather than open-ended. For any decision point where users feel uncertain, an "Let AI decide" option delegates the choice to the model.
 
-One of the most significant aspects of this project was the design workflow. I challenged the traditional "Figma-to-Code" handoff by designing the entire UI "on the fly" through intuitive collaboration with AI assistants. I call this approach "Design in Code." I only utilized Figma for branding essentials (logo, favicon, OG images); every other interface element, layout, and interaction was architected within the terminal using Claude Code CLI.
+<gallery cols="1">
+<figure src="./images/custom-mode.jpg" alt="Plainify Custom Mode">Custom Mode guides users through each specification section with curated options and contextual suggestions</figure>
+</gallery>
 
-#### Real-World Validation
+### Output & Integration
 
-While the concept was proven during the Vibe Coding workshop, the final product is the result of iterative development, focused on creating a robust framework for high-quality AI output. It didn't just save time, it changed how we thought about product definition in the age of AI.
+Both workflows produce a clean markdown file named `{project-name}-plain.md`. Users can preview the output, make inline edits, copy to clipboard, or download directly. The file drops into any project directory and works immediately with AI assistants — simply instruct the tool to read the spec and begin building.
+
+<gallery cols="1">
+<figure src="./images/markdown-preview.jpg" alt="Markdown Preview">The preview modal displays generated content with options to edit, copy, or download the specification file</figure>
+</gallery>
+
+### Visual Reference Analysis
+
+For users who already have design direction established, Plainify accepts image uploads. Screenshots, mockups, or wireframes are analyzed by the AI to extract color palettes, layout patterns, and component structures. These visual insights feed directly into the generated specification, ensuring alignment between existing design work and the final output.
+
+### Privacy Architecture
+
+Data privacy shaped core architectural decisions. The application runs entirely client-side with no server-side storage. Specifications persist in browser local storage only. No accounts, no sign-ups, no data collection beyond basic analytics for usage patterns. Product ideas remain on the user's device throughout the entire workflow.
+
+### Technical Implementation
+
+The generation engine uses Anthropic's Claude Haiku models. Users choose between Haiku 3.5 for faster output or Haiku 4.5 for more nuanced results. The markdown format was intentional — it's readable by humans, parseable by AI, trackable by Git, and editable in any text editor. No proprietary formats or vendor lock-in.
 
 ### Key Features
 
-- **14-Section Framework:** A comprehensive structure covering all aspects of product specifications
-- **Real-Time Preview:** See your markdown output as you build your specification
-- **AI-Ready Export:** Direct compatibility with major AI assistants like Claude and GPT
-- **Free & Open Source:** Available on GitHub for the community to use and contribute
+- **14-Section Framework:** Comprehensive structure covering project overview, design direction, tech stack, data models, and more
+- **Dual Workflow Support:** Quick generation via Relax Mode, detailed customization via Custom Mode
+- **Visual Reference Processing:** Upload mockups for AI-analyzed design extraction
+- **Inline Preview & Editing:** Review and modify output before exporting
+- **Client-Side Processing:** All data stays in the browser, nothing stored server-side
+- **Universal Compatibility:** Markdown output works with Claude, GPT, Cursor, Bolt, and other AI tools
 
-<gallery cols="1">
-<figure src="./images/ipad-air-markdown-preview-user-stories.png" alt="Markdown preview modal">The preview modal displaying generated User Stories section with options to copy or download the full specification</figure>
-</gallery>
+### Watch the Video
 
-### Documentation & Support
+See Relax Mode in action — from product idea to complete specification in seconds.
 
-Plainify comes with comprehensive documentation covering everything from project overview to technical implementation details. The docs include guidance on design language, typography, color palette, icons, and functional requirements, making it easy for contributors to understand and extend the project.
+<youtube src="VXFl22T_RQ8" title="Plainify Demo" />
 
-<gallery cols="1">
-<figure src="./images/ipad-air-docs-support.png" alt="Documentation and support page">The support page explaining how contributions help maintain free access and improve AI capabilities</figure>
-</gallery>
+### Reflection
+
+Building Plainify reinforced a principle I've observed throughout my design career: the quality of output depends heavily on the quality of input. AI coding assistants amplify this relationship — vague prompts produce generic results, while structured specifications yield coherent, buildable applications.
+
+The project also validated a workflow I call "Design in Code" — iterating on interfaces directly in the codebase using AI assistance rather than traditional design-to-handoff pipelines. Plainify itself was built this way, with Figma reserved only for branding assets while all UI work happened in the terminal with Claude Code.
 
 ### Links
 
 - [Plainify App](https://plainify.app/)
-- [GitHub Repository](https://github.com/selfishprimate/plain)
+- [Plainify on Medium](https://medium.com/plainify)
+- [Plainify on YouTube](https://www.youtube.com/@Plainify2026)
+- [PLAIN Format on GitHub](https://github.com/selfishprimate/plain)

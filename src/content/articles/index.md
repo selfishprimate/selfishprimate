@@ -4,6 +4,14 @@ title: Articles
 description: Thoughts on design, development, and the creative process.
 ---
 
+# Plainify: Turn Your Product Ideas Into AI-Ready Specs in Minutes
+slug: plainify-turn-your-product-ideas-into-ai-ready-spe
+image: ./images/plainify-turn-your-product-ideas-into-ai-ready-spe.jpg
+description: Let’s say I have a great product idea. I know exactly which problem it solves, what kind of experience it should offer, and how it should look. But the moment I try to explain it to the AI, the wor...
+date: February 24, 2026
+url: https://medium.com/plainify/plainify-turn-your-product-ideas-into-ai-ready-specs-in-minutes-51c651d2d6da
+tags: Ux Design, Vibe Coding, Product Design, Web Development, Ai
+
 # Could visiting a website soon stop being a necessity and turn into a hobby?
 slug: could-visiting-a-website-soon-stop-being-a-necessity
 image: ./images/could-visiting-a-website-soon-stop-being-a-necessi.jpg

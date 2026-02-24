@@ -7,6 +7,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, X, ChevronLeft, ChevronRight } fro
 import { getProjectBySlug, getProjects, resolveProjectImagePath } from '@/lib/projects';
 import { useSEO, generateTitle, schemas } from '@/hooks/useSEO';
 import { useBodyScrollLock } from '@/hooks/useBodyScrollLock';
+import { TableOfContents, generateSlug } from '@/components/TableOfContents';
 
 export function ProjectPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -145,8 +146,8 @@ export function ProjectPage() {
   const renderContentWithGalleries = () => {
     const content = project.content;
 
-    // Split content by gallery blocks and figma embeds
-    const parts = content.split(/(<gallery[^>]*>[\s\S]*?<\/gallery>|<figma[^>]*\/>)/g);
+    // Split content by gallery blocks, figma embeds, and youtube embeds
+    const parts = content.split(/(<gallery[^>]*>[\s\S]*?<\/gallery>|<figma[^>]*\/>|<youtube[^>]*\/>)/g);
 
     return parts.map((part, index) => {
       // Check if this is a gallery block
@@ -158,13 +159,34 @@ export function ProjectPage() {
       if (figmaMatch) {
         const [, src, height = '600', title = 'Figma Design'] = figmaMatch;
         return (
-          <div key={index} className="my-12 -mx-6 md:-mx-24 lg:-mx-48">
+          <div key={index} className="my-12">
             <div className="relative w-full overflow-hidden rounded-lg border border-border" style={{ height: `${height}px` }}>
               <iframe
                 src={src}
                 title={title}
                 className="absolute inset-0 w-full h-full"
                 style={{ border: 'none' }}
+                allowFullScreen
+              />
+            </div>
+          </div>
+        );
+      }
+
+      // Check if this is a youtube embed
+      const youtubeMatch = part.match(/<youtube\s+src="([^"]+)"(?:\s+title="([^"]*)")?\s*\/>/);
+
+      if (youtubeMatch) {
+        const [, videoId, title = 'YouTube Video'] = youtubeMatch;
+        return (
+          <div key={index} className="my-12">
+            <div className="relative w-full overflow-hidden rounded-lg" style={{ paddingBottom: '56.25%' }}>
+              <iframe
+                src={`https://www.youtube.com/embed/${videoId}`}
+                title={title}
+                className="absolute inset-0 w-full h-full"
+                style={{ border: 'none' }}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
             </div>
@@ -245,6 +267,21 @@ export function ProjectPage() {
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
               components={{
+                h2: ({ children }) => {
+                  const text = String(children);
+                  const id = generateSlug(text);
+                  return <h2 id={id}>{children}</h2>;
+                },
+                h3: ({ children }) => {
+                  const text = String(children);
+                  const id = generateSlug(text);
+                  return <h3 id={id}>{children}</h3>;
+                },
+                h4: ({ children }) => {
+                  const text = String(children);
+                  const id = generateSlug(text);
+                  return <h4 id={id}>{children}</h4>;
+                },
                 a: ({ href, children }) => (
                   <a
                     href={href}
@@ -328,15 +365,26 @@ export function ProjectPage() {
         </motion.section>
       )}
 
-      {/* Content with Galleries */}
-      <section className="max-w-3xl mx-auto px-6 py-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-        >
-          {renderContentWithGalleries()}
-        </motion.div>
+      {/* Content with TOC */}
+      <section className="max-w-6xl mx-auto px-6 py-12">
+        <div className="flex flex-col lg:flex-row gap-12">
+          {/* TOC Sidebar - Hidden on mobile */}
+          <aside className="hidden lg:block lg:w-56 flex-shrink-0">
+            <div className="sticky top-32">
+              <TableOfContents content={project.content} />
+            </div>
+          </aside>
+
+          {/* Main Content */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="flex-1 max-w-3xl"
+          >
+            {renderContentWithGalleries()}
+          </motion.div>
+        </div>
       </section>
 
       {/* Tags */}
