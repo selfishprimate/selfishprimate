@@ -178,11 +178,11 @@ export function Footer() {
 
         {/* Bottom */}
         <div className="mt-16 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-text-tertiary text-xs">
+          <p className="text-text-tertiary text-sm">
             © {currentYear} {siteConfig.name}. All rights reserved.
           </p>
-          <p className="text-text-tertiary text-xs">
-            Designed & built with care
+          <p className="text-text-tertiary text-sm">
+            The portfolio of a technological caveman.
           </p>
         </div>
       </div>
