@@ -4,6 +4,14 @@ title: Articles
 description: Thoughts on design, development, and the creative process.
 ---
 
+# Peak-End Rule: What the Juventus vs Galatasaray Match Teaches Us About UX Design
+slug: peak-end-rule-what-the-juventus-vs-galatasaray-mat
+image: ./images/peak-end-rule-what-the-juventus-vs-galatasaray-mat.jpg
+description: I’m probably the last person you’d expect to talk about football, but here we go: Last night, Galatasaray eliminated Juventus and advanced to the Champions League Round of 16.
+date: February 26, 2026
+url: https://medium.com/@selfishprimate/peak-end-rule-what-the-juventus-vs-galatasaray-match-teaches-us-about-ux-design-b330e7ccacc8
+tags: Product Design, Ux Design, Cognitive Psychology, Design, Ux
+
 # Plainify: Turn Your Product Ideas Into AI-Ready Specs in Minutes
 slug: plainify-turn-your-product-ideas-into-ai-ready-spe
 image: ./images/plainify-turn-your-product-ideas-into-ai-ready-spe.jpg
