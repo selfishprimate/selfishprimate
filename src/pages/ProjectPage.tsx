@@ -55,7 +55,9 @@ export function ProjectPage() {
     title: generateTitle('Works', project?.title),
     description: project?.description || 'UI/UX Design case study',
     keywords: project?.tags || ['UI/UX Design', 'Case Study'],
-    ogImage: project?.coverImage,
+    // Purpose built 1200x630 card from scripts/generate-og-images.ts, served
+    // from public/ at a stable path rather than a hashed Vite asset URL
+    ogImage: slug ? `/og/works/${slug}.jpg` : undefined,
     jsonLd: project && slug ? schemas.project({
       title: project.title,
       description: project.description,

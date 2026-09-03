@@ -15,6 +15,15 @@ const SITE_URL = 'https://selfishprimate.com';
 const DEFAULT_OG_IMAGE = `${SITE_URL}/images/selfishprimate-og-image.png`;
 const TWITTER_HANDLE = '@selfishprimate';
 
+// og:image and twitter:image must be absolute. Vite resolves imported assets to
+// root-relative paths like /assets/cover-hash.jpg, and scrapers reject those, so
+// anything that is not already absolute gets the site origin prepended.
+function toAbsoluteUrl(url?: string): string | undefined {
+  if (!url) return undefined;
+  if (/^https?:\/\//.test(url)) return url;
+  return `${SITE_URL}${url.startsWith('/') ? '' : '/'}${url}`;
+}
+
 export function useSEO({ title, description, keywords, ogImage, ogType = 'website', jsonLd }: SEOProps) {
   const location = useLocation();
 
@@ -68,7 +77,7 @@ export function useSEO({ title, description, keywords, ogImage, ogType = 'websit
     setMeta('og:url', canonicalUrl, true);
 
     // OG Image (use provided or default)
-    const imageUrl = ogImage || DEFAULT_OG_IMAGE;
+    const imageUrl = toAbsoluteUrl(ogImage) || DEFAULT_OG_IMAGE;
     setMeta('og:image', imageUrl, true);
 
     // Twitter Card
@@ -136,7 +145,7 @@ export const schemas = {
     description: project.description,
     url: `${SITE_URL}/works/${project.slug}`,
     dateCreated: project.year,
-    image: project.coverImage,
+    image: toAbsoluteUrl(project.coverImage),
     author: {
       '@type': 'Person',
       name: 'Halil Ibrahim Cakiroglu',
