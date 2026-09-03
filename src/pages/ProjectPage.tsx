@@ -296,6 +296,12 @@ export function ProjectPage() {
                   >
                     {children}
                   </a>
+                ),
+                // Wide tables scroll inside their own container so the page body never does
+                table: ({ children }) => (
+                  <div className="overflow-x-auto">
+                    <table>{children}</table>
+                  </div>
                 )
               }}
             >

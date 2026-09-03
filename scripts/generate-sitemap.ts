@@ -15,6 +15,19 @@ const staticRoutes = [
   { path: '/experience', priority: '0.6', changefreq: 'monthly' },
 ];
 
+// A project folder without an index.md, or one marked `draft: true`, is not
+// reachable on the site, so it must not be advertised in the sitemap.
+function isPublished(worksDir: string, slug: string): boolean {
+  const indexPath = path.join(worksDir, slug, 'index.md');
+
+  if (!fs.existsSync(indexPath)) return false;
+
+  const frontmatter = fs.readFileSync(indexPath, 'utf-8').match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  if (!frontmatter) return true;
+
+  return !/^draft:\s*true\s*$/m.test(frontmatter[1]);
+}
+
 // Get project slugs from works directory
 function getProjectSlugs(): string[] {
   const worksDir = path.join(__dirname, '../src/content/works');
@@ -26,7 +39,8 @@ function getProjectSlugs(): string[] {
 
   return fs.readdirSync(worksDir, { withFileTypes: true })
     .filter(dirent => dirent.isDirectory())
-    .map(dirent => dirent.name);
+    .map(dirent => dirent.name)
+    .filter(slug => isPublished(worksDir, slug));
 }
 
 // Generate sitemap XML

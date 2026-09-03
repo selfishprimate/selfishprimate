@@ -186,6 +186,39 @@ i, em, .italic {
   padding: 0;
 }
 
+/* Markdown tables */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2em 0;
+  font-size: 0.9375rem;
+}
+
+.prose thead th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  padding: 0 1em 0.75em 0;
+  border-bottom: 1px solid var(--color-text-tertiary);
+}
+
+.prose tbody td {
+  color: var(--color-text-secondary);
+  padding: 0.75em 1em 0.75em 0;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+}
+
+.prose th:last-child,
+.prose td:last-child {
+  padding-right: 0;
+}
+
+.prose td code,
+.prose th code {
+  white-space: nowrap;
+}
+
 /* Focus styles for accessibility */
 :focus-visible {
   outline: 2px solid var(--color-accent);
