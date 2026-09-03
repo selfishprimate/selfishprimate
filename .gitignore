@@ -28,3 +28,6 @@ screenshots
 
 # Generated Open Graph cards (rebuilt by prebuild)
 public/og
+
+# Local Netlify folder
+.netlify

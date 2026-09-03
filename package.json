@@ -7,6 +7,7 @@
     "dev": "vite",
     "prebuild": "npx tsx scripts/generate-sitemap.ts && npx tsx scripts/generate-og-images.ts",
     "build": "tsc -b && vite build",
+    "postbuild": "npx tsx scripts/generate-static-meta.ts",
     "lint": "eslint .",
     "preview": "vite preview",
     "fetch-articles": "npx tsx scripts/fetch-medium-articles.ts",
