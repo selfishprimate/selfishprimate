@@ -16,7 +16,6 @@ import otorentoMd from '../content/works/otorento/index.md?raw';
 import osmanliYatirimMd from '../content/works/osmanli-yatirim-data-package-trading-website/index.md?raw';
 import cecconisMd from '../content/works/cecconis/index.md?raw';
 import edenredMd from '../content/works/edenred/index.md?raw';
-import interestingEngineeringMd from '../content/works/interesting-engineering-paywall-design/index.md?raw';
 import takkoFashionMd from '../content/works/takko-fashion/index.md?raw';
 import turnaCarRentalMd from '../content/works/turna-com-app-rent-a-car/index.md?raw';
 import osmanliYatirimDigitalBankingMd from '../content/works/osmanli-yatirim-digital-banking/index.md?raw';
@@ -61,7 +60,6 @@ const projectFiles: Record<string, string> = {
   'osmanli-yatirim-data-package-trading-website': osmanliYatirimMd,
   'cecconis': cecconisMd,
   'edenred': edenredMd,
-  'interesting-engineering-paywall-design': interestingEngineeringMd,
   'takko-fashion': takkoFashionMd,
   'turna-com-app-rent-a-car': turnaCarRentalMd,
   'osmanli-yatirim-digital-banking': osmanliYatirimDigitalBankingMd,

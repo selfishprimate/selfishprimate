@@ -3,7 +3,11 @@
 /works/joi-search /works/joi-gifts-advanced-search 301
 /works/joi-design-system /works/joi-gifts-design-system 301
 /works/osmanli-yatirim /works/osmanli-yatirim-data-package-trading-website 301
-/works/interesting-engineering /works/interesting-engineering-paywall-design 301
+
+# Retired project. Both URLs were live, so they redirect to the index
+# rather than 404.
+/works/interesting-engineering /works 301
+/works/interesting-engineering-paywall-design /works 301
 
 # SPA fallback
 /* /index.html 200

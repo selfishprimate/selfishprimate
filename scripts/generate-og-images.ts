@@ -110,7 +110,18 @@ async function generate(): Promise<void> {
     written++;
   }
 
+  // A project that was renamed, retired or turned into a draft would otherwise
+  // leave its card behind to be served from a URL nothing points at any more.
+  const expected = new Set(covers.map(c => `${c.slug}.jpg`));
+  let removed = 0;
+  for (const file of fs.readdirSync(outDir)) {
+    if (!file.endsWith('.jpg') || expected.has(file)) continue;
+    fs.unlinkSync(path.join(outDir, file));
+    removed++;
+  }
+
   console.log(`✓ ${written} Open Graph images generated (${OG_WIDTH}x${OG_HEIGHT})`);
+  if (removed > 0) console.log(`  ${removed} stale card(s) removed`);
   console.log(`  Output: ${outDir}`);
 }
 
