@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useCallback } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
@@ -7,7 +7,39 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, X, ChevronLeft, ChevronRight } fro
 import { getProjectBySlug, getProjects, resolveProjectImagePath } from '@/lib/projects';
 import { useSEO, generateTitle, schemas } from '@/hooks/useSEO';
 import { useBodyScrollLock } from '@/hooks/useBodyScrollLock';
-import { TableOfContents, generateSlug } from '@/components/TableOfContents';
+import { TableOfContents } from '@/components/TableOfContents';
+import { generateSlug } from '@/lib/slug';
+
+// Image data collected from <gallery> blocks for the lightbox
+interface ImageData {
+  src: string;
+  alt: string;
+  caption: string;
+}
+
+// Walk every <gallery> block in a case study and collect its <figure> entries
+// in document order, which is also the lightbox order.
+function collectGalleryImages(content: string, slug: string, fallbackAlt: string): ImageData[] {
+  const images: ImageData[] = [];
+  const galleryRegex = /<gallery[^>]*>([\s\S]*?)<\/gallery>/g;
+  const figureRegex = /<figure\s+src="([^"]+)"(?:\s+alt="([^"]*)")?\s*>([^<]*)<\/figure>/g;
+
+  let galleryMatch;
+  while ((galleryMatch = galleryRegex.exec(content)) !== null) {
+    const galleryContent = galleryMatch[1];
+    let figureMatch;
+    while ((figureMatch = figureRegex.exec(galleryContent)) !== null) {
+      const [, src, alt = '', caption = ''] = figureMatch;
+      images.push({
+        src: resolveProjectImagePath(src, slug),
+        alt: alt || fallbackAlt,
+        caption: caption.trim(),
+      });
+    }
+  }
+
+  return images;
+}
 
 export function ProjectPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -33,39 +65,13 @@ export function ProjectPage() {
     }) : undefined,
   });
 
-  // Type for image data with alt and caption
-  interface ImageData {
-    src: string;
-    alt: string;
-    caption: string;
-  }
-
-  // Collect all images from content for lightbox
+  // Collect all images from content for lightbox. Memoized on plain strings so
+  // the parse only re-runs when the case study itself changes.
   const allImages = useMemo(() => {
-    if (!project || !slug) return [] as ImageData[];
-    const images: ImageData[] = [];
-
-    // Parse gallery blocks to extract figure elements
-    const galleryRegex = /<gallery[^>]*>([\s\S]*?)<\/gallery>/g;
-    const figureRegex = /<figure\s+src="([^"]+)"(?:\s+alt="([^"]*)")?\s*>([^<]*)<\/figure>/g;
-
-    let galleryMatch;
-    while ((galleryMatch = galleryRegex.exec(project.content)) !== null) {
-      const galleryContent = galleryMatch[1];
-      let figureMatch;
-      while ((figureMatch = figureRegex.exec(galleryContent)) !== null) {
-        const [, src, alt = '', caption = ''] = figureMatch;
-        const resolved = resolveProjectImagePath(src, slug);
-        images.push({
-          src: resolved,
-          alt: alt || project.title,
-          caption: caption.trim()
-        });
-      }
-    }
-
-    return images;
-  }, [project, slug]);
+    if (!slug) return [];
+    const current = getProjectBySlug(slug);
+    return current ? collectGalleryImages(current.content, slug, current.title) : [];
+  }, [slug]);
 
   // Lock body scroll when lightbox is open
   useBodyScrollLock(lightboxIndex !== null);
@@ -94,24 +100,23 @@ export function ProjectPage() {
   };
 
   // Keyboard navigation for lightbox
-  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+  useEffect(() => {
     if (lightboxIndex === null) return;
 
-    if (e.key === 'Escape') {
-      closeLightbox();
-    } else if (e.key === 'ArrowLeft') {
-      setLightboxIndex(lightboxIndex === 0 ? allImages.length - 1 : lightboxIndex - 1);
-    } else if (e.key === 'ArrowRight') {
-      setLightboxIndex(lightboxIndex === allImages.length - 1 ? 0 : lightboxIndex + 1);
-    }
-  }, [lightboxIndex, allImages.length]);
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setLightboxIndex(null);
+        setIsZoomed(false);
+      } else if (e.key === 'ArrowLeft') {
+        setLightboxIndex(lightboxIndex === 0 ? allImages.length - 1 : lightboxIndex - 1);
+      } else if (e.key === 'ArrowRight') {
+        setLightboxIndex(lightboxIndex === allImages.length - 1 ? 0 : lightboxIndex + 1);
+      }
+    };
 
-  useEffect(() => {
-    if (lightboxIndex !== null) {
-      window.addEventListener('keydown', handleKeyDown);
-      return () => window.removeEventListener('keydown', handleKeyDown);
-    }
-  }, [lightboxIndex, handleKeyDown]);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxIndex, allImages.length]);
 
   if (!project) {
     return (
@@ -488,7 +493,8 @@ export function ProjectPage() {
               className={`flex-1 ${isZoomed ? 'overflow-auto scrollbar-hide' : 'flex items-center justify-center overflow-hidden'}`}
               onClick={(e) => {
                 if (e.target === e.currentTarget) {
-                  isZoomed ? setIsZoomed(false) : closeLightbox();
+                  if (isZoomed) setIsZoomed(false);
+                  else closeLightbox();
                 }
               }}
             >

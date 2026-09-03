@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { SectionHeading } from '@/components/SectionHeading';
@@ -45,26 +45,25 @@ export function IllustrationsPage() {
   };
 
   // Keyboard navigation
-  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+  useEffect(() => {
     if (selectedIndex === null) return;
 
-    if (e.key === 'Escape') {
-      closeLightbox();
-    } else if (e.key === 'ArrowLeft') {
-      setSelectedIndex(selectedIndex === 0 ? illustrations.length - 1 : selectedIndex - 1);
-      setIsZoomed(false);
-    } else if (e.key === 'ArrowRight') {
-      setSelectedIndex(selectedIndex === illustrations.length - 1 ? 0 : selectedIndex + 1);
-      setIsZoomed(false);
-    }
-  }, [selectedIndex, illustrations.length]);
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSelectedIndex(null);
+        setIsZoomed(false);
+      } else if (e.key === 'ArrowLeft') {
+        setSelectedIndex(selectedIndex === 0 ? illustrations.length - 1 : selectedIndex - 1);
+        setIsZoomed(false);
+      } else if (e.key === 'ArrowRight') {
+        setSelectedIndex(selectedIndex === illustrations.length - 1 ? 0 : selectedIndex + 1);
+        setIsZoomed(false);
+      }
+    };
 
-  useEffect(() => {
-    if (selectedIndex !== null) {
-      window.addEventListener('keydown', handleKeyDown);
-      return () => window.removeEventListener('keydown', handleKeyDown);
-    }
-  }, [selectedIndex, handleKeyDown]);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedIndex, illustrations.length]);
 
   return (
     <div className="min-h-screen">
@@ -125,7 +124,8 @@ export function IllustrationsPage() {
               className={`flex-1 ${isZoomed ? 'overflow-auto scrollbar-hide' : 'flex items-center justify-center overflow-hidden pt-12'}`}
               onClick={(e) => {
                 if (e.target === e.currentTarget) {
-                  isZoomed ? setIsZoomed(false) : closeLightbox();
+                  if (isZoomed) setIsZoomed(false);
+                  else closeLightbox();
                 }
               }}
             >

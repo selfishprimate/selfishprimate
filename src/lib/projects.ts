@@ -119,7 +119,11 @@ function parseFrontmatter(content: string): { data: Record<string, unknown>; con
   return { data, content: markdown };
 }
 
+let cachedProjects: Project[] | null = null;
+
 export function getProjects(): Project[] {
+  if (cachedProjects) return cachedProjects;
+
   const projects: Project[] = [];
 
   for (const [slug, content] of Object.entries(projectFiles)) {
@@ -148,7 +152,7 @@ export function getProjects(): Project[] {
   }
 
   // Filter out draft projects and sort by order (ascending), then by year (descending)
-  return projects.filter(p => p.draft !== true).sort((a, b) => {
+  cachedProjects = projects.filter(p => p.draft !== true).sort((a, b) => {
     // Items with order come first, sorted by order ascending
     if (a.order !== undefined && b.order !== undefined) {
       return a.order - b.order;
@@ -158,6 +162,8 @@ export function getProjects(): Project[] {
     // Items without order sorted by year descending
     return parseInt(b.year) - parseInt(a.year);
   });
+
+  return cachedProjects;
 }
 
 export function getProjectBySlug(slug: string): Project | undefined {

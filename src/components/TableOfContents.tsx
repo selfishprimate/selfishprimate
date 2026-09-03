@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
+import { generateSlug } from '@/lib/slug';
 
 interface TOCItem {
   id: string;
@@ -9,16 +10,6 @@ interface TOCItem {
 interface TableOfContentsProps {
   content: string;
   className?: string;
-}
-
-// Generate slug from heading text
-function generateSlug(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .trim();
 }
 
 // Parse headings from markdown content
@@ -80,13 +71,15 @@ export function TableOfContents({ content, className = '' }: TableOfContentsProp
   useEffect(() => {
     if (headings.length === 0) return;
 
-    // Initial check
-    updateActiveHeading();
+    // Defer the initial measurement a frame so freshly rendered markdown has
+    // been laid out before we read heading offsets.
+    const frame = requestAnimationFrame(updateActiveHeading);
 
     // Listen to scroll events
     window.addEventListener('scroll', updateActiveHeading, { passive: true });
 
     return () => {
+      cancelAnimationFrame(frame);
       window.removeEventListener('scroll', updateActiveHeading);
     };
   }, [headings, updateActiveHeading]);
@@ -140,5 +133,3 @@ export function TableOfContents({ content, className = '' }: TableOfContentsProp
     </nav>
   );
 }
-
-export { generateSlug };

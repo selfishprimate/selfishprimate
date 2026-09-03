@@ -17,6 +17,19 @@ interface MediumConfig {
   username: string;
 }
 
+// Shape of a single <item> as xml2js returns it: every element becomes an
+// array, and an element carrying attributes becomes { _: text, $: attrs }.
+type RssValue = string | { _?: string };
+
+interface RssItem {
+  title?: string[];
+  link?: string[];
+  pubDate?: string[];
+  description?: string[];
+  'content:encoded'?: string[];
+  category?: RssValue[];
+}
+
 function slugify(text: string): string {
   return text
     .toLowerCase()
@@ -55,9 +68,9 @@ async function fetchMediumArticles(username: string): Promise<MediumArticle[]> {
     const xml = await response.text();
     const result = await parseStringPromise(xml);
 
-    const items = result.rss.channel[0].item || [];
+    const items: RssItem[] = result.rss.channel[0].item || [];
 
-    const articles: MediumArticle[] = items.map((item: any) => {
+    const articles: MediumArticle[] = items.map((item) => {
       // Extract title
       const title = item.title?.[0] || '';
       const slug = slugify(title);
@@ -98,10 +111,9 @@ async function fetchMediumArticles(username: string): Promise<MediumArticle[]> {
       }
 
       // Extract tags/categories
-      const tags = item.category?.map((cat: any) => {
-        if (typeof cat === 'string') return cat;
-        return cat._ || cat;
-      }) || [];
+      const tags: string[] = item.category?.map((cat) =>
+        typeof cat === 'string' ? cat : cat._ ?? ''
+      ).filter(Boolean) || [];
 
       // Format tags nicely (capitalize words)
       const formattedTags = tags.map((tag: string) =>

@@ -4,63 +4,143 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Personal portfolio website for a UI/UX Designer, built as a React SPA. All content is managed through markdown files with YAML frontmatter — there is no database or CMS.
+Personal portfolio site for a Product Designer (selfishprimate.com), built as a React SPA and deployed to Netlify. All content is authored as markdown in `src/content/` and compiled into the bundle — there is no database, CMS, or runtime data fetching.
+
+There is **no test framework** in this repo. `npm run build` (which type-checks via `tsc -b` first) is the real verification step.
+
+`npm run lint` is clean — keep it that way. The config enables the React Compiler rules, which reject manual `useMemo`/`useCallback` whose declared dependencies don't match what the compiler infers. In practice that means: don't wrap event handlers in `useCallback` just to attach them in an effect (define them inside the effect instead), and keep `useMemo` dependencies on primitives the compiler can verify rather than on objects it may consider mutable.
 
 ## Commands
 
-- `npm run dev` — Start Vite dev server with hot reload
-- `npm run build` — Type-check with `tsc -b` then build with Vite (output: `dist/`)
-- `npm run lint` — Run ESLint
-- `npm run preview` — Preview the production build locally
-- `npm run fetch-articles` — Fetch new Medium articles via RSS and save to content
+- `npm run dev` — Vite dev server (port 5173)
+- `npm run build` — Runs `prebuild` (regenerates `public/sitemap.xml`), then `tsc -b` and `vite build` → `dist/`
+- `npm run lint` — ESLint over the repo
+- `npm run preview` — Serve the production build locally
+- `npm run fetch-articles` — Pull new Medium posts via RSS and append them to `src/content/articles/index.md`
+- `npm run generate-sitemap` — Rebuild `public/sitemap.xml` from static routes + `src/content/works/*` directory names
+- `npm run generate-favicons` — Regenerate favicons from `public/images/sp-favicon-base.png` via sharp
 
-## Tech Stack
-
-React 19, TypeScript, Vite 7, Tailwind CSS 4, Framer Motion, React Router DOM 7. Deployed to Netlify.
+Note: any build regenerates `sitemap.xml` with today's `lastmod` on every entry, so it will show as modified after a build even when nothing meaningful changed.
 
 ## Architecture
 
-### Content System (Markdown-Driven)
+### Content system (markdown-driven)
 
-All site content lives in `src/content/` as markdown files with YAML frontmatter. Each content type has a corresponding parser module in `src/lib/` that:
+Each content type has a parser module in `src/lib/` that:
 
-1. Imports markdown as raw strings via Vite (`?raw` suffix)
-2. Parses frontmatter and structured key-value sections with custom regex parsers (not using `gray-matter` at runtime — the parsers are hand-rolled in each lib module)
-3. Resolves image paths using `import.meta.glob` to map relative paths (`./images/foo.jpg`) to Vite-optimized URLs
-4. Caches parsed results in module-level variables
+1. Imports markdown as a raw string via Vite's `?raw` suffix
+2. Parses it with **hand-rolled regex parsers** — there is no markdown/frontmatter library in the dependency tree
+3. Resolves `./images/...` references through `import.meta.glob(..., { eager: true, query: '?url' })` into hashed Vite asset URLs
+4. Caches the parsed result in a module-level variable — including `getProjects()`, which components call freely on every render
 
-Content types and their parsers:
-- `src/content/works/{slug}/index.md` → `src/lib/projects.ts` (each project is a subfolder with its own `images/` dir)
-- `src/content/articles/index.md` → `src/lib/articles.ts` (all articles in one file, sections split by `# ` headings)
-- `src/content/experience/index.md` → `src/lib/experience.ts`
-- `src/content/about/index.md` → `src/lib/about.ts`
-- `src/content/illustrations/index.md` → `src/lib/illustrations.ts`
-- `src/content/home/index.md` → `src/lib/home.ts`
+| Content | Source | Parser |
+| --- | --- | --- |
+| Projects | `src/content/works/{slug}/index.md` (+ per-project `images/`) | `src/lib/projects.ts` |
+| Works page meta | `src/content/works/index.md` (frontmatter only) | `src/lib/projects.ts` → `getWorksMeta()` |
+| Articles | `src/content/articles/index.md` | `src/lib/articles.ts` |
+| Experience | `src/content/experience/index.md` | `src/lib/experience.ts` |
+| About | `src/content/about/index.md` | `src/lib/about.ts` |
+| Illustrations | `src/content/illustrations/index.md` | `src/lib/illustrations.ts` |
+| Home | `src/content/home/index.md` | `src/lib/home.ts` |
 
-### Adding a New Project
+**Two different markdown conventions — don't mix them up:**
 
-1. Create `src/content/works/{slug}/index.md` with frontmatter (title, description, company, category, tags, coverImage, images, featured, order, year)
-2. Add project images to `src/content/works/{slug}/images/`
-3. Add the raw markdown import and register the slug in `src/lib/projects.ts` (`projectFiles` map)
+- **Works** — one folder per project. Frontmatter is metadata; the body is free-form case-study markdown.
+- **Everything else** — a single file whose frontmatter holds page meta (`label`, `title`, `description`) and whose body is a list of records split on `\n# ` headings, with `key: value` lines inside each record. Some values are comma-split into arrays (`tags`, `skills`, `items`).
+
+**Section headings are matched by exact string.** `home.ts` and `about.ts` compare `headerLine === '# Quote'` and friends, so renaming a heading silently drops that section to empty defaults rather than erroring:
+
+- `home/index.md`: `# Quote`, `# Featured Work`, `# Experience Preview`, `# CTA Section`, `# Social`
+- `about/index.md`: `# Profile`, `# Bio`, `# Quote`, `# Social`, `# What Sets Me Apart`, `# Open Source`, `# The Handle`, `# Skills`, `# Domains`, `# Beyond Design`
+
+`articles.ts`, `experience.ts` and `illustrations.ts` instead treat every `# ` heading as one record's title, so headings there are free-form.
+
+Also note the frontmatter parsers split on `': '` (colon **plus space**) in most modules — a value containing `: ` splits at the first occurrence, and `key:value` without a space is skipped entirely.
+
+### Custom markdown tags in case studies
+
+`ProjectPage` splits project body content on custom XML-ish tags before handing the remaining prose to `react-markdown` (with `remark-gfm`). These are matched by regex in `src/pages/ProjectPage.tsx`, so attribute order and spelling must match exactly:
+
+```html
+<gallery cols="1|2|3|4">
+<figure src="./images/foo.jpg" alt="Alt text">Caption, supports inline markdown links</figure>
+</gallery>
+
+<figma src="https://embed.figma.com/..." height="600" title="Design" />
+<youtube src="VIDEO_ID" title="Title" />
+```
+
+Every `<figure>` inside a `<gallery>` is collected into a lightbox (arrow keys, Esc, click-to-zoom on non-touch devices). Images that should open in the lightbox must go through `<gallery>` — plain markdown `![]()` images render inline and bypass it.
+
+### Project metadata behaviour (`src/lib/projects.ts`)
+
+- `draft: true` in frontmatter removes a project from the site entirely.
+- Listing order: projects with an `order` come first, ascending; the rest follow sorted by `year` descending.
+- The home page uses `featured: true` sorted by `featuredOrder` ascending.
+- The `images` and `category` frontmatter fields are parsed into the `Project` type but **no component reads them** — case-study imagery comes from `<gallery>` tags in the body.
+
+### Adding a new project
+
+1. Create `src/content/works/{slug}/index.md` with frontmatter (`title`, `description`, `company`, `tags`, `coverImage`, `featured`, `featuredOrder`, `order`, `year`, optional `draft`)
+2. Put images in `src/content/works/{slug}/images/`
+3. Add a `?raw` import **and** register the slug in the `projectFiles` map in `src/lib/projects.ts` — the `import.meta.glob` only covers images, so a project missing from that map simply won't exist
+
+### Renaming a project slug
+
+Slugs are public URLs. When renaming, add a 301 line to `public/_redirects` (the SPA fallback `/* /index.html 200` must stay last) and re-run `npm run generate-sitemap`.
+
+### Table of contents
+
+`TableOfContents` re-parses raw markdown for `##`–`####` headings and derives anchor ids with `generateSlug` from `src/lib/slug.ts`; `ProjectPage` applies that same helper to the rendered `h2`/`h3`/`h4`, so both must keep importing it from there rather than redefining it. Case-study headings must use `##`/`###`/`####` to appear in the sidebar TOC, and the sidebar itself only renders at `lg` and above.
 
 ### Routing
 
-All routes are defined in `src/App.tsx` using React Router. Pages are in `src/pages/`, exported via `src/pages/index.ts`. The `Layout` component wraps all routes with Header/Footer.
+Routes are declared in `src/App.tsx`. Every page is `lazy()`-loaded for code splitting and re-exported from `src/pages/index.ts`. `Layout` wraps all routes with Header/Footer around an `<Outlet />`; `ScrollToTop` resets scroll on navigation. Page-level entrance animation is done per-page with Framer Motion `initial`/`animate` (and `whileInView` for below-the-fold sections) — there is no shared route transition wrapper.
 
-Routes: `/`, `/works`, `/works/:slug`, `/about`, `/articles`, `/illustrations`, `/experience`
+Routes: `/`, `/works`, `/works/:slug`, `/about`, `/articles`, `/illustrations`, `/experience`, `*` (404).
 
-### Path Alias
+### Styling and theming
 
-`@/*` maps to `./src/*` (configured in both `tsconfig.json` and `vite.config.ts`).
+Tailwind CSS 4 via `@tailwindcss/vite`, configured entirely in `src/index.css` — there is no `tailwind.config.js`.
 
-### Theming
+Theming works **only through CSS custom properties**, not Tailwind's `dark:` variant (no `dark:` utility appears anywhere in the codebase):
 
-Dark/light mode via CSS custom properties in `src/index.css`. Toggle component at `src/components/ThemeToggle.tsx`. Use `.light-only` / `.dark-only` CSS classes for theme-conditional rendering.
+- `@theme` in `index.css` declares the light palette (`--color-background`, `--color-surface`, `--color-text-primary/secondary/tertiary`, `--color-border`, `--color-accent`).
+- A plain `.dark { ... }` block re-declares the same variables with dark values.
+- `ThemeToggle` adds/removes `.dark` on `document.documentElement` and persists the choice in `localStorage` under `theme`. **Dark is the default** when nothing is stored.
+- An inline script at the top of `index.html` applies the same class before first paint, so the light palette doesn't flash for dark-mode visitors. It duplicates `ThemeToggle`'s default on purpose — change one and you must change the other.
+- Because utilities like `bg-background` compile to `var(--color-background)`, every themed color follows automatically. New colors must be added as `@theme` variables *and* overridden in `.dark` — a hardcoded hex will not adapt.
+- Assets that can't be recolored use the `.light-only` / `.dark-only` class pair (logo in Header/Footer, hero ornament on HomePage). `.hero-ornament` gets extra opacity damping in dark mode.
 
-### Medium Article Fetcher
+Typography: `--font-sans` and `--font-serif` are **both** Geist Sans (loaded from a jsDelivr `@fontsource` CDN import), so the `font-serif` utility is effectively an alias used to mark headings, not an actual serif. The only real serif is Instrument Serif, applied globally to `i`, `em` and `.italic` — which is why accent words in headings are wrapped in `<span className="italic">`.
 
-`scripts/fetch-medium-articles.ts` fetches from Medium RSS, downloads cover images, and appends new articles to `src/content/articles/index.md`. Configure the Medium username in `medium.config.ts`.
+Layout convention: pages use `max-w-6xl mx-auto px-6` as the standard container; `ProjectPage` widens to `max-w-7xl` for the TOC+content row and narrows prose to `max-w-3xl`.
+
+`index.css` also owns the `.prose` markdown styles, `.skip-link`, `.sr-only`, focus-visible rules and a `prefers-reduced-motion` reset.
 
 ### SEO
 
-The `useSEO` hook (`src/hooks/useSEO.ts`) dynamically sets document title and meta tags per page. Site-wide config (title, description, keywords) lives in `src/lib/data.ts`.
+Two sources of head metadata, and they overlap:
+
+- `index.html` carries static title/description/OG/Twitter/canonical tags plus the Google Analytics (`G-66XZN25NK2`) snippet. These are what crawlers that don't run JS see.
+- The `useSEO` hook (`src/hooks/useSEO.ts`) imperatively **overwrites** title, description, canonical, OG/Twitter meta and a single JSON-LD block on every route change. Each page calls it itself.
+
+Site constants (`SITE_URL`, base title, default OG image, Twitter handle) and the `schemas` / `generateTitle` helpers live inside `useSEO.ts`. `src/lib/data.ts` exports a separate `siteConfig` used only by `Footer` for social links and the copyright name — the two overlap and can drift.
+
+`public/sitemap.xml` is generated, not hand-edited; new static routes must be added to `staticRoutes` in `scripts/generate-sitemap.ts`.
+
+### Medium article fetcher
+
+`scripts/fetch-medium-articles.ts` reads the RSS feed for the username configured in `medium.config.ts`, downloads cover images into `src/content/articles/images/`, and appends only new entries (deduplicated by URL) to `src/content/articles/index.md`. Existing content is preserved.
+
+### Path alias
+
+`@/*` → `./src/*`, configured in both `tsconfig.json` and `vite.config.ts`. Components and pages import via `@/`; the `src/lib/*` parsers use relative paths for their `?raw` content imports.
+
+### Deployment
+
+Netlify (`netlify.toml`): build `npm run build`, publish `dist`, Node 20, with a catch-all SPA rewrite. `public/_redirects` also ships in the build and takes effect on Netlify — it holds the 301s for renamed project slugs ahead of its own SPA fallback.
+
+## Related branches
+
+`redesign/editorial-portfolio` holds an in-progress light-only editorial redesign with a different design language (Space Grotesk/Inter/Space Mono, no dark mode, a shared `PageTransition` route animation). It has its own `CLAUDE.md` describing that architecture — this file documents `main` only.
