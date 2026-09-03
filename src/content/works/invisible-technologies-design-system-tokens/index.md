@@ -8,6 +8,8 @@ coverImage: "./images/cover.jpg"
 images: []
 order: 0
 year: "2026"
+featured: true
+featuredOrder: 1
 ---
 
 > "A design token is a decision, recorded once, in a form both people and machines can read."

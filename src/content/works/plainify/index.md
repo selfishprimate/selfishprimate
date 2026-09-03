@@ -9,7 +9,7 @@ images: []
 order: 1
 year: "2026"
 featured: true
-featuredOrder: 1
+featuredOrder: 2
 ---
 
 Plainify emerged from a recurring friction point I observed while working with AI coding assistants. Designers and developers often have a clear mental model of what they want to build, but struggle to communicate that vision in a way that produces quality output from AI tools like Claude, Cursor, or Bolt. I built Plainify to bridge that gap.

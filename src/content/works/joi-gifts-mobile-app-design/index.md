@@ -9,7 +9,7 @@ images: []
 order: 3
 year: "2023"
 featured: true
-featuredOrder: 3
+featuredOrder: 4
 ---
 
 Joi Gifts had grown into the Middle East's go-to platform for sending flowers, cakes, and curated gifts across the UAE, Saudi Arabia, and beyond. But the mobile experience, built on webview technology, was showing its age. Slow load times, clunky interactions, and an inability to leverage native device features were driving users away. I was brought in to lead the complete redesign and migration to a native mobile application.

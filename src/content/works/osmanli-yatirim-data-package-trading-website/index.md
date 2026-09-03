@@ -9,7 +9,7 @@ images: []
 order: 10
 year: "2021"
 featured: true
-featuredOrder: 5
+featuredOrder: 6
 ---
 
 Osmanlı Yatırım Bank needed to modernize their internal data package trading platform—a critical tool used daily by customer representatives to manage trading data subscriptions for clients. The existing system had grown unwieldy over the years, with a cluttered interface that slowed down representatives and increased the risk of errors during transactions.
