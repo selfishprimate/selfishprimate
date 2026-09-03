@@ -4,6 +4,7 @@ import type { Project } from './types';
 import worksIndexMd from '../content/works/index.md?raw';
 
 // Import markdown files from new folder structure
+import invisibleTokensMd from '../content/works/invisible-technologies-design-system-tokens/index.md?raw';
 import plainifyMd from '../content/works/plainify/index.md?raw';
 import joiDesignSystemMd from '../content/works/joi-gifts-design-system/index.md?raw';
 import joiMobileMd from '../content/works/joi-gifts-mobile-app-design/index.md?raw';
@@ -48,6 +49,7 @@ export function resolveProjectImagePath(relativePath: string, projectSlug: strin
 const resolveImagePath = resolveProjectImagePath;
 
 const projectFiles: Record<string, string> = {
+  'invisible-technologies-design-system-tokens': invisibleTokensMd,
   'plainify': plainifyMd,
   'joi-gifts-design-system': joiDesignSystemMd,
   'joi-gifts-mobile-app-design': joiMobileMd,
