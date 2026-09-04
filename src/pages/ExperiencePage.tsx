@@ -33,7 +33,7 @@ export function ExperiencePage() {
                     alt={exp.company}
                     loading="lazy"
                     decoding="async"
-                    className="aspect-square w-24 rounded-card object-cover md:w-28"
+                    className="aspect-square w-full max-w-[160px] rounded-card object-cover"
                   />
                 )}
               </span>
@@ -53,7 +53,7 @@ export function ExperiencePage() {
           );
 
           const rowClass =
-            'group grid gap-5 border-t border-border py-8 md:grid-cols-[minmax(0,260px)_minmax(0,620px)] md:gap-10 md:py-10';
+            'group grid gap-5 border-t border-border py-8 md:grid-cols-[minmax(0,160px)_minmax(0,620px)] md:gap-10 md:py-10';
 
           return (
             <motion.article
