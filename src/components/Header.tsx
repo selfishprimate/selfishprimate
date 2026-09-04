@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
-import { ThemeToggle } from './ThemeToggle';
+import { SocialLinks } from './SocialLinks';
 import { useBodyScrollLock } from '@/hooks/useBodyScrollLock';
 
 const navItems = [
@@ -50,11 +50,11 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <ThemeToggle />
+            <SocialLinks className="ml-2" />
           </nav>
 
-          <div className="flex items-center gap-2 md:hidden">
-            <ThemeToggle />
+          <div className="flex items-center gap-4 md:hidden">
+            <SocialLinks size={17} />
             <button
               type="button"
               onClick={() => setIsMenuOpen(true)}
@@ -106,6 +106,7 @@ export function Header() {
                   </Link>
                 </motion.div>
               ))}
+              <SocialLinks size={22} className="mt-6 gap-6" />
             </nav>
           </motion.div>
         )}

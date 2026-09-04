@@ -72,9 +72,12 @@ keeps shifting down the page rather than repeating every other row.
 Card captions run the case-study title first, the client underneath it in
 grey.
 
-**Light is the default theme here** (`main` defaults to dark). As on `main` the
-default is written twice on purpose — `ThemeToggle` and the pre-paint script in
-`index.html` — so changing one means changing the other.
+**There is no theme toggle.** The header carries GitHub, Medium and LinkedIn
+marks where the toggle used to be, and `ThemeToggle` is gone. The `.dark`
+palette and the pre-paint script in `index.html` are still here and still work
+if `localStorage.theme` is set to `dark` by hand, but nothing in the interface
+sets it — so in practice this is a light-only design. Delete both if that is
+the intent; leaving them is only worth it if a toggle is coming back.
 
 ## Project Overview
 
