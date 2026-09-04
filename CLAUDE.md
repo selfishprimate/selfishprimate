@@ -73,11 +73,17 @@ Card captions run the case-study title first, the client underneath it in
 grey.
 
 **There is no theme toggle.** The header carries GitHub, Medium and LinkedIn
-marks where the toggle used to be, and `ThemeToggle` is gone. The `.dark`
-palette and the pre-paint script in `index.html` are still here and still work
-if `localStorage.theme` is set to `dark` by hand, but nothing in the interface
-sets it — so in practice this is a light-only design. Delete both if that is
-the intent; leaving them is only worth it if a toggle is coming back.
+marks where the toggle used to be, and `ThemeToggle` is gone. Nothing in the
+interface sets `localStorage.theme`, so in practice this is a light-only
+design — but `.dark` is **not** dead. The closing banner in the footer carries
+it as an ordinary class, which flips the palette inside that one element and
+gives the inverted panel its ink and its grey without inventing colours. So
+`.dark` earns its place; the pre-paint script in `index.html` is what has
+nothing left to do, since no visitor can set the key it reads.
+
+The banner is also the one place the reference is not followed on colour: it
+puts a warm gradient there, and this site has no colour, so the panel inverts
+instead.
 
 ## Project Overview
 

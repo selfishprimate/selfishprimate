@@ -23,8 +23,10 @@ export function Footer() {
     <footer className="mx-auto w-full max-w-[1280px] px-6 pt-32 pb-16 md:px-10 md:pt-52">
       <h2 className="sr-only">Footer</h2>
 
-      {/* One sentence, one link, on the page's only panel of colour. */}
-      <div className="j-banner px-6 py-24 md:px-20 md:py-32">
+      {/* One sentence, one link, on the page's one inverted panel. `dark`
+          flips the palette inside it, so the type below needs no colour of its
+          own. */}
+      <div className="j-banner dark px-6 py-24 md:px-20 md:py-32">
         <p className="j-display mx-auto max-w-[700px]">
           Want to build something durable?{' '}
           <span className="j-fade">Drop me an email.</span>
