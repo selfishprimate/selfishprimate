@@ -23,21 +23,27 @@ export function Footer() {
     <footer className="mx-auto w-full max-w-[1280px] px-6 pt-32 pb-16 md:px-10 md:pt-52">
       <h2 className="sr-only">Footer</h2>
 
-      {/* One sentence, one link. */}
-      <p className="j-display max-w-[18ch]">
-        Want to build something durable?{' '}
-        <span className="j-fade">Drop me an email.</span>
-      </p>
-      <p className="mt-8">
-        <a
-          href={`mailto:${siteConfig.email}`}
-          className="j-heading underline decoration-border underline-offset-[8px] transition-colors hover:decoration-text-primary"
-        >
-          {siteConfig.email}
-        </a>
-      </p>
+      {/* One sentence, one link, on the page's only panel of colour. */}
+      <div className="j-banner px-6 py-24 md:px-20 md:py-32">
+        <p className="j-display mx-auto max-w-[700px]">
+          Want to build something durable?{' '}
+          <span className="j-fade">Drop me an email.</span>
+        </p>
+        <p className="mt-8">
+          <a
+            href={`mailto:${siteConfig.email}`}
+            className="j-heading transition-opacity hover:opacity-70"
+          >
+            → {siteConfig.email}
+          </a>
+        </p>
+      </div>
 
-      <div className="mt-28 grid gap-10 md:grid-cols-3">
+      {/* The reference carries exactly one hairline on the whole page, and it
+          is this one. */}
+      <div className="mt-28 border-t border-border pt-14" />
+
+      <div className="grid gap-10 md:grid-cols-3">
         <nav aria-label="Elsewhere">
           <h3 className="j-item mb-4">Elsewhere</h3>
           <ul className="flex flex-col gap-1.5 list-none">

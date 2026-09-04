@@ -21,6 +21,13 @@
   --color-border: #E9E9E9;
   --color-accent: #000000;
 
+  /* The closing banner, and the only colour on an otherwise black-and-white
+     site — taken from the reference, which does the same thing in the same
+     place. */
+  --color-banner-from: #FFFCEB;
+  --color-banner-via: #FFEDED;
+  --color-banner-to: #FFEEDB;
+
   /* The site has one corner. Everything that gets rounded — cards, thumbnails,
      cover images, embeds, logos, the portrait — uses `rounded-card`, so
      changing it here changes it everywhere. */
@@ -169,6 +176,21 @@ body {
     border-color: var(--color-border);
     background-color: transparent;
     color: var(--color-text-primary);
+  }
+
+  /* The closing call to action: full container width, the type centred on a
+     700px measure. Measured off the reference at 128px/80px padding; the
+     radius is this site's own `--radius-card` rather than the reference's
+     12px, because everything rounded here uses the one token. */
+  .j-banner {
+    border-radius: var(--radius-card);
+    background-image: linear-gradient(
+      121deg,
+      var(--color-banner-from) 0%,
+      var(--color-banner-via) 50.32%,
+      var(--color-banner-to) 100%
+    );
+    text-align: center;
   }
 
   .j-btn-outline:hover {

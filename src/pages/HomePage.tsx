@@ -158,11 +158,14 @@ export function HomePage() {
         </LabelledRow>
       </div>
 
-      {/* Services and clients, side by side. Measured off the reference: two
-          604px columns 72px apart, 64px from the heading to the first item and
-          48px between items. The airiness is the design — closing it up is
-          what made this read as a dumped list rather than a set of columns. */}
-      <div className="grid gap-y-24 pt-28 md:grid-cols-2 md:gap-x-[72px] md:pt-44">
+      {/* Services and clients, side by side. The vertical rhythm is measured
+          off the reference — 64px from the heading to the first item, 48px
+          between them, no rules — but the column gap is this page's own 40px,
+          not the reference's 72px for this one section. The reference is 16px
+          out of step with itself there; here the Experience and About rows sit
+          directly above, so the second column has to land on the same spine as
+          their content or the whole page reads crooked. */}
+      <div className="grid gap-y-24 pt-28 md:grid-cols-2 md:gap-x-10 md:pt-44">
         <section>
           <h2 className="j-heading">{home.services.title}</h2>
           <ul className="mt-16 flex flex-col gap-12 list-none">
