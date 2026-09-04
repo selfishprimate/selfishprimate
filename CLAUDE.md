@@ -170,9 +170,14 @@ Every `<figure>` inside a `<gallery>` is collected into a lightbox (arrow keys, 
   grey at the card radius, matching the square company marks on Experience.
 
 **Writing and Experience are lists, not grids.** Both run down the page in one
-column — a square image left in a 160px column, all the writing right at the
-620px measure, hairline rules between rows. Row titles sit at 32px so each list
-has a head of its own.
+column — a square image on the left, all the writing right at the 620px
+measure, hairline rules between rows. Row titles sit at 32px so each list has a
+head of its own.
+
+The image column is sized to the image, not the other way round: 160px for a
+Writing cover, 80px for a company mark. Leave the column wider than the image
+and the gap to the text opens up on one page but not the other, which is what
+makes the two lists stop matching.
 
 Writing covers get the grey tile; Experience logos do not. A company mark
 carries its own shape and its own background, and boxing it only fights that.
