@@ -8,7 +8,7 @@ import { useBodyScrollLock } from '@/hooks/useBodyScrollLock';
 const navItems = [
   { label: 'Work', path: '/works' },
   { label: 'Illustrations', path: '/illustrations' },
-  { label: 'Writing', path: '/articles' },
+  { label: 'Articles', path: '/articles' },
   { label: 'Experience', path: '/experience' },
   { label: 'About', path: '/about' },
 ];
