@@ -349,10 +349,12 @@ export function ProjectPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="j-display max-w-[22ch]">
-            {project.title}
-          </h2>
-          <p className="j-body j-fade mt-8 max-w-[42ch] md:mt-10">{project.description}</p>
+          {/* The title runs the full column. A case study opens on its own
+              name, and the 22ch cap left two thirds of the page empty beside
+              it. The standfirst keeps a measure: at full width it ran to
+              about 110 characters a line. */}
+          <h2 className="j-display">{project.title}</h2>
+          <p className="j-body j-fade mt-8 max-w-[62ch] md:mt-10">{project.description}</p>
         </motion.div>
       </section>
 
