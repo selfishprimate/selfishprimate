@@ -28,7 +28,7 @@ export function PageLede({ title, fade, description, className = '' }: PageLedeP
         {fade && <span className="j-fade"> {fade}</span>}
       </h2>
       {description && (
-        <p className="j-body j-fade mt-8 max-w-[42ch] md:mt-10">{description}</p>
+        <p className="j-body j-fade mt-5 max-w-[42ch] md:mt-10">{description}</p>
       )}
     </motion.div>
   );

@@ -86,6 +86,12 @@ body {
     color: var(--color-text-primary);
   }
 
+  @media (width < 48rem) {
+    .j-display {
+      line-height: 1.15;
+    }
+  }
+
   /* 32 / 600 / -0.02em — every section heading */
   .j-heading {
     font-weight: 600;

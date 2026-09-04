@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
 import { SocialLinks } from './SocialLinks';
+import { MenuIcon } from './MenuIcon';
 import { useBodyScrollLock } from '@/hooks/useBodyScrollLock';
 
 const navItems = [
@@ -53,18 +53,15 @@ export function Header() {
             <SocialLinks className="ml-2" />
           </nav>
 
-          <div className="flex items-center gap-4 md:hidden">
-            <SocialLinks size={17} />
-            <button
-              type="button"
-              onClick={() => setIsMenuOpen(true)}
-              className="j-nav"
-              aria-label="Open menu"
-              aria-expanded={isMenuOpen}
-            >
-              Menu
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen(true)}
+            className="p-1 md:hidden"
+            aria-label="Open menu"
+            aria-expanded={isMenuOpen}
+          >
+            <MenuIcon open={false} />
+          </button>
         </div>
       </header>
 
@@ -80,10 +77,10 @@ export function Header() {
             <button
               type="button"
               onClick={closeMenu}
-              className="absolute top-6 right-6 p-2 text-text-tertiary transition-colors hover:text-text-primary"
+              className="absolute top-14 right-6 p-1"
               aria-label="Close menu"
             >
-              <X size={22} strokeWidth={1.5} />
+              <MenuIcon open />
             </button>
 
             <nav

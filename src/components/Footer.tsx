@@ -34,7 +34,7 @@ export function Footer() {
         <p className="mt-8">
           <a
             href={`mailto:${siteConfig.email}`}
-            className="j-heading transition-opacity hover:opacity-70"
+            className="j-heading whitespace-nowrap text-[clamp(1.0625rem,4.4vw,2rem)] transition-opacity hover:opacity-70"
           >
             → {siteConfig.email}
           </a>
@@ -45,7 +45,7 @@ export function Footer() {
           is this one. */}
       <div className="mt-28 border-t border-border pt-14" />
 
-      <div className="grid gap-10 md:grid-cols-4">
+      <div className="grid grid-cols-2 gap-10 md:grid-cols-4">
         {/* The wordmark heads this column so its first line sits on the same
             baseline as the three headings beside it. */}
         <div>

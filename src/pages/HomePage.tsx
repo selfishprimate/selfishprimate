@@ -43,7 +43,7 @@ export function HomePage() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="j-body j-fade mt-10 max-w-[46ch] md:mt-12"
+          className="j-body j-fade mt-6 max-w-[46ch] md:mt-12"
         >
           {home.hero.subtitle}
         </motion.p>
@@ -52,7 +52,7 @@ export function HomePage() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.16 }}
-          className="mt-10 flex flex-wrap gap-3 md:mt-12"
+          className="mt-8 flex flex-wrap gap-3 md:mt-12"
         >
           <Link to="/works" className="j-btn">
             View my works
