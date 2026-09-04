@@ -371,7 +371,7 @@ export function ProjectPage() {
             alt={project.title}
             loading="eager"
             decoding="async"
-            className="w-full"
+            className="w-full rounded-card"
           />
         </motion.section>
       )}
