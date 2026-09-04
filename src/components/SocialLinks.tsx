@@ -5,10 +5,9 @@ import { siteConfig } from '@/lib/data';
  * All three marks are solid and drawn at one size.
  *
  * The live site mixes a stroked LinkedIn with two solid marks and sizes it up
- * to compensate, which is why it reads as the odd one out. LinkedIn here is the
- * same geometry as that stroked mark — the wordless `in`, no containing box —
- * but filled, so it carries the weight of the other two without the squareness
- * of the boxed glyph.
+ * to compensate, which is why it reads as the odd one out. LinkedIn here is a
+ * solid, boxless `in` — drawn as a filled mark rather than an outline that has
+ * been filled in, so its strokes carry the same weight as the other two.
  */
 const icons: { label: string; href: string; viewBox?: string; body: ReactNode }[] = [
   {
@@ -28,12 +27,12 @@ const icons: { label: string; href: string; viewBox?: string; body: ReactNode }[
   {
     label: 'LinkedIn',
     href: siteConfig.social.linkedin,
-    // The rounded-square badge, with the letters knocked out of the fill. It is
-    // the mark people actually recognise, and its corner radius is generous
-    // enough not to read as a hard square beside GitHub's disc.
+    // Solid letterforms, no containing box. Drawn as a filled mark rather than
+    // an outline that has been filled in, which is why the stem and the bowl
+    // carry the same weight as GitHub and Medium.
     viewBox: '0 0 448 512',
     body: (
-      <path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+      <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
     ),
   },
 ];
