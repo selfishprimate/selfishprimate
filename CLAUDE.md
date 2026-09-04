@@ -6,29 +6,41 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This branch carries a full visual redesign. The architecture below is unchanged
 from `main` — content system, parsers, routing, SEO and deployment all work the
-same way. What changed is the design language, and the notes marked **Jonas**
-describe it.
+same way. What changed is the design language.
 
-The reference is `jonas-template.framer.website`. Three moves carry the site:
+The reference is `jonas-template.framer.website`, and the numbers below were
+**measured off it with `getComputedStyle`**, not estimated from screenshots.
+That distinction matters: a scaled screenshot is not in CSS pixels, and reading
+the layout off one produced a first attempt at roughly two-thirds the container
+width and half the type size — recognisably a different design.
 
-1. **One narrow column.** Every page is
-   `mx-auto w-full max-w-[860px] px-5`. Nothing is full-bleed, nothing is
-   centred-and-wide. The page reads as a document, not a layout.
-2. **The two-tone sentence.** A headline opens at full ink and finishes in
-   `--color-text-secondary`. It is the only display-type move on the site,
-   used for the home hero, every index page and each case-study title.
-3. **The welded caption.** A project card is a cover image with a
-   `--color-surface` grey block attached directly beneath it holding the title
-   and client. The caption belongs to the card rather than floating under it,
-   which is what makes the two-column stagger read as a composition.
+The measured spec:
 
-The work grid is `StaggeredGrid`: two columns, the right one dropped by a fixed
-`sm:mt-16`. That single offset is the whole effect; the cards keep a uniform
-4:3 aspect so the covers stay comparable.
+| | Value |
+| --- | --- |
+| Container | 1280px, centred |
+| Grid | two 620px columns, 40px gap |
+| Font | Inter |
+| Hero / closing line | 64px, 600, `-0.025em`, line-height 1.05 |
+| Section headings | 32px, 600, `-0.02em` |
+| Body copy | 28px, 400, line-height 1.4 |
+| List items, card titles | 20px, 600, `-0.02em` |
+| Dates, subtitles | 20px, grey |
+| Navigation | 18px, 500 |
+| Ink / faded / nav grey | `#000000` / `#757575` / `#525252` |
+| Card | `#F7F7F7`, 12px radius, image flush, 24px caption padding |
 
-There are **no buttons anywhere** — every action is a text link, usually
-prefixed with an arrow (`→ All 15 projects`). The header is in normal flow
-rather than fixed, so it scrolls away and never returns.
+It is a **large-type design**. Treating it as a small-type one is the single
+easiest way to build something that looks nothing like it.
+
+The staggered look does **not** come from offsetting one column. Every card
+starts at the same top; the columns fall out of step because the cards carry
+different image aspect ratios. `StaggeredGrid` reproduces this with a
+five-long cycle of aspect classes, coprime with the two columns so the phase
+keeps shifting down the page rather than repeating every other row.
+
+Card captions pair a short name with a short category — client on top,
+discipline and year in grey beneath — rather than a full case-study title.
 
 **Light is the default theme here** (`main` defaults to dark). As on `main` the
 default is written twice on purpose — `ThemeToggle` and the pre-paint script in
@@ -113,12 +125,15 @@ Every `<figure>` inside a `<gallery>` is collected into a lightbox (arrow keys, 
 
 ### Shared components (Jonas)
 
-- `PageLede` — the two-tone sentence. `title` in ink, optional `fade` in grey.
-- `BlockLabel` — the small bold label that opens a block, with an optional grey
-  `meta` half (`Featured work · 2021–2026`).
-- `LabelledRow` — label in the left column, content in the right. Every block
-  below the work grid uses it, which keeps the page on one spine.
-- `StaggeredGrid` — the two-column work grid described above.
+- `PageLede` — the two-tone sentence at 64px. `title` in ink, optional `fade`
+  in grey.
+- `BlockLabel` — the 20px bold line that opens the work grid, with an optional
+  grey `meta` half (`Featured work · 2021–2026`).
+- `LabelledRow` — 32px heading left, content right. Every block below the work
+  grid uses it, which keeps the page on one spine.
+- `StaggeredGrid` — the two-column work grid and its aspect-ratio cycle.
+- `ProjectCard` — takes its `aspect` class from the grid rather than choosing
+  one, so the cycle stays in one place.
 
 `SectionHeading` from `main` is gone; `PageLede` + `BlockLabel` replace it.
 
@@ -154,18 +169,20 @@ Routes: `/`, `/works`, `/works/:slug`, `/about`, `/articles`, `/illustrations`, 
 
 Tailwind CSS 4 via `@tailwindcss/vite`, configured entirely in `src/index.css` — there is no `tailwind.config.js`.
 
-**Jonas** repurposes `--color-surface`: it is no longer a generic card
-background but specifically the grey of the caption block under a cover image
-(and the placeholder behind one). One grey, one job.
+**Jonas** repurposes `--color-surface`: it is the card grey, `#F7F7F7`, and
+nothing else uses it.
 
-**Jonas** defines four custom classes, all inside `@layer components` so
-Tailwind utilities can still override them (declared outside a layer they beat
-every utility — this has bitten this repo before):
+The type scale lives in `@layer components` so Tailwind utilities can still
+override it (declared outside a layer these would beat every utility — this has
+bitten this repo before). Each class is one row of the measured table above:
 
-- `.jonas-lede` — the display face: weight 500, tight tracking
-- `.jonas-fade` — the grey continuation of a two-tone sentence
-- `.jonas-label` — the small bold block label
-- `.jonas-link` — the underlined text link, which replaces every button
+- `.j-display` — 64px hero
+- `.j-heading` — 32px section heading
+- `.j-body` — 28px body copy
+- `.j-item` — 20px list item, card title, company name
+- `.j-meta` — 20px date and quiet metadata
+- `.j-nav` — 18px navigation
+- `.j-fade` — the grey half of a two-tone sentence
 
 Theming works **only through CSS custom properties**, not Tailwind's `dark:` variant (no `dark:` utility appears anywhere in the codebase):
 
@@ -179,8 +196,7 @@ Theming works **only through CSS custom properties**, not Tailwind's `dark:` var
 Typography: `--font-sans` and `--font-serif` are **both** Geist Sans (loaded from a jsDelivr `@fontsource` CDN import), so the `font-serif` utility is effectively an alias used to mark headings, not an actual serif. The only real serif is Instrument Serif, applied globally to `i`, `em` and `.italic` — which is why accent words in headings are wrapped in `<span className="italic">`.
 
 Layout convention (**Jonas**): every page, including `ProjectPage` and the
-header and footer, uses `mx-auto w-full max-w-[860px] px-5`. There is no wider
-container anywhere.
+header and footer, uses `mx-auto w-full max-w-[1280px] px-6 md:px-10`.
 
 Watch the `ch` unit: it resolves against the element's *own* font size. Putting
 a `max-w-[24ch]` on a wrapper whose children carry the large type gives a

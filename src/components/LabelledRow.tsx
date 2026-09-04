@@ -1,27 +1,25 @@
 import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
-import { BlockLabel } from './BlockLabel';
 
 interface LabelledRowProps {
   label: string;
-  meta?: string;
   children: ReactNode;
 }
 
 /**
- * Label in the left column, content in the right. Every block below the work
- * grid uses it, which is what keeps the page on one spine.
+ * A 32px heading in the left column, content in the right. Every block below
+ * the work grid uses it, which is what keeps the page on one spine.
  */
-export function LabelledRow({ label, meta, children }: LabelledRowProps) {
+export function LabelledRow({ label, children }: LabelledRowProps) {
   return (
     <motion.section
       initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.55, ease: [0.2, 0.7, 0.2, 1] }}
-      className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] sm:gap-8"
+      className="grid gap-6 md:grid-cols-2 md:gap-10"
     >
-      <BlockLabel meta={meta}>{label}</BlockLabel>
+      <h2 className="j-heading">{label}</h2>
       <div>{children}</div>
     </motion.section>
   );

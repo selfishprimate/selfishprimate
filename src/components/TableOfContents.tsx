@@ -107,7 +107,7 @@ export function TableOfContents({ content, className = '' }: TableOfContentsProp
 
   return (
     <nav className={`${className}`} aria-label="Table of contents">
-      <p className="jonas-label mb-3">Contents</p>
+      <p className="j-item mb-3">Contents</p>
       <ul className="space-y-2">
         {headings.map(({ id, text, level }) => (
           <li key={id}>

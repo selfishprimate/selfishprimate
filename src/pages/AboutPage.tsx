@@ -21,7 +21,7 @@ function renderWithLinks(text: string) {
         href={match[2]}
         target="_blank"
         rel="noopener noreferrer"
-        className="jonas-link"
+        className="underline decoration-border underline-offset-[6px] transition-colors hover:decoration-text-primary"
       >
         {match[1]}
       </a>
@@ -59,8 +59,8 @@ export function AboutPage() {
   ];
 
   return (
-    <div className="mx-auto w-full max-w-[860px] px-5">
-      <section className="pt-16 pb-16 md:pt-24 md:pb-20">
+    <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10">
+      <section className="pt-24 pb-20 md:pt-44 md:pb-32">
         <PageLede
           title={`${about.profile.title} in ${about.profile.location.split(',')[0]}.`}
           fade="Fifteen years building the design systems that products are actually made of."
@@ -137,7 +137,7 @@ export function AboutPage() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="jonas-link text-text-secondary"
+                  className="underline decoration-border underline-offset-[6px] transition-colors hover:decoration-text-primary text-text-secondary"
                 >
                   {social.label}
                 </a>

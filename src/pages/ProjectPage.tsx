@@ -123,10 +123,10 @@ export function ProjectPage() {
 
   if (!project) {
     return (
-      <div className="mx-auto w-full max-w-[860px] px-5 pt-24">
-        <h2 className="jonas-lede text-2xl">Project not found.</h2>
+      <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10 pt-24">
+        <h2 className="j-display text-2xl">Project not found.</h2>
         <p className="mt-6">
-          <Link to="/works" className="jonas-link text-[0.9375rem]">
+          <Link to="/works" className="underline decoration-border underline-offset-[6px] transition-colors hover:decoration-text-primary j-item">
             → Back to the work
           </Link>
         </p>
@@ -319,7 +319,7 @@ export function ProjectPage() {
   };
 
   return (
-    <div className="mx-auto w-full max-w-[860px] px-5">
+    <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10">
       {/* Back */}
       <motion.p
         initial={{ opacity: 0 }}
@@ -328,7 +328,7 @@ export function ProjectPage() {
       >
         <button
           onClick={() => navigate(-1)}
-          className="inline-flex items-center gap-1.5 text-[0.9375rem] text-text-secondary transition-colors hover:text-text-primary"
+          className="inline-flex items-center gap-1.5 j-item text-text-secondary transition-colors hover:text-text-primary"
         >
           <ArrowLeft size={14} />
           Back
@@ -342,23 +342,23 @@ export function ProjectPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="jonas-lede text-[1.6rem] md:text-[2.15rem] max-w-[30ch]">
+          <h2 className="j-display text-[1.6rem] md:text-[2.15rem] max-w-[30ch]">
             {project.title}
           </h2>
           <p className="mt-5 max-w-[60ch] text-text-secondary">{project.description}</p>
 
           <dl className="mt-8 grid gap-3 border-t border-border pt-5 sm:grid-cols-3">
             <div>
-              <dt className="text-[0.9375rem] text-text-secondary">Client</dt>
-              <dd className="jonas-label">{project.company}</dd>
+              <dt className="j-item text-text-secondary">Client</dt>
+              <dd className="j-item">{project.company}</dd>
             </div>
             <div>
-              <dt className="text-[0.9375rem] text-text-secondary">Year</dt>
-              <dd className="jonas-label">{project.year}</dd>
+              <dt className="j-item text-text-secondary">Year</dt>
+              <dd className="j-item">{project.year}</dd>
             </div>
             <div>
-              <dt className="text-[0.9375rem] text-text-secondary">Discipline</dt>
-              <dd className="jonas-label">{project.tags.slice(0, 2).join(', ')}</dd>
+              <dt className="j-item text-text-secondary">Discipline</dt>
+              <dd className="j-item">{project.tags.slice(0, 2).join(', ')}</dd>
             </div>
           </dl>
         </motion.div>
@@ -403,13 +403,13 @@ export function ProjectPage() {
 
       {/* Tags */}
       <section className="pb-14">
-        <p className="text-[0.9375rem] text-text-secondary">{project.tags.join(', ')}</p>
+        <p className="j-item text-text-secondary">{project.tags.join(', ')}</p>
       </section>
 
       {/* Previous / next */}
       <section className="grid gap-8 border-t border-border pt-8 sm:grid-cols-2">
         <Link to={`/works/${prevProject.slug}`} className="group">
-          <span className="inline-flex items-center gap-1.5 text-[0.9375rem] text-text-secondary">
+          <span className="inline-flex items-center gap-1.5 j-item text-text-secondary">
             <ArrowLeft size={14} />
             Previous
           </span>
@@ -419,7 +419,7 @@ export function ProjectPage() {
         </Link>
 
         <Link to={`/works/${nextProject.slug}`} className="group sm:text-right">
-          <span className="inline-flex items-center gap-1.5 text-[0.9375rem] text-text-secondary">
+          <span className="inline-flex items-center gap-1.5 j-item text-text-secondary">
             Next
             <ArrowRight size={14} />
           </span>
@@ -431,16 +431,16 @@ export function ProjectPage() {
 
       {/* Contact */}
       <section className="pt-24 md:pt-32">
-        <p className="jonas-lede text-xl md:text-[1.6rem] max-w-[24ch]">
+        <p className="j-display text-xl md:text-[1.6rem] max-w-[24ch]">
           Working on something similar?{' '}
-          <span className="jonas-fade">Tell me about it.</span>
+          <span className="j-fade">Tell me about it.</span>
         </p>
         <p className="mt-5">
           <a
             href={siteConfig.social.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="jonas-link text-[0.9375rem]"
+            className="underline decoration-border underline-offset-[6px] transition-colors hover:decoration-text-primary j-item"
           >
             → Get in touch
           </a>

@@ -1,31 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
-@import url('https://cdn.jsdelivr.net/npm/@fontsource/geist-sans/index.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
 @import "tailwindcss";
 
+/* Measured off jonas-template.framer.website rather than eyeballed:
+   1280px container, 620px columns with a 40px gap, Inter, and a type scale
+   that runs 64 / 32 / 28 / 20 / 18. It is a large-type design — treating it as
+   a small-type one is what makes a copy of it look nothing like it. */
 @theme {
-  --font-serif: 'Geist Sans', system-ui, sans-serif;
-  --font-sans: 'Geist Sans', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Inter', system-ui, sans-serif;
 
   --color-background: #FFFFFF;
-  /* The caption block under every cover image. Nothing else uses it, and that
-     is the point: one grey, one job. */
-  --color-surface: #F4F4F4;
-  --color-text-primary: #111111;
-  --color-text-secondary: #7C7C7C;
-  --color-text-tertiary: #9C9C9C;
-  --color-border: #EAEAEA;
-  --color-accent: #111111;
+  /* The card surface. Every project card is this colour, corners at 12px. */
+  --color-surface: #F7F7F7;
+  --color-text-primary: #000000;
+  /* The faded half of a sentence, subtitles and dates */
+  --color-text-secondary: #757575;
+  /* Navigation and role lines */
+  --color-text-tertiary: #525252;
+  --color-border: #E9E9E9;
+  --color-accent: #000000;
 }
 
 .dark {
-  --color-background: #0B0B0B;
-  --color-surface: #181818;
-  --color-text-primary: #F0F0F0;
-  --color-text-secondary: #8B8B8B;
-  --color-text-tertiary: #6B6B6B;
-  --color-border: #242424;
-  --color-accent: #F0F0F0;
+  --color-background: #000000;
+  --color-surface: #0F0F0F;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #8A8A8A;
+  --color-text-tertiary: #ADADAD;
+  --color-border: #1C1C1C;
+  --color-accent: #FFFFFF;
 }
 
 /* Light/Dark mode image visibility */
@@ -53,10 +57,10 @@ html {
 
 body {
   font-family: var(--font-sans);
-  font-size: 16px;
+  font-size: 20px;
   background-color: var(--color-background);
   color: var(--color-text-primary);
-  line-height: 1.6;
+  line-height: 1.2;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -65,48 +69,69 @@ body {
   color: var(--color-background);
 }
 
-i, em, .italic {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-style: italic;
-}
-
-/* Custom classes go inside @layer components so Tailwind utilities can still
-   override them. Outside a layer they beat every utility, which has bitten
-   this repo before. */
+/* Custom classes live inside @layer components so Tailwind utilities can still
+   override them. Outside a layer they beat every utility. */
 @layer components {
-  /* The one typographic move on the whole site: a sentence that starts at full
-     ink and finishes in grey. */
-  .jonas-lede {
-    font-weight: 500;
-    letter-spacing: -0.022em;
-    line-height: 1.24;
+  /* 64 / 600 / -0.025em / 1.05 — the hero and the closing line */
+  .j-display {
+    font-weight: 600;
+    font-size: clamp(2.25rem, 5vw, 4rem);
+    letter-spacing: -0.025em;
+    line-height: 1.05;
     color: var(--color-text-primary);
   }
 
-  .jonas-fade {
+  /* 32 / 600 / -0.02em — every section heading */
+  .j-heading {
+    font-weight: 600;
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--color-text-primary);
+  }
+
+  /* 28 / 400 / 1.4 — body copy, and it is genuinely this big */
+  .j-body {
+    font-weight: 400;
+    font-size: clamp(1.125rem, 2.2vw, 1.75rem);
+    line-height: 1.4;
+    color: var(--color-text-primary);
+  }
+
+  /* 20 / 600 / -0.02em — list items, card titles, company names */
+  .j-item {
+    font-weight: 600;
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--color-text-primary);
+  }
+
+  /* 20 / 400 — dates and other quiet metadata */
+  .j-meta {
+    font-weight: 400;
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    letter-spacing: 0.01em;
+    line-height: 1.45;
     color: var(--color-text-secondary);
   }
 
-  /* Small bold label that opens each block */
-  .jonas-label {
-    font-size: 0.9375rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
+  /* 18 / 500 — navigation */
+  .j-nav {
+    font-weight: 500;
+    font-size: clamp(0.9375rem, 1.4vw, 1.125rem);
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    color: var(--color-text-tertiary);
+    transition: color 0.2s ease;
+  }
+
+  .j-nav:hover {
     color: var(--color-text-primary);
   }
 
-  /* Text links: no buttons anywhere on this design */
-  .jonas-link {
-    color: var(--color-text-primary);
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    text-decoration-thickness: 1px;
-    text-decoration-color: var(--color-border);
-    transition: text-decoration-color 0.2s ease;
-  }
-
-  .jonas-link:hover {
-    text-decoration-color: var(--color-text-primary);
+  .j-fade {
+    color: var(--color-text-secondary);
   }
 }
 
@@ -119,46 +144,45 @@ i, em, .italic {
   display: none;
 }
 
-/* Markdown prose styles */
+/* Markdown prose styles, on the same scale as the rest of the site */
 .prose h1, .prose h2, .prose h3, .prose h4 {
-  font-family: var(--font-serif);
   font-weight: 600;
   letter-spacing: -0.02em;
-  line-height: 1.2;
-  margin-top: 2.25em;
-  margin-bottom: 0.6em;
+  line-height: 1.15;
+  margin-top: 1.8em;
+  margin-bottom: 0.5em;
   color: var(--color-text-primary);
 }
 
-.prose h1 { font-size: 1.875rem; }
-.prose h2 { font-size: 1.5rem; }
-.prose h3 { font-size: 1.25rem; }
-.prose h4 { font-size: 1.0625rem; }
+.prose h1 { font-size: clamp(1.75rem, 3.2vw, 2.5rem); }
+.prose h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); }
+.prose h3 { font-size: clamp(1.25rem, 2vw, 1.5rem); }
+.prose h4 { font-size: clamp(1.125rem, 1.7vw, 1.25rem); }
 
 .prose p {
-  margin-bottom: 1.4em;
-  color: var(--color-text-secondary);
-  font-size: 1rem;
-  line-height: 1.7;
+  margin-bottom: 1em;
+  color: var(--color-text-primary);
+  font-size: clamp(1.0625rem, 1.9vw, 1.375rem);
+  line-height: 1.45;
 }
 
 .prose ul {
-  margin-bottom: 1.4em;
-  padding-left: 1.4em;
+  margin-bottom: 1em;
+  padding-left: 1.1em;
   list-style-type: disc;
 }
 
 .prose ol {
-  margin-bottom: 1.4em;
-  padding-left: 1.4em;
+  margin-bottom: 1em;
+  padding-left: 1.1em;
   list-style-type: decimal;
 }
 
 .prose li {
-  margin-bottom: 0.4em;
-  color: var(--color-text-secondary);
-  font-size: 1rem;
-  line-height: 1.7;
+  margin-bottom: 0.35em;
+  color: var(--color-text-primary);
+  font-size: clamp(1.0625rem, 1.9vw, 1.375rem);
+  line-height: 1.45;
 }
 
 .prose a {
@@ -174,44 +198,49 @@ i, em, .italic {
 }
 
 .prose blockquote {
-  margin: 2em 0;
+  margin: 1.6em 0;
   padding-left: 1.25em;
-  border-left: 1px solid var(--color-border);
-  font-size: 1.0625rem;
-  color: var(--color-text-primary);
+  border-left: 2px solid var(--color-surface);
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  line-height: 1.4;
+  color: var(--color-text-secondary);
 }
 
 .prose img {
-  margin: 2em 0;
+  border-radius: 12px;
+  margin: 1.6em 0;
 }
 
 .prose code {
   background-color: var(--color-surface);
   padding: 0.15em 0.4em;
-  border-radius: 3px;
-  font-size: 0.9em;
+  border-radius: 4px;
+  font-size: 0.85em;
 }
 
 .prose pre {
   background-color: var(--color-surface);
   color: var(--color-text-primary);
   padding: 1.25em;
+  border-radius: 12px;
   overflow-x: auto;
-  margin: 2em 0;
-  font-size: 0.875rem;
+  margin: 1.6em 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
 }
 
 .prose pre code {
   background: none;
   padding: 0;
+  font-size: 1em;
 }
 
 /* Markdown tables */
 .prose table {
   width: 100%;
   border-collapse: collapse;
-  margin: 2em 0;
-  font-size: 0.875rem;
+  margin: 1.6em 0;
+  font-size: 1rem;
 }
 
 .prose thead th {
@@ -224,7 +253,7 @@ i, em, .italic {
 
 .prose tbody td {
   color: var(--color-text-secondary);
-  padding: 0.6em 1em 0.6em 0;
+  padding: 0.7em 1em 0.7em 0;
   border-bottom: 1px solid var(--color-border);
   vertical-align: top;
 }
@@ -254,8 +283,9 @@ i, em, .italic {
   background: var(--color-text-primary);
   color: var(--color-background);
   padding: 0.75rem 1.5rem;
+  border-radius: 999px;
   z-index: 9999;
-  font-size: 0.875rem;
+  font-size: 1rem;
   text-decoration: none;
 }
 

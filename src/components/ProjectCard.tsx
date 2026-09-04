@@ -5,14 +5,15 @@ import type { Project } from '@/lib/types';
 interface ProjectCardProps {
   project: Project;
   index: number;
+  /** Tailwind aspect class for the image, set by the grid */
+  aspect: string;
 }
 
 /**
- * Image on top, a grey caption block welded to the bottom. The caption being
- * part of the card rather than floating text under it is the whole reason the
- * two-column stagger reads as a composition instead of a list.
+ * The whole card is the grey surface — image flush to its edges, then a 24px
+ * padded caption. The card is the object, not the image sitting on top of one.
  */
-export function ProjectCard({ project, index }: ProjectCardProps) {
+export function ProjectCard({ project, index, aspect }: ProjectCardProps) {
   return (
     <motion.article
       initial={{ opacity: 0, y: 20 }}
@@ -20,25 +21,28 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.55, delay: (index % 2) * 0.06, ease: [0.2, 0.7, 0.2, 1] }}
     >
-      <Link to={`/works/${project.slug}`} className="group block overflow-hidden rounded-[3px]">
-        <div className="aspect-[4/3] overflow-hidden bg-surface">
+      <Link
+        to={`/works/${project.slug}`}
+        className="group block overflow-hidden rounded-xl bg-surface"
+      >
+        <div className={`overflow-hidden ${aspect}`}>
           {project.coverImage && (
             <img
               src={project.coverImage}
               alt={project.title}
-              loading="lazy"
+              loading={index < 2 ? 'eager' : 'lazy'}
               decoding="async"
               className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]"
             />
           )}
         </div>
 
-        <div className="bg-surface px-4 py-3.5">
-          <h3 className="text-[0.9375rem] font-semibold leading-snug tracking-[-0.01em] text-text-primary">
-            {project.title}
-          </h3>
-          <p className="mt-0.5 text-[0.9375rem] leading-snug text-text-secondary">
-            {project.company} · {project.year}
+        <div className="p-6">
+          {/* Client on top, discipline below in grey — the reference pairs a
+              short name with a short category, not a full case-study title. */}
+          <h3 className="j-item">{project.company}</h3>
+          <p className="j-item j-fade mt-1">
+            {project.tags[0]} · {project.year}
           </p>
         </div>
       </Link>

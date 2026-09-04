@@ -7,12 +7,12 @@ interface BlockLabelProps {
   className?: string;
 }
 
-/** Small bold label that opens a block. Often followed by a grey `meta`. */
+/** The 20px bold line that opens the work grid. */
 export function BlockLabel({ children, meta, className = '' }: BlockLabelProps) {
   return (
-    <p className={`jonas-label ${className}`}>
+    <p className={`j-item ${className}`}>
       {children}
-      {meta && <span className="font-normal text-text-secondary"> · {meta}</span>}
+      {meta && <span className="font-normal j-fade"> · {meta}</span>}
     </p>
   );
 }

@@ -67,13 +67,13 @@ export function IllustrationsPage() {
   }, [selectedIndex, illustrations.length]);
 
   return (
-    <div className="mx-auto w-full max-w-[860px] px-5">
+    <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10">
       <section>
-        <div className="pt-16 pb-16 md:pt-24 md:pb-20">
+        <div className="pt-24 pb-20 md:pt-44 md:pb-32">
           <PageLede title={meta.title + '.'} fade={meta.description} />
         </div>
 
-        <BlockLabel meta={`${illustrations.length} pieces`} className="mb-5">
+        <BlockLabel meta={`${illustrations.length} pieces`} className="mb-8 md:mb-14">
           {meta.label}
         </BlockLabel>
 

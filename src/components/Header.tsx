@@ -26,35 +26,26 @@ export function Header() {
 
   return (
     <>
-      {/* Not fixed: this design lets the header scroll away and never comes
-          back, which is what keeps the page feeling like a document. */}
-      <header className="mx-auto w-full max-w-[860px] px-5 pt-7 md:pt-9">
-        <div className="flex items-center justify-between">
+      {/* Not fixed: the header scrolls away and never comes back, which is what
+          keeps the page reading as a document. */}
+      <header className="mx-auto w-full max-w-[1280px] px-6 pt-14 md:px-10">
+        <div className="flex items-center justify-between gap-6">
           <Link to="/">
-            <h1>
-              <span className="sr-only">selfishprimate</span>
-              <img
-                src="/images/sp-logo-light.png"
-                alt="selfishprimate"
-                className="h-6 w-auto light-only"
-              />
-              <img
-                src="/images/sp-logo-dark.svg"
-                alt="selfishprimate"
-                className="h-6 w-auto dark-only"
-              />
+            <h1 className="j-nav text-text-primary">
+              <span className="sr-only">SELFISHPRIMATE</span>
+              <span aria-hidden="true" className="font-semibold tracking-[0.01em]">
+                SELFISHPRIMATE
+              </span>
             </h1>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden items-center gap-8 md:flex">
             <h2 className="sr-only">Main Navigation</h2>
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-[0.9375rem] transition-colors hover:text-text-primary ${
-                  isActivePath(item.path) ? 'text-text-primary' : 'text-text-secondary'
-                }`}
+                className={`j-nav ${isActivePath(item.path) ? 'text-text-primary' : ''}`}
               >
                 {item.label}
               </Link>
@@ -62,19 +53,16 @@ export function Header() {
             <ThemeToggle />
           </nav>
 
-          <div className="flex items-center gap-1 md:hidden">
+          <div className="flex items-center gap-2 md:hidden">
             <ThemeToggle />
             <button
               type="button"
               onClick={() => setIsMenuOpen(true)}
-              className="p-2 text-text-secondary transition-colors hover:text-text-primary"
+              className="j-nav"
               aria-label="Open menu"
               aria-expanded={isMenuOpen}
             >
-              <span className="flex h-4 w-5 flex-col justify-center gap-[5px]">
-                <span className="block h-px w-full bg-current" />
-                <span className="block h-px w-full bg-current" />
-              </span>
+              Menu
             </button>
           </div>
         </div>
@@ -92,15 +80,15 @@ export function Header() {
             <button
               type="button"
               onClick={closeMenu}
-              className="absolute top-6 right-5 p-2 text-text-secondary transition-colors hover:text-text-primary"
+              className="absolute top-6 right-6 p-2 text-text-tertiary transition-colors hover:text-text-primary"
               aria-label="Close menu"
             >
-              <X size={20} strokeWidth={1.5} />
+              <X size={22} strokeWidth={1.5} />
             </button>
 
             <nav
               aria-label="Mobile navigation"
-              className="flex h-full flex-col items-start justify-center gap-4 px-8"
+              className="flex h-full flex-col items-start justify-center gap-3 px-6"
             >
               {navItems.map((item, index) => (
                 <motion.div
@@ -112,9 +100,7 @@ export function Header() {
                   <Link
                     to={item.path}
                     onClick={closeMenu}
-                    className={`jonas-lede text-3xl ${
-                      isActivePath(item.path) ? '' : 'jonas-fade'
-                    }`}
+                    className={`j-heading ${isActivePath(item.path) ? '' : 'j-fade'}`}
                   >
                     {item.label}
                   </Link>

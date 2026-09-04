@@ -10,7 +10,7 @@ interface PageLedeProps {
 
 /**
  * The one headline shape on the site: a sentence that opens in ink and
- * finishes in grey. Used for the home hero and the top of every index page.
+ * finishes in grey, set at 64px across the full column.
  */
 export function PageLede({ title, fade, className = '' }: PageLedeProps) {
   return (
@@ -18,10 +18,10 @@ export function PageLede({ title, fade, className = '' }: PageLedeProps) {
       initial={{ opacity: 0, y: 14 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: [0.2, 0.7, 0.2, 1] }}
-      className={`jonas-lede text-[1.6rem] md:text-[2.15rem] max-w-[36ch] ${className}`}
+      className={`j-display ${className}`}
     >
       {title}
-      {fade && <span className="jonas-fade"> {fade}</span>}
+      {fade && <span className="j-fade"> {fade}</span>}
     </motion.h2>
   );
 }

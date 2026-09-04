@@ -23,126 +23,113 @@ export function HomePage() {
     jsonLd: schemas.website(),
   });
 
-  // Year range across the featured work, printed next to the label the way a
-  // contents page prints a date span.
   const years = featuredProjects.map((p) => Number(p.year)).filter(Boolean);
   const yearRange =
     years.length > 0 ? `${Math.min(...years)}–${Math.max(...years)}` : undefined;
 
-  // The client list is derived from the work itself rather than hardcoded, so
-  // it can never drift from the case studies.
+  // Derived from the work itself rather than hardcoded, so it cannot drift.
   const clients = Array.from(new Set(allProjects.map((p) => p.company)));
 
   return (
-    <div className="mx-auto w-full max-w-[860px] px-5">
+    <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10">
       {/* Hero */}
-      <section className="pt-16 pb-24 md:pt-24 md:pb-32">
+      <section className="pt-24 pb-28 md:pt-44 md:pb-56">
         <PageLede title={home.hero.headline} fade={home.hero.headlineFade} />
       </section>
 
       {/* Featured work */}
       <section>
-        <BlockLabel meta={yearRange} className="mb-5">
+        <BlockLabel meta={yearRange} className="mb-8 md:mb-14">
           {home.featuredWork.label}
         </BlockLabel>
         <StaggeredGrid projects={featuredProjects} />
-        <p className="mt-8">
-          <Link to="/works" className="jonas-link text-[0.9375rem]">
-            → All {allProjects.length} projects
+        <p className="mt-10">
+          <Link to="/works" className="j-item underline decoration-border underline-offset-[6px] transition-colors hover:decoration-text-primary">
+            All {allProjects.length} projects
           </Link>
         </p>
       </section>
 
       {/* About */}
-      <div className="pt-28 md:pt-40">
+      <div className="pt-32 md:pt-52">
         <LabelledRow label="About me">
-          <div className="space-y-5 text-text-secondary">
+          <div className="space-y-6">
             {about.bio.split('\n\n').map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
+              <p key={index} className="j-body">
+                {paragraph}
+              </p>
             ))}
           </div>
-          <p className="mt-6">
-            <Link to="/about" className="jonas-link text-[0.9375rem]">
-              → More about me
+          <p className="mt-8">
+            <Link
+              to="/about"
+              className="j-item underline decoration-border underline-offset-[6px] transition-colors hover:decoration-text-primary"
+            >
+              More about me
             </Link>
           </p>
         </LabelledRow>
       </div>
 
       {/* Experience */}
-      <div className="pt-24 md:pt-32">
+      <div className="pt-28 md:pt-44">
         <LabelledRow label={home.experiencePreview.label}>
-          <ul className="flex flex-col gap-6 list-none">
+          <ul className="flex flex-col gap-8 list-none">
             {experiences.slice(0, 4).map((exp) => (
-              <li
-                key={exp.company + exp.period}
-                className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
-              >
-                <span>
-                  <span className="font-medium text-text-primary">
-                    {exp.url ? (
-                      <a
-                        href={exp.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="jonas-link"
-                      >
-                        {exp.company}
-                      </a>
-                    ) : (
-                      exp.company
-                    )}
-                  </span>
-                  <span className="block text-text-secondary">{exp.role}</span>
-                </span>
-                <span className="shrink-0 text-text-secondary">
-                  {exp.period.replace(' — ', '–')}
-                </span>
+              <li key={exp.company + exp.period}>
+                <p className="j-item">
+                  {exp.url ? (
+                    <a
+                      href={exp.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline decoration-border underline-offset-[6px] transition-colors hover:decoration-text-primary"
+                    >
+                      {exp.company}
+                    </a>
+                  ) : (
+                    exp.company
+                  )}
+                </p>
+                <p className="j-item text-text-tertiary">{exp.role}</p>
+                <p className="j-meta mt-2">{exp.period.replace(' — ', '–')}</p>
               </li>
             ))}
           </ul>
-          <p className="mt-6">
-            <Link to="/experience" className="jonas-link text-[0.9375rem]">
-              → Full history
+          <p className="mt-8">
+            <Link
+              to="/experience"
+              className="j-item underline decoration-border underline-offset-[6px] transition-colors hover:decoration-text-primary"
+            >
+              Full history
             </Link>
           </p>
         </LabelledRow>
       </div>
 
-      {/* Services */}
-      <div className="pt-24 md:pt-32">
-        <LabelledRow label={about.skills.title}>
-          <ul className="flex flex-col gap-1.5 list-none text-text-secondary">
+      {/* Services and clients, side by side */}
+      <div className="grid gap-10 pt-28 md:grid-cols-2 md:pt-44">
+        <section>
+          <h2 className="j-heading">{about.skills.title}</h2>
+          <ul className="mt-6 flex flex-col gap-1.5 list-none">
             {about.skills.items.map((item) => (
-              <li key={item}>{item}</li>
+              <li key={item} className="j-item">
+                {item}
+              </li>
             ))}
           </ul>
-        </LabelledRow>
-      </div>
+        </section>
 
-      {/* Clients */}
-      <div className="pt-24 md:pt-32">
-        <LabelledRow label="Selected clients">
-          <ul className="flex flex-col gap-1.5 list-none text-text-secondary">
+        <section>
+          <h2 className="j-heading">Selected clients</h2>
+          <ul className="mt-6 flex flex-col gap-1.5 list-none">
             {clients.map((client) => (
-              <li key={client}>{client}</li>
+              <li key={client} className="j-item">
+                {client}
+              </li>
             ))}
           </ul>
-        </LabelledRow>
-      </div>
-
-      {/* Quote */}
-      <div className="pt-24 md:pt-32">
-        <LabelledRow label="On design">
-          <blockquote>
-            <p className="jonas-lede text-xl md:text-[1.6rem] max-w-[24ch]">
-              “{home.quote.text}”
-            </p>
-            <cite className="mt-3 block text-[0.9375rem] not-italic text-text-secondary">
-              {home.quote.author}
-            </cite>
-          </blockquote>
-        </LabelledRow>
+        </section>
       </div>
     </div>
   );

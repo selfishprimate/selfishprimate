@@ -20,12 +20,12 @@ export function WorksPage() {
     years.length > 0 ? `${Math.min(...years)}–${Math.max(...years)}` : undefined;
 
   return (
-    <div className="mx-auto w-full max-w-[860px] px-5">
-      <section className="pt-16 pb-16 md:pt-24 md:pb-20">
+    <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10">
+      <section className="pt-24 pb-20 md:pt-44 md:pb-32">
         <PageLede title={meta.title + '.'} fade={meta.description} />
       </section>
 
-      <BlockLabel meta={yearRange} className="mb-5">
+      <BlockLabel meta={yearRange} className="mb-8 md:mb-14">
         {`${allProjects.length} projects`}
       </BlockLabel>
       <StaggeredGrid projects={allProjects} />
