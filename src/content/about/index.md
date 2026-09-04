@@ -4,7 +4,7 @@ handle: selfishprimate
 title: Product Designer
 location: Istanbul, Turkey
 email: ibrahimchll@hotmail.com
-avatar: ./images/avatar.png
+avatar: ./images/portrait.jpg
 
 # Bio
 Hello! I'm Halil, an Istanbul-based Product Designer with over 15 years of experience crafting intuitive digital experiences. My journey into design started in the most analog way possible, drawing heavy metal band logos in my school notebooks and creating flip-book animations in the margins, one frame per page.

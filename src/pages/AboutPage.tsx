@@ -76,6 +76,8 @@ export function AboutPage() {
           alt={about.profile.name}
           loading="eager"
           decoding="async"
+          width={1086}
+          height={1448}
           className="mb-24 w-full max-w-[620px] rounded-xl md:mb-40"
         />
       )}
