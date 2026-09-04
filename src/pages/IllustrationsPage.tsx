@@ -69,15 +69,15 @@ export function IllustrationsPage() {
   return (
     <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10">
       <section>
-        <div className="pt-24 pb-20 md:pt-44 md:pb-32">
-          <PageLede title={meta.title + '.'} fade={meta.description} />
+        <div className="pt-24 pb-24 md:pt-44 md:pb-40">
+          <PageLede title={meta.title} description={meta.description} />
         </div>
 
         <BlockLabel meta={`${illustrations.length} pieces`} className="mb-8 md:mb-14">
           {meta.label}
         </BlockLabel>
 
-        <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 sm:gap-6">
+        <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:gap-10">
           {illustrations.map((illustration, index) => (
             <motion.button
               type="button"
@@ -89,7 +89,7 @@ export function IllustrationsPage() {
               onClick={() => openLightbox(index)}
               aria-label={`View ${illustration.title} in full size`}
             >
-              <div className="aspect-square overflow-hidden rounded-[3px] bg-surface">
+              <div className="aspect-square overflow-hidden rounded-xl bg-surface">
                 <img
                   src={illustration.image}
                   alt={illustration.title}
@@ -170,7 +170,7 @@ export function IllustrationsPage() {
                   >
                     <ChevronLeft size={24} />
                   </button>
-                  <span className="min-w-[3rem] text-center text-sm text-neutral-400">
+                  <span className="min-w-[3rem] text-center text-base text-neutral-400">
                     {selectedIndex + 1} / {illustrations.length}
                   </span>
                   <button

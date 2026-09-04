@@ -58,9 +58,12 @@ export function AboutPage() {
     { label: 'Patreon', href: about.social.patreon },
   ];
 
+  const linkClass =
+    'underline decoration-border underline-offset-[6px] transition-colors hover:decoration-text-primary';
+
   return (
     <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10">
-      <section className="pt-24 pb-20 md:pt-44 md:pb-32">
+      <section className="pt-24 pb-20 md:pt-44 md:pb-28">
         <PageLede
           title={`${about.profile.title} in ${about.profile.location.split(',')[0]}.`}
           fade="Fifteen years building the design systems that products are actually made of."
@@ -73,24 +76,26 @@ export function AboutPage() {
           alt={about.profile.name}
           loading="eager"
           decoding="async"
-          className="mb-20 w-full max-w-[360px] rounded-[3px]"
+          className="mb-24 w-full max-w-[620px] rounded-xl md:mb-40"
         />
       )}
 
-      <div className="flex flex-col gap-24 md:gap-32">
+      <div className="flex flex-col gap-24 md:gap-40">
         <LabelledRow label="About me">
-          <div className="space-y-5 text-text-secondary">
+          <div className="space-y-6">
             {about.bio.split('\n\n').map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
+              <p key={index} className="j-body">
+                {paragraph}
+              </p>
             ))}
           </div>
         </LabelledRow>
 
         {sections.map((section) => (
           <LabelledRow key={section.title} label={section.title}>
-            <p className="text-text-secondary">{renderWithLinks(section.description)}</p>
+            <p className="j-body">{renderWithLinks(section.description)}</p>
             {section === about.theHandle && (
-              <div className="mt-6 max-w-md">
+              <div className="mt-8 max-w-md">
                 <iframe
                   src="https://open.spotify.com/embed/track/06cCNvDC89aT8m6J5VCmpv?utm_source=generator&theme=0"
                   title="The Selfish Giant by Damon Albarn on Spotify"
@@ -106,25 +111,31 @@ export function AboutPage() {
         ))}
 
         <LabelledRow label={about.skills.title}>
-          <ul className="flex flex-col gap-1.5 list-none text-text-secondary">
+          <ul className="flex flex-col gap-1.5 list-none">
             {about.skills.items.map((item) => (
-              <li key={item}>{item}</li>
+              <li key={item} className="j-item">
+                {item}
+              </li>
             ))}
           </ul>
         </LabelledRow>
 
         <LabelledRow label={about.domains.title}>
-          <ul className="flex flex-col gap-1.5 list-none text-text-secondary">
+          <ul className="flex flex-col gap-1.5 list-none">
             {about.domains.items.map((item) => (
-              <li key={item}>{item}</li>
+              <li key={item} className="j-item">
+                {item}
+              </li>
             ))}
           </ul>
         </LabelledRow>
 
         <LabelledRow label={about.beyondDesign.title}>
-          <div className="space-y-5 text-text-secondary">
+          <div className="space-y-6">
             {about.beyondDesign.paragraphs.map((paragraph, index) => (
-              <p key={index}>{renderWithLinks(paragraph)}</p>
+              <p key={index} className="j-body">
+                {renderWithLinks(paragraph)}
+              </p>
             ))}
           </div>
         </LabelledRow>
@@ -137,7 +148,7 @@ export function AboutPage() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline decoration-border underline-offset-[6px] transition-colors hover:decoration-text-primary text-text-secondary"
+                  className={`j-item ${linkClass}`}
                 >
                   {social.label}
                 </a>

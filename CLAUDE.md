@@ -33,6 +33,22 @@ The measured spec:
 It is a **large-type design**. Treating it as a small-type one is the single
 easiest way to build something that looks nothing like it.
 
+Every page uses that same scale, and each size has one job:
+
+- **64px** (`.j-display`) — the home hero, each page's opening line, and the
+  closing sentence in the footer. Nothing else.
+- **32px** (`.j-heading`) — section headings only.
+- **28px** (`.j-body`) — prose blocks: the bio, the About notes, a page's
+  standfirst. Never a list.
+- **20px** (`.j-item` / `.j-meta`) — everything list-shaped: card captions,
+  skills, clients, experience rows, article rows, case-study metadata, tags.
+- **18px** (`.j-nav`) — navigation and the case-study table of contents.
+
+A page's opening line takes its long description as `description`, which renders
+at 28px underneath rather than as the grey half of the 64px sentence — a
+paragraph does not belong at display size, however much the design likes big
+type.
+
 The staggered look does **not** come from offsetting one column. Every card
 starts at the same top; the columns fall out of step because the cards carry
 different image aspect ratios. `StaggeredGrid` reproduces this with a

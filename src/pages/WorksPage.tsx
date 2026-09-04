@@ -21,8 +21,8 @@ export function WorksPage() {
 
   return (
     <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10">
-      <section className="pt-24 pb-20 md:pt-44 md:pb-32">
-        <PageLede title={meta.title + '.'} fade={meta.description} />
+      <section className="pt-24 pb-24 md:pt-44 md:pb-40">
+        <PageLede title={meta.title} description={meta.description} />
       </section>
 
       <BlockLabel meta={yearRange} className="mb-8 md:mb-14">

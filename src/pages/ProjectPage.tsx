@@ -123,10 +123,10 @@ export function ProjectPage() {
 
   if (!project) {
     return (
-      <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10 pt-24">
-        <h2 className="j-display text-2xl">Project not found.</h2>
+      <div className="mx-auto w-full max-w-[1280px] px-6 pt-24 md:px-10 md:pt-44">
+        <h2 className="j-heading">Project not found.</h2>
         <p className="mt-6">
-          <Link to="/works" className="underline decoration-border underline-offset-[6px] transition-colors hover:decoration-text-primary j-item">
+          <Link to="/works" className="j-item underline decoration-border underline-offset-[6px] transition-colors hover:decoration-text-primary">
             → Back to the work
           </Link>
         </p>
@@ -168,7 +168,7 @@ export function ProjectPage() {
         const [, src, height = '600', title = 'Figma Design'] = figmaMatch;
         return (
           <div key={index} className="my-12">
-            <div className="relative w-full overflow-hidden rounded-[3px] border border-border" style={{ height: `${height}px` }}>
+            <div className="relative w-full overflow-hidden rounded-xl border border-border" style={{ height: `${height}px` }}>
               <iframe
                 src={src}
                 title={title}
@@ -188,7 +188,7 @@ export function ProjectPage() {
         const [, videoId, title = 'YouTube Video'] = youtubeMatch;
         return (
           <div key={index} className="my-12">
-            <div className="relative w-full overflow-hidden rounded-[3px]" style={{ paddingBottom: '56.25%' }}>
+            <div className="relative w-full overflow-hidden rounded-xl" style={{ paddingBottom: '56.25%' }}>
               <iframe
                 src={`https://www.youtube.com/embed/${videoId}`}
                 title={title}
@@ -231,7 +231,7 @@ export function ProjectPage() {
                     type="button"
                     onClick={() => openLightbox(lightboxIdx)}
                     aria-label={`View ${figure.alt} in full size`}
-                    className="w-full cursor-zoom-in overflow-hidden rounded-[3px] bg-surface"
+                    className="w-full cursor-zoom-in overflow-hidden rounded-xl bg-surface"
                   >
                     <img
                       src={resolvedPath}
@@ -242,7 +242,7 @@ export function ProjectPage() {
                     />
                   </button>
                   {figure.caption && (
-                    <figcaption className="mt-3 text-[0.875rem] text-text-tertiary">
+                    <figcaption className="j-meta mt-4">
                       <ReactMarkdown
                         components={{
                           p: ({ children }) => <>{children}</>,
@@ -328,7 +328,7 @@ export function ProjectPage() {
       >
         <button
           onClick={() => navigate(-1)}
-          className="inline-flex items-center gap-1.5 j-item text-text-secondary transition-colors hover:text-text-primary"
+          className="j-nav inline-flex items-center gap-2"
         >
           <ArrowLeft size={14} />
           Back
@@ -336,28 +336,28 @@ export function ProjectPage() {
       </motion.p>
 
       {/* Header */}
-      <section className="pt-10 pb-10 md:pt-14 md:pb-12">
+      <section className="pt-16 pb-16 md:pt-24 md:pb-24">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="j-display text-[1.6rem] md:text-[2.15rem] max-w-[30ch]">
+          <h2 className="j-display max-w-[22ch]">
             {project.title}
           </h2>
-          <p className="mt-5 max-w-[60ch] text-text-secondary">{project.description}</p>
+          <p className="j-body j-fade mt-8 max-w-[42ch] md:mt-10">{project.description}</p>
 
-          <dl className="mt-8 grid gap-3 border-t border-border pt-5 sm:grid-cols-3">
+          <dl className="mt-12 grid gap-4 border-t border-border pt-6 sm:grid-cols-3 md:mt-16 md:gap-10">
             <div>
-              <dt className="j-item text-text-secondary">Client</dt>
+              <dt className="j-meta">Client</dt>
               <dd className="j-item">{project.company}</dd>
             </div>
             <div>
-              <dt className="j-item text-text-secondary">Year</dt>
+              <dt className="j-meta">Year</dt>
               <dd className="j-item">{project.year}</dd>
             </div>
             <div>
-              <dt className="j-item text-text-secondary">Discipline</dt>
+              <dt className="j-meta">Discipline</dt>
               <dd className="j-item">{project.tags.slice(0, 2).join(', ')}</dd>
             </div>
           </dl>
@@ -376,15 +376,15 @@ export function ProjectPage() {
             alt={project.title}
             loading="eager"
             decoding="async"
-            className="w-full rounded-[3px]"
+            className="w-full rounded-xl"
           />
         </motion.section>
       )}
 
       {/* Content with TOC */}
-      <section className="py-16 md:py-20">
+      <section className="py-24 md:py-36">
         <div className="flex flex-col gap-12 lg:flex-row lg:gap-10">
-          <aside className="hidden lg:block lg:w-44 lg:shrink-0">
+          <aside className="hidden lg:block lg:w-52 lg:shrink-0">
             <div className="sticky top-10">
               <TableOfContents content={project.content} />
             </div>
@@ -402,45 +402,45 @@ export function ProjectPage() {
       </section>
 
       {/* Tags */}
-      <section className="pb-14">
-        <p className="j-item text-text-secondary">{project.tags.join(', ')}</p>
+      <section className="pb-20">
+        <p className="j-meta">{project.tags.join(', ')}</p>
       </section>
 
       {/* Previous / next */}
       <section className="grid gap-8 border-t border-border pt-8 sm:grid-cols-2">
         <Link to={`/works/${prevProject.slug}`} className="group">
-          <span className="inline-flex items-center gap-1.5 j-item text-text-secondary">
+          <span className="j-meta inline-flex items-center gap-2">
             <ArrowLeft size={14} />
             Previous
           </span>
-          <h3 className="mt-1.5 font-medium text-text-primary underline decoration-border underline-offset-4 transition-colors group-hover:decoration-text-primary">
+          <h3 className="j-item mt-2 underline decoration-border underline-offset-[6px] transition-colors group-hover:decoration-text-primary">
             {prevProject.title}
           </h3>
         </Link>
 
         <Link to={`/works/${nextProject.slug}`} className="group sm:text-right">
-          <span className="inline-flex items-center gap-1.5 j-item text-text-secondary">
+          <span className="j-meta inline-flex items-center gap-2">
             Next
             <ArrowRight size={14} />
           </span>
-          <h3 className="mt-1.5 font-medium text-text-primary underline decoration-border underline-offset-4 transition-colors group-hover:decoration-text-primary">
+          <h3 className="j-item mt-2 underline decoration-border underline-offset-[6px] transition-colors group-hover:decoration-text-primary">
             {nextProject.title}
           </h3>
         </Link>
       </section>
 
       {/* Contact */}
-      <section className="pt-24 md:pt-32">
-        <p className="j-display text-xl md:text-[1.6rem] max-w-[24ch]">
+      <section className="pt-28 md:pt-44">
+        <p className="j-display max-w-[18ch]">
           Working on something similar?{' '}
           <span className="j-fade">Tell me about it.</span>
         </p>
-        <p className="mt-5">
+        <p className="mt-10">
           <a
             href={siteConfig.social.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="underline decoration-border underline-offset-[6px] transition-colors hover:decoration-text-primary j-item"
+            className="j-item underline decoration-border underline-offset-[6px] transition-colors hover:decoration-text-primary"
           >
             → Get in touch
           </a>
@@ -514,7 +514,7 @@ export function ProjectPage() {
                   >
                     <ChevronLeft size={24} />
                   </button>
-                  <span className="min-w-[3rem] text-center text-sm text-neutral-400">
+                  <span className="min-w-[3rem] text-center text-base text-neutral-400">
                     {lightboxIndex + 1} / {allImages.length}
                   </span>
                   <button
