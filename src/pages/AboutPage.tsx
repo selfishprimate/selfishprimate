@@ -112,10 +112,16 @@ export function AboutPage() {
           </LabelledRow>
         ))}
 
+        {/* Both of these open with their standfirst, the way Services does on
+            the home page — the lines were already authored in the markdown and
+            simply were not being rendered. The items themselves are set at the
+            list size but at normal weight: a run of nineteen bold lines read
+            as nineteen headings. */}
         <LabelledRow label={about.skills.title}>
-          <ul className="flex flex-col gap-1.5 list-none">
+          <p className="j-body">{about.skills.description}</p>
+          <ul className="mt-10 flex flex-col gap-2 list-none">
             {about.skills.items.map((item) => (
-              <li key={item} className="j-item">
+              <li key={item} className="j-item font-normal">
                 {item}
               </li>
             ))}
@@ -123,9 +129,10 @@ export function AboutPage() {
         </LabelledRow>
 
         <LabelledRow label={about.domains.title}>
-          <ul className="flex flex-col gap-1.5 list-none">
+          <p className="j-body">{about.domains.description}</p>
+          <ul className="mt-10 flex flex-col gap-2 list-none">
             {about.domains.items.map((item) => (
-              <li key={item} className="j-item">
+              <li key={item} className="j-item font-normal">
                 {item}
               </li>
             ))}
