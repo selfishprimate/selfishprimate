@@ -10,7 +10,7 @@ order: 12
 year: "2020"
 ---
 
-This project was born from a weekly UI challenge at Mobven while partnering with Edenred, Turkey's leading meal card provider. Rather than treating it as a simple visual exercise, our design team approached it as a full-fledged product exploration, conducting user interviews, analyzing pain points, and designing solutions that addressed real-world problems faced by millions of meal card users.
+This project was born from a weekly UI challenge at Mobven while partnering with Edenred, Türkiye's leading meal card provider. Rather than treating it as a simple visual exercise, our design team approached it as a full-fledged product exploration, conducting user interviews, analyzing pain points, and designing solutions that addressed real-world problems faced by millions of meal card users.
 
 ### The Challenge
 
@@ -75,4 +75,4 @@ To complete the ecosystem, we designed an Apple Watch companion app. Users can c
 
 ### Reflection
 
-This project demonstrated the value of treating design challenges as real product opportunities. By grounding our explorations in actual user research and personal pain points, we created concepts that went beyond visual polish to address genuine needs. While these designs remained conceptual, they influenced discussions about the future direction of Edenred's digital experience in Turkey.
+This project demonstrated the value of treating design challenges as real product opportunities. By grounding our explorations in actual user research and personal pain points, we created concepts that went beyond visual polish to address genuine needs. While these designs remained conceptual, they influenced discussions about the future direction of Edenred's digital experience in Türkiye.

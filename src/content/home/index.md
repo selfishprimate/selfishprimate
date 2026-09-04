@@ -1,6 +1,6 @@
 ---
 title: Product Designer
-location: Istanbul, Turkey
+location: Istanbul, Türkiye
 headline: I'm Halil, a product designer
 headlineAccent: users love
 headlineFade: who builds the design systems that products are actually made of

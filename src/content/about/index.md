@@ -2,7 +2,7 @@
 name: Halil İbrahim Çakıroğlu
 handle: selfishprimate
 title: Product Designer
-location: Istanbul, Turkey
+location: Istanbul, Türkiye
 email: ibrahimchll@hotmail.com
 avatar: ./images/portrait.jpg
 

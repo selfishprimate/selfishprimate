@@ -12,7 +12,7 @@ featured: true
 featuredOrder: 3
 ---
 
-Turna.com is Turkey's comprehensive travel platform, offering flights, hotels, and transportation services. When the team decided to expand into car rentals, I was tasked with designing the complete mobile experience, from initial search to final payment, within a demanding timeline.
+Turna.com is Türkiye's comprehensive travel platform, offering flights, hotels, and transportation services. When the team decided to expand into car rentals, I was tasked with designing the complete mobile experience, from initial search to final payment, within a demanding timeline.
 
 ### The Challenge
 

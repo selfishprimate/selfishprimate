@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Halil İbrahim Çakıroğlu",
   handle: "selfishprimate",
   title: "Product Designer",
-  location: "Istanbul, Turkey",
+  location: "Istanbul, Türkiye",
   email: "ibrahimchll@hotmail.com",
   bio: `Hello! I'm Halil, an Istanbul-based Product Designer with over 15 years of experience in crafting intuitive and engaging user interfaces. My expertise spans across web and mobile platforms, and I have a strong foundation in HTML, CSS, and a touch of JavaScript.
 

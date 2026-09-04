@@ -50,7 +50,17 @@ export function Footer() {
             baseline as the three headings beside it. */}
         <div>
           <p className="j-item mb-4 tracking-[0.01em]">SELFISHPRIMATE</p>
-          <p className="j-meta">© {currentYear} selfishprimate</p>
+          <p className="j-meta">
+            © {currentYear}{' '}
+            <a
+              href={siteConfig.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-border underline-offset-[4px] transition-colors hover:text-text-primary hover:decoration-text-primary"
+            >
+              selfishprimate
+            </a>
+          </p>
           <p className="j-meta">{siteConfig.location}</p>
         </div>
 

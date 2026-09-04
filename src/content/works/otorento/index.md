@@ -1,6 +1,6 @@
 ---
-title: "Otorento: Simplifying Car Rental in Turkey"
-description: "A mobile application redesign for Turkey's car rental platform, focusing on streamlining the booking experience through simplified search, smart filtering, and friction-free account management."
+title: "Otorento: Simplifying Car Rental in Türkiye"
+description: "A mobile application redesign for Türkiye's car rental platform, focusing on streamlining the booking experience through simplified search, smart filtering, and friction-free account management."
 company: "Otorento"
 category: "Mobile App Design"
 tags: ["Car Rental", "Mobile App", "UX Research", "Booking Interface", "Travel"]
@@ -11,7 +11,7 @@ year: "2022"
 featured: false
 ---
 
-Otorento is one of Turkey's leading car rental aggregators, connecting travelers with rental companies across the country. When I joined the project, the existing mobile app was functional but dated, cluttered interfaces, confusing flows, and a registration process that drove users away. My task was to reimagine the entire mobile experience from the ground up.
+Otorento is one of Türkiye's leading car rental aggregators, connecting travelers with rental companies across the country. When I joined the project, the existing mobile app was functional but dated, cluttered interfaces, confusing flows, and a registration process that drove users away. My task was to reimagine the entire mobile experience from the ground up.
 
 ### The Challenge
 
