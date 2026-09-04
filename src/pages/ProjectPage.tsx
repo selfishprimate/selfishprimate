@@ -127,7 +127,7 @@ export function ProjectPage() {
         <h2 className="j-heading">Project not found.</h2>
         <p className="mt-6">
           <Link to="/works" className="j-item underline decoration-border underline-offset-[6px] transition-colors hover:decoration-text-primary">
-            → Back to the work
+            → Back to the Work
           </Link>
         </p>
       </div>

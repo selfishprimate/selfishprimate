@@ -23,12 +23,12 @@ twitter: https://twitter.com/selfishprimate
 patreon: https://www.patreon.com/selfishprimate
 
 # What Sets Me Apart
-title: What sets me apart?
+title: What Sets Me Apart?
 
 I'm obsessed with details. My frontend background, years of writing HTML, CSS, and JavaScript, means I design with implementation in mind. I don't hand off ideas that can't be built; I create feasible designs that developers actually want to work with. These days, I'm deep into the intersection of AI and design. My current motto is "AI for Design, Design for AI", using AI to enhance the design process while designing experiences that work seamlessly with AI systems.
 
 # Open Source
-title: Why do I build open-source tools?
+title: Why Do I Build Open-Source Tools?
 
 Building tools that help other designers and developers is one of my greatest passions. I believe the best way to push the industry forward is to share knowledge openly. That's why I maintain open-source projects like [Gerillass](https://gerillass.com/), [Sketchize](https://sketchize.com/), and [Plainify](https://plainify.app/).
 

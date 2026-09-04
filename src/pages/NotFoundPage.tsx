@@ -19,13 +19,13 @@ export function NotFoundPage() {
           to="/works"
           className="j-item underline decoration-border underline-offset-[6px] transition-colors hover:decoration-text-primary"
         >
-          See the work
+          See the Work
         </Link>
         <Link
           to="/"
           className="j-item underline decoration-border underline-offset-[6px] transition-colors hover:decoration-text-primary"
         >
-          Back home
+          Back Home
         </Link>
       </p>
     </div>

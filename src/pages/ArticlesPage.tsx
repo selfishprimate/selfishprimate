@@ -21,7 +21,7 @@ export function ArticlesPage() {
       </section>
 
       <BlockLabel meta="Medium" className="mb-8 md:mb-14">
-        {`${articles.length} pieces`}
+        {`${articles.length} Pieces`}
       </BlockLabel>
 
       <div className="flex flex-col">

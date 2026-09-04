@@ -83,7 +83,7 @@ export function AboutPage() {
       )}
 
       <div className="flex flex-col gap-24 md:gap-40">
-        <LabelledRow label="About me">
+        <LabelledRow label="About Me">
           <div className="space-y-6">
             {about.bio.split('\n\n').map((paragraph, index) => (
               <p key={index} className="j-body">

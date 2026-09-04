@@ -26,7 +26,7 @@ export function WorksPage() {
       </section>
 
       <BlockLabel meta={yearRange} className="mb-8 md:mb-14">
-        {`${allProjects.length} projects`}
+        {`${allProjects.length} Projects`}
       </BlockLabel>
       <WorkGrid projects={allProjects} />
     </div>

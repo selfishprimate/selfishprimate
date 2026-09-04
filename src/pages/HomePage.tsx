@@ -78,14 +78,14 @@ export function HomePage() {
         <WorkGrid projects={featuredProjects} />
         <p className="mt-10">
           <Link to="/works" className="j-item underline decoration-border underline-offset-[6px] transition-colors hover:decoration-text-primary">
-            All {allProjects.length} projects
+            All {allProjects.length} Projects
           </Link>
         </p>
       </section>
 
       {/* About */}
       <div className="pt-32 md:pt-52">
-        <LabelledRow label="About me">
+        <LabelledRow label="About Me">
           <div className="space-y-6">
             {about.bio.split('\n\n').map((paragraph, index) => (
               <p key={index} className="j-body">
@@ -98,7 +98,7 @@ export function HomePage() {
               to="/about"
               className="j-item underline decoration-border underline-offset-[6px] transition-colors hover:decoration-text-primary"
             >
-              More about me
+              More About Me
             </Link>
           </p>
         </LabelledRow>
@@ -148,13 +148,13 @@ export function HomePage() {
               to="/experience"
               className="j-item underline decoration-border underline-offset-[6px] transition-colors hover:decoration-text-primary"
             >
-              Full history
+              Full History
             </Link>
           </p>
         </LabelledRow>
       </div>
 
-      {/* Services sits on the same spine as About me and Experience: the
+      {/* Services sits on the same spine as About Me and Experience: the
           heading left, everything else right. Each service carries its own
           line, the way the Experience rows do — a bare list of names said
           less than the names plus what they mean. */}

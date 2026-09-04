@@ -12,7 +12,7 @@ text: Simple is hard. Easy is harder. Invisible is hardest.
 author: Jean-Louis Gassée
 
 # Featured Work
-label: Featured work
+label: Featured Work
 title: Featured Projects
 
 # Experience Preview

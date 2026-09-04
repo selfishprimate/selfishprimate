@@ -73,7 +73,7 @@ export function IllustrationsPage() {
           <PageLede title={meta.title} description={meta.description} />
         </div>
 
-        <BlockLabel meta={`${illustrations.length} pieces`} className="mb-8 md:mb-14">
+        <BlockLabel meta={`${illustrations.length} Pieces`} className="mb-8 md:mb-14">
           {meta.label}
         </BlockLabel>
 
