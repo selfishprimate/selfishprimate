@@ -60,7 +60,7 @@ export function Footer() {
         </nav>
 
         <nav aria-label="Open source projects">
-          <h3 className="j-item mb-4">Open source</h3>
+          <h3 className="j-item mb-4">Open Source</h3>
           <ul className="flex flex-col gap-1.5 list-none">
             {projects.map((item) => (
               <li key={item.href}>

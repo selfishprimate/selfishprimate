@@ -27,12 +27,12 @@ buttonText: Connect on LinkedIn
 # Services
 title: Services
 description: The work I take on. Most of it lives where a design system meets the codebase that has to implement it.
-- Design systems: Token architecture, component libraries, and the governance that keeps both honest as a product grows.
-- Design engineering: Tailwind, shadcn/ui and React. The design arrives as code that runs, not as a handoff.
-- Product design: End to end, from discovery and research through to the screens that ship.
-- Design strategy: Turning a roadmap into a direction a team can hold on to once the deadlines start.
-- AI-assisted workflows: Figma as the single source of truth, pipelines that export it, and Claude Code in the loop.
-- Websites and mobile apps: Marketing sites and native app experiences, built to be maintained.
+- Design Systems: Token architecture, component libraries, and the governance that keeps both honest as a product grows.
+- Design Engineering: Tailwind, shadcn/ui and React. The design arrives as code that runs, not as a handoff.
+- Product Design: End to end, from discovery and research through to the screens that ship.
+- Design Strategy: Turning a roadmap into a direction a team can hold on to once the deadlines start.
+- AI-Assisted Workflows: Figma as the single source of truth, pipelines that export it, and Claude Code in the loop.
+- Websites and Mobile Apps: Marketing sites and native app experiences, built to be maintained.
 
 # Social
 linkedin: https://www.linkedin.com/in/selfishprimate/
