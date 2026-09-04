@@ -1,6 +1,7 @@
 import { getProjects, getWorksMeta } from '@/lib/projects';
 import { WorkGrid } from '@/components/WorkGrid';
 import { PageLede } from '@/components/PageLede';
+import { HeroWave } from '@/components/HeroWave';
 import { BlockLabel } from '@/components/BlockLabel';
 import { useSEO, generateTitle, schemas } from '@/hooks/useSEO';
 
@@ -21,7 +22,9 @@ export function WorksPage() {
 
   return (
     <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10">
-      <section className="pt-24 pb-24 md:pt-44 md:pb-40">
+      <section className="relative isolate pt-24 pb-24 md:pt-44 md:pb-40">
+        <HeroWave />
+
         <PageLede title={meta.title} description={meta.description} />
       </section>
 

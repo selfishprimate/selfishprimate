@@ -184,10 +184,11 @@ makes the two lists stop matching.
 Writing covers get the grey tile; Experience logos do not. A company mark
 carries its own shape and its own background, and boxing it only fights that.
 
-`HeroWave` sits full-bleed behind the hero, pulled up past the top of the
-section so the surface continues behind the header — which has no background of
-its own and so sits in the water. It is a lit water surface drawn in monospace,
-and three things make it read as water rather than as a pattern:
+`HeroWave` sits full-bleed behind the opening section of **every** page, pulled
+up past the top of that section so the surface continues behind the header —
+which has no background of its own and so sits in the water. It is a lit water
+surface drawn in monospace, and three things make it read as water rather than
+as a pattern:
 
 - **The waves are sharpened.** Each component is a sine raised to a power,
   because real swell has narrow crests and broad troughs.
@@ -203,9 +204,24 @@ paper bare and the shadowed side of a crest fills with characters. The ramp
 stops short of a solid glyph, which is what stops it becoming a block of texture
 however the light is tuned.
 
+There are six models — `swell`, `chop`, `ripples`, `interference`, `roll` and
+`caustics` — and each is only a height function plus how hard it recedes. One is
+chosen at random when the component mounts, never repeating the one before it,
+so a refresh changes the water and so does moving between pages. Pass `model` to
+pin one while comparing them.
+
+`extent` decides how far down it runs. The default `band` is a fixed 560px from
+the top of the page, which is what every page but the home page wants — there is
+no reason for the water to follow a long page header all the way down. The home
+hero passes `extent="section"` and fills its section instead.
+
 It evaluates the sines once per cell into a buffer and reads neighbours from it
 for the normal, repaints at about 18fps rather than 60, and holds a single still
 frame under `prefers-reduced-motion`. It is hidden below `md`.
+
+Sections that carry it need `relative isolate`: the wave sits at `-z-10`, and
+without the isolation it would drop behind the page background rather than
+behind the section's own content.
 
 `SectionHeading` from `main` is gone; `PageLede` + `BlockLabel` replace it.
 

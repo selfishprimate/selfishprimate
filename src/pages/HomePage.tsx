@@ -36,14 +36,12 @@ export function HomePage() {
   return (
     <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10">
       {/* Hero */}
-      <section className="relative pt-24 pb-28 md:pt-44 md:pb-56">
-        {/* Full-bleed, and pulled up past the top of the section so the
-            surface continues behind the header rather than starting under it.
-            The header has no background of its own, so it sits in the water. */}
-        <HeroWave className="absolute -top-36 bottom-0 left-1/2 hidden w-screen -translate-x-1/2 md:block" />
+      <section className="relative isolate pt-24 pb-28 md:pt-44 md:pb-56">
+        {/* The home hero is the one place the water follows the whole
+            section rather than stopping at a fixed depth. */}
+        <HeroWave extent="section" />
 
-        <div className="relative">
-          <PageLede title={home.hero.headline} fade={home.hero.headlineFade} />
+        <PageLede title={home.hero.headline} fade={home.hero.headlineFade} />
 
         {/* The standfirst deliberately says what the headline does not —
             tenure, domains and place — rather than restating it smaller. */}
@@ -76,7 +74,6 @@ export function HomePage() {
             <ArrowUpRight size={18} />
           </a>
         </motion.div>
-        </div>
       </section>
 
       {/* Featured work */}

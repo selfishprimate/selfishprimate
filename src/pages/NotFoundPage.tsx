@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { PageLede } from '@/components/PageLede';
+import { HeroWave } from '@/components/HeroWave';
 import { useSEO, generateTitle } from '@/hooks/useSEO';
 
 export function NotFoundPage() {
@@ -9,7 +10,8 @@ export function NotFoundPage() {
   });
 
   return (
-    <div className="mx-auto w-full max-w-[1280px] px-6 pt-24 pb-32 md:px-10 md:pt-44">
+    <div className="relative isolate mx-auto w-full max-w-[1280px] px-6 pt-24 pb-32 md:px-10 md:pt-44">
+      <HeroWave />
       <PageLede
         title="This page does not exist."
         fade="The work, thankfully, still does."

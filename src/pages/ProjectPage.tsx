@@ -6,6 +6,7 @@ import remarkGfm from 'remark-gfm';
 import { ArrowLeft, ArrowRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { getProjectBySlug, getProjects, resolveProjectImagePath } from '@/lib/projects';
 import { siteConfig } from '@/lib/data';
+import { HeroWave } from '@/components/HeroWave';
 import { useSEO, generateTitle, schemas } from '@/hooks/useSEO';
 import { useBodyScrollLock } from '@/hooks/useBodyScrollLock';
 import { TableOfContents } from '@/components/TableOfContents';
@@ -336,7 +337,8 @@ export function ProjectPage() {
       </motion.p>
 
       {/* Header */}
-      <section className="pt-16 pb-16 md:pt-24 md:pb-24">
+      <section className="relative isolate pt-16 pb-16 md:pt-24 md:pb-24">
+        <HeroWave />
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
