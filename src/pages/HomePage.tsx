@@ -9,6 +9,7 @@ import { PageLede } from '@/components/PageLede';
 import { BlockLabel } from '@/components/BlockLabel';
 import { WorkGrid } from '@/components/WorkGrid';
 import { LabelledRow } from '@/components/LabelledRow';
+import { HeroWave } from '@/components/HeroWave';
 import { useSEO, generateTitle, schemas } from '@/hooks/useSEO';
 
 export function HomePage() {
@@ -35,8 +36,14 @@ export function HomePage() {
   return (
     <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10">
       {/* Hero */}
-      <section className="pt-24 pb-28 md:pt-44 md:pb-56">
-        <PageLede title={home.hero.headline} fade={home.hero.headlineFade} />
+      <section className="relative pt-24 pb-28 md:pt-44 md:pb-56">
+        {/* Full-bleed: breaks out of the page container to the viewport edges,
+            because the wave has to enter one side of the screen and leave by
+            the other. */}
+        <HeroWave className="absolute inset-y-0 left-1/2 hidden w-screen -translate-x-1/2 md:block" />
+
+        <div className="relative">
+          <PageLede title={home.hero.headline} fade={home.hero.headlineFade} />
 
         {/* The standfirst deliberately says what the headline does not —
             tenure, domains and place — rather than restating it smaller. */}
@@ -69,6 +76,7 @@ export function HomePage() {
             <ArrowUpRight size={18} />
           </a>
         </motion.div>
+        </div>
       </section>
 
       {/* Featured work */}
