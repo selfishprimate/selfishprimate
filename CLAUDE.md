@@ -184,49 +184,6 @@ makes the two lists stop matching.
 Writing covers get the grey tile; Experience logos do not. A company mark
 carries its own shape and its own background, and boxing it only fights that.
 
-`HeroSolid` sits full-bleed behind the **home** hero and nowhere else, pulled
-up past the top of that section so it continues behind the header — which has
-no background of its own and so sits inside it. The inner pages open with a
-short lede and a decorative form there only competed with it.
-
-It is the oldest trick in graphics and still the most convincing one in text:
-sample points on a surface, rotate them, project them, keep the nearest at each
-character cell with a z-buffer, and pick the character from how much light that
-point's normal catches. Because it has a **silhouette** it reads as an object
-rather than as a texture, which is the whole reason it is here and the reason
-the water surface that preceded it was dropped.
-
-The page is white, so the shading is inverted: a lit face leaves the paper
-nearly bare and a face turned away from the light fills with characters. The
-ramp stops short of a solid glyph, and every covered cell keeps at least a faint
-mark, so the form never breaks apart however the light is tuned.
-
-There are eight forms — `torus`, `sphere`, `cube`, `knot`, `coil`, `mobius`,
-`squircle` and `icosahedron`. Most are one function and nothing else, because
-two helpers carry the work:
-
-- `sweep(curve, tube, …)` runs a round tube along a closed curve, framing each
-  ring off the curve's own tangent. `knot` and `coil` are curves.
-- `parametric(point, …)` takes normals from the cross product of two
-  finite-difference tangents, so a surface is written as its position function
-  alone. `mobius` and `squircle` are position functions.
-
-`icosahedron` is the one built face by face: twenty flat triangles walked in
-barycentric steps, so its shading steps rather than sweeps.
-
-One form is chosen at random on mount. The last one is remembered in
-**sessionStorage**, not a module variable — module state resets on reload, so a
-plain module variable let a refresh repeat the form it had just shown, which is
-exactly when the variation is meant to show. Pass `solid` to pin one while
-comparing them.
-
-It repaints at about 18fps rather than 60, holds a single still frame under
-`prefers-reduced-motion`, and is hidden below `md`.
-
-The section that carries it needs `relative isolate`: it sits at `-z-10`, and
-without the isolation it would drop behind the page background rather than
-behind the section's own content.
-
 `SectionHeading` from `main` is gone; `PageLede` + `BlockLabel` replace it.
 
 `home.ts` parses one extra frontmatter key, `headlineFade`, so the hero's grey
