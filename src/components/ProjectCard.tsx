@@ -38,12 +38,9 @@ export function ProjectCard({ project, index, aspect }: ProjectCardProps) {
         </div>
 
         <div className="p-6">
-          {/* Client on top, discipline below in grey — the reference pairs a
-              short name with a short category, not a full case-study title. */}
-          <h3 className="j-item">{project.company}</h3>
-          <p className="j-item j-fade mt-1">
-            {project.tags[0]} · {project.year}
-          </p>
+          {/* Case-study title first, the brand underneath it. */}
+          <h3 className="j-item">{project.title}</h3>
+          <p className="j-item j-fade mt-1">{project.company}</p>
         </div>
       </Link>
     </motion.article>

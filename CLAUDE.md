@@ -69,8 +69,8 @@ different image aspect ratios. `StaggeredGrid` reproduces this with a
 five-long cycle of aspect classes, coprime with the two columns so the phase
 keeps shifting down the page rather than repeating every other row.
 
-Card captions pair a short name with a short category — client on top,
-discipline and year in grey beneath — rather than a full case-study title.
+Card captions run the case-study title first, the client underneath it in
+grey.
 
 **Light is the default theme here** (`main` defaults to dark). As on `main` the
 default is written twice on purpose — `ThemeToggle` and the pre-paint script in
