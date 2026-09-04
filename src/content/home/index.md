@@ -4,7 +4,7 @@ location: Istanbul, Turkey
 headline: I'm Halil, a product designer
 headlineAccent: users love
 headlineFade: who builds the design systems that products are actually made of
-subtitle: Hello! I'm Halil, an Istanbul-based Product Designer with over 15 years of experience in crafting intuitive and engaging user interfaces.
+subtitle: Fifteen years of product design across fintech, commerce, travel and developer tooling, on the layer where design decisions turn into code. Based in Istanbul.
 ---
 
 # Quote

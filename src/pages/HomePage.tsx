@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { getHomeContent } from '@/lib/home';
 import { getExperiences } from '@/lib/experience';
 import { getFeaturedProjects, getProjects } from '@/lib/projects';
@@ -35,6 +37,38 @@ export function HomePage() {
       {/* Hero */}
       <section className="pt-24 pb-28 md:pt-44 md:pb-56">
         <PageLede title={home.hero.headline} fade={home.hero.headlineFade} />
+
+        {/* The standfirst deliberately says what the headline does not —
+            tenure, domains and place — rather than restating it smaller. */}
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="j-body j-fade mt-10 max-w-[46ch] md:mt-12"
+        >
+          {home.hero.subtitle}
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.16 }}
+          className="mt-10 flex flex-wrap gap-3 md:mt-12"
+        >
+          <Link to="/works" className="j-btn">
+            View my works
+            <ArrowRight size={18} />
+          </Link>
+          <a
+            href={about.social.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="j-btn j-btn-outline"
+          >
+            LinkedIn
+            <ArrowUpRight size={18} />
+          </a>
+        </motion.div>
       </section>
 
       {/* Featured work */}
