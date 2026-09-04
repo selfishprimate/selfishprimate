@@ -37,7 +37,7 @@ export function ArticlesPage() {
               href={article.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group grid gap-5 border-t border-border py-8 md:grid-cols-[minmax(0,260px)_minmax(0,620px)] md:gap-10 md:py-10"
+              className="group grid gap-5 border-t border-border py-8 md:grid-cols-[minmax(0,160px)_minmax(0,620px)] md:gap-10 md:py-10"
             >
               <RowTile src={article.coverImage} alt={article.title} />
 
