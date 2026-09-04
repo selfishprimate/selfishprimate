@@ -184,6 +184,29 @@ makes the two lists stop matching.
 Writing covers get the grey tile; Experience logos do not. A company mark
 carries its own shape and its own background, and boxing it only fights that.
 
+`HeroWave` sits full-bleed behind the hero, pulled up past the top of the
+section so the surface continues behind the header — which has no background of
+its own and so sits in the water. It is a lit water surface drawn in monospace,
+and three things make it read as water rather than as a pattern:
+
+- **The waves are sharpened.** Each component is a sine raised to a power,
+  because real swell has narrow crests and broad troughs.
+- **The surface is lit, not shaded by height.** A normal is taken off the height
+  field and run through diffuse plus a soft specular. Height alone gives you
+  stripes; a normal gives you a surface.
+- **It recedes, shallowly.** Coordinates divide by a depth that grows toward the
+  top. Widen that range and the whole field collapses into radial streaks
+  converging on the top edge — the range is small on purpose.
+
+The page is white, so luminance is inverted on the way out: lit crests leave the
+paper bare and the shadowed side of a crest fills with characters. The ramp
+stops short of a solid glyph, which is what stops it becoming a block of texture
+however the light is tuned.
+
+It evaluates the sines once per cell into a buffer and reads neighbours from it
+for the normal, repaints at about 18fps rather than 60, and holds a single still
+frame under `prefers-reduced-motion`. It is hidden below `md`.
+
 `SectionHeading` from `main` is gone; `PageLede` + `BlockLabel` replace it.
 
 `home.ts` parses one extra frontmatter key, `headlineFade`, so the hero's grey

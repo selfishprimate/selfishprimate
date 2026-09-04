@@ -123,7 +123,7 @@ export function HeroWave({ className = '' }: HeroWaveProps) {
 
           // A narrow band of light, so most of the field stays empty and only
           // the shadowed side of a crest picks up a mark.
-          const light = 0.52 + 0.46 * diffuse + 0.4 * spec;
+          const light = 0.46 + 0.5 * diffuse + 0.45 * spec;
           const density = Math.min(1, Math.max(0, 1 - light));
           row.push(RAMP[Math.round(density * (RAMP.length - 1))]);
         }
@@ -156,12 +156,12 @@ export function HeroWave({ className = '' }: HeroWaveProps) {
     <pre
       ref={ref}
       aria-hidden="true"
-      className={`pointer-events-none select-none overflow-hidden whitespace-pre font-mono text-[10px] leading-none text-text-tertiary/[0.16] ${className}`}
+      className={`pointer-events-none select-none overflow-hidden whitespace-pre font-mono text-[10px] leading-none text-text-tertiary/[0.28] ${className}`}
       style={{
         maskImage:
-          'linear-gradient(to bottom, transparent, black 26%, black 70%, transparent), linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
+          'linear-gradient(to bottom, transparent, black 12%, black 72%, transparent), linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
         WebkitMaskImage:
-          'linear-gradient(to bottom, transparent, black 26%, black 70%, transparent), linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
+          'linear-gradient(to bottom, transparent, black 12%, black 72%, transparent), linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
         maskComposite: 'intersect',
         WebkitMaskComposite: 'source-in',
       }}
