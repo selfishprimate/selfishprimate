@@ -8,6 +8,7 @@ description: Crafting intuitive interfaces for travel booking, gifting platforms
 role: Design System Designer
 period: Jun 2026 - Present
 location: Gdansk, Poland
+logo: ./images/dac.jpg
 description: Brought on to mature Visible UI, the internal design system behind DAC's long-standing partner Invisible Technologies. Architected the semantic token layer the system was missing on a shadcn/ui, Tailwind and Storybook stack, and built a pipeline that pulls raw tokens from Figma and exports the same canonical source to CSS custom properties, Tailwind config and DTCG JSON.
 skills: Design Systems, Design Tokens, Product Design, Figma, shadcn/ui, Tailwind CSS, Storybook, DTCG
 
@@ -15,6 +16,7 @@ skills: Design Systems, Design Tokens, Product Design, Figma, shadcn/ui, Tailwin
 role: Product Design & AI Engineering Consultant
 period: Apr 2026 - Jul 2026
 location: Istanbul, Turkey
+logo: ./images/humanore.jpg
 description: Led the full rebuild of HumanOre, a multi-tenant SaaS recruitment and applicant-tracking system for HR teams, as an external consultant. Ran the heuristic evaluation and product discovery, set up the engineering foundation with Claude Code before feature work began, then built a modular frontend on Next.js, React, TypeScript, Tailwind CSS and shadcn/ui.
 skills: Product Design, UX Research, Heuristic Evaluation, Next.js, React, TypeScript, Tailwind CSS, shadcn/ui, Claude Code
 
