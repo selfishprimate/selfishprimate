@@ -20,11 +20,20 @@
   --color-text-tertiary: #525252;
   --color-border: #E9E9E9;
   --color-accent: #000000;
+  /* The case study pages only: a paper one shade off white, so a page that is
+     almost entirely imagery does not read as a gallery pinned to nothing. */
+  --color-paper: #F9F9F8;
 
   /* The site has one corner. Everything that gets rounded — cards, thumbnails,
      cover images, embeds, logos, the portrait — uses `rounded-card`, so
      changing it here changes it everywhere. */
   --radius-card: 24px;
+}
+
+/* Qualified with `body` so it outranks the base `body` rule below rather than
+   depending on which copy of this file the dev server injected last. */
+body.page-paper {
+  background-color: var(--color-paper);
 }
 
 .dark {
@@ -35,6 +44,7 @@
   --color-text-tertiary: #ADADAD;
   --color-border: #1C1C1C;
   --color-accent: #FFFFFF;
+  --color-paper: #0A0A0A;
 }
 
 /* Light/Dark mode image visibility */
@@ -270,7 +280,6 @@ body {
 }
 
 .prose img {
-  border-radius: var(--radius-card);
   margin: 1.6em 0;
 }
 

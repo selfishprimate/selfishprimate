@@ -102,6 +102,13 @@ export function ProjectPage() {
     }
   };
 
+  // The tint belongs to the whole page, not to the 1280px column, so it goes
+  // on the body and comes off again on the way out.
+  useEffect(() => {
+    document.body.classList.add('page-paper');
+    return () => document.body.classList.remove('page-paper');
+  }, []);
+
   // Keyboard navigation for lightbox
   useEffect(() => {
     if (lightboxIndex === null) return;
@@ -168,7 +175,7 @@ export function ProjectPage() {
         const [, src, height = '600', title = 'Figma Design'] = figmaMatch;
         return (
           <div key={index} className="my-12">
-            <div className="relative w-full overflow-hidden rounded-card border border-border" style={{ height: `${height}px` }}>
+            <div className="relative w-full overflow-hidden border border-border" style={{ height: `${height}px` }}>
               <iframe
                 src={src}
                 title={title}
@@ -188,7 +195,7 @@ export function ProjectPage() {
         const [, videoId, title = 'YouTube Video'] = youtubeMatch;
         return (
           <div key={index} className="my-12">
-            <div className="relative w-full overflow-hidden rounded-card" style={{ paddingBottom: '56.25%' }}>
+            <div className="relative w-full overflow-hidden" style={{ paddingBottom: '56.25%' }}>
               <iframe
                 src={`https://www.youtube.com/embed/${videoId}`}
                 title={title}
@@ -231,7 +238,7 @@ export function ProjectPage() {
                     type="button"
                     onClick={() => openLightbox(lightboxIdx)}
                     aria-label={`View ${figure.alt} in full size`}
-                    className="w-full cursor-zoom-in overflow-hidden rounded-card bg-surface"
+                    className="w-full cursor-zoom-in overflow-hidden bg-surface"
                   >
                     <img
                       src={resolvedPath}
@@ -336,7 +343,7 @@ export function ProjectPage() {
       </motion.p>
 
       {/* Header */}
-      <section className="pt-16 pb-16 md:pt-24 md:pb-24">
+      <section className="pt-16 pb-12 md:pt-24 md:pb-16">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
@@ -346,44 +353,53 @@ export function ProjectPage() {
             {project.title}
           </h2>
           <p className="j-body j-fade mt-8 max-w-[42ch] md:mt-10">{project.description}</p>
-
-          <dl className="mt-12 grid gap-4 border-t border-border pt-6 sm:grid-cols-3 md:mt-16 md:gap-10">
-            <div>
-              <dt className="j-meta">Client</dt>
-              <dd className="j-item">{project.company}</dd>
-            </div>
-            <div>
-              <dt className="j-meta">Year</dt>
-              <dd className="j-item">{project.year}</dd>
-            </div>
-            <div>
-              <dt className="j-meta">Discipline</dt>
-              <dd className="j-item">{project.tags.slice(0, 2).join(', ')}</dd>
-            </div>
-          </dl>
         </motion.div>
       </section>
 
-      {/* Cover */}
+      {/* Cover, wider than the column it sits in. The width is capped against
+          the viewport as well as the content, so the overhang closes to
+          nothing on a phone rather than pushing the page sideways. */}
       {project.coverImage && (
         <motion.section
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.6 }}
+          className="relative left-1/2 w-[min(100vw-2rem,calc(100%+12rem))] -translate-x-1/2"
         >
           <img
             src={project.coverImage}
             alt={project.title}
             loading="eager"
             decoding="async"
-            className="w-full rounded-card"
+            className="w-full"
           />
         </motion.section>
       )}
 
+      {/* The facts sit under the cover, where they read as its caption. */}
+      <motion.dl
+        initial={{ opacity: 0, y: 14 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.15, duration: 0.6 }}
+        className="mt-12 grid gap-4 border-t border-border pt-6 sm:grid-cols-3 md:mt-16 md:gap-10"
+      >
+        <div>
+          <dt className="j-meta">Client</dt>
+          <dd className="j-item">{project.company}</dd>
+        </div>
+        <div>
+          <dt className="j-meta">Year</dt>
+          <dd className="j-item">{project.year}</dd>
+        </div>
+        <div>
+          <dt className="j-meta">Discipline</dt>
+          <dd className="j-item">{project.tags.slice(0, 2).join(', ')}</dd>
+        </div>
+      </motion.dl>
+
       {/* Content with TOC */}
       <section className="py-24 md:py-36">
-        <div className="flex flex-col gap-12 lg:flex-row lg:gap-10">
+        <div className="flex flex-col gap-12 lg:flex-row lg:gap-24">
           <aside className="hidden lg:block lg:w-52 lg:shrink-0">
             <div className="sticky top-10">
               <TableOfContents content={project.content} />
