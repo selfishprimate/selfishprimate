@@ -76,7 +76,19 @@ export function HomePage() {
         <LabelledRow label={home.experiencePreview.label}>
           <ul className="flex flex-col gap-8 list-none">
             {experiences.slice(0, 4).map((exp) => (
-              <li key={exp.company + exp.period}>
+              <li key={exp.company + exp.period} className="flex items-start gap-5 md:gap-10">
+                {/* Same mark and the same distance to the text as the
+                    Experience page, at half the size for a preview list. */}
+                {exp.logo && (
+                  <img
+                    src={exp.logo}
+                    alt={exp.company}
+                    loading="lazy"
+                    decoding="async"
+                    className="aspect-square w-14 shrink-0 rounded-card object-cover md:w-20"
+                  />
+                )}
+                <div>
                 <p className="j-item">
                   {exp.url ? (
                     <a
@@ -93,6 +105,7 @@ export function HomePage() {
                 </p>
                 <p className="j-item text-text-tertiary">{exp.role}</p>
                 <p className="j-meta mt-2">{exp.period.replace(' — ', '–')}</p>
+                </div>
               </li>
             ))}
           </ul>
