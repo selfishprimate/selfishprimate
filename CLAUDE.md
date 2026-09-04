@@ -147,9 +147,15 @@ Every `<figure>` inside a `<gallery>` is collected into a lightbox (arrow keys, 
   grey `meta` half (`Featured work · 2021–2026`).
 - `LabelledRow` — 32px heading left, content right. Every block below the work
   grid uses it, which keeps the page on one spine.
-- `StaggeredGrid` — the two-column work grid and its aspect-ratio cycle.
-- `ProjectCard` — takes its `aspect` class from the grid rather than choosing
-  one, so the cycle stays in one place.
+- `StaggeredGrid` / `ArticleGrid` — the two-column card grids, for case
+  studies and for Medium posts.
+- `ProjectCard` / `ArticleCard` — same shape: grey card, image flush to the
+  card's edges, 24px caption. Both take their `aspect` class from the grid
+  rather than choosing one.
+
+The aspect cycle itself lives in `src/lib/aspects.ts` rather than beside a
+component, so both grids share one source and neither file trips the lint rule
+against exporting a constant alongside a component.
 
 `SectionHeading` from `main` is gone; `PageLede` + `BlockLabel` replace it.
 

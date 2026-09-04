@@ -28,8 +28,20 @@ export function ExperiencePage() {
             transition={{ duration: 0.5, delay: (index % 4) * 0.04 }}
             className="grid gap-4 border-t border-border py-10 md:grid-cols-2 md:gap-10 md:py-14"
           >
-            {/* Left column reads exactly like the reference: name, role, date */}
+            {/* Left column reads like the reference — name, role, date — with
+                the company mark above it, on the same grey the cards use. */}
             <div>
+              {exp.logo && (
+                <span className="mb-5 block h-20 w-20 overflow-hidden rounded-xl bg-surface md:h-24 md:w-24">
+                  <img
+                    src={exp.logo}
+                    alt={exp.company}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover"
+                  />
+                </span>
+              )}
               <h3 className="j-item">
                 {exp.url ? (
                   <a
