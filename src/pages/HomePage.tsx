@@ -30,10 +30,6 @@ export function HomePage() {
     years.length > 0 ? `${Math.min(...years)}–${Math.max(...years)}` : undefined;
 
   // Derived from the work itself rather than hardcoded, so it cannot drift.
-  // Still derived from the case studies, so it cannot drift from them — but
-  // "selected" is the point: the full list of thirteen ran twice the length of
-  // the column beside it. Projects are already in featured-then-recent order.
-  const clients = Array.from(new Set(allProjects.map((p) => p.company))).slice(0, 6);
 
   return (
     <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10">
@@ -158,35 +154,23 @@ export function HomePage() {
         </LabelledRow>
       </div>
 
-      {/* Services and clients, side by side. The vertical rhythm is measured
-          off the reference — 64px from the heading to the first item, 48px
-          between them, no rules — but the column gap is this page's own 40px,
-          not the reference's 72px for this one section. The reference is 16px
-          out of step with itself there; here the Experience and About rows sit
-          directly above, so the second column has to land on the same spine as
-          their content or the whole page reads crooked. */}
-      <div className="grid gap-y-24 pt-28 md:grid-cols-2 md:gap-x-10 md:pt-44">
-        <section>
-          <h2 className="j-heading">{home.services.title}</h2>
-          <ul className="mt-16 flex flex-col gap-12 list-none">
-            {home.services.items.map((item) => (
-              <li key={item} className="j-item">
-                {item}
-              </li>
-            ))}
-          </ul>
-        </section>
+      {/* Services sits on the same spine as About me and Experience: the
+          heading left, everything else right. Each service carries its own
+          line, the way the Experience rows do — a bare list of names said
+          less than the names plus what they mean. */}
+      <div className="pt-28 md:pt-44">
+        <LabelledRow label={home.services.title}>
+          <p className="j-body">{home.services.description}</p>
 
-        <section>
-          <h2 className="j-heading">Selected clients</h2>
-          <ul className="mt-16 flex flex-col gap-12 list-none">
-            {clients.map((client) => (
-              <li key={client} className="j-item">
-                {client}
+          <ul className="mt-14 flex flex-col gap-10 list-none">
+            {home.services.items.map((service) => (
+              <li key={service.name}>
+                <h3 className="j-item">{service.name}</h3>
+                <p className="j-meta mt-1.5">{service.description}</p>
               </li>
             ))}
           </ul>
-        </section>
+        </LabelledRow>
       </div>
     </div>
   );

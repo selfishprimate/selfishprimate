@@ -195,10 +195,17 @@ carries its own shape and its own background, and boxing it only fights that.
 `home.ts` parses one extra frontmatter key, `headlineFade`, so the hero's grey
 half stays authored in markdown rather than hardcoded. It is optional.
 
-Two content sections on the home page are derived rather than authored:
-**Selected clients** is the unique `company` values across all projects, and the
-year range next to *Featured work* is computed from their `year` fields. Neither
-can drift from the case studies.
+The year range next to *Featured work* on the home page is derived rather than
+authored — computed from the projects' `year` fields, so it cannot drift from
+the case studies. A **Selected clients** list built the same way from their
+`company` values used to sit beside Services; it was dropped because a column
+of client names said less than what the work actually is.
+
+`home.ts` also parses the `# Services` section differently from every other
+one: inside it, lines opening with `- ` are records of the form
+`- Name: what it means`, so a service carries its own description. Ordinary
+`key: value` lines in that section are still section keys (`title`,
+`description`).
 
 ### Adding a new project
 

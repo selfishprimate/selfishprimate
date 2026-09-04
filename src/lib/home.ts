@@ -27,9 +27,15 @@ export interface HomeCTA {
   buttonText: string;
 }
 
+export interface HomeService {
+  name: string;
+  description: string;
+}
+
 export interface HomeServices {
   title: string;
-  items: string[];
+  description: string;
+  items: HomeService[];
 }
 
 export interface HomeSocial {
@@ -84,7 +90,7 @@ function parseHomeContent(content: string): HomeContent {
     featuredWork: { label: '', title: '' },
     experiencePreview: { label: '', title: '' },
     cta: { title: '', description: '', buttonText: '' },
-    services: { title: '', items: [] },
+    services: { title: '', description: '', items: [] },
     social: { linkedin: '' },
   };
 
@@ -96,9 +102,15 @@ function parseHomeContent(content: string): HomeContent {
     const headerLine = lines[0].trim();
     const sectionData: Record<string, string> = {};
 
+    // Lines opening with `- ` are list records rather than section keys, which
+    // is what lets a service carry a description of its own.
+    const listLines: string[] = [];
+
     for (const line of lines.slice(1)) {
       const trimmed = line.trim();
-      if (trimmed.includes(': ')) {
+      if (trimmed.startsWith('- ')) {
+        listLines.push(trimmed.slice(2));
+      } else if (trimmed.includes(': ')) {
         const colonIndex = trimmed.indexOf(': ');
         const key = trimmed.slice(0, colonIndex).trim();
         const value = trimmed.slice(colonIndex + 2).trim();
@@ -130,9 +142,16 @@ function parseHomeContent(content: string): HomeContent {
     } else if (headerLine === '# Services') {
       homeContent.services = {
         title: sectionData.title || '',
-        items: sectionData.items
-          ? sectionData.items.split(',').map((item) => item.trim()).filter(Boolean)
-          : [],
+        description: sectionData.description || '',
+        items: listLines.map((line) => {
+          const colonIndex = line.indexOf(': ');
+          return colonIndex === -1
+            ? { name: line.trim(), description: '' }
+            : {
+                name: line.slice(0, colonIndex).trim(),
+                description: line.slice(colonIndex + 2).trim(),
+              };
+        }),
       };
     } else if (headerLine === '# Social') {
       homeContent.social = {
