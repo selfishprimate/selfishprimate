@@ -33,7 +33,7 @@ export function ExperiencePage() {
                     alt={exp.company}
                     loading="lazy"
                     decoding="async"
-                    className="w-24 rounded-xl md:w-28"
+                    className="w-24 rounded-card md:w-28"
                   />
                 )}
               </span>

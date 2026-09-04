@@ -89,7 +89,7 @@ export function IllustrationsPage() {
               onClick={() => openLightbox(index)}
               aria-label={`View ${illustration.title} in full size`}
             >
-              <div className="aspect-square overflow-hidden rounded-xl bg-surface">
+              <div className="aspect-square overflow-hidden rounded-card bg-surface">
                 <img
                   src={illustration.image}
                   alt={illustration.title}

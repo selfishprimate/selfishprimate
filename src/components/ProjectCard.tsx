@@ -23,7 +23,7 @@ export function ProjectCard({ project, index, aspect }: ProjectCardProps) {
     >
       <Link
         to={`/works/${project.slug}`}
-        className="group block overflow-hidden rounded-xl bg-surface"
+        className="group block overflow-hidden rounded-card bg-surface"
       >
         <div className={`overflow-hidden ${aspect}`}>
           {project.coverImage && (

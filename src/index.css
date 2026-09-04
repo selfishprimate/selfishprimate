@@ -20,6 +20,11 @@
   --color-text-tertiary: #525252;
   --color-border: #E9E9E9;
   --color-accent: #000000;
+
+  /* The site has one corner. Everything that gets rounded — cards, thumbnails,
+     cover images, embeds, logos, the portrait — uses `rounded-card`, so
+     changing it here changes it everywhere. */
+  --radius-card: 24px;
 }
 
 .dark {
@@ -207,14 +212,14 @@ body {
 }
 
 .prose img {
-  border-radius: 12px;
+  border-radius: var(--radius-card);
   margin: 1.6em 0;
 }
 
 .prose code {
   background-color: var(--color-surface);
   padding: 0.15em 0.4em;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 0.85em;
 }
 
@@ -222,7 +227,7 @@ body {
   background-color: var(--color-surface);
   color: var(--color-text-primary);
   padding: 1.25em;
-  border-radius: 12px;
+  border-radius: var(--radius-card);
   overflow-x: auto;
   margin: 1.6em 0;
   font-size: 0.95rem;

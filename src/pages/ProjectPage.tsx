@@ -168,7 +168,7 @@ export function ProjectPage() {
         const [, src, height = '600', title = 'Figma Design'] = figmaMatch;
         return (
           <div key={index} className="my-12">
-            <div className="relative w-full overflow-hidden rounded-xl border border-border" style={{ height: `${height}px` }}>
+            <div className="relative w-full overflow-hidden rounded-card border border-border" style={{ height: `${height}px` }}>
               <iframe
                 src={src}
                 title={title}
@@ -188,7 +188,7 @@ export function ProjectPage() {
         const [, videoId, title = 'YouTube Video'] = youtubeMatch;
         return (
           <div key={index} className="my-12">
-            <div className="relative w-full overflow-hidden rounded-xl" style={{ paddingBottom: '56.25%' }}>
+            <div className="relative w-full overflow-hidden rounded-card" style={{ paddingBottom: '56.25%' }}>
               <iframe
                 src={`https://www.youtube.com/embed/${videoId}`}
                 title={title}
@@ -231,7 +231,7 @@ export function ProjectPage() {
                     type="button"
                     onClick={() => openLightbox(lightboxIdx)}
                     aria-label={`View ${figure.alt} in full size`}
-                    className="w-full cursor-zoom-in overflow-hidden rounded-xl bg-surface"
+                    className="w-full cursor-zoom-in overflow-hidden rounded-card bg-surface"
                   >
                     <img
                       src={resolvedPath}
@@ -376,7 +376,7 @@ export function ProjectPage() {
             alt={project.title}
             loading="eager"
             decoding="async"
-            className="w-full rounded-xl"
+            className="w-full rounded-card"
           />
         </motion.section>
       )}

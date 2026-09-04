@@ -28,7 +28,11 @@ The measured spec:
 | Dates, subtitles | 20px, grey |
 | Navigation | 18px, 500 |
 | Ink / faded / nav grey | `#000000` / `#757575` / `#525252` |
-| Card | `#F7F7F7`, 12px radius, image flush, 24px caption padding |
+| Card | `#F7F7F7`, image flush, 24px caption padding |
+
+The corner radius is **not** from the reference — it is `--radius-card`, 24px,
+exposed as `rounded-card`. Everything that gets rounded uses it, so the site
+has one corner and changing it is a one-line edit.
 
 It is a **large-type design**. Treating it as a small-type one is the single
 easiest way to build something that looks nothing like it.

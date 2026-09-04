@@ -9,7 +9,7 @@ interface RowTileProps {
  */
 export function RowTile({ src, alt }: RowTileProps) {
   return (
-    <span className="block aspect-[3/2] overflow-hidden rounded-xl bg-surface">
+    <span className="block aspect-[3/2] overflow-hidden rounded-card bg-surface">
       {src && (
         <img
           src={src}
