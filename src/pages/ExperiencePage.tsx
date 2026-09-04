@@ -23,8 +23,9 @@ export function ExperiencePage() {
           const body = (
             <>
               {/* Logo left, everything written on the right. No tile behind
-                  it: a company mark carries its own shape and a grey box only
-                  fights it. */}
+                  it — a company mark carries its own background — but it takes
+                  the same 12px radius as the cards and thumbnails, since that
+                  is the site's one corner. */}
               <span className="block">
                 {exp.logo && (
                   <img
@@ -32,7 +33,7 @@ export function ExperiencePage() {
                     alt={exp.company}
                     loading="lazy"
                     decoding="async"
-                    className="w-24 md:w-28"
+                    className="w-24 rounded-xl md:w-28"
                   />
                 )}
               </span>
