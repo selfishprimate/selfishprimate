@@ -74,7 +74,7 @@ export function HomePage() {
       {/* Experience */}
       <div className="pt-28 md:pt-44">
         <LabelledRow label={home.experiencePreview.label}>
-          <ul className="flex flex-col gap-8 list-none">
+          <ul className="flex flex-col gap-12 list-none">
             {experiences.slice(0, 4).map((exp) => (
               <li key={exp.company + exp.period} className="flex items-start gap-5 md:gap-10">
                 {/* Same mark and the same distance to the text as the
@@ -105,6 +105,7 @@ export function HomePage() {
                 </p>
                 <p className="j-item text-text-tertiary">{exp.role}</p>
                 <p className="j-meta mt-2">{exp.period.replace(' — ', '–')}</p>
+                <p className="j-meta mt-4 text-text-primary">{exp.description}</p>
                 </div>
               </li>
             ))}
