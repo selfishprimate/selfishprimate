@@ -30,7 +30,10 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         to={`/works/${project.slug}`}
         className="group flex h-full flex-col overflow-hidden rounded-card bg-surface"
       >
-        <div className="aspect-[4/3] overflow-hidden">
+        {/* The card clips the top corners; this rounds the bottom two to the
+            same radius, so the cover reads as a complete rounded block sitting
+            on the card rather than a panel cut off by the caption. */}
+        <div className="aspect-[4/3] overflow-hidden rounded-b-card">
           {project.coverImage && (
             <img
               src={project.coverImage}
