@@ -394,7 +394,7 @@ export function ProjectPage() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="min-w-0 flex-1"
+            className="min-w-0 flex-1 lg:max-w-[760px]"
           >
             {renderContentWithGalleries()}
           </motion.div>

@@ -23,7 +23,7 @@ The measured spec:
 | Font | Inter |
 | Hero / closing line | 64px, 600, `-0.025em`, line-height 1.05 |
 | Section headings | 32px, 600, `-0.02em` |
-| Body copy | 28px, 400, line-height 1.4 |
+| Body copy | 22px, 400, line-height 1.6 (the reference's 28/1.4, corrected — see below) |
 | List items, card titles | 20px, 600, `-0.02em` |
 | Dates, subtitles | 20px, grey |
 | Navigation | 18px, 500 |
@@ -37,15 +37,25 @@ has one corner and changing it is a one-line edit.
 It is a **large-type design**. Treating it as a small-type one is the single
 easiest way to build something that looks nothing like it.
 
+**Body copy is the one place the reference is not followed.** It sets prose at
+28px on a 1.4 leading, but it only ever runs three short paragraphs at that
+size. This site has a full bio, About notes and long case studies, and 28/1.4
+is tiring over that length — so `.j-body` tops out at 22px on a 1.6 leading,
+and the case-study `.prose` runs 19px on 1.7 inside a 760px column, which lands
+at roughly seventy characters a line. Measure matters as much as size: the
+prose column is capped for that reason, not to save space.
+
 Every page uses that same scale, and each size has one job:
 
 - **64px** (`.j-display`) — the home hero, each page's opening line, and the
   closing sentence in the footer. Nothing else.
 - **32px** (`.j-heading`) — section headings only.
-- **28px** (`.j-body`) — prose blocks: the bio, the About notes, a page's
+- **22px** (`.j-body`) — prose blocks: the bio, the About notes, a page's
   standfirst. Never a list.
-- **20px** (`.j-item` / `.j-meta`) — everything list-shaped: card captions,
-  skills, clients, experience rows, article rows, case-study metadata, tags.
+- **20px** (`.j-item`) — list-shaped things: card captions, skills, clients,
+  company names.
+- **18px** (`.j-meta`) — dates, and the descriptions in the Writing and
+  Experience rows.
 - **18px** (`.j-nav`) — navigation and the case-study table of contents.
 
 A page's opening line takes its long description as `description`, which renders
