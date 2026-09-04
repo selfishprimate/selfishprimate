@@ -1,5 +1,5 @@
 import { getProjects, getWorksMeta } from '@/lib/projects';
-import { StaggeredGrid } from '@/components/StaggeredGrid';
+import { WorkGrid } from '@/components/WorkGrid';
 import { PageLede } from '@/components/PageLede';
 import { BlockLabel } from '@/components/BlockLabel';
 import { useSEO, generateTitle, schemas } from '@/hooks/useSEO';
@@ -28,7 +28,7 @@ export function WorksPage() {
       <BlockLabel meta={yearRange} className="mb-8 md:mb-14">
         {`${allProjects.length} projects`}
       </BlockLabel>
-      <StaggeredGrid projects={allProjects} />
+      <WorkGrid projects={allProjects} />
     </div>
   );
 }

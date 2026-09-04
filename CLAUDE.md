@@ -161,11 +161,10 @@ Every `<figure>` inside a `<gallery>` is collected into a lightbox (arrow keys, 
   grey `meta` half (`Featured work · 2021–2026`).
 - `LabelledRow` — 32px heading left, content right. Every block below the work
   grid uses it, which keeps the page on one spine.
-- `StaggeredGrid` — the two-column card grid, used by the work index only.
-- `ProjectCard` — grey card, image flush to its edges, 24px caption. Takes its
-  `aspect` class from the grid rather than choosing one; the cycle lives in
-  `src/lib/aspects.ts` so it is not exported from a component file, which would
-  break fast refresh and the lint rule that guards it.
+- `WorkGrid` — the two-column card grid, used by the home page and the work
+  index.
+- `ProjectCard` — grey card, image flush to its edges, 24px caption, fixed
+  height.
 - `RowTile` — the image half of a Writing row: a square thumbnail on the card
   grey at the card radius, matching the square company marks on Experience.
 

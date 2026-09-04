@@ -5,27 +5,32 @@ import type { Project } from '@/lib/types';
 interface ProjectCardProps {
   project: Project;
   index: number;
-  /** Tailwind aspect class for the image, set by the grid */
-  aspect: string;
 }
 
 /**
  * The whole card is the grey surface — image flush to its edges, then a 24px
- * padded caption. The card is the object, not the image sitting on top of one.
+ * padded caption.
+ *
+ * Every card is the same height, which takes two things. The image runs at 4:3,
+ * the ratio every published cover already is, so nothing is cropped and every
+ * image is the same height. And the title is clamped to two lines with two
+ * lines' worth of space reserved, so a one-line title and a three-line one
+ * still produce the same caption.
  */
-export function ProjectCard({ project, index, aspect }: ProjectCardProps) {
+export function ProjectCard({ project, index }: ProjectCardProps) {
   return (
     <motion.article
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.55, delay: (index % 2) * 0.06, ease: [0.2, 0.7, 0.2, 1] }}
+      className="h-full"
     >
       <Link
         to={`/works/${project.slug}`}
-        className="group block overflow-hidden rounded-card bg-surface"
+        className="group flex h-full flex-col overflow-hidden rounded-card bg-surface"
       >
-        <div className={`overflow-hidden ${aspect}`}>
+        <div className="aspect-[4/3] overflow-hidden">
           {project.coverImage && (
             <img
               src={project.coverImage}
@@ -38,8 +43,8 @@ export function ProjectCard({ project, index, aspect }: ProjectCardProps) {
         </div>
 
         <div className="p-6">
-          {/* Case-study title first, the brand underneath it. */}
-          <h3 className="j-item">{project.title}</h3>
+          {/* 2.6em is exactly two lines at this size and leading. */}
+          <h3 className="j-item line-clamp-2 min-h-[2.6em]">{project.title}</h3>
           <p className="j-item j-fade mt-1">{project.company}</p>
         </div>
       </Link>

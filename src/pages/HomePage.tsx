@@ -5,7 +5,7 @@ import { getFeaturedProjects, getProjects } from '@/lib/projects';
 import { getAboutContent } from '@/lib/about';
 import { PageLede } from '@/components/PageLede';
 import { BlockLabel } from '@/components/BlockLabel';
-import { StaggeredGrid } from '@/components/StaggeredGrid';
+import { WorkGrid } from '@/components/WorkGrid';
 import { LabelledRow } from '@/components/LabelledRow';
 import { useSEO, generateTitle, schemas } from '@/hooks/useSEO';
 
@@ -42,7 +42,7 @@ export function HomePage() {
         <BlockLabel meta={yearRange} className="mb-8 md:mb-14">
           {home.featuredWork.label}
         </BlockLabel>
-        <StaggeredGrid projects={featuredProjects} />
+        <WorkGrid projects={featuredProjects} />
         <p className="mt-10">
           <Link to="/works" className="j-item underline decoration-border underline-offset-[6px] transition-colors hover:decoration-text-primary">
             All {allProjects.length} projects
