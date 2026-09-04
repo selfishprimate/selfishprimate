@@ -2,6 +2,38 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Branch: the Jonas direction
+
+This branch carries a full visual redesign. The architecture below is unchanged
+from `main` — content system, parsers, routing, SEO and deployment all work the
+same way. What changed is the design language, and the notes marked **Jonas**
+describe it.
+
+The reference is `jonas-template.framer.website`. Three moves carry the site:
+
+1. **One narrow column.** Every page is
+   `mx-auto w-full max-w-[860px] px-5`. Nothing is full-bleed, nothing is
+   centred-and-wide. The page reads as a document, not a layout.
+2. **The two-tone sentence.** A headline opens at full ink and finishes in
+   `--color-text-secondary`. It is the only display-type move on the site,
+   used for the home hero, every index page and each case-study title.
+3. **The welded caption.** A project card is a cover image with a
+   `--color-surface` grey block attached directly beneath it holding the title
+   and client. The caption belongs to the card rather than floating under it,
+   which is what makes the two-column stagger read as a composition.
+
+The work grid is `StaggeredGrid`: two columns, the right one dropped by a fixed
+`sm:mt-16`. That single offset is the whole effect; the cards keep a uniform
+4:3 aspect so the covers stay comparable.
+
+There are **no buttons anywhere** — every action is a text link, usually
+prefixed with an arrow (`→ All 15 projects`). The header is in normal flow
+rather than fixed, so it scrolls away and never returns.
+
+**Light is the default theme here** (`main` defaults to dark). As on `main` the
+default is written twice on purpose — `ThemeToggle` and the pre-paint script in
+`index.html` — so changing one means changing the other.
+
 ## Project Overview
 
 Personal portfolio site for a Product Designer (selfishprimate.com), built as a React SPA and deployed to Netlify. All content is authored as markdown in `src/content/` and compiled into the bundle — there is no database, CMS, or runtime data fetching.
@@ -79,6 +111,25 @@ Every `<figure>` inside a `<gallery>` is collected into a lightbox (arrow keys, 
 - The home page uses `featured: true` sorted by `featuredOrder` ascending.
 - The `images` and `category` frontmatter fields are parsed into the `Project` type but **no component reads them** — case-study imagery comes from `<gallery>` tags in the body.
 
+### Shared components (Jonas)
+
+- `PageLede` — the two-tone sentence. `title` in ink, optional `fade` in grey.
+- `BlockLabel` — the small bold label that opens a block, with an optional grey
+  `meta` half (`Featured work · 2021–2026`).
+- `LabelledRow` — label in the left column, content in the right. Every block
+  below the work grid uses it, which keeps the page on one spine.
+- `StaggeredGrid` — the two-column work grid described above.
+
+`SectionHeading` from `main` is gone; `PageLede` + `BlockLabel` replace it.
+
+`home.ts` parses one extra frontmatter key, `headlineFade`, so the hero's grey
+half stays authored in markdown rather than hardcoded. It is optional.
+
+Two content sections on the home page are derived rather than authored:
+**Selected clients** is the unique `company` values across all projects, and the
+year range next to *Featured work* is computed from their `year` fields. Neither
+can drift from the case studies.
+
 ### Adding a new project
 
 1. Create `src/content/works/{slug}/index.md` with frontmatter (`title`, `description`, `company`, `tags`, `coverImage`, `featured`, `featuredOrder`, `order`, `year`, optional `draft`)
@@ -103,18 +154,38 @@ Routes: `/`, `/works`, `/works/:slug`, `/about`, `/articles`, `/illustrations`, 
 
 Tailwind CSS 4 via `@tailwindcss/vite`, configured entirely in `src/index.css` — there is no `tailwind.config.js`.
 
+**Jonas** repurposes `--color-surface`: it is no longer a generic card
+background but specifically the grey of the caption block under a cover image
+(and the placeholder behind one). One grey, one job.
+
+**Jonas** defines four custom classes, all inside `@layer components` so
+Tailwind utilities can still override them (declared outside a layer they beat
+every utility — this has bitten this repo before):
+
+- `.jonas-lede` — the display face: weight 500, tight tracking
+- `.jonas-fade` — the grey continuation of a two-tone sentence
+- `.jonas-label` — the small bold block label
+- `.jonas-link` — the underlined text link, which replaces every button
+
 Theming works **only through CSS custom properties**, not Tailwind's `dark:` variant (no `dark:` utility appears anywhere in the codebase):
 
 - `@theme` in `index.css` declares the light palette (`--color-background`, `--color-surface`, `--color-text-primary/secondary/tertiary`, `--color-border`, `--color-accent`).
 - A plain `.dark { ... }` block re-declares the same variables with dark values.
-- `ThemeToggle` adds/removes `.dark` on `document.documentElement` and persists the choice in `localStorage` under `theme`. **Dark is the default** when nothing is stored.
+- `ThemeToggle` adds/removes `.dark` on `document.documentElement` and persists the choice in `localStorage` under `theme`. **Light is the default** on this branch when nothing is stored.
 - An inline script at the top of `index.html` applies the same class before first paint, so the light palette doesn't flash for dark-mode visitors. It duplicates `ThemeToggle`'s default on purpose — change one and you must change the other.
 - Because utilities like `bg-background` compile to `var(--color-background)`, every themed color follows automatically. New colors must be added as `@theme` variables *and* overridden in `.dark` — a hardcoded hex will not adapt.
 - Assets that can't be recolored use the `.light-only` / `.dark-only` class pair (logo in Header/Footer, hero ornament on HomePage). `.hero-ornament` gets extra opacity damping in dark mode.
 
 Typography: `--font-sans` and `--font-serif` are **both** Geist Sans (loaded from a jsDelivr `@fontsource` CDN import), so the `font-serif` utility is effectively an alias used to mark headings, not an actual serif. The only real serif is Instrument Serif, applied globally to `i`, `em` and `.italic` — which is why accent words in headings are wrapped in `<span className="italic">`.
 
-Layout convention: pages use `max-w-6xl mx-auto px-6` as the standard container; `ProjectPage` widens to `max-w-7xl` for the TOC+content row and narrows prose to `max-w-3xl`.
+Layout convention (**Jonas**): every page, including `ProjectPage` and the
+header and footer, uses `mx-auto w-full max-w-[860px] px-5`. There is no wider
+container anywhere.
+
+Watch the `ch` unit: it resolves against the element's *own* font size. Putting
+a `max-w-[24ch]` on a wrapper whose children carry the large type gives a
+measure several times too narrow. Put the measure on the element that has the
+font size.
 
 `index.css` also owns the `.prose` markdown styles, `.skip-link`, `.sr-only`, focus-visible rules and a `prefers-reduced-motion` reset.
 

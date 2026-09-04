@@ -6,6 +6,8 @@ export interface HomeHero {
   location: string;
   headline: string;
   headlineAccent: string;
+  /** Continuation of the headline, rendered in grey */
+  headlineFade: string;
   subtitle: string;
 }
 
@@ -69,6 +71,7 @@ function parseHomeContent(content: string): HomeContent {
       location: meta.location || '',
       headline: meta.headline || '',
       headlineAccent: meta.headlineAccent || '',
+      headlineFade: meta.headlineFade || '',
       subtitle: meta.subtitle || '',
     },
     quote: { text: '', author: '' },

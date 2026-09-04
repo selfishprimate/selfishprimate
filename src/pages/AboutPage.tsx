@@ -1,12 +1,13 @@
-import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import type { ReactNode } from 'react';
 import { getAboutContent } from '@/lib/about';
+import { PageLede } from '@/components/PageLede';
+import { LabelledRow } from '@/components/LabelledRow';
 import { useSEO, generateTitle, schemas } from '@/hooks/useSEO';
 
-// Helper to render text with markdown links
+// Render inline markdown links inside plain-text content fields
 function renderWithLinks(text: string) {
   const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
-  const parts: (string | React.ReactNode)[] = [];
+  const parts: ReactNode[] = [];
   let lastIndex = 0;
   let match;
 
@@ -20,7 +21,7 @@ function renderWithLinks(text: string) {
         href={match[2]}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-text-primary underline hover:opacity-60 transition-opacity"
+        className="jonas-link"
       >
         {match[1]}
       </a>
@@ -40,166 +41,55 @@ export function AboutPage() {
 
   useSEO({
     title: generateTitle('About'),
-    description: 'Learn about Halil Ibrahim Cakiroglu, a UI/UX Designer with over 10 years of experience crafting digital experiences across mobile, web, and enterprise platforms.',
+    description:
+      'Learn about Halil Ibrahim Cakiroglu, a UI/UX Designer with over 10 years of experience crafting digital experiences across mobile, web, and enterprise platforms.',
     keywords: ['About', 'UI/UX Designer', 'Experience', 'Skills', 'Background'],
     jsonLd: schemas.person(),
   });
 
+  const sections = [about.whatSetsApart, about.openSource, about.theHandle].filter(
+    (section) => section.title
+  );
+
+  const socials = [
+    { label: 'LinkedIn', href: about.social.linkedin },
+    { label: 'Medium', href: about.social.medium },
+    { label: 'GitHub', href: about.social.github },
+    { label: 'Patreon', href: about.social.patreon },
+  ];
+
   return (
-    <div className="min-h-screen">
-      {/* Hero */}
-      <section className="max-w-3xl mx-auto px-6 py-16 md:py-24">
-        <div className="flex flex-col items-center text-center">
-          {/* Image */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="w-48 h-48 md:w-56 md:h-56 rounded-full bg-border overflow-hidden">
-              {about.profile.avatar && (
-                <img
-                  src={about.profile.avatar}
-                  alt={about.profile.name}
-                  loading="eager"
-                  decoding="async"
-                  className="w-full h-full object-cover"
-                />
-              )}
-            </div>
-          </motion.div>
-
-          {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-8"
-          >
-            <span className="text-xs font-sans uppercase text-text-tertiary">
-              About Me
-            </span>
-            <h2 className="mt-4 font-serif font-semibold text-4xl md:text-5xl text-text-primary">
-              {about.profile.name}
-            </h2>
-            <p className="mt-2 text-text-secondary text-lg">
-              {about.profile.title} · {about.profile.location}
-            </p>
-
-            <div className="mt-8 space-y-6 text-text-secondary leading-relaxed text-left">
-              {about.bio.split('\n\n').map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
-              ))}
-            </div>
-
-            {/* Social Links */}
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <a
-                href={about.social.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 border border-border text-text-primary font-sans text-sm rounded-full hover:bg-border/50 transition-colors"
-              >
-                LinkedIn
-                <ArrowUpRight size={14} />
-              </a>
-              <a
-                href={about.social.medium}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 border border-border text-text-primary font-sans text-sm rounded-full hover:bg-border/50 transition-colors"
-              >
-                Medium
-                <ArrowUpRight size={14} />
-              </a>
-              <a
-                href={about.social.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 border border-border text-text-primary font-sans text-sm rounded-full hover:bg-border/50 transition-colors"
-              >
-                GitHub
-                <ArrowUpRight size={14} />
-              </a>
-              <a
-                href={about.social.patreon}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 border border-border text-text-primary font-sans text-sm rounded-full hover:bg-border/50 transition-colors"
-              >
-                Patreon
-                <ArrowUpRight size={14} />
-              </a>
-            </div>
-          </motion.div>
-        </div>
+    <div className="mx-auto w-full max-w-[860px] px-5">
+      <section className="pt-16 pb-16 md:pt-24 md:pb-20">
+        <PageLede
+          title={`${about.profile.title} in ${about.profile.location.split(',')[0]}.`}
+          fade="Fifteen years building the design systems that products are actually made of."
+        />
       </section>
 
-      {/* Quote */}
-      <section className="max-w-3xl mx-auto px-6 py-16">
-        <h2 className="sr-only">Quote</h2>
-        <motion.blockquote
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <p className="font-serif italic text-2xl md:text-3xl text-text-primary">
-            "{about.quote.text}"
-          </p>
-          <cite className="mt-4 block text-text-tertiary not-italic">
-            — {about.quote.author}
-          </cite>
-        </motion.blockquote>
-      </section>
+      {about.profile.avatar && (
+        <img
+          src={about.profile.avatar}
+          alt={about.profile.name}
+          loading="eager"
+          decoding="async"
+          className="mb-20 w-full max-w-[360px] rounded-[3px]"
+        />
+      )}
 
-      {/* What Sets Me Apart, Open Source, The Handle */}
-      <section className="max-w-3xl mx-auto px-6 py-16">
-        <div className="flex flex-col gap-12">
-          {about.whatSetsApart.title && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="font-serif font-semibold text-2xl text-text-primary mb-4">
-                {about.whatSetsApart.title}
-              </h3>
-              <p className="text-text-secondary leading-relaxed">
-                {about.whatSetsApart.description}
-              </p>
-            </motion.div>
-          )}
+      <div className="flex flex-col gap-24 md:gap-32">
+        <LabelledRow label="About me">
+          <div className="space-y-5 text-text-secondary">
+            {about.bio.split('\n\n').map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
+          </div>
+        </LabelledRow>
 
-          {about.openSource.title && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-            >
-              <h3 className="font-serif font-semibold text-2xl text-text-primary mb-4">
-                {about.openSource.title}
-              </h3>
-              <p className="text-text-secondary leading-relaxed">
-                {renderWithLinks(about.openSource.description)}
-              </p>
-            </motion.div>
-          )}
-
-          {about.theHandle.title && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              <h3 className="font-serif font-semibold text-2xl text-text-primary mb-4">
-                {about.theHandle.title}
-              </h3>
-              <p className="text-text-secondary leading-relaxed">
-                {renderWithLinks(about.theHandle.description)}
-              </p>
+        {sections.map((section) => (
+          <LabelledRow key={section.title} label={section.title}>
+            <p className="text-text-secondary">{renderWithLinks(section.description)}</p>
+            {section === about.theHandle && (
               <div className="mt-6 max-w-md">
                 <iframe
                   src="https://open.spotify.com/embed/track/06cCNvDC89aT8m6J5VCmpv?utm_source=generator&theme=0"
@@ -209,86 +99,53 @@ export function AboutPage() {
                   frameBorder="0"
                   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                   loading="lazy"
-                  className="rounded-xl"
                 />
               </div>
-            </motion.div>
-          )}
-        </div>
-      </section>
-
-      {/* Skills & Domains */}
-      <section className="max-w-3xl mx-auto px-6 py-16">
-        <h2 className="sr-only">Skills & Domains</h2>
-        <div className="flex flex-col gap-12">
-          {/* Skills */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="font-serif font-semibold text-2xl text-text-primary mb-2">
-              {about.skills.title}
-            </h3>
-            {about.skills.description && (
-              <p className="text-text-tertiary mb-6">{about.skills.description}</p>
             )}
-            <div className="flex flex-wrap gap-2">
-              {about.skills.items.map((skill) => (
-                <span
-                  key={skill}
-                  className="px-4 py-2 text-sm font-sans text-text-secondary border border-border rounded-full"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </motion.div>
+          </LabelledRow>
+        ))}
 
-          {/* Domains */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-          >
-            <h3 className="font-serif font-semibold text-2xl text-text-primary mb-2">
-              {about.domains.title}
-            </h3>
-            {about.domains.description && (
-              <p className="text-text-tertiary mb-6">{about.domains.description}</p>
-            )}
-            <div className="flex flex-wrap gap-2">
-              {about.domains.items.map((domain) => (
-                <span
-                  key={domain}
-                  className="px-4 py-2 text-sm font-sans text-text-secondary border border-border rounded-full"
-                >
-                  {domain}
-                </span>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
+        <LabelledRow label={about.skills.title}>
+          <ul className="flex flex-col gap-1.5 list-none text-text-secondary">
+            {about.skills.items.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </LabelledRow>
 
-      {/* Personal */}
-      <section className="max-w-3xl mx-auto px-6 py-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="font-serif font-semibold text-2xl text-text-primary mb-6">
-            {about.beyondDesign.title}
-          </h2>
-          {about.beyondDesign.paragraphs.map((paragraph, index) => (
-            <p key={index} className={`text-text-secondary leading-relaxed ${index > 0 ? 'mt-4' : ''}`}>
-              {renderWithLinks(paragraph)}
-            </p>
-          ))}
-        </motion.div>
-      </section>
+        <LabelledRow label={about.domains.title}>
+          <ul className="flex flex-col gap-1.5 list-none text-text-secondary">
+            {about.domains.items.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </LabelledRow>
+
+        <LabelledRow label={about.beyondDesign.title}>
+          <div className="space-y-5 text-text-secondary">
+            {about.beyondDesign.paragraphs.map((paragraph, index) => (
+              <p key={index}>{renderWithLinks(paragraph)}</p>
+            ))}
+          </div>
+        </LabelledRow>
+
+        <LabelledRow label="Elsewhere">
+          <ul className="flex flex-col gap-1.5 list-none">
+            {socials.map((social) => (
+              <li key={social.label}>
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="jonas-link text-text-secondary"
+                >
+                  {social.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </LabelledRow>
+      </div>
     </div>
   );
 }

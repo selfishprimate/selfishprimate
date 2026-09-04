@@ -1,6 +1,7 @@
 import { getProjects, getWorksMeta } from '@/lib/projects';
-import { ProjectCard } from '@/components/ProjectCard';
-import { SectionHeading } from '@/components/SectionHeading';
+import { StaggeredGrid } from '@/components/StaggeredGrid';
+import { PageLede } from '@/components/PageLede';
+import { BlockLabel } from '@/components/BlockLabel';
 import { useSEO, generateTitle, schemas } from '@/hooks/useSEO';
 
 export function WorksPage() {
@@ -14,26 +15,20 @@ export function WorksPage() {
     jsonLd: schemas.portfolio(),
   });
 
-  return (
-    <div className="min-h-screen">
-      {/* Projects */}
-      <section className="max-w-6xl mx-auto px-6 py-16 md:py-24">
-        <SectionHeading
-          label={meta.label}
-          title={meta.title}
-          description={meta.description}
-        />
+  const years = allProjects.map((p) => Number(p.year)).filter(Boolean);
+  const yearRange =
+    years.length > 0 ? `${Math.min(...years)}–${Math.max(...years)}` : undefined;
 
-        <div className="grid md:grid-cols-2 gap-16 mt-16 md:mt-24">
-          {allProjects.map((project, index) => (
-            <ProjectCard
-              key={project.slug}
-              project={project}
-              index={index}
-            />
-          ))}
-        </div>
+  return (
+    <div className="mx-auto w-full max-w-[860px] px-5">
+      <section className="pt-16 pb-16 md:pt-24 md:pb-20">
+        <PageLede title={meta.title + '.'} fade={meta.description} />
       </section>
+
+      <BlockLabel meta={yearRange} className="mb-5">
+        {`${allProjects.length} projects`}
+      </BlockLabel>
+      <StaggeredGrid projects={allProjects} />
     </div>
   );
 }

@@ -12,13 +12,13 @@
     -->
     <script>
       (function () {
+        // Light is the default here; dark is the opt-in. Mirrors ThemeToggle —
+        // change one and you must change the other.
         try {
-          if (localStorage.getItem('theme') !== 'light') {
+          if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.classList.add('dark');
           }
-        } catch (e) {
-          document.documentElement.classList.add('dark');
-        }
+        } catch (e) {}
       })();
     </script>
     <meta name="theme-color" content="#FAFAFA" media="(prefers-color-scheme: light)" />

@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
-import { SectionHeading } from '@/components/SectionHeading';
+import { PageLede } from '@/components/PageLede';
+import { BlockLabel } from '@/components/BlockLabel';
 import { getIllustrationsContent } from '@/lib/illustrations';
 import { useSEO, generateTitle } from '@/hooks/useSEO';
 import { useBodyScrollLock } from '@/hooks/useBodyScrollLock';
@@ -66,15 +67,17 @@ export function IllustrationsPage() {
   }, [selectedIndex, illustrations.length]);
 
   return (
-    <div className="min-h-screen">
-      <section className="max-w-6xl mx-auto px-6 py-16 md:py-24">
-        <SectionHeading
-          label={meta.label}
-          title={meta.title}
-          description={meta.description}
-        />
+    <div className="mx-auto w-full max-w-[860px] px-5">
+      <section>
+        <div className="pt-16 pb-16 md:pt-24 md:pb-20">
+          <PageLede title={meta.title + '.'} fade={meta.description} />
+        </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mt-16 md:mt-24">
+        <BlockLabel meta={`${illustrations.length} pieces`} className="mb-5">
+          {meta.label}
+        </BlockLabel>
+
+        <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 sm:gap-6">
           {illustrations.map((illustration, index) => (
             <motion.button
               type="button"
@@ -86,13 +89,13 @@ export function IllustrationsPage() {
               onClick={() => openLightbox(index)}
               aria-label={`View ${illustration.title} in full size`}
             >
-              <div className="aspect-square overflow-hidden bg-border">
+              <div className="aspect-square overflow-hidden rounded-[3px] bg-surface">
                 <img
                   src={illustration.image}
                   alt={illustration.title}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]"
                 />
               </div>
             </motion.button>
@@ -107,13 +110,13 @@ export function IllustrationsPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-neutral-950/95 flex flex-col"
+            className="fixed inset-0 z-[110] flex flex-col bg-neutral-950/96"
             onClick={closeLightbox}
           >
             {/* Close button */}
             <button
               onClick={closeLightbox}
-              className="absolute top-6 right-6 z-10 w-12 h-12 flex items-center justify-center text-text-secondary hover:text-text-primary transition-colors"
+              className="absolute top-6 right-6 z-10 flex h-11 w-11 items-center justify-center text-neutral-400 transition-colors hover:text-white"
               aria-label="Close lightbox"
             >
               <X size={28} />
@@ -162,17 +165,17 @@ export function IllustrationsPage() {
                 <div className="flex items-center gap-4">
                   <button
                     onClick={goToPrevious}
-                    className="w-10 h-10 flex items-center justify-center text-text-tertiary hover:text-text-primary transition-colors"
+                    className="flex h-10 w-10 items-center justify-center text-neutral-400 transition-colors hover:text-white"
                     aria-label="Previous image"
                   >
                     <ChevronLeft size={24} />
                   </button>
-                  <span className="text-text-tertiary text-sm font-sans min-w-[3rem] text-center">
+                  <span className="min-w-[3rem] text-center text-sm text-neutral-400">
                     {selectedIndex + 1} / {illustrations.length}
                   </span>
                   <button
                     onClick={goToNext}
-                    className="w-10 h-10 flex items-center justify-center text-text-tertiary hover:text-text-primary transition-colors"
+                    className="flex h-10 w-10 items-center justify-center text-neutral-400 transition-colors hover:text-white"
                     aria-label="Next image"
                   >
                     <ChevronRight size={24} />

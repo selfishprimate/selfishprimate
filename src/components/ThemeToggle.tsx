@@ -7,10 +7,11 @@ export function ThemeToggle() {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('theme');
       if (saved) return saved === 'dark';
-      // Default to dark mode
-      return true;
+      // Light is the default: this is a white, paper-like design and dark is
+      // the opt-in. The pre-paint script in index.html duplicates this.
+      return false;
     }
-    return true;
+    return false;
   });
 
   useEffect(() => {
@@ -29,10 +30,10 @@ export function ThemeToggle() {
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       onClick={() => setIsDark(!isDark)}
-      className="p-2 rounded-full text-text-secondary hover:text-text-primary transition-colors"
+      className="p-1.5 text-text-secondary transition-colors hover:text-text-primary"
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
     >
-      {isDark ? <Sun size={20} strokeWidth={1.5} /> : <Moon size={20} strokeWidth={1.5} />}
+      {isDark ? <Sun size={17} strokeWidth={1.5} /> : <Moon size={17} strokeWidth={1.5} />}
     </motion.button>
   );
 }

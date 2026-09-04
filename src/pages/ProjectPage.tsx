@@ -3,8 +3,9 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { ArrowLeft, ArrowRight, ArrowUpRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { getProjectBySlug, getProjects, resolveProjectImagePath } from '@/lib/projects';
+import { siteConfig } from '@/lib/data';
 import { useSEO, generateTitle, schemas } from '@/hooks/useSEO';
 import { useBodyScrollLock } from '@/hooks/useBodyScrollLock';
 import { TableOfContents } from '@/components/TableOfContents';
@@ -122,13 +123,13 @@ export function ProjectPage() {
 
   if (!project) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="font-serif text-3xl text-text-primary mb-4">Project not found</h2>
-          <Link to="/works" className="text-text-secondary hover:text-text-primary transition-colors">
-            ← Back to work
+      <div className="mx-auto w-full max-w-[860px] px-5 pt-24">
+        <h2 className="jonas-lede text-2xl">Project not found.</h2>
+        <p className="mt-6">
+          <Link to="/works" className="jonas-link text-[0.9375rem]">
+            → Back to the work
           </Link>
-        </div>
+        </p>
       </div>
     );
   }
@@ -167,7 +168,7 @@ export function ProjectPage() {
         const [, src, height = '600', title = 'Figma Design'] = figmaMatch;
         return (
           <div key={index} className="my-12">
-            <div className="relative w-full overflow-hidden rounded-lg border border-border" style={{ height: `${height}px` }}>
+            <div className="relative w-full overflow-hidden rounded-[3px] border border-border" style={{ height: `${height}px` }}>
               <iframe
                 src={src}
                 title={title}
@@ -187,7 +188,7 @@ export function ProjectPage() {
         const [, videoId, title = 'YouTube Video'] = youtubeMatch;
         return (
           <div key={index} className="my-12">
-            <div className="relative w-full overflow-hidden rounded-lg" style={{ paddingBottom: '56.25%' }}>
+            <div className="relative w-full overflow-hidden rounded-[3px]" style={{ paddingBottom: '56.25%' }}>
               <iframe
                 src={`https://www.youtube.com/embed/${videoId}`}
                 title={title}
@@ -220,7 +221,7 @@ export function ProjectPage() {
         if (cols === 4) gridClass = 'grid-cols-2 md:grid-cols-4';
 
         return (
-          <div key={index} className={`grid ${gridClass} gap-16 my-12`}>
+          <div key={index} className={`grid ${gridClass} my-10 gap-6`}>
             {figures.map((figure, figIndex) => {
               const resolvedPath = resolveImagePath(figure.src);
               const lightboxIdx = getLightboxIndex(figure.src);
@@ -230,7 +231,7 @@ export function ProjectPage() {
                     type="button"
                     onClick={() => openLightbox(lightboxIdx)}
                     aria-label={`View ${figure.alt} in full size`}
-                    className="w-full overflow-hidden cursor-zoom-in"
+                    className="w-full cursor-zoom-in overflow-hidden rounded-[3px] bg-surface"
                   >
                     <img
                       src={resolvedPath}
@@ -241,7 +242,7 @@ export function ProjectPage() {
                     />
                   </button>
                   {figure.caption && (
-                    <figcaption className="mt-2 text-sm text-text-tertiary text-center">
+                    <figcaption className="mt-3 text-[0.875rem] text-text-tertiary">
                       <ReactMarkdown
                         components={{
                           p: ({ children }) => <>{children}</>,
@@ -318,82 +319,82 @@ export function ProjectPage() {
   };
 
   return (
-    <div className="min-h-screen">
-      {/* Back button */}
-      <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        className="max-w-6xl mx-auto px-6 py-8"
+    <div className="mx-auto w-full max-w-[860px] px-5">
+      {/* Back */}
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="pt-8"
       >
         <button
           onClick={() => navigate(-1)}
-          className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors"
+          className="inline-flex items-center gap-1.5 text-[0.9375rem] text-text-secondary transition-colors hover:text-text-primary"
         >
-          <ArrowLeft size={16} />
+          <ArrowLeft size={14} />
           Back
         </button>
-      </motion.div>
+      </motion.p>
 
       {/* Header */}
-      <section className="max-w-6xl mx-auto px-6 pb-12">
+      <section className="pt-10 pb-10 md:pt-14 md:pb-12">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
+          transition={{ duration: 0.6 }}
         >
-          {/* Title */}
-          <h2 className="font-serif font-semibold text-3xl md:text-4xl lg:text-5xl text-text-primary max-w-4xl">
+          <h2 className="jonas-lede text-[1.6rem] md:text-[2.15rem] max-w-[30ch]">
             {project.title}
           </h2>
+          <p className="mt-5 max-w-[60ch] text-text-secondary">{project.description}</p>
 
-          {/* Description */}
-          <p className="mt-6 text-text-secondary text-lg leading-relaxed max-w-3xl">
-            {project.description}
-          </p>
-
-          {/* Meta */}
-          <p className="mt-6 text-xs font-sans text-text-tertiary uppercase">
-            {project.company}, {project.year}
-          </p>
+          <dl className="mt-8 grid gap-3 border-t border-border pt-5 sm:grid-cols-3">
+            <div>
+              <dt className="text-[0.9375rem] text-text-secondary">Client</dt>
+              <dd className="jonas-label">{project.company}</dd>
+            </div>
+            <div>
+              <dt className="text-[0.9375rem] text-text-secondary">Year</dt>
+              <dd className="jonas-label">{project.year}</dd>
+            </div>
+            <div>
+              <dt className="text-[0.9375rem] text-text-secondary">Discipline</dt>
+              <dd className="jonas-label">{project.tags.slice(0, 2).join(', ')}</dd>
+            </div>
+          </dl>
         </motion.div>
       </section>
 
-      {/* Cover Image */}
+      {/* Cover */}
       {project.coverImage && (
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="max-w-7xl mx-auto px-6 pb-16"
+          transition={{ delay: 0.1, duration: 0.6 }}
         >
-          <div className="overflow-hidden">
-            <img
-              src={project.coverImage}
-              alt={project.title}
-              loading="eager"
-              decoding="async"
-              className="w-full h-auto"
-            />
-          </div>
+          <img
+            src={project.coverImage}
+            alt={project.title}
+            loading="eager"
+            decoding="async"
+            className="w-full rounded-[3px]"
+          />
         </motion.section>
       )}
 
       {/* Content with TOC */}
-      <section className="max-w-6xl mx-auto px-6 py-12">
-        <div className="flex flex-col lg:flex-row gap-12">
-          {/* TOC Sidebar - Hidden on mobile */}
-          <aside className="hidden lg:block lg:w-56 flex-shrink-0">
-            <div className="sticky top-32">
+      <section className="py-16 md:py-20">
+        <div className="flex flex-col gap-12 lg:flex-row lg:gap-10">
+          <aside className="hidden lg:block lg:w-44 lg:shrink-0">
+            <div className="sticky top-10">
               <TableOfContents content={project.content} />
             </div>
           </aside>
 
-          {/* Main Content */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="flex-1 max-w-3xl"
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="min-w-0 flex-1"
           >
             {renderContentWithGalleries()}
           </motion.div>
@@ -401,80 +402,49 @@ export function ProjectPage() {
       </section>
 
       {/* Tags */}
-      <section className="max-w-3xl mx-auto px-6 py-12">
-        <div className="flex flex-wrap gap-3">
-          {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className="px-4 py-2 text-sm font-sans text-text-secondary bg-border/50 rounded-full"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
+      <section className="pb-14">
+        <p className="text-[0.9375rem] text-text-secondary">{project.tags.join(', ')}</p>
       </section>
 
-      {/* Navigation */}
-      <section className="max-w-6xl mx-auto px-6 py-16 border-t border-border mt-16">
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Previous */}
-          <Link
-            to={`/works/${prevProject.slug}`}
-            className="group"
-          >
-            <span className="inline-flex items-center gap-2 text-xs font-sans uppercase text-text-tertiary">
-              <ArrowLeft size={14} />
-              Previous Project
-            </span>
-            <h3 className="mt-2 font-serif text-xl text-text-primary group-hover:text-text-secondary transition-colors">
-              {prevProject.title}
-            </h3>
-            <p className="mt-1 text-sm text-text-tertiary">
-              {prevProject.company}
-            </p>
-          </Link>
+      {/* Previous / next */}
+      <section className="grid gap-8 border-t border-border pt-8 sm:grid-cols-2">
+        <Link to={`/works/${prevProject.slug}`} className="group">
+          <span className="inline-flex items-center gap-1.5 text-[0.9375rem] text-text-secondary">
+            <ArrowLeft size={14} />
+            Previous
+          </span>
+          <h3 className="mt-1.5 font-medium text-text-primary underline decoration-border underline-offset-4 transition-colors group-hover:decoration-text-primary">
+            {prevProject.title}
+          </h3>
+        </Link>
 
-          {/* Next */}
-          <Link
-            to={`/works/${nextProject.slug}`}
-            className="group text-right"
-          >
-            <span className="inline-flex items-center justify-end gap-2 text-xs font-sans uppercase text-text-tertiary">
-              Next Project
-              <ArrowRight size={14} />
-            </span>
-            <h3 className="mt-2 font-serif text-xl text-text-primary group-hover:text-text-secondary transition-colors">
-              {nextProject.title}
-            </h3>
-            <p className="mt-1 text-sm text-text-tertiary">
-              {nextProject.company}
-            </p>
-          </Link>
-        </div>
+        <Link to={`/works/${nextProject.slug}`} className="group sm:text-right">
+          <span className="inline-flex items-center gap-1.5 text-[0.9375rem] text-text-secondary">
+            Next
+            <ArrowRight size={14} />
+          </span>
+          <h3 className="mt-1.5 font-medium text-text-primary underline decoration-border underline-offset-4 transition-colors group-hover:decoration-text-primary">
+            {nextProject.title}
+          </h3>
+        </Link>
       </section>
 
-      {/* CTA */}
-      <section className="max-w-6xl mx-auto px-6 py-16">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <h2 className="font-serif text-2xl md:text-3xl text-text-primary">
-            Interested in working together?
-          </h2>
-          <p className="mt-4 text-text-secondary">
-            Let's discuss your project and see how I can help.
-          </p>
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 mt-6 px-6 py-3 bg-text-primary text-surface font-sans text-sm rounded-full hover:bg-text-secondary transition-colors"
+      {/* Contact */}
+      <section className="pt-24 md:pt-32">
+        <p className="jonas-lede text-xl md:text-[1.6rem] max-w-[24ch]">
+          Working on something similar?{' '}
+          <span className="jonas-fade">Tell me about it.</span>
+        </p>
+        <p className="mt-5">
+          <a
+            href={siteConfig.social.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="jonas-link text-[0.9375rem]"
           >
-            Get In Touch
-            <ArrowUpRight size={16} />
-          </Link>
-        </motion.div>
+            → Get in touch
+          </a>
+        </p>
       </section>
 
       {/* Lightbox */}
@@ -484,13 +454,13 @@ export function ProjectPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-neutral-950/95 flex flex-col"
+            className="fixed inset-0 z-[110] flex flex-col bg-neutral-950/96"
             onClick={closeLightbox}
           >
             {/* Close button */}
             <button
               onClick={closeLightbox}
-              className="absolute top-6 right-6 z-10 w-12 h-12 flex items-center justify-center text-text-secondary hover:text-text-primary transition-colors"
+              className="absolute top-6 right-6 z-10 flex h-11 w-11 items-center justify-center text-neutral-400 transition-colors hover:text-white"
               aria-label="Close lightbox"
             >
               <X size={28} />
@@ -539,17 +509,17 @@ export function ProjectPage() {
                 <div className="flex items-center gap-4">
                   <button
                     onClick={goToPrevious}
-                    className="w-10 h-10 flex items-center justify-center text-text-tertiary hover:text-text-primary transition-colors"
+                    className="flex h-10 w-10 items-center justify-center text-neutral-400 transition-colors hover:text-white"
                     aria-label="Previous image"
                   >
                     <ChevronLeft size={24} />
                   </button>
-                  <span className="text-text-tertiary text-sm font-sans min-w-[3rem] text-center">
+                  <span className="min-w-[3rem] text-center text-sm text-neutral-400">
                     {lightboxIndex + 1} / {allImages.length}
                   </span>
                   <button
                     onClick={goToNext}
-                    className="w-10 h-10 flex items-center justify-center text-text-tertiary hover:text-text-primary transition-colors"
+                    className="flex h-10 w-10 items-center justify-center text-neutral-400 transition-colors hover:text-white"
                     aria-label="Next image"
                   >
                     <ChevronRight size={24} />

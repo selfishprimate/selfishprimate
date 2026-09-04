@@ -9,7 +9,7 @@ export function Layout() {
         Skip to main content
       </a>
       <Header />
-      <main id="main-content" className="pt-24">
+      <main id="main-content">
         <Outlet />
       </main>
       <Footer />

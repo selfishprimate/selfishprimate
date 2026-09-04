@@ -107,20 +107,18 @@ export function TableOfContents({ content, className = '' }: TableOfContentsProp
 
   return (
     <nav className={`${className}`} aria-label="Table of contents">
-      <p className="text-xs font-sans uppercase text-text-tertiary mb-4 tracking-wide">
-        On this page
-      </p>
+      <p className="jonas-label mb-3">Contents</p>
       <ul className="space-y-2">
         {headings.map(({ id, text, level }) => (
           <li key={id}>
             <button
               onClick={() => handleClick(id)}
               className={`
-                block text-left text-sm transition-colors duration-200
+                block text-left text-[0.875rem] leading-snug transition-colors duration-200
                 ${level === 3 ? 'pl-0' : 'pl-3'}
                 ${
                   activeId === id
-                    ? 'text-text-primary font-medium'
+                    ? 'text-text-primary'
                     : 'text-text-tertiary hover:text-text-secondary'
                 }
               `}

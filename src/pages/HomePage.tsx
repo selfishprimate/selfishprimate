@@ -1,16 +1,19 @@
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { getHomeContent } from '@/lib/home';
 import { getExperiences } from '@/lib/experience';
-import { getFeaturedProjects } from '@/lib/projects';
-import { ProjectCard } from '@/components/ProjectCard';
-import { SectionHeading } from '@/components/SectionHeading';
+import { getFeaturedProjects, getProjects } from '@/lib/projects';
+import { getAboutContent } from '@/lib/about';
+import { PageLede } from '@/components/PageLede';
+import { BlockLabel } from '@/components/BlockLabel';
+import { StaggeredGrid } from '@/components/StaggeredGrid';
+import { LabelledRow } from '@/components/LabelledRow';
 import { useSEO, generateTitle, schemas } from '@/hooks/useSEO';
 
 export function HomePage() {
   const home = getHomeContent();
+  const about = getAboutContent();
   const featuredProjects = getFeaturedProjects();
+  const allProjects = getProjects();
   const experiences = getExperiences();
 
   useSEO({
@@ -19,265 +22,128 @@ export function HomePage() {
     keywords: ['UI/UX Designer', 'Product Designer', 'Istanbul', 'Portfolio', 'Web Design', 'Mobile App Design'],
     jsonLd: schemas.website(),
   });
-  const { scrollY } = useScroll();
-  const imageOpacity = useTransform(scrollY, [0, 400], [1, 0]);
+
+  // Year range across the featured work, printed next to the label the way a
+  // contents page prints a date span.
+  const years = featuredProjects.map((p) => Number(p.year)).filter(Boolean);
+  const yearRange =
+    years.length > 0 ? `${Math.min(...years)}–${Math.max(...years)}` : undefined;
+
+  // The client list is derived from the work itself rather than hardcoded, so
+  // it can never drift from the case studies.
+  const clients = Array.from(new Set(allProjects.map((p) => p.company)));
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative max-w-6xl mx-auto px-6 py-24 md:py-32 lg:py-40 overflow-visible">
-        {/* Decorative ornament */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          style={{ opacity: imageOpacity }}
-          className="hidden lg:block fixed top-24 right-0 translate-x-1/2 lg:w-[600px] pointer-events-none"
-        >
-          <img
-            src="/images/featured-image-for-light.svg"
-            alt=""
-            aria-hidden="true"
-            className="w-full h-auto light-only"
-          />
-          <img
-            src="/images/featured-image-for-dark.svg"
-            alt=""
-            aria-hidden="true"
-            className="w-full h-auto dark-only hero-ornament"
-          />
-        </motion.div>
-
-        <div className="relative max-w-4xl">
-          {/* Greeting */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-6"
-          >
-            <span className="text-text-tertiary font-sans text-sm uppercase">
-              {home.hero.title} — {home.hero.location}
-            </span>
-          </motion.div>
-
-          {/* Main heading */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-serif font-semibold text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-text-primary leading-[1.1]"
-          >
-            {home.hero.headline}{' '}
-            <span className="italic text-accent">{home.hero.headlineAccent}</span>
-          </motion.h1>
-
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-8 text-text-secondary text-lg md:text-xl leading-relaxed max-w-2xl"
-          >
-            {home.hero.subtitle}
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-10 flex flex-wrap gap-4"
-          >
-            <Link
-              to="/works"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-text-primary text-surface font-sans text-sm rounded-full hover:bg-text-secondary transition-colors"
-            >
-              View My Works
-              <ArrowRight size={16} />
-            </Link>
-            <a
-              href={home.social.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 border border-border text-text-primary font-sans text-sm rounded-full hover:bg-border/50 transition-colors"
-            >
-              LinkedIn
-              <ArrowUpRight size={16} />
-            </a>
-          </motion.div>
-        </div>
-
-        {/* Quote */}
-        <motion.blockquote
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-24 pt-12 border-t border-border"
-        >
-          <p className="font-serif italic text-xl md:text-2xl text-text-secondary max-w-2xl">
-            "{home.quote.text}"
-          </p>
-          <cite className="mt-3 block text-sm text-text-tertiary not-italic">
-            — {home.quote.author}
-          </cite>
-        </motion.blockquote>
+    <div className="mx-auto w-full max-w-[860px] px-5">
+      {/* Hero */}
+      <section className="pt-16 pb-24 md:pt-24 md:pb-32">
+        <PageLede title={home.hero.headline} fade={home.hero.headlineFade} />
       </section>
 
-      {/* Featured Work Section */}
-      <section className="max-w-6xl mx-auto px-6 py-24 md:py-32">
-        <div className="flex items-end justify-between mb-12">
-          <SectionHeading
-            label={home.featuredWork.label}
-            title={home.featuredWork.title}
-          />
-          <Link
-            to="/works"
-            className="hidden md:inline-flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors"
-          >
-            View all works
-            <ArrowRight size={16} />
+      {/* Featured work */}
+      <section>
+        <BlockLabel meta={yearRange} className="mb-5">
+          {home.featuredWork.label}
+        </BlockLabel>
+        <StaggeredGrid projects={featuredProjects} />
+        <p className="mt-8">
+          <Link to="/works" className="jonas-link text-[0.9375rem]">
+            → All {allProjects.length} projects
           </Link>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-16">
-          {featuredProjects.slice(0, 4).map((project, index) => (
-            <ProjectCard
-              key={project.slug}
-              project={project}
-              index={index}
-              variant="featured"
-            />
-          ))}
-        </div>
-
-        <div className="mt-12 md:hidden">
-          <Link
-            to="/works"
-            className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors"
-          >
-            View all works
-            <ArrowRight size={16} />
-          </Link>
-        </div>
+        </p>
       </section>
 
-      {/* Experience Preview */}
-      <section className="max-w-6xl mx-auto px-6 py-24 md:py-32">
-        <SectionHeading
-          label={home.experiencePreview.label}
-          title={home.experiencePreview.title}
-        />
-
-        <div className="grid max-w-3xl">
-          {experiences.slice(0, 4).map((exp, index) => {
-            const content = (
-              <>
-                {exp.logo && (
-                  <div className="w-16 h-16 bg-border overflow-hidden flex-shrink-0">
-                    <img
-                      src={exp.logo}
-                      alt={exp.company}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                )}
-                <div>
-                  <h3 className="inline-flex items-center gap-1.5 font-serif font-semibold text-xl text-text-primary group-hover:text-text-secondary transition-colors">
-                    {exp.company}
-                    {exp.url && <ArrowUpRight size={18} />}
-                  </h3>
-                  <p className="mt-1 text-text-secondary">
-                    {exp.role} · Full Time · {exp.period.replace(' — ', ' · ')}
-                  </p>
-                  {exp.description && (
-                    <p className="mt-2 text-text-secondary text-sm leading-snug">
-                      {exp.description}
-                    </p>
-                  )}
-                </div>
-              </>
-            );
-
-            return (
-              <motion.div
-                key={exp.company + exp.period}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="border-b border-border"
-              >
-                {exp.url ? (
-                  <a
-                    href={exp.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-start gap-5 py-6"
-                  >
-                    {content}
-                  </a>
-                ) : (
-                  <div className="group flex items-start gap-5 py-6">
-                    {content}
-                  </div>
-                )}
-              </motion.div>
-            );
-          })}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mt-8"
-        >
-          <Link
-            to="/experience"
-            className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors"
-          >
-            View full experience
-            <ArrowRight size={16} />
-          </Link>
-        </motion.div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="max-w-6xl mx-auto px-6 py-24 md:py-32">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="relative overflow-hidden rounded-2xl bg-text-primary p-12 md:p-16 lg:p-20"
-        >
-          {/* Decorative elements */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
-
-          <div className="relative">
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-surface max-w-xl">
-              {home.cta.title}
-            </h2>
-            <p className="mt-6 text-surface/70 text-lg max-w-lg">
-              {home.cta.description}
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href={home.social.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-surface text-text-primary font-sans text-sm rounded-full hover:bg-surface/90 transition-colors"
-              >
-                {home.cta.buttonText}
-                <ArrowUpRight size={16} />
-              </a>
-            </div>
+      {/* About */}
+      <div className="pt-28 md:pt-40">
+        <LabelledRow label="About me">
+          <div className="space-y-5 text-text-secondary">
+            {about.bio.split('\n\n').map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
           </div>
-        </motion.div>
-      </section>
+          <p className="mt-6">
+            <Link to="/about" className="jonas-link text-[0.9375rem]">
+              → More about me
+            </Link>
+          </p>
+        </LabelledRow>
+      </div>
+
+      {/* Experience */}
+      <div className="pt-24 md:pt-32">
+        <LabelledRow label={home.experiencePreview.label}>
+          <ul className="flex flex-col gap-6 list-none">
+            {experiences.slice(0, 4).map((exp) => (
+              <li
+                key={exp.company + exp.period}
+                className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
+              >
+                <span>
+                  <span className="font-medium text-text-primary">
+                    {exp.url ? (
+                      <a
+                        href={exp.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="jonas-link"
+                      >
+                        {exp.company}
+                      </a>
+                    ) : (
+                      exp.company
+                    )}
+                  </span>
+                  <span className="block text-text-secondary">{exp.role}</span>
+                </span>
+                <span className="shrink-0 text-text-secondary">
+                  {exp.period.replace(' — ', '–')}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6">
+            <Link to="/experience" className="jonas-link text-[0.9375rem]">
+              → Full history
+            </Link>
+          </p>
+        </LabelledRow>
+      </div>
+
+      {/* Services */}
+      <div className="pt-24 md:pt-32">
+        <LabelledRow label={about.skills.title}>
+          <ul className="flex flex-col gap-1.5 list-none text-text-secondary">
+            {about.skills.items.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </LabelledRow>
+      </div>
+
+      {/* Clients */}
+      <div className="pt-24 md:pt-32">
+        <LabelledRow label="Selected clients">
+          <ul className="flex flex-col gap-1.5 list-none text-text-secondary">
+            {clients.map((client) => (
+              <li key={client}>{client}</li>
+            ))}
+          </ul>
+        </LabelledRow>
+      </div>
+
+      {/* Quote */}
+      <div className="pt-24 md:pt-32">
+        <LabelledRow label="On design">
+          <blockquote>
+            <p className="jonas-lede text-xl md:text-[1.6rem] max-w-[24ch]">
+              “{home.quote.text}”
+            </p>
+            <cite className="mt-3 block text-[0.9375rem] not-italic text-text-secondary">
+              {home.quote.author}
+            </cite>
+          </blockquote>
+        </LabelledRow>
+      </div>
     </div>
   );
 }
