@@ -147,15 +147,20 @@ Every `<figure>` inside a `<gallery>` is collected into a lightbox (arrow keys, 
   grey `meta` half (`Featured work · 2021–2026`).
 - `LabelledRow` — 32px heading left, content right. Every block below the work
   grid uses it, which keeps the page on one spine.
-- `StaggeredGrid` / `ArticleGrid` — the two-column card grids, for case
-  studies and for Medium posts.
-- `ProjectCard` / `ArticleCard` — same shape: grey card, image flush to the
-  card's edges, 24px caption. Both take their `aspect` class from the grid
-  rather than choosing one.
+- `StaggeredGrid` — the two-column card grid, used by the work index only.
+- `ProjectCard` — grey card, image flush to its edges, 24px caption. Takes its
+  `aspect` class from the grid rather than choosing one; the cycle lives in
+  `src/lib/aspects.ts` so it is not exported from a component file, which would
+  break fast refresh and the lint rule that guards it.
+- `RowTile` — the image half of a list row: a 3:2 tile on the card grey at the
+  card radius. `fit="cover"` fills it (a cover image); `fit="contain"` sits the
+  image inside with padding (a logo, which must not be cropped).
 
-The aspect cycle itself lives in `src/lib/aspects.ts` rather than beside a
-component, so both grids share one source and neither file trips the lint rule
-against exporting a constant alongside a component.
+**Writing and Experience are lists, not grids.** Both run down the page in one
+column: `RowTile` on the left, all the writing on the right, hairline rules
+between rows, on the same two-column split as everything else. Sharing one row
+shape is what keeps them reading as the same page even though one carries
+screenshots and the other company marks.
 
 `SectionHeading` from `main` is gone; `PageLede` + `BlockLabel` replace it.
 

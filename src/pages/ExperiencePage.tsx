@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { getExperienceContent } from '@/lib/experience';
 import { PageLede } from '@/components/PageLede';
+import { RowTile } from '@/components/RowTile';
 import { useSEO, generateTitle } from '@/hooks/useSEO';
 
 export function ExperiencePage() {
@@ -19,55 +20,48 @@ export function ExperiencePage() {
       </section>
 
       <div className="flex flex-col">
-        {experiences.map((exp, index) => (
-          <motion.article
-            key={exp.company + exp.period}
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.5, delay: (index % 4) * 0.04 }}
-            className="grid gap-4 border-t border-border py-10 md:grid-cols-2 md:gap-10 md:py-14"
-          >
-            {/* Left column reads like the reference — name, role, date — with
-                the company mark above it, on the same grey the cards use. */}
-            <div>
-              {exp.logo && (
-                <span className="mb-5 block h-20 w-20 overflow-hidden rounded-xl bg-surface md:h-24 md:w-24">
-                  <img
-                    src={exp.logo}
-                    alt={exp.company}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-full w-full object-cover"
-                  />
-                </span>
-              )}
-              <h3 className="j-item">
-                {exp.url ? (
-                  <a
-                    href={exp.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline decoration-border underline-offset-[6px] transition-colors hover:decoration-text-primary"
-                  >
-                    {exp.company}
-                  </a>
-                ) : (
-                  exp.company
-                )}
-              </h3>
-              <p className="j-item text-text-tertiary">{exp.role}</p>
-              <p className="j-meta mt-2">{exp.period.replace(' — ', '–')}</p>
-            </div>
+        {experiences.map((exp, index) => {
+          const body = (
+            <>
+              {/* Logo left, everything written on the right — the same row
+                  shape the Writing page uses. */}
+              <RowTile src={exp.logo} alt={exp.company} fit="contain" />
 
-            <div>
-              <p className="j-meta text-text-primary">{exp.description}</p>
-              {exp.skills && exp.skills.length > 0 && (
-                <p className="j-meta mt-4">{exp.skills.join(', ')}</p>
+              <div className="md:self-center">
+                <h3 className="j-item underline decoration-border underline-offset-[6px] transition-colors group-hover:decoration-text-primary">
+                  {exp.company}
+                </h3>
+                <p className="j-item text-text-tertiary">{exp.role}</p>
+                <p className="j-meta mt-2">{exp.period.replace(' — ', '–')}</p>
+                <p className="j-meta mt-5 text-text-primary">{exp.description}</p>
+                {exp.skills && exp.skills.length > 0 && (
+                  <p className="j-meta mt-4">{exp.skills.join(', ')}</p>
+                )}
+              </div>
+            </>
+          );
+
+          const rowClass =
+            'group grid gap-6 border-t border-border py-10 md:grid-cols-2 md:gap-10 md:py-14';
+
+          return (
+            <motion.article
+              key={exp.company + exp.period}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.5, delay: (index % 4) * 0.04 }}
+            >
+              {exp.url ? (
+                <a href={exp.url} target="_blank" rel="noopener noreferrer" className={rowClass}>
+                  {body}
+                </a>
+              ) : (
+                <div className={rowClass}>{body}</div>
               )}
-            </div>
-          </motion.article>
-        ))}
+            </motion.article>
+          );
+        })}
       </div>
     </div>
   );

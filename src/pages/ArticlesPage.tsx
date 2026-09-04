@@ -1,7 +1,8 @@
+import { motion } from 'framer-motion';
 import { getArticlesContent } from '@/lib/articles';
 import { PageLede } from '@/components/PageLede';
 import { BlockLabel } from '@/components/BlockLabel';
-import { ArticleGrid } from '@/components/ArticleGrid';
+import { RowTile } from '@/components/RowTile';
 import { useSEO, generateTitle } from '@/hooks/useSEO';
 
 export function ArticlesPage() {
@@ -22,7 +23,35 @@ export function ArticlesPage() {
       <BlockLabel meta="Medium" className="mb-8 md:mb-14">
         {`${articles.length} pieces`}
       </BlockLabel>
-      <ArticleGrid articles={articles} />
+
+      <div className="flex flex-col">
+        {articles.map((article, index) => (
+          <motion.article
+            key={article.url}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.5, delay: (index % 4) * 0.04 }}
+          >
+            <a
+              href={article.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group grid gap-6 border-t border-border py-10 md:grid-cols-2 md:gap-10 md:py-14"
+            >
+              <RowTile src={article.coverImage} alt={article.title} />
+
+              <div className="md:self-center">
+                <h3 className="j-item underline decoration-border underline-offset-[6px] transition-colors group-hover:decoration-text-primary">
+                  {article.title}
+                </h3>
+                <p className="j-meta mt-4 text-text-primary">{article.description}</p>
+                <p className="j-meta mt-4">{article.date} · Medium</p>
+              </div>
+            </a>
+          </motion.article>
+        ))}
+      </div>
     </div>
   );
 }
