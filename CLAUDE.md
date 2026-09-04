@@ -166,8 +166,8 @@ Every `<figure>` inside a `<gallery>` is collected into a lightbox (arrow keys, 
   `aspect` class from the grid rather than choosing one; the cycle lives in
   `src/lib/aspects.ts` so it is not exported from a component file, which would
   break fast refresh and the lint rule that guards it.
-- `RowTile` — the image half of a Writing row: a 3:2 thumbnail on the card grey
-  at the card radius.
+- `RowTile` — the image half of a Writing row: a square thumbnail on the card
+  grey at the card radius, matching the square company marks on Experience.
 
 **Writing and Experience are lists, not grids.** Both run down the page in one
 column — image left in a 260px column, all the writing right at the 620px

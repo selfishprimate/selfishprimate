@@ -4,12 +4,13 @@ interface RowTileProps {
 }
 
 /**
- * The image half of a list row: a 3:2 thumbnail on the card grey, at the card
- * radius.
+ * The image half of a list row: a square thumbnail on the card grey, at the
+ * card radius. Square rather than 3:2 so it matches the company marks on the
+ * Experience page and the two lists keep one rhythm.
  */
 export function RowTile({ src, alt }: RowTileProps) {
   return (
-    <span className="block aspect-[3/2] overflow-hidden rounded-card bg-surface">
+    <span className="block aspect-square overflow-hidden rounded-card bg-surface">
       {src && (
         <img
           src={src}
