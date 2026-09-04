@@ -45,7 +45,15 @@ export function Footer() {
           is this one. */}
       <div className="mt-28 border-t border-border pt-14" />
 
-      <div className="grid gap-10 md:grid-cols-3">
+      <div className="grid gap-10 md:grid-cols-4">
+        {/* The wordmark heads this column so its first line sits on the same
+            baseline as the three headings beside it. */}
+        <div>
+          <p className="j-item mb-4 tracking-[0.01em]">SELFISHPRIMATE</p>
+          <p className="j-meta">© {currentYear} selfishprimate</p>
+          <p className="j-meta">{siteConfig.location}</p>
+        </div>
+
         <nav aria-label="Elsewhere">
           <h3 className="j-item mb-4">Elsewhere</h3>
           <ul className="flex flex-col gap-1.5 list-none">
@@ -85,8 +93,6 @@ export function Footer() {
                 About
               </Link>
             </li>
-            <li className="j-meta mt-4">© {currentYear} selfishprimate</li>
-            <li className="j-meta">{siteConfig.location}</li>
           </ul>
         </div>
       </div>
