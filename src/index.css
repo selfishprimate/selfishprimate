@@ -143,13 +143,13 @@ body {
     color: var(--color-text-secondary);
   }
 
-  /* The only buttons on the site. They take `--radius-card` rather than a pill
-     shape, so they carry the same corner as everything else. */
+  /* The only buttons on the site, and the only fully round thing on it — the
+     one place that does not use `--radius-card`. */
   .j-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    border-radius: var(--radius-card);
+    border-radius: 999px;
     padding: 1rem 1.75rem;
     font-size: clamp(1rem, 1.6vw, 1.25rem);
     font-weight: 500;
