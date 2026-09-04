@@ -46,9 +46,13 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         </div>
 
         <div className="p-6">
-          {/* 2.6em is exactly two lines at this size and leading. */}
-          <h3 className="j-item line-clamp-2 min-h-[2.6em]">{project.title}</h3>
-          <p className="j-item j-fade mt-1">{project.company}</p>
+          {/* A step above the shared list size — the title is the thing being
+              read here. 2.6em is exactly two lines at this leading, and being
+              em-based it tracks the size rather than needing its own number. */}
+          <h3 className="j-item line-clamp-2 min-h-[2.6em] text-[clamp(1.125rem,1.9vw,1.5rem)]">
+            {project.title}
+          </h3>
+          <p className="j-item j-fade mt-3 font-normal">{project.company}</p>
         </div>
       </Link>
     </motion.article>
