@@ -11,6 +11,17 @@ import { siteConfig } from '@/lib/data';
  */
 const icons: { label: string; href: string; viewBox?: string; body: ReactNode }[] = [
   {
+    label: 'LinkedIn',
+    href: siteConfig.social.linkedin,
+    // Solid letterforms, no containing box. Drawn as a filled mark rather than
+    // an outline that has been filled in, which is why the stem and the bowl
+    // carry the same weight as GitHub and Medium.
+    viewBox: '0 0 448 512',
+    body: (
+      <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
+    ),
+  },
+  {
     label: 'GitHub',
     href: siteConfig.social.github,
     body: (
@@ -22,17 +33,6 @@ const icons: { label: string; href: string; viewBox?: string; body: ReactNode }[
     href: 'https://medium.com/@selfishprimate',
     body: (
       <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
-    ),
-  },
-  {
-    label: 'LinkedIn',
-    href: siteConfig.social.linkedin,
-    // Solid letterforms, no containing box. Drawn as a filled mark rather than
-    // an outline that has been filled in, which is why the stem and the bowl
-    // carry the same weight as GitHub and Medium.
-    viewBox: '0 0 448 512',
-    body: (
-      <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
     ),
   },
 ];
