@@ -9,7 +9,6 @@ import { PageLede } from '@/components/PageLede';
 import { BlockLabel } from '@/components/BlockLabel';
 import { WorkGrid } from '@/components/WorkGrid';
 import { LabelledRow } from '@/components/LabelledRow';
-import { HeroSolid } from '@/components/HeroSolid';
 import { useSEO, generateTitle, schemas } from '@/hooks/useSEO';
 
 export function HomePage() {
@@ -31,16 +30,15 @@ export function HomePage() {
     years.length > 0 ? `${Math.min(...years)}–${Math.max(...years)}` : undefined;
 
   // Derived from the work itself rather than hardcoded, so it cannot drift.
-  const clients = Array.from(new Set(allProjects.map((p) => p.company)));
+  // Still derived from the case studies, so it cannot drift from them — but
+  // "selected" is the point: the full list of thirteen ran twice the length of
+  // the column beside it. Projects are already in featured-then-recent order.
+  const clients = Array.from(new Set(allProjects.map((p) => p.company))).slice(0, 6);
 
   return (
     <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10">
       {/* Hero */}
-      <section className="relative isolate pt-24 pb-28 md:pt-44 md:pb-56">
-        {/* The home hero is the one place the water follows the whole
-            section rather than stopping at a fixed depth. */}
-        <HeroSolid />
-
+      <section className="pt-24 pb-28 md:pt-44 md:pb-56">
         <PageLede title={home.hero.headline} fade={home.hero.headlineFade} />
 
         {/* The standfirst deliberately says what the headline does not —
@@ -160,12 +158,15 @@ export function HomePage() {
         </LabelledRow>
       </div>
 
-      {/* Services and clients, side by side */}
-      <div className="grid gap-10 pt-28 md:grid-cols-2 md:pt-44">
+      {/* Services and clients, side by side. Measured off the reference: two
+          604px columns 72px apart, 64px from the heading to the first item and
+          48px between items. The airiness is the design — closing it up is
+          what made this read as a dumped list rather than a set of columns. */}
+      <div className="grid gap-y-24 pt-28 md:grid-cols-2 md:gap-x-[72px] md:pt-44">
         <section>
-          <h2 className="j-heading">{about.skills.title}</h2>
-          <ul className="mt-6 flex flex-col gap-1.5 list-none">
-            {about.skills.items.map((item) => (
+          <h2 className="j-heading">{home.services.title}</h2>
+          <ul className="mt-16 flex flex-col gap-12 list-none">
+            {home.services.items.map((item) => (
               <li key={item} className="j-item">
                 {item}
               </li>
@@ -175,7 +176,7 @@ export function HomePage() {
 
         <section>
           <h2 className="j-heading">Selected clients</h2>
-          <ul className="mt-6 flex flex-col gap-1.5 list-none">
+          <ul className="mt-16 flex flex-col gap-12 list-none">
             {clients.map((client) => (
               <li key={client} className="j-item">
                 {client}

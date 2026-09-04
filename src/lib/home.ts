@@ -27,6 +27,11 @@ export interface HomeCTA {
   buttonText: string;
 }
 
+export interface HomeServices {
+  title: string;
+  items: string[];
+}
+
 export interface HomeSocial {
   linkedin: string;
 }
@@ -37,6 +42,7 @@ export interface HomeContent {
   featuredWork: HomeSectionMeta;
   experiencePreview: HomeSectionMeta;
   cta: HomeCTA;
+  services: HomeServices;
   social: HomeSocial;
 }
 
@@ -78,6 +84,7 @@ function parseHomeContent(content: string): HomeContent {
     featuredWork: { label: '', title: '' },
     experiencePreview: { label: '', title: '' },
     cta: { title: '', description: '', buttonText: '' },
+    services: { title: '', items: [] },
     social: { linkedin: '' },
   };
 
@@ -119,6 +126,13 @@ function parseHomeContent(content: string): HomeContent {
         title: sectionData.title || '',
         description: sectionData.description || '',
         buttonText: sectionData.buttonText || '',
+      };
+    } else if (headerLine === '# Services') {
+      homeContent.services = {
+        title: sectionData.title || '',
+        items: sectionData.items
+          ? sectionData.items.split(',').map((item) => item.trim()).filter(Boolean)
+          : [],
       };
     } else if (headerLine === '# Social') {
       homeContent.social = {

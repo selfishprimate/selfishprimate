@@ -24,5 +24,9 @@ title: Let's create something amazing together
 description: Have a project in mind? I'd love to hear about it. Let's discuss how we can work together.
 buttonText: Connect on LinkedIn
 
+# Services
+title: Services
+items: Design systems, Product design, Design engineering, Design strategy, Websites and mobile apps
+
 # Social
 linkedin: https://www.linkedin.com/in/selfishprimate/
