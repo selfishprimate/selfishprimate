@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { PageLede } from '@/components/PageLede';
-import { HeroWave } from '@/components/HeroWave';
 import { BlockLabel } from '@/components/BlockLabel';
 import { getIllustrationsContent } from '@/lib/illustrations';
 import { useSEO, generateTitle } from '@/hooks/useSEO';
@@ -69,8 +68,7 @@ export function IllustrationsPage() {
 
   return (
     <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10">
-      <section className="relative isolate">
-        <HeroWave />
+      <section>
         <div className="pt-24 pb-24 md:pt-44 md:pb-40">
           <PageLede title={meta.title} description={meta.description} />
         </div>

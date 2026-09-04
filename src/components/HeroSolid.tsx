@@ -208,16 +208,10 @@ function pickSolid(): string {
 interface HeroSolidProps {
   /** Force a form instead of picking one. Handy when comparing them. */
   solid?: string;
-  /**
-   * `band` is a fixed depth from the top of the page — the right choice
-   * anywhere the opening section runs long. `section` fills whatever section it
-   * is placed in, which only the home hero wants.
-   */
-  extent?: 'band' | 'section';
   className?: string;
 }
 
-export function HeroSolid({ solid, extent = 'band', className = '' }: HeroSolidProps) {
+export function HeroSolid({ solid, className = '' }: HeroSolidProps) {
   const ref = useRef<HTMLPreElement>(null);
 
   useEffect(() => {
@@ -339,9 +333,7 @@ export function HeroSolid({ solid, extent = 'band', className = '' }: HeroSolidP
     <pre
       ref={ref}
       aria-hidden="true"
-      className={`pointer-events-none absolute -top-20 left-1/2 -z-10 hidden w-screen -translate-x-1/2 select-none overflow-hidden whitespace-pre font-mono text-[10px] leading-none text-text-tertiary/[0.34] md:block ${
-        extent === 'section' ? 'bottom-0' : 'h-[560px]'
-      } ${className}`}
+      className={`pointer-events-none absolute -top-20 bottom-0 left-1/2 -z-10 hidden w-screen -translate-x-1/2 select-none overflow-hidden whitespace-pre font-mono text-[10px] leading-none text-text-tertiary/[0.34] md:block ${className}`}
       style={{
         maskImage:
           'linear-gradient(to bottom, transparent, black 14%, black 74%, transparent), linear-gradient(to right, transparent, black 10%, black 90%, transparent)',

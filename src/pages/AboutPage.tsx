@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react';
 import { getAboutContent } from '@/lib/about';
 import { PageLede } from '@/components/PageLede';
-import { HeroWave } from '@/components/HeroWave';
 import { LabelledRow } from '@/components/LabelledRow';
 import { useSEO, generateTitle, schemas } from '@/hooks/useSEO';
 
@@ -64,9 +63,7 @@ export function AboutPage() {
 
   return (
     <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10">
-      <section className="relative isolate pt-24 pb-20 md:pt-44 md:pb-28">
-        <HeroWave />
-
+      <section className="pt-24 pb-20 md:pt-44 md:pb-28">
         <PageLede
           title={`${about.profile.title} in ${about.profile.location.split(',')[0]}.`}
           fade="Fifteen years building the design systems that products are actually made of."

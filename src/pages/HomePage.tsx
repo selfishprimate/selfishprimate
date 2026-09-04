@@ -9,7 +9,7 @@ import { PageLede } from '@/components/PageLede';
 import { BlockLabel } from '@/components/BlockLabel';
 import { WorkGrid } from '@/components/WorkGrid';
 import { LabelledRow } from '@/components/LabelledRow';
-import { HeroWave } from '@/components/HeroWave';
+import { HeroSolid } from '@/components/HeroSolid';
 import { useSEO, generateTitle, schemas } from '@/hooks/useSEO';
 
 export function HomePage() {
@@ -39,7 +39,7 @@ export function HomePage() {
       <section className="relative isolate pt-24 pb-28 md:pt-44 md:pb-56">
         {/* The home hero is the one place the water follows the whole
             section rather than stopping at a fixed depth. */}
-        <HeroWave extent="section" />
+        <HeroSolid />
 
         <PageLede title={home.hero.headline} fade={home.hero.headlineFade} />
 

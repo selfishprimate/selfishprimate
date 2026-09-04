@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { getArticlesContent } from '@/lib/articles';
 import { PageLede } from '@/components/PageLede';
-import { HeroWave } from '@/components/HeroWave';
 import { BlockLabel } from '@/components/BlockLabel';
 import { RowTile } from '@/components/RowTile';
 import { useSEO, generateTitle } from '@/hooks/useSEO';
@@ -17,9 +16,7 @@ export function ArticlesPage() {
 
   return (
     <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10">
-      <section className="relative isolate pt-24 pb-24 md:pt-44 md:pb-40">
-        <HeroWave />
-
+      <section className="pt-24 pb-24 md:pt-44 md:pb-40">
         <PageLede title={meta.title} description={meta.description} />
       </section>
 
