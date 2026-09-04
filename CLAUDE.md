@@ -184,42 +184,46 @@ makes the two lists stop matching.
 Writing covers get the grey tile; Experience logos do not. A company mark
 carries its own shape and its own background, and boxing it only fights that.
 
-`HeroWave` sits full-bleed behind the opening section of **every** page, pulled
-up past the top of that section so the surface continues behind the header —
-which has no background of its own and so sits in the water. It is a lit water
-surface drawn in monospace, and three things make it read as water rather than
-as a pattern:
+`HeroSolid` sits full-bleed behind the **home** hero and nowhere else, pulled
+up past the top of that section so it continues behind the header — which has
+no background of its own and so sits inside it. The inner pages open with a
+short lede and a decorative form there only competed with it.
 
-- **The waves are sharpened.** Each component is a sine raised to a power,
-  because real swell has narrow crests and broad troughs.
-- **The surface is lit, not shaded by height.** A normal is taken off the height
-  field and run through diffuse plus a soft specular. Height alone gives you
-  stripes; a normal gives you a surface.
-- **It recedes, shallowly.** Coordinates divide by a depth that grows toward the
-  top. Widen that range and the whole field collapses into radial streaks
-  converging on the top edge — the range is small on purpose.
+It is the oldest trick in graphics and still the most convincing one in text:
+sample points on a surface, rotate them, project them, keep the nearest at each
+character cell with a z-buffer, and pick the character from how much light that
+point's normal catches. Because it has a **silhouette** it reads as an object
+rather than as a texture, which is the whole reason it is here and the reason
+the water surface that preceded it was dropped.
 
-The page is white, so luminance is inverted on the way out: lit crests leave the
-paper bare and the shadowed side of a crest fills with characters. The ramp
-stops short of a solid glyph, which is what stops it becoming a block of texture
-however the light is tuned.
+The page is white, so the shading is inverted: a lit face leaves the paper
+nearly bare and a face turned away from the light fills with characters. The
+ramp stops short of a solid glyph, and every covered cell keeps at least a faint
+mark, so the form never breaks apart however the light is tuned.
 
-There are six models — `swell`, `chop`, `ripples`, `interference`, `roll` and
-`caustics` — and each is only a height function plus how hard it recedes. One is
-chosen at random when the component mounts, never repeating the one before it,
-so a refresh changes the water and so does moving between pages. Pass `model` to
-pin one while comparing them.
+There are eight forms — `torus`, `sphere`, `cube`, `knot`, `coil`, `mobius`,
+`squircle` and `icosahedron`. Most are one function and nothing else, because
+two helpers carry the work:
 
-`extent` decides how far down it runs. The default `band` is a fixed 560px from
-the top of the page, which is what every page but the home page wants — there is
-no reason for the water to follow a long page header all the way down. The home
-hero passes `extent="section"` and fills its section instead.
+- `sweep(curve, tube, …)` runs a round tube along a closed curve, framing each
+  ring off the curve's own tangent. `knot` and `coil` are curves.
+- `parametric(point, …)` takes normals from the cross product of two
+  finite-difference tangents, so a surface is written as its position function
+  alone. `mobius` and `squircle` are position functions.
 
-It evaluates the sines once per cell into a buffer and reads neighbours from it
-for the normal, repaints at about 18fps rather than 60, and holds a single still
-frame under `prefers-reduced-motion`. It is hidden below `md`.
+`icosahedron` is the one built face by face: twenty flat triangles walked in
+barycentric steps, so its shading steps rather than sweeps.
 
-Sections that carry it need `relative isolate`: the wave sits at `-z-10`, and
+One form is chosen at random on mount. The last one is remembered in
+**sessionStorage**, not a module variable — module state resets on reload, so a
+plain module variable let a refresh repeat the form it had just shown, which is
+exactly when the variation is meant to show. Pass `solid` to pin one while
+comparing them.
+
+It repaints at about 18fps rather than 60, holds a single still frame under
+`prefers-reduced-motion`, and is hidden below `md`.
+
+The section that carries it needs `relative isolate`: it sits at `-z-10`, and
 without the isolation it would drop behind the page background rather than
 behind the section's own content.
 

@@ -111,21 +111,14 @@ function cube(): Sample[] {
   return out;
 }
 
-/**
- * A (2,3) torus knot: a tube swept along a knotted curve. The frame at each
- * step comes from the curve's own tangent, so the tube stays round as the path
- * twists through itself.
- */
-function knot(): Sample[] {
-  const out: Sample[] = [];
-  const tube = 0.36;
-  const steps = 320;
-  const around = 30;
+type Curve = (u: number) => [number, number, number];
 
-  const curve = (u: number) => {
-    const r = Math.cos(3 * u) * 0.55 + 1.5;
-    return [r * Math.cos(2 * u), r * Math.sin(2 * u), -Math.sin(3 * u) * 0.62];
-  };
+/**
+ * Sweep a round tube along a closed curve. The frame at each step comes from
+ * the curve's own tangent, so the tube stays round however the path twists.
+ */
+function sweep(curve: Curve, tube: number, steps: number, around: number): Sample[] {
+  const out: Sample[] = [];
 
   for (let i = 0; i < steps; i += 1) {
     const u = (i / steps) * Math.PI * 2;
@@ -140,10 +133,11 @@ function knot(): Sample[] {
     ty /= tl;
     tz /= tl;
 
-    // Any vector not parallel to the tangent will do for the first axis.
-    let ax = ty * 0 - tz * 1;
-    let ay = tz * 0 - tx * 0;
-    let az = tx * 1 - ty * 0;
+    // Cross the tangent with a fixed axis to get the first ring direction. Any
+    // axis will do as long as the curve never runs parallel to it.
+    let ax = -tz;
+    let ay = 0;
+    let az = tx;
     const al = Math.hypot(ax, ay, az) || 1;
     ax /= al;
     ay /= al;
@@ -160,20 +154,193 @@ function knot(): Sample[] {
       const nx = ax * cp + bx * sp;
       const ny = ay * cp + by * sp;
       const nz = az * cp + bz * sp;
-      out.push({
-        x: px + nx * tube,
-        y: py + ny * tube,
-        z: pz + nz * tube,
-        nx,
-        ny,
-        nz,
-      });
+      out.push({ x: px + nx * tube, y: py + ny * tube, z: pz + nz * tube, nx, ny, nz });
     }
   }
   return out;
 }
 
-const SOLIDS: Record<string, () => Sample[]> = { torus, sphere, cube, knot };
+/**
+ * Sample a parametric surface, taking normals from the cross product of two
+ * finite-difference tangents. Slower to build than an analytic normal and
+ * exact enough at this size, which is what lets a form be written as its
+ * position function alone.
+ */
+function parametric(
+  point: (u: number, v: number) => [number, number, number],
+  uSteps: number,
+  vSteps: number,
+  uMax: number,
+  vMin: number,
+  vMax: number,
+): Sample[] {
+  const out: Sample[] = [];
+  const h = 0.002;
+
+  for (let i = 0; i < uSteps; i += 1) {
+    const u = (i / uSteps) * uMax;
+    for (let j = 0; j <= vSteps; j += 1) {
+      const v = vMin + (j / vSteps) * (vMax - vMin);
+      const [x, y, z] = point(u, v);
+      const [ux, uy, uz] = point(u + h, v);
+      const [vx, vy, vz] = point(u, v + h);
+
+      const au = [ux - x, uy - y, uz - z];
+      const av = [vx - x, vy - y, vz - z];
+      let nx = au[1] * av[2] - au[2] * av[1];
+      let ny = au[2] * av[0] - au[0] * av[2];
+      let nz = au[0] * av[1] - au[1] * av[0];
+      const nl = Math.hypot(nx, ny, nz) || 1;
+      nx /= nl;
+      ny /= nl;
+      nz /= nl;
+
+      out.push({ x, y, z, nx, ny, nz });
+    }
+  }
+  return out;
+}
+
+/** A (2,3) torus knot: one closed path that passes through itself twice. */
+function knot(): Sample[] {
+  return sweep(
+    (u) => {
+      const r = Math.cos(3 * u) * 0.55 + 1.5;
+      return [r * Math.cos(2 * u), r * Math.sin(2 * u), -Math.sin(3 * u) * 0.62];
+    },
+    0.36,
+    320,
+    30,
+  );
+}
+
+/** A coil: the same sweep run along a helix instead of a closed loop. */
+function coil(): Sample[] {
+  const turns = 2.2;
+  return sweep(
+    (u) => {
+      const f = u / (Math.PI * 2);
+      const t = f * turns * Math.PI * 2;
+      return [Math.cos(t) * 1.5, f * 2.7 - 1.35, Math.sin(t) * 1.5];
+    },
+    0.26,
+    460,
+    26,
+  );
+}
+
+/**
+ * A Möbius band. It has one side, so its normal flips as the band turns back
+ * on itself — which is exactly what makes the twist legible: the light leaves
+ * the surface as it passes through the half turn.
+ */
+function mobius(): Sample[] {
+  return parametric(
+    (u, w) => [
+      (1.45 + w * Math.cos(u / 2)) * Math.cos(u),
+      w * Math.sin(u / 2),
+      (1.45 + w * Math.cos(u / 2)) * Math.sin(u),
+    ],
+    420,
+    48,
+    Math.PI * 2,
+    -0.9,
+    0.9,
+  );
+}
+
+/**
+ * A superellipsoid at an exponent that lands between a sphere and a cube — the
+ * same rounded-square corner the rest of the site is built on, as a solid.
+ */
+function squircle(): Sample[] {
+  const e = 0.42;
+  const p = (a: number, k: number) => Math.sign(Math.sin(a)) * Math.abs(Math.sin(a)) ** k;
+  const q = (a: number, k: number) => Math.sign(Math.cos(a)) * Math.abs(Math.cos(a)) ** k;
+  return parametric(
+    (u, v) => [1.7 * q(v, e) * q(u, e), 1.7 * p(v, e), 1.7 * q(v, e) * p(u, e)],
+    260,
+    130,
+    Math.PI * 2,
+    -Math.PI / 2,
+    Math.PI / 2,
+  );
+}
+
+/**
+ * An icosahedron. Twenty flat triangles, so unlike every other form here the
+ * shading steps rather than sweeps — the one that reads as faceted.
+ */
+function icosahedron(): Sample[] {
+  const g = 1.618033988749895;
+  const scale = 1.95 / Math.hypot(1, g);
+  const v: [number, number, number][] = [
+    [-1, g, 0], [1, g, 0], [-1, -g, 0], [1, -g, 0],
+    [0, -1, g], [0, 1, g], [0, -1, -g], [0, 1, -g],
+    [g, 0, -1], [g, 0, 1], [-g, 0, -1], [-g, 0, 1],
+  ].map(([x, y, z]) => [x * scale, y * scale, z * scale]);
+
+  const faces = [
+    [0, 11, 5], [0, 5, 1], [0, 1, 7], [0, 7, 10], [0, 10, 11],
+    [1, 5, 9], [5, 11, 4], [11, 10, 2], [10, 7, 6], [7, 1, 8],
+    [3, 9, 4], [3, 4, 2], [3, 2, 6], [3, 6, 8], [3, 8, 9],
+    [4, 9, 5], [2, 4, 11], [6, 2, 10], [8, 6, 7], [9, 8, 1],
+  ];
+
+  const out: Sample[] = [];
+  const steps = 44;
+
+  for (const [ia, ib, ic] of faces) {
+    const a = v[ia];
+    const b = v[ib];
+    const c = v[ic];
+    const e1 = [b[0] - a[0], b[1] - a[1], b[2] - a[2]];
+    const e2 = [c[0] - a[0], c[1] - a[1], c[2] - a[2]];
+
+    let nx = e1[1] * e2[2] - e1[2] * e2[1];
+    let ny = e1[2] * e2[0] - e1[0] * e2[2];
+    let nz = e1[0] * e2[1] - e1[1] * e2[0];
+    const nl = Math.hypot(nx, ny, nz) || 1;
+    nx /= nl;
+    ny /= nl;
+    nz /= nl;
+    // The solid is centred on the origin, so any vertex points outward.
+    if (nx * a[0] + ny * a[1] + nz * a[2] < 0) {
+      nx = -nx;
+      ny = -ny;
+      nz = -nz;
+    }
+
+    // Walk the triangle in barycentric steps rather than sampling a square and
+    // discarding most of it.
+    for (let i = 0; i <= steps; i += 1) {
+      for (let j = 0; j <= steps - i; j += 1) {
+        const s = i / steps;
+        const t = j / steps;
+        out.push({
+          x: a[0] + e1[0] * s + e2[0] * t,
+          y: a[1] + e1[1] * s + e2[1] * t,
+          z: a[2] + e1[2] * s + e2[2] * t,
+          nx,
+          ny,
+          nz,
+        });
+      }
+    }
+  }
+  return out;
+}
+
+const SOLIDS: Record<string, () => Sample[]> = {
+  torus,
+  sphere,
+  cube,
+  knot,
+  coil,
+  mobius,
+  squircle,
+  icosahedron,
+};
 const SOLID_IDS = Object.keys(SOLIDS);
 
 const LAST_SOLID_KEY = 'heroSolid';
