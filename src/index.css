@@ -25,6 +25,10 @@
      cover images, embeds, logos, the portrait — uses `rounded-card`, so
      changing it here changes it everywhere. */
   --radius-card: 24px;
+  /* An image inset inside a card gets the outer radius minus the inset, which
+     is what makes the two corners concentric instead of merely both round.
+     24 − 12 = 12; change the inset and this has to move with it. */
+  --radius-card-inner: 12px;
 }
 
 .dark {

@@ -28,9 +28,10 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
     >
       <Link
         to={`/works/${project.slug}`}
-        className="group flex h-full flex-col overflow-hidden rounded-card bg-surface"
+        className="group flex h-full flex-col rounded-card bg-surface p-3"
       >
-        <div className="aspect-[4/3] overflow-hidden">
+        {/* Inset 12px, so the cover reads as its own card inside the card. */}
+        <div className="aspect-[4/3] overflow-hidden rounded-card-inner">
           {project.coverImage && (
             <img
               src={project.coverImage}
@@ -42,7 +43,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           )}
         </div>
 
-        <div className="p-6">
+        <div className="px-3 pt-5 pb-3">
           {/* 2.6em is exactly two lines at this size and leading. */}
           <h3 className="j-item line-clamp-2 min-h-[2.6em]">{project.title}</h3>
           <p className="j-item j-fade mt-1">{project.company}</p>

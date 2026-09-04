@@ -163,8 +163,13 @@ Every `<figure>` inside a `<gallery>` is collected into a lightbox (arrow keys, 
   grid uses it, which keeps the page on one spine.
 - `WorkGrid` — the two-column card grid, used by the home page and the work
   index.
-- `ProjectCard` — grey card, image flush to its edges, 24px caption, fixed
-  height.
+- `ProjectCard` — grey card with the cover inset 12px inside it, so the image
+  reads as its own card. Fixed height.
+
+The inset image uses `rounded-card-inner`, which is `--radius-card` minus the
+inset: 24 − 12 = 12. That is what makes the two corners concentric rather than
+merely both round, and it means changing the inset means changing that token
+too.
 - `RowTile` — the image half of a Writing row: a square thumbnail on the card
   grey at the card radius, matching the square company marks on Experience.
 
