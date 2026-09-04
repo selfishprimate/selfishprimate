@@ -37,12 +37,12 @@ export function ArticlesPage() {
               href={article.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group grid gap-6 border-t border-border py-10 md:grid-cols-2 md:gap-10 md:py-14"
+              className="group grid gap-5 border-t border-border py-8 md:grid-cols-[minmax(0,260px)_minmax(0,620px)] md:gap-10 md:py-10"
             >
               <RowTile src={article.coverImage} alt={article.title} />
 
               <div className="md:self-center">
-                <h3 className="j-item underline decoration-border underline-offset-[6px] transition-colors group-hover:decoration-text-primary">
+                <h3 className="j-heading underline decoration-border underline-offset-[8px] transition-colors group-hover:decoration-text-primary">
                   {article.title}
                 </h3>
                 <p className="j-meta mt-4 text-text-primary">{article.description}</p>

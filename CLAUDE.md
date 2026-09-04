@@ -152,15 +152,16 @@ Every `<figure>` inside a `<gallery>` is collected into a lightbox (arrow keys, 
   `aspect` class from the grid rather than choosing one; the cycle lives in
   `src/lib/aspects.ts` so it is not exported from a component file, which would
   break fast refresh and the lint rule that guards it.
-- `RowTile` — the image half of a list row: a 3:2 tile on the card grey at the
-  card radius. `fit="cover"` fills it (a cover image); `fit="contain"` sits the
-  image inside with padding (a logo, which must not be cropped).
+- `RowTile` — the image half of a Writing row: a 3:2 thumbnail on the card grey
+  at the card radius.
 
 **Writing and Experience are lists, not grids.** Both run down the page in one
-column: `RowTile` on the left, all the writing on the right, hairline rules
-between rows, on the same two-column split as everything else. Sharing one row
-shape is what keeps them reading as the same page even though one carries
-screenshots and the other company marks.
+column — image left in a 260px column, all the writing right at the 620px
+measure, hairline rules between rows. Row titles sit at 32px so each list has a
+head of its own.
+
+Writing covers get the grey tile; Experience logos do not. A company mark
+carries its own shape and its own background, and boxing it only fights that.
 
 `SectionHeading` from `main` is gone; `PageLede` + `BlockLabel` replace it.
 

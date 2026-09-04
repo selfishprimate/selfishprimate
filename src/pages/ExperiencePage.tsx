@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { getExperienceContent } from '@/lib/experience';
 import { PageLede } from '@/components/PageLede';
-import { RowTile } from '@/components/RowTile';
 import { useSEO, generateTitle } from '@/hooks/useSEO';
 
 export function ExperiencePage() {
@@ -23,15 +22,26 @@ export function ExperiencePage() {
         {experiences.map((exp, index) => {
           const body = (
             <>
-              {/* Logo left, everything written on the right — the same row
-                  shape the Writing page uses. */}
-              <RowTile src={exp.logo} alt={exp.company} fit="contain" />
+              {/* Logo left, everything written on the right. No tile behind
+                  it: a company mark carries its own shape and a grey box only
+                  fights it. */}
+              <span className="block">
+                {exp.logo && (
+                  <img
+                    src={exp.logo}
+                    alt={exp.company}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-24 md:w-28"
+                  />
+                )}
+              </span>
 
               <div className="md:self-center">
-                <h3 className="j-item underline decoration-border underline-offset-[6px] transition-colors group-hover:decoration-text-primary">
+                <h3 className="j-heading underline decoration-border underline-offset-[8px] transition-colors group-hover:decoration-text-primary">
                   {exp.company}
                 </h3>
-                <p className="j-item text-text-tertiary">{exp.role}</p>
+                <p className="j-item mt-1 text-text-tertiary">{exp.role}</p>
                 <p className="j-meta mt-2">{exp.period.replace(' — ', '–')}</p>
                 <p className="j-meta mt-5 text-text-primary">{exp.description}</p>
                 {exp.skills && exp.skills.length > 0 && (
@@ -42,7 +52,7 @@ export function ExperiencePage() {
           );
 
           const rowClass =
-            'group grid gap-6 border-t border-border py-10 md:grid-cols-2 md:gap-10 md:py-14';
+            'group grid gap-5 border-t border-border py-8 md:grid-cols-[minmax(0,260px)_minmax(0,620px)] md:gap-10 md:py-10';
 
           return (
             <motion.article
