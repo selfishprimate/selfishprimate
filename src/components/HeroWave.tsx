@@ -1,49 +1,33 @@
 import { useEffect, useRef } from 'react';
 
 /**
- * Waves running up a beach and draining back, top to bottom.
+ * A lit water surface behind the hero, rendered in monospace.
  *
- * The sea is off the top of the field and the dry sand is at the bottom. What
- * is actually simulated is the waterline: for every column, the row the water
- * currently reaches.
+ * Three things make it read as water rather than as a pattern:
  *
- * Three things make it read as a shore rather than as a bar moving up and down:
+ * 1. The waves are sharpened. Real swell has narrow crests and broad troughs,
+ *    so each component is a sine raised to a power rather than a plain sine.
+ * 2. The surface is lit, not shaded by height. A normal is taken from the
+ *    height field and run through a diffuse term plus a soft specular, so
+ *    crests catch a highlight and the far side of each one falls away. Height
+ *    alone gives you stripes; a normal gives you a surface.
+ * 3. It recedes, gently. Coordinates are divided by a depth that grows toward
+ *    the top of the field. Push this too far and the whole thing collapses into
+ *    radial streaks, so the range is deliberately shallow.
  *
- * 1. **The swash is asymmetric.** Water rushes up the sand in about a fifth of
- *    the time it takes to drain back. A symmetric oscillation reads as a
- *    machine immediately.
- * 2. **Two cycles at once, on periods that never divide.** Most waves are
- *    small; now and then two peaks coincide and one runs much further up the
- *    beach. That irregularity is most of the realism.
- * 3. **The sand stays wet.** Each column remembers the furthest the water
- *    reached and dries out slowly behind it, so the retreating edge leaves a
- *    darker band that fades rather than vanishing.
- *
- * On top of that the leading edge carries foam — speckle, not a solid line —
- * and the open water behind it is textured by swell travelling down the page.
+ * Because the page is white, luminance is inverted on the way out: lit crests
+ * leave the paper bare and the shadowed side fills with characters. The ramp
+ * stops well short of solid and the whole layer sits at low opacity — this is
+ * meant to be noticed on the second look, not the first.
  */
 
-const RAMP = ' ·:-=+*';
+/** Deliberately short of a solid character: the darkest mark here is a plus. */
+const RAMP = ' ·:-=+';
 
-/** Seconds for the two swash cycles. Deliberately not multiples. */
-const CYCLE_A = 7.4;
-const CYCLE_B = 11.3;
-
-/**
- * One swash cycle, 0 at the lowest reach and 1 at the furthest. Rushes up in
- * the first fifth, drains back over the rest.
- */
-function swash(cycles: number) {
-  const f = cycles - Math.floor(cycles);
-  if (f < 0.2) return Math.pow(f / 0.2, 0.55);
-  return Math.pow(1 - (f - 0.2) / 0.8, 1.7);
-}
-
-/** Cheap deterministic speckle, for foam and for grains of wet sand. */
-function grain(x: number, y: number) {
-  const n = Math.sin(x * 12.9898 + y * 78.233) * 43758.5453;
-  return n - Math.floor(n);
-}
+/** Direction the light comes from, normalised. */
+const LIGHT_X = 0.38;
+const LIGHT_Y = -0.5;
+const LIGHT_Z = 0.78;
 
 interface HeroWaveProps {
   className?: string;
@@ -63,7 +47,8 @@ export function HeroWave({ className = '' }: HeroWaveProps) {
     let frameId = 0;
     let resizeTimer = 0;
     let lastPaint = 0;
-    let wet = new Float32Array(0);
+    let field = new Float32Array(0);
+    let stride = 0;
     const startedAt = performance.now();
     const row: string[] = [];
 
@@ -76,63 +61,71 @@ export function HeroWave({ className = '' }: HeroWaveProps) {
       const cellH = parseFloat(style.lineHeight) || parseFloat(style.fontSize);
       if (!cellW || !cellH) return;
       cols = Math.max(20, Math.floor(el.clientWidth / cellW));
-      rows = Math.max(10, Math.floor(el.clientHeight / cellH));
-      wet = new Float32Array(cols);
+      rows = Math.max(8, Math.floor(el.clientHeight / cellH));
+      // One extra column and row of overscan, so every cell has a neighbour to
+      // difference against when the normal is taken.
+      stride = cols + 1;
+      field = new Float32Array(stride * (rows + 1));
     };
+
+    /** A sine with narrow crests and broad troughs, as swell actually is. */
+    const swell = (phase: number, sharpness: number) =>
+      Math.pow((Math.sin(phase) + 1) * 0.5, sharpness) * 2 - 1;
 
     const paint = (now: number) => {
       frameId = requestAnimationFrame(paint);
-      const elapsed = now - lastPaint;
-      if (elapsed < 55) return;
-      const dt = Math.min(0.25, elapsed / 1000);
+      if (now - lastPaint < 55) return;
       lastPaint = now;
       if (!cols || !rows) return;
 
-      const t = reduced ? 2.2 : (now - startedAt) / 1000;
+      const t = reduced ? 4 : (now - startedAt) / 1000;
+      const centreX = (cols - 1) / 2;
 
-      const lowest = rows * 0.3;
-      const reach = rows * 0.62;
-      // How fast the sand gives up its water, in rows per second.
-      const drying = rows * 0.16;
-
-      const out: string[] = [];
-      const edges = new Float32Array(cols);
-
-      for (let x = 0; x < cols; x += 1) {
-        // The beach is not level, and the two cycles arrive slightly out of
-        // step along it, so the edge is a curve rather than a straight line.
-        const lie = 0.5 + 0.3 * Math.sin(x * 0.021 + t * 0.11) + 0.2 * Math.sin(x * 0.049 - t * 0.07);
-        const a = swash(t / CYCLE_A + lie * 0.1);
-        const b = swash(t / CYCLE_B + lie * 0.17) * 0.7;
-        const edge = lowest + Math.max(a, b) * reach;
-        edges[x] = edge;
-        // The sand remembers the furthest the water came, then dries.
-        wet[x] = Math.max(edge, wet[x] - drying * dt);
+      for (let y = 0; y <= rows; y += 1) {
+        // Shallow perspective. A wider range here turns the field into radial
+        // streaks converging on the top edge.
+        const depth = 1 / (0.62 + 0.38 * ((y + 0.5) / rows));
+        const base = y * stride;
+        for (let x = 0; x <= cols; x += 1) {
+          const wx = (x - centreX) * 0.05 * depth;
+          const wz = depth * 2.4;
+          field[base + x] =
+            0.55 * swell(wx * 1.0 + wz * 0.55 - t * 0.75, 1.8) +
+            0.3 * swell(wx * 1.9 - wz * 0.42 + t * 0.52, 2.4) +
+            0.16 * swell(wx * 4.1 + wz * 1.2 - t * 1.35, 3.2);
+        }
       }
 
+      const out: string[] = [];
       for (let y = 0; y < rows; y += 1) {
         row.length = 0;
         for (let x = 0; x < cols; x += 1) {
-          const edge = edges[x];
-          const g = grain(x, y);
-          let value = 0;
+          const h = field[base(y) + x];
+          // Slopes. The vertical one is scaled up because a character cell is
+          // about twice as tall as it is wide, so a step down the page covers
+          // more ground than a step across it.
+          const dhx = (field[base(y) + x + 1] - h) * 9;
+          const dhy = (field[base(y + 1) + x] - h) * 4.5;
 
-          if (y < edge) {
-            // Seaward of the line. Swell travelling down the page, and more
-            // turbulence the closer to the breaking edge.
-            const depth = edge - y;
-            const swell = 0.5 + 0.5 * Math.sin(y * 0.42 - t * 3.1 + x * 0.035);
-            const body = 0.2 + 0.28 * swell;
-            const foam = depth < 3.2 ? (1 - depth / 3.2) * 0.85 * (0.45 + g) : 0;
-            value = Math.max(body, foam);
-          } else if (y < wet[x]) {
-            // Sand the water has covered and not yet given up. Fades both with
-            // distance behind the edge and as the whole band dries.
-            const behind = (y - edge) / Math.max(1, wet[x] - edge);
-            value = (1 - behind) * 0.34 * (0.55 + g * 0.8);
-          }
+          const nx = -dhx;
+          const ny = -dhy;
+          const length = Math.hypot(nx, ny, 1);
+          const ix = nx / length;
+          const iy = ny / length;
+          const iz = 1 / length;
 
-          row.push(RAMP[Math.round(Math.min(1, Math.max(0, value)) * (RAMP.length - 1))]);
+          const diffuse = Math.max(0, ix * LIGHT_X + iy * LIGHT_Y + iz * LIGHT_Z);
+          const hx = LIGHT_X;
+          const hy = LIGHT_Y;
+          const hz = LIGHT_Z + 1;
+          const hLen = Math.hypot(hx, hy, hz);
+          const spec = Math.pow(Math.max(0, (ix * hx + iy * hy + iz * hz) / hLen), 26);
+
+          // A narrow band of light, so most of the field stays empty and only
+          // the shadowed side of a crest picks up a mark.
+          const light = 0.52 + 0.46 * diffuse + 0.4 * spec;
+          const density = Math.min(1, Math.max(0, 1 - light));
+          row.push(RAMP[Math.round(density * (RAMP.length - 1))]);
         }
         out.push(row.join(''));
       }
@@ -140,6 +133,8 @@ export function HeroWave({ className = '' }: HeroWaveProps) {
       el.textContent = out.join('\n');
       if (reduced) cancelAnimationFrame(frameId);
     };
+
+    const base = (y: number) => y * stride;
 
     const onResize = () => {
       window.clearTimeout(resizeTimer);
@@ -161,12 +156,12 @@ export function HeroWave({ className = '' }: HeroWaveProps) {
     <pre
       ref={ref}
       aria-hidden="true"
-      className={`pointer-events-none select-none overflow-hidden whitespace-pre font-mono text-[10px] leading-none text-text-tertiary/30 ${className}`}
+      className={`pointer-events-none select-none overflow-hidden whitespace-pre font-mono text-[10px] leading-none text-text-tertiary/[0.16] ${className}`}
       style={{
         maskImage:
-          'linear-gradient(to bottom, transparent, black 16%, black 78%, transparent), linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+          'linear-gradient(to bottom, transparent, black 26%, black 70%, transparent), linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
         WebkitMaskImage:
-          'linear-gradient(to bottom, transparent, black 16%, black 78%, transparent), linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+          'linear-gradient(to bottom, transparent, black 26%, black 70%, transparent), linear-gradient(to right, transparent, black 12%, black 88%, transparent)',
         maskComposite: 'intersect',
         WebkitMaskComposite: 'source-in',
       }}
