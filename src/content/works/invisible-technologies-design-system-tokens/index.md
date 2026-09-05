@@ -47,7 +47,7 @@ Primitives are the raw, hidden palette and scales that developers never touch. S
 
 Underneath them sits the palette itself, where neutrals and brand hues are built by the same recipe so every ramp steps in the same places.
 
-<gallery cols="2">
+<gallery cols="1">
 <figure src="./images/primitive-color-ramp-gray.jpg" alt="Primitive gray color ramp">Gray, a neutral ladder fine enough for surfaces and borders to layer without collapsing into each other</figure>
 <figure src="./images/primitive-color-ramp-electric-blue.jpg" alt="Primitive electric blue color ramp">Electric blue, a brand ramp generated from the same OKLCH maths as the neutrals</figure>
 </gallery>
@@ -66,7 +66,7 @@ Tailwind v4's `--color-*` namespace generates every property from one value, whi
 
 One hidden numeric scale, the `scaler`, feeds every dimension family through aliases: spacing, sizing, radius, border width and control height. Unlike color these are not property scoped, so they emit as native Tailwind `@theme` and let Tailwind generate the utilities itself. A single spacing token produces around eighty five padding, margin, gap and sizing classes on its own.
 
-<gallery cols="2">
+<gallery cols="1">
 <figure src="./images/spacing-showcase.jpg" alt="Spacing scale showcase">A sixteen step spacing scale, named by intent rather than by pixel value</figure>
 <figure src="./images/sizing-showcase.jpg" alt="Sizing scale showcase">Sizing shares the same scaler, so a step means the same thing wherever it appears</figure>
 <figure src="./images/radius-showcase.jpg" alt="Border radius showcase">Radius mirrors Tailwind's own t-shirt vocabulary</figure>
