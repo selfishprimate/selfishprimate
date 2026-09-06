@@ -16,7 +16,7 @@ featuredOrder: 1
 
 ### Overview
 
-Invisible Technologies' product UI runs on Tailwind and shadcn, but its design tokens were a thin, hand maintained layer with no primitive or semantic structure. We rebuilt the token foundation in Figma and wired it to code, so the system has a real architecture that stays in sync and reads the same in design and development.
+Invisible Technologies' product UI runs on Tailwind and shadcn, but its design tokens were a thin, hand maintained layer with no primitive or semantic structure. We rebuilt the token foundation in Figma and wired it to code, so the system has a real architecture that stays in sync and reads the same in design and development. The product is dark first, which is why most of the sheets here are shown in dark; every semantic role still resolves in both modes.
 
 ### Objectives
 
@@ -48,14 +48,14 @@ Primitives are the raw, hidden palette and scales that developers never touch. S
 Underneath them sits the palette itself, where neutrals and brand hues are built by the same recipe so every ramp steps in the same places.
 
 <gallery cols="1">
-<figure src="./images/primitive-color-ramp-gray.jpg" alt="Primitive gray color ramp">Gray, a neutral ladder fine enough for surfaces and borders to layer without collapsing into each other</figure>
-<figure src="./images/primitive-color-ramp-electric-blue.jpg" alt="Primitive electric blue color ramp">Electric blue, a brand ramp generated from the same OKLCH maths as the neutrals</figure>
+<figure src="./images/primitive-color-ramp-gray-dark.jpg" alt="Primitive gray color ramp">Gray, a neutral ladder fine enough for surfaces and borders to layer without collapsing into each other</figure>
+<figure src="./images/primitive-color-ramp-electric-blue-dark.jpg" alt="Primitive electric blue color ramp">Electric blue, a brand ramp generated from the same OKLCH maths as the neutrals</figure>
 </gallery>
 
 The type scale follows the same logic. Font families, weights and sizes live as primitives, and each role composes them into a single class.
 
 <gallery cols="1">
-<figure src="./images/typography-display.jpg" alt="Display typography showcase">Display roles, where family, size, line height, tracking and weight resolve into one utility</figure>
+<figure src="./images/typography-display-dark.jpg" alt="Display typography showcase">Display roles, where family, size, line height, tracking and weight resolve into one utility</figure>
 </gallery>
 
 ### The Core Problem, and the @utility Solution
@@ -102,7 +102,7 @@ Only color and typography need a custom utility, because only they are property 
 Every token family has a showcase sheet in Figma that renders the tokens in use, from color ramps and radius swatches to spacing bars and control heights, with the exact class beside each one. The documentation and the specification are the same artifact.
 
 <gallery cols="1">
-<figure src="./images/typography-playground.jpg" alt="Typography playground sheet">The type playground sets each role in real copy rather than specimen rows, so a decision can be judged where it will actually be read</figure>
+<figure src="./images/typography-playground-dark.jpg" alt="Typography playground sheet">The type playground sets each role in real copy rather than specimen rows, so a decision can be judged where it will actually be read</figure>
 </gallery>
 
 ### Challenges
