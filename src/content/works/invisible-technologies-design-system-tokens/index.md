@@ -45,11 +45,25 @@ Primitives are the raw, hidden palette and scales that developers never touch. S
 <figure src="./images/semantic-color-text-roles-light.jpg" alt="Semantic text color roles in light and dark">Semantic text roles, each one an alias into the hidden primitive layer, resolved side by side for light and dark</figure>
 </gallery>
 
-Underneath them sits the palette itself, where neutrals and brand hues are built by the same recipe so every ramp steps in the same places.
+Underneath them sits the palette itself, and two decisions shaped it: the colour space the ramps are generated in, and how many rungs each one gets.
+
+### Why OKLCH
+
+Hex and HSL make a ramp a matter of taste. Equal numeric steps do not land as equal visual steps, and hue drifts as a colour darkens, so a ramp built by eye bunches up in places and jumps in others. OKLCH puts lightness on a perceptual axis, which means one lightness ladder can carry every hue in the system and contrast behaves the same way wherever a token is applied.
+
+Generating that in a colour picker is guesswork, so I built **Rampas**, a small tool for producing OKLCH ramps against a fixed lightness ladder. Every primitive here came out of it, which is also why the palette is reproducible: it is a function of its inputs rather than a set of values someone once chose and everyone since has matched by hand.
+
+### How Many Steps a Ramp Needs
+
+Tailwind ships eleven steps per colour, 50 through 950. That is generous for light mode, where surfaces sit at the pale end and two or three tints usually cover a whole interface.
+
+Dark mode is where it runs out. A layered surface structure, page behind card behind raised card behind popover, each with a border that has to separate them, needs several distinct near blacks. Tailwind offers 900, 950, and then black. The rest get invented inline, which is the exact thing tokens exist to prevent.
+
+So the primitives here run eighteen steps, and the neutral runs twenty six, from pure white at 0 to pure black at 1000. Seven of those rungs sit at or below `gray/800`: 800, 850, 900, 925, 950, 975 and 1000. That is the range a dark interface actually builds its surfaces out of.
 
 <gallery cols="1">
-<figure src="./images/primitive-color-ramp-gray-dark.jpg" alt="Primitive gray color ramp">Gray, a neutral ladder fine enough for surfaces and borders to layer without collapsing into each other</figure>
-<figure src="./images/primitive-color-ramp-electric-blue-dark.jpg" alt="Primitive electric blue color ramp">Electric blue, a brand ramp generated from the same OKLCH maths as the neutrals</figure>
+<figure src="./images/primitive-color-ramp-gray-dark.jpg" alt="Primitive gray color ramp">Gray, twenty six rungs from white at 0 to black at 1000, fine enough at the dark end for surfaces and borders to layer without collapsing into each other</figure>
+<figure src="./images/primitive-color-ramp-electric-blue-dark.jpg" alt="Primitive electric blue color ramp">Electric blue, eighteen steps on the same OKLCH lightness ladder, with the brand value sitting at 500</figure>
 </gallery>
 
 The type scale follows the same logic. Font families, weights and sizes live as primitives, and each role composes them into a single class.
