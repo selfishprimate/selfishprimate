@@ -16,7 +16,7 @@ featuredOrder: 1
 
 ### Overview
 
-Invisible Technologies' product UI runs on Tailwind and shadcn, but its design tokens were a thin, hand maintained layer with no primitive or semantic structure. We rebuilt the token foundation in Figma and wired it to code, so the system has a real architecture that stays in sync and reads the same in design and development. The product is dark first, which is why most of the sheets here are shown in dark; every semantic role still resolves in both modes.
+Invisible Technologies' product UI runs on Tailwind and shadcn, but its design tokens were a thin, hand maintained layer with no primitive or semantic structure. We rebuilt the token foundation in Figma and wired it to code, so the system has a real architecture that stays in sync and reads the same in design and development. The product is dark first, which is why the colour ramps and type sheets here are shown in dark; every semantic role still resolves in both modes.
 
 ### Objectives
 
@@ -42,7 +42,7 @@ Primitives are the raw, hidden palette and scales that developers never touch. S
 </gallery>
 
 <gallery cols="1">
-<figure src="./images/semantic-color-text-roles-dark.jpg" alt="Semantic text color roles in light and dark">Semantic text roles, each one an alias into the hidden primitive layer, resolved side by side for light and dark</figure>
+<figure src="./images/semantic-color-text-roles-light.jpg" alt="Semantic text color roles in light and dark">Semantic text roles, each one an alias into the hidden primitive layer, resolved side by side for light and dark</figure>
 </gallery>
 
 Underneath them sits the palette itself, where neutrals and brand hues are built by the same recipe so every ramp steps in the same places.
