@@ -42,7 +42,7 @@ Primitives are the raw, hidden palette and scales that developers never touch. S
 </gallery>
 
 <gallery cols="1">
-<figure src="./images/semantic-color-text-roles.jpg" alt="Semantic text color roles in light and dark">Semantic text roles, each one an alias into the hidden primitive layer, resolved side by side for light and dark</figure>
+<figure src="./images/semantic-color-text-roles-dark.jpg" alt="Semantic text color roles in light and dark">Semantic text roles, each one an alias into the hidden primitive layer, resolved side by side for light and dark</figure>
 </gallery>
 
 Underneath them sits the palette itself, where neutrals and brand hues are built by the same recipe so every ramp steps in the same places.
