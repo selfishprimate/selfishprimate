@@ -107,6 +107,21 @@ Note: any build regenerates `sitemap.xml` with today's `lastmod` on every entry,
 
 ## Architecture
 
+### Writing the content
+
+**No dashes as punctuation anywhere in `src/content/`.** Not em dashes, not en
+dashes, not a hyphen standing in for one. Use the punctuation the sentence
+actually calls for: a full stop where the clause can stand alone, a colon where
+what follows explains what came before, a comma where it is an aside, brackets
+where it is genuinely parenthetical. In a list, `- **Label:** text` rather than
+`- **Label** — text`.
+
+This applies to case-study bodies, frontmatter descriptions, figure captions
+and every other authored markdown file. Hyphens inside compound words
+(`machine-readable`, `well-known`) are words, not punctuation, and stay. En
+dashes in numeric ranges (`2021–2026`) are fine, and those are generated rather
+than authored.
+
 ### Content system (markdown-driven)
 
 Each content type has a parser module in `src/lib/` that:
