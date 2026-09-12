@@ -12,7 +12,7 @@ featured: false
 draft: true
 ---
 
-> “The best investment platforms are the ones that make complex financial decisions feel simple.”
+> The best investment platforms are the ones that make complex financial decisions feel simple.
 >
 > Anonymous
 

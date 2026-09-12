@@ -10,7 +10,7 @@ order: 7
 year: "2023"
 ---
 
-> “Good design, when it's done well, becomes invisible. It's only when it's done poorly that we notice it.”
+> Good design, when it's done well, becomes invisible. It's only when it's done poorly that we notice it.
 >
 > Jared Spool
 

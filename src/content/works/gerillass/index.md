@@ -12,7 +12,7 @@ featured: true
 featuredOrder: 3
 ---
 
-> “Documentation drifts away from code in most projects, quietly. An agent reading stale docs writes code that does not work.”
+> Documentation drifts away from code in most projects, quietly. An agent reading stale docs writes code that does not work.
 
 ### The Problem It Was Built For
 

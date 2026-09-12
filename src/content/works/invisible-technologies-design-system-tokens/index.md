@@ -12,7 +12,7 @@ featured: true
 featuredOrder: 1
 ---
 
-> “A design token is a decision, recorded once, in a form both people and machines can read.”
+> A design token is a decision, recorded once, in a form both people and machines can read.
 
 ### Overview
 
