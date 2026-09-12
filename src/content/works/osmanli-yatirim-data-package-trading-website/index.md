@@ -4,7 +4,7 @@ description: "Redesign of a data package trading platform used by customer repre
 company: "Osmanli Yatirim Bank"
 category: "FinTech"
 tags: ["FinTech", "Banking", "Web App", "Enterprise UX"]
-coverImage: "./images/cover.jpg"
+coverImage: "./images/cover.webp"
 images: []
 order: 10
 year: "2021"
@@ -43,7 +43,7 @@ I adopted an incrementalist methodology, breaking the project into testable micr
 The redesigned dashboard starts with a clear call-to-action: find a customer. The prominent search field with recent search history allows representatives to quickly access frequently-served customers. This customer-first approach reflects the actual workflow: every transaction begins with identifying who you're serving.
 
 <gallery cols="1">
-<figure src="./images/search.jpg" alt="Customer search interface">Clean search interface with recent customer history, reducing time to find returning clients</figure>
+<figure src="./images/search.webp" alt="Customer search interface">Clean search interface with recent customer history, reducing time to find returning clients</figure>
 </gallery>
 
 Once a customer is selected, the dashboard transforms into a comprehensive overview. The customer profile appears at the top with contact details readily accessible. Below, recommended packages based on the customer's profile are displayed in a carousel for quick selling opportunities.
@@ -51,7 +51,7 @@ Once a customer is selected, the dashboard transforms into a comprehensive overv
 The key metrics (Commission and BES/Fund Size) are visualized with progress indicators, giving representatives instant insight into the customer's account status. The data requests table below shows all active packages with filtering options for status, vendor, and platform type.
 
 <gallery cols="1">
-<figure src="./images/home.jpg" alt="Customer dashboard">Customer dashboard showing profile, recommended packages, account metrics, and active subscriptions with inline actions</figure>
+<figure src="./images/home.webp" alt="Customer dashboard">Customer dashboard showing profile, recommended packages, account metrics, and active subscriptions with inline actions</figure>
 </gallery>
 
 ### Package Discovery
@@ -61,7 +61,7 @@ When representatives need to sell a new package, the package listing page organi
 The recommended packages carousel persists at the top, keeping AI-driven suggestions visible throughout the browsing experience. Each package card displays the product image, name, platform type, description, and price: all the information needed to make a recommendation without clicking through.
 
 <gallery cols="1">
-<figure src="./images/package-listing.jpg" alt="Package catalog">Categorized package catalog with persistent recommendations and filterable product grid</figure>
+<figure src="./images/package-listing.webp" alt="Package catalog">Categorized package catalog with persistent recommendations and filterable product grid</figure>
 </gallery>
 
 ### Package Configuration
@@ -71,13 +71,13 @@ The package detail view is where the real complexity lives. Trading data package
 The license information table provides a clear overview of what's included, with checkboxes for selection and dropdown menus for specific configurations. Below, accordion sections group additional options: Algorithmic Trading & Server, Research & Applications, and Structural Indexes.
 
 <gallery cols="1">
-<figure src="./images/package-details.jpg" alt="Package configuration">Package configuration with organized license options and collapsible advanced settings</figure>
+<figure src="./images/package-details.webp" alt="Package configuration">Package configuration with organized license options and collapsible advanced settings</figure>
 </gallery>
 
 When expanded, each section reveals selectable add-ons with individual pricing. The running total updates in real-time at the bottom, along with a breakdown of BES/Investment Fund contribution and commission. The sticky footer ensures the "Approve" button and total are always visible, regardless of how far the user scrolls.
 
 <gallery cols="1">
-<figure src="./images/package-details-expanded.jpg" alt="Expanded package options">Fully expanded configuration showing all add-on options with individual pricing and real-time total calculation</figure>
+<figure src="./images/package-details-expanded.webp" alt="Expanded package options">Fully expanded configuration showing all add-on options with individual pricing and real-time total calculation</figure>
 </gallery>
 
 ### Safe Cancellation Flow
@@ -87,7 +87,7 @@ Package cancellation is a high-stakes action that previously lacked proper safeg
 The cancellation timing selector allows representatives to choose when the cancellation takes effect: immediately, or at the end of the billing period. The destructive action button is styled in red to differentiate it from standard actions, reducing accidental clicks.
 
 <gallery cols="1">
-<figure src="./images/package-cancellation.jpg" alt="Cancellation confirmation">Cancellation confirmation modal with package details, timing options, and clear warning about billing implications</figure>
+<figure src="./images/package-cancellation.webp" alt="Cancellation confirmation">Cancellation confirmation modal with package details, timing options, and clear warning about billing implications</figure>
 </gallery>
 
 ### Reflection

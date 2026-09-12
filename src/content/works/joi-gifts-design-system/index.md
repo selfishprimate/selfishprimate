@@ -4,7 +4,7 @@ description: "This project focuses on developing a comprehensive design system f
 company: "Joi Gifts"
 category: "Design System"
 tags: ["Design System", "Tokenomics", "Mobile App", "E-commerce"]
-coverImage: "./images/cover.jpg"
+coverImage: "./images/cover.webp"
 images: []
 order: 4
 year: "2024"
@@ -42,7 +42,7 @@ We used Figma and Token Studio plugin to create design tokens including colors, 
 The color system establishes a cohesive palette that reflects the brand identity while ensuring accessibility and visual hierarchy.
 
 <gallery cols="1">
-<figure src="./images/tokens-colors-primary.jpg" alt="Primary color palette">Foundational brand hues with hex values and usage guidelines</figure>
+<figure src="./images/tokens-colors-primary.webp" alt="Primary color palette">Foundational brand hues with hex values and usage guidelines</figure>
 </gallery>
 
 #### Sizing & Spacing
@@ -50,8 +50,8 @@ The color system establishes a cohesive palette that reflects the brand identity
 Consistent sizing and spacing tokens create rhythm and harmony across the interface, making the product feel polished and intentional.
 
 <gallery cols="1">
-<figure src="./images/tokens-sizing.jpg" alt="Sizing scale">Consistent proportional dimensions for components</figure>
-<figure src="./images/tokens-spacing.jpg" alt="Spacing scale">Harmonious spacing values for layouts</figure>
+<figure src="./images/tokens-sizing.webp" alt="Sizing scale">Consistent proportional dimensions for components</figure>
+<figure src="./images/tokens-spacing.webp" alt="Spacing scale">Harmonious spacing values for layouts</figure>
 </gallery>
 
 #### Shadow & Border Radius
@@ -59,8 +59,8 @@ Consistent sizing and spacing tokens create rhythm and harmony across the interf
 These tokens add depth and softness to the interface, creating a modern and approachable visual language.
 
 <gallery cols="1">
-<figure src="./images/tokens-shadow.jpg" alt="Shadow tokens">Elevation levels for focus and hierarchy</figure>
-<figure src="./images/tokens-border-radius.jpg" alt="Border radius tokens">Visual cohesion through consistent corner radii</figure>
+<figure src="./images/tokens-shadow.webp" alt="Shadow tokens">Elevation levels for focus and hierarchy</figure>
+<figure src="./images/tokens-border-radius.webp" alt="Border radius tokens">Visual cohesion through consistent corner radii</figure>
 </gallery>
 
 #### Typography
@@ -68,7 +68,7 @@ These tokens add depth and softness to the interface, creating a modern and appr
 The typography system defines type scales, weights, and styles that ensure readability, hierarchy, and professionalism across all content.
 
 <gallery cols="1">
-<figure src="./images/tokens-typography.jpg" alt="Typography scale">Font sizes, weights, and line heights for text styles</figure>
+<figure src="./images/tokens-typography.webp" alt="Typography scale">Font sizes, weights, and line heights for text styles</figure>
 </gallery>
 
 ### Collaboration & Development
@@ -88,9 +88,9 @@ A comprehensive system of reusable UI components with documented variants and st
 Essential form elements including checkboxes, radio buttons, and switches with consistent styling and interaction patterns.
 
 <gallery cols="1">
-<figure src="./images/components-checkboxes.jpg" alt="Checkbox components">Single and multiple selection patterns</figure>
-<figure src="./images/components-radio-buttons.jpg" alt="Radio button components">Single selection patterns</figure>
-<figure src="./images/components-switch-buttons.jpg" alt="Switch components">On/off toggle patterns</figure>
+<figure src="./images/components-checkboxes.webp" alt="Checkbox components">Single and multiple selection patterns</figure>
+<figure src="./images/components-radio-buttons.webp" alt="Radio button components">Single selection patterns</figure>
+<figure src="./images/components-switch-buttons.webp" alt="Switch components">On/off toggle patterns</figure>
 </gallery>
 
 #### Feedback Components
@@ -98,8 +98,8 @@ Essential form elements including checkboxes, radio buttons, and switches with c
 Components for user feedback including alerts, bottom sheets, and popups that maintain consistency in how we communicate with users.
 
 <gallery cols="1">
-<figure src="./images/components-alerts.jpg" alt="Alert components">Prominent messaging for user feedback</figure>
-<figure src="./images/components-bottom-sheet.jpg" alt="Bottom sheet component">Mobile content display patterns</figure>
+<figure src="./images/components-alerts.webp" alt="Alert components">Prominent messaging for user feedback</figure>
+<figure src="./images/components-bottom-sheet.webp" alt="Bottom sheet component">Mobile content display patterns</figure>
 </gallery>
 
 #### Interactive Elements
@@ -107,9 +107,9 @@ Components for user feedback including alerts, bottom sheets, and popups that ma
 Date pickers, emoji ratings, and color selection buttons that provide rich interaction while maintaining visual consistency.
 
 <gallery cols="1">
-<figure src="./images/components-datepicker.jpg" alt="Date picker component">Calendar interface for date selection</figure>
-<figure src="./images/components-emoji-rating.jpg" alt="Emoji rating component">Sentiment feedback through emoji selection</figure>
-<figure src="./images/components-color-buttons.jpg" alt="Color selection buttons">Color options for search filtering</figure>
+<figure src="./images/components-datepicker.webp" alt="Date picker component">Calendar interface for date selection</figure>
+<figure src="./images/components-emoji-rating.webp" alt="Emoji rating component">Sentiment feedback through emoji selection</figure>
+<figure src="./images/components-color-buttons.webp" alt="Color selection buttons">Color options for search filtering</figure>
 </gallery>
 
 #### Cards & Overlays
@@ -117,8 +117,8 @@ Date pickers, emoji ratings, and color selection buttons that provide rich inter
 Add-on cards and popup components for displaying grouped content and modal interactions.
 
 <gallery cols="1">
-<figure src="./images/components-add-on-cards.jpg" alt="Add-on cards">Product cards with quantity control</figure>
-<figure src="./images/components-popup.jpg" alt="Popup dialog">Modal overlays for confirmations</figure>
+<figure src="./images/components-add-on-cards.webp" alt="Add-on cards">Product cards with quantity control</figure>
+<figure src="./images/components-popup.webp" alt="Popup dialog">Modal overlays for confirmations</figure>
 </gallery>
 
 ### Iconography
@@ -130,8 +130,8 @@ Meticulous selection prioritizing stroke thickness for clarity, readability, and
 Country flags are integral to country selection flows. They were designed in square, rounded, and circular versions, and shared with the Figma community as "Awesome Country Flags" asset.
 
 <gallery cols="1">
-<figure src="./images/icons.jpg" alt="Icon library">Custom icon set balancing accessibility and aesthetics</figure>
-<figure src="./images/flags.jpg" alt="Country flags">Square, rounded, and circular flag variants</figure>
+<figure src="./images/icons.webp" alt="Icon library">Custom icon set balancing accessibility and aesthetics</figure>
+<figure src="./images/flags.webp" alt="Country flags">Square, rounded, and circular flag variants</figure>
 </gallery>
 
 ### Conclusion

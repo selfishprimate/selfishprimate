@@ -4,7 +4,7 @@ description: "A UX evaluation and redesign of Letgo's filtering and listing scre
 company: "Letgo"
 category: "UX Research & Design"
 tags: ["Heuristic Evaluation", "Filtering UX", "E-commerce", "Mobile Design"]
-coverImage: "./images/cover.jpg"
+coverImage: "./images/cover.webp"
 images: []
 order: 6
 year: "2024"
@@ -26,7 +26,7 @@ I conducted a heuristic evaluation using Nielsen's 10 Usability Heuristics as a 
 The first set of issues I identified related to the core filtering experience and listing screen presentation.
 
 <gallery cols="1">
-<figure src="./images/letgo-heuristic-evaluation-01.jpg" alt="Heuristic evaluation of filter panel and listing screen">Analysis of the filter panel structure, search options accessibility, price display inconsistencies, and multi-city selection limitations</figure>
+<figure src="./images/letgo-heuristic-evaluation-01.webp" alt="Heuristic evaluation of filter panel and listing screen">Analysis of the filter panel structure, search options accessibility, price display inconsistencies, and multi-city selection limitations</figure>
 </gallery>
 
 **Key issues identified:**
@@ -44,7 +44,7 @@ The first set of issues I identified related to the core filtering experience an
 The second evaluation focused on how listings are displayed and how the filtering flow concludes.
 
 <gallery cols="1">
-<figure src="./images/letgo-heuristic-evaluation-02.jpg" alt="Heuristic evaluation of listing view and filter application">Analysis of stepper component misuse, ambiguous save button, product card spacing, filter persistence, and the Apply button positioning</figure>
+<figure src="./images/letgo-heuristic-evaluation-02.webp" alt="Heuristic evaluation of listing view and filter application">Analysis of stepper component misuse, ambiguous save button, product card spacing, filter persistence, and the Apply button positioning</figure>
 </gallery>
 
 **Key issues identified:**
@@ -66,7 +66,7 @@ The second evaluation focused on how listings are displayed and how the filterin
 The category selection flow revealed several interaction design issues.
 
 <gallery cols="1">
-<figure src="./images/letgo-heuristic-evaluation-03.jpg" alt="Heuristic evaluation of category selection">Analysis of selected category positioning, "All Categories" menu confusion, keyboard behavior issues, and empty state handling</figure>
+<figure src="./images/letgo-heuristic-evaluation-03.webp" alt="Heuristic evaluation of category selection">Analysis of selected category positioning, "All Categories" menu confusion, keyboard behavior issues, and empty state handling</figure>
 </gallery>
 
 **Key issues identified:**
@@ -84,7 +84,7 @@ The category selection flow revealed several interaction design issues.
 The sorting functionality had significant clarity issues.
 
 <gallery cols="1">
-<figure src="./images/letgo-heuristic-evaluation-04.jpg" alt="Heuristic evaluation of sorting options">Analysis of incorrect checkbox pattern for date sorting, ambiguous "Smart Sorting" label, unclear publication date direction, and empty results handling</figure>
+<figure src="./images/letgo-heuristic-evaluation-04.webp" alt="Heuristic evaluation of sorting options">Analysis of incorrect checkbox pattern for date sorting, ambiguous "Smart Sorting" label, unclear publication date direction, and empty results handling</figure>
 </gallery>
 
 **Key issues identified:**
@@ -102,7 +102,7 @@ The sorting functionality had significant clarity issues.
 The final evaluation examined the overall listing presentation and visual design.
 
 <gallery cols="1">
-<figure src="./images/letgo-heuristic-evaluation-05.jpg" alt="Heuristic evaluation of listing UI and visual hierarchy">Analysis of promotional banner placement, image cropping inconsistencies, product card information hierarchy, and visual sizing problems</figure>
+<figure src="./images/letgo-heuristic-evaluation-05.webp" alt="Heuristic evaluation of listing UI and visual hierarchy">Analysis of promotional banner placement, image cropping inconsistencies, product card information hierarchy, and visual sizing problems</figure>
 </gallery>
 
 **Key issues identified:**
@@ -124,7 +124,7 @@ Based on the findings from the heuristic evaluation, I redesigned the filtering 
 The redesigned filter panel introduces a clear hierarchy of filter categories. The listing screen now displays the total number of results prominently, while dedicated "Filter" and "Sort" buttons provide clear entry points. The filter panel itself presents all available categories (City, Category, Brand, Size, Color, Condition, Price Range, Listing Date) in a scannable list. When filters are applied, users see a summary of their active selections with the ability to review and modify them before viewing results.
 
 <gallery cols="1">
-<figure src="./images/letgo-filtering-sections.png" alt="Redesigned filter panel architecture">Clear filter hierarchy with category list, active filter summary, and prominent result count showing users exactly what they've selected</figure>
+<figure src="./images/letgo-filtering-sections.webp" alt="Redesigned filter panel architecture">Clear filter hierarchy with category list, active filter summary, and prominent result count showing users exactly what they've selected</figure>
 </gallery>
 
 #### Multi-City Selection with Quick Search
@@ -132,7 +132,7 @@ The redesigned filter panel introduces a clear hierarchy of filter categories. T
 One of the key improvements addresses the single-city limitation. Users can now select multiple cities simultaneously using checkboxes, with result counts displayed next to each option. A quick search field at the top allows users to instantly find specific cities without scrolling through the entire list. Selected cities appear at the top with a clear visual indicator.
 
 <gallery cols="1">
-<figure src="./images/letgo-filtering-quick-search.png" alt="Multi-city selection with search">Multi-select city filter with inline search, result counts per city, and clear selection indicators</figure>
+<figure src="./images/letgo-filtering-quick-search.webp" alt="Multi-city selection with search">Multi-select city filter with inline search, result counts per city, and clear selection indicators</figure>
 </gallery>
 
 #### Optimized Selection Patterns
@@ -140,7 +140,7 @@ One of the key improvements addresses the single-city limitation. Users can now 
 Each filter type now uses the most appropriate interaction pattern. Brand selection features a searchable checkbox list for quick multi-select. Size selection uses a grid layout that allows users to tap multiple sizes at once, perfect for shoppers who wear between sizes. Color selection displays actual color swatches alongside names and result counts, making visual scanning effortless.
 
 <gallery cols="1">
-<figure src="./images/letgo-filtering-other-sections-01.png" alt="Brand, size, and color filter designs">Context-appropriate selection patterns: searchable list for brands, tap-friendly grid for sizes, and visual swatches for colors</figure>
+<figure src="./images/letgo-filtering-other-sections-01.webp" alt="Brand, size, and color filter designs">Context-appropriate selection patterns: searchable list for brands, tap-friendly grid for sizes, and visual swatches for colors</figure>
 </gallery>
 
 #### Condition & Price Range Filters
@@ -148,7 +148,7 @@ Each filter type now uses the most appropriate interaction pattern. Brand select
 The condition filter now includes helpful descriptions for each option (e.g., "Never used, tags still attached" for New with Tags), reducing ambiguity. The price range filter offers two interaction modes: preset ranges for quick selection, or manual input for users who know exactly what they want to spend. The manual mode provides instant feedback, showing the filter as "₺250 and above" as users type.
 
 <gallery cols="1">
-<figure src="./images/letgo-filtering-other-sections-02.png" alt="Condition and price range filters">Condition filter with descriptive labels and dual-mode price filter offering both presets and manual entry</figure>
+<figure src="./images/letgo-filtering-other-sections-02.webp" alt="Condition and price range filters">Condition filter with descriptive labels and dual-mode price filter offering both presets and manual entry</figure>
 </gallery>
 
 #### Save Search Functionality
@@ -156,7 +156,7 @@ The condition filter now includes helpful descriptions for each option (e.g., "N
 A new "Save Search" feature allows users to preserve their filter combinations for future use. Accessible via the bookmark icon next to the search bar, tapping it opens a bottom sheet where users can name their search and optionally enable notifications for new matching listings. This addresses the frustration of repeatedly configuring the same filters and turns one-time searchers into engaged, returning users.
 
 <gallery cols="1">
-<figure src="./images/letgo-saving-search-criterias.png" alt="Save search feature">Save search flow with custom naming and optional notifications for new matching listings</figure>
+<figure src="./images/letgo-saving-search-criterias.webp" alt="Save search feature">Save search flow with custom naming and optional notifications for new matching listings</figure>
 </gallery>
 
 #### Transparent Sorting Options
@@ -164,7 +164,7 @@ A new "Save Search" feature allows users to preserve their filter combinations f
 The sorting redesign replaces vague labels with clear, descriptive options. "Smart Sorting" now includes an explanation of how it works, appearing in a tooltip when users need clarification. The full sorting menu presents options like "Most Liked," "Most Viewed," "Listing Date: Newest First," and "Price: Low to High". Each one is unambiguous about the resulting order. Radio buttons replace the incorrect checkbox pattern, correctly indicating mutual exclusivity. When a sorting option is active, a small dot in the primary color appears next to the Sort button, giving users a persistent visual indicator that their results are being sorted.
 
 <gallery cols="1">
-<figure src="./images/letgo-sorting.png" alt="Redesigned sorting options">Clear sorting labels with explanatory tooltips, proper radio button pattern, and immediate visual feedback on the listing</figure>
+<figure src="./images/letgo-sorting.webp" alt="Redesigned sorting options">Clear sorting labels with explanatory tooltips, proper radio button pattern, and immediate visual feedback on the listing</figure>
 </gallery>
 
 ### Reflection

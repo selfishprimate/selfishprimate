@@ -4,7 +4,7 @@ description: "A mobile application redesign for Türkiye's car rental platform, 
 company: "Otorento"
 category: "Mobile App Design"
 tags: ["Car Rental", "Mobile App", "UX Research", "Booking Interface", "Travel"]
-coverImage: "./images/cover.jpg"
+coverImage: "./images/cover.webp"
 images: []
 order: 9
 year: "2022"
@@ -31,7 +31,7 @@ I approached the redesign with three guiding principles: clarity over complexity
 The redesigned home screen puts the core task front and center: finding a car. A clean search card captures pickup location, return location, and dates, nothing more. The bottom navigation provides clear paths to campaigns, support, and account settings without cluttering the primary interface.
 
 <gallery cols="1">
-<figure src="./images/otorento-splash-and-home-screens-ui-design.png" alt="Splash and home screens">Clean splash screen and focused home page with streamlined search form</figure>
+<figure src="./images/otorento-splash-and-home-screens-ui-design.webp" alt="Splash and home screens">Clean splash screen and focused home page with streamlined search form</figure>
 </gallery>
 
 ### Intelligent Location Search
@@ -39,7 +39,7 @@ The redesigned home screen puts the core task front and center: finding a car. A
 The location search leverages familiar patterns to reduce friction. "Search nearby" uses device GPS for instant results. Recent searches help returning users pick up where they left off. Popular destinations surface common choices for first-time users. As you type, real-time suggestions narrow down options quickly.
 
 <gallery cols="1">
-<figure src="./images/otorento-search-location-ui-design.png" alt="Location search">Location search with geolocation, recent searches, and real-time suggestions</figure>
+<figure src="./images/otorento-search-location-ui-design.webp" alt="Location search">Location search with geolocation, recent searches, and real-time suggestions</figure>
 </gallery>
 
 ### Date & Time Selection
@@ -47,7 +47,7 @@ The location search leverages familiar patterns to reduce friction. "Search near
 The calendar component was designed for clarity. Users can scroll through months continuously, with the selected date range highlighted clearly. A sticky footer shows the complete selection (pickup date, return date, and times) so users always know exactly what they're booking.
 
 <gallery cols="1">
-<figure src="./images/otorento-booking-calendar-ui-design.png" alt="Calendar selection">Intuitive calendar with date range visualization and time selection</figure>
+<figure src="./images/otorento-booking-calendar-ui-design.webp" alt="Calendar selection">Intuitive calendar with date range visualization and time selection</figure>
 </gallery>
 
 ### Search Results & Vehicle Details
@@ -57,7 +57,7 @@ Search results prioritize scanability. Each card shows the essential information
 Tapping a vehicle reveals detailed specifications in a bottom sheet: age requirements, delivery options, mileage policies, deposit amount, and license requirements. The daily rate and total cost are always visible, building trust through price transparency.
 
 <gallery cols="1">
-<figure src="./images/otorento-search-results-and-details-ui-design.png" alt="Search results and details">Vehicle listings with quick filters and detailed specification sheets</figure>
+<figure src="./images/otorento-search-results-and-details-ui-design.webp" alt="Search results and details">Vehicle listings with quick filters and detailed specification sheets</figure>
 </gallery>
 
 ### Guest-Friendly Account Access
@@ -65,7 +65,7 @@ Tapping a vehicle reveals detailed specifications in a bottom sheet: age require
 A key insight from user research: many people abandon rental apps when forced to register before browsing. The redesigned account section allows guests to check existing reservations using just their confirmation number and surname, no login required. This small change significantly reduced bounce rates for returning customers.
 
 <gallery cols="1">
-<figure src="./images/otorento-my-account-ui-design.png" alt="Account management">Account page with guest reservation lookup and settings</figure>
+<figure src="./images/otorento-my-account-ui-design.webp" alt="Account management">Account page with guest reservation lookup and settings</figure>
 </gallery>
 
 ### Streamlined Registration
@@ -73,7 +73,7 @@ A key insight from user research: many people abandon rental apps when forced to
 When users do choose to register, we made it painless. Phone number verification via SMS eliminates the need for email confirmation and password creation. The entire flow, from entering your number to completing your profile, takes under 60 seconds.
 
 <gallery cols="1">
-<figure src="./images/otorento-register-ui-screen.png" alt="Registration flow">Four-step registration: phone entry, OTP verification, and profile completion</figure>
+<figure src="./images/otorento-register-ui-screen.webp" alt="Registration flow">Four-step registration: phone entry, OTP verification, and profile completion</figure>
 </gallery>
 
 ### Reflection

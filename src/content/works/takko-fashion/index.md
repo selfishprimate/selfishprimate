@@ -4,7 +4,7 @@ description: "A design evaluation and redesign of an e-commerce filtering interf
 company: "Takko Fashion"
 category: "UI/UX Design"
 tags: ["E-commerce", "Filtering UI", "Accessibility", "Mobile Design"]
-coverImage: "./images/cover.jpg"
+coverImage: "./images/cover.webp"
 images: []
 order: 14
 year: "2020"
@@ -27,7 +27,7 @@ The design prioritized simplicity and clarity for diverse user needs, creating a
 Individual filtering sections were separated to help users focus on specific criteria without overwhelm. The uncluttered approach enables efficient search narrowing.
 
 <gallery cols="1">
-<figure src="./images/filtering-sections.jpg" alt="Filter sections">Organized filter categories helping users focus on specific criteria</figure>
+<figure src="./images/filtering-sections.webp" alt="Filter sections">Organized filter categories helping users focus on specific criteria</figure>
 </gallery>
 
 ### Material Design Implementation
@@ -35,7 +35,7 @@ Individual filtering sections were separated to help users focus on specific cri
 Familiar components including radio buttons, checkboxes, and sliders were incorporated to create intuitive interfaces that build user trust.
 
 <gallery cols="1">
-<figure src="./images/material-design.jpg" alt="Material Design controls">Radio buttons and checkboxes following Material Design for intuitive interactions</figure>
+<figure src="./images/material-design.webp" alt="Material Design controls">Radio buttons and checkboxes following Material Design for intuitive interactions</figure>
 </gallery>
 
 ### Accessibility Enhancements
@@ -46,7 +46,7 @@ Familiar components including radio buttons, checkboxes, and sliders were incorp
 - Spacing inconsistencies addressed for visual cohesion
 
 <gallery cols="1">
-<figure src="./images/color-boxes.jpg" alt="Accessible color selection">Color swatches with descriptive text labels supporting colorblind users</figure>
+<figure src="./images/color-boxes.webp" alt="Accessible color selection">Color swatches with descriptive text labels supporting colorblind users</figure>
 </gallery>
 
 ### Conclusion

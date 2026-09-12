@@ -4,7 +4,7 @@ description: "A Sass toolkit that began as the answer to writing the same CSS fo
 company: "Gerillass"
 category: "Developer Tool"
 tags: ["Sass", "Open Source", "Developer Tools", "Design Systems", "AI Tooling", "Documentation"]
-coverImage: "./images/cover.jpg"
+coverImage: "./images/cover.webp"
 images: []
 order: 7
 year: "2026"
@@ -47,7 +47,7 @@ That last pair is also what separates it from a framework. Bourbon, Susy, Scut a
 Underneath sit the 23 functions the mixins are built from: unit conversion, colour shading, validation. They are public because the same arithmetic keeps coming up in the projects using the library.
 
 <gallery cols="1">
-<figure src="./images/docs.jpg" alt="A Gerillass documentation page">Every member has a page: what it takes, what it refuses, and what it compiles to</figure>
+<figure src="./images/docs.webp" alt="A Gerillass documentation page">Every member has a page: what it takes, what it refuses, and what it compiles to</figure>
 </gallery>
 
 ### Five Years On, a Different Problem
@@ -59,7 +59,7 @@ A library with a few thousand weekly installs has essentially no training data b
 That failure mode is worse than a crash, because nothing surfaces it. So the fix could not be a better README. It had to be something an agent reads mechanically, and something that cannot quietly stop being true.
 
 <gallery cols="1">
-<figure src="./images/home.jpg" alt="The Gerillass home page">gerillass.com, rebuilt as a statically generated Vite application and served from the library's own repository</figure>
+<figure src="./images/home.webp" alt="The Gerillass home page">gerillass.com, rebuilt as a statically generated Vite application and served from the library's own repository</figure>
 </gallery>
 
 ### A Manifest That Cannot Drift
@@ -109,13 +109,13 @@ So the sites moved in. One Vite application now serves the marketing site with t
 The site gained a command palette over every mixin, function and page, which is what a library of 76 members needs and did not have.
 
 <gallery cols="1">
-<figure src="./images/search.jpg" alt="The site's search command palette">Search across mixins, functions and pages, with each member's own one-line description</figure>
+<figure src="./images/search.webp" alt="The site's search command palette">Search across mixins, functions and pages, with each member's own one-line description</figure>
 </gallery>
 
 The playground compiles Sass to CSS as you type, with the whole library already loaded, a version selector and a shareable URL. It is the same problem a documentation example solves, so both are built on one renderer.
 
 <gallery cols="1">
-<figure src="./images/playground.jpg" alt="The Gerillass playground">The playground: Sass on the left, the CSS Gerillass generates on the right, compiled in the browser</figure>
+<figure src="./images/playground.webp" alt="The Gerillass playground">The playground: Sass on the left, the CSS Gerillass generates on the right, compiled in the browser</figure>
 </gallery>
 
 ### The Repository as a Workspace

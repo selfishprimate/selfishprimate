@@ -4,7 +4,7 @@ description: "As my first task at VavaCars, I was assigned to fix the UX issues 
 company: "VavaCars"
 category: "Mobile App"
 tags: ["UX Optimization", "Mobile App", "Automotive", "B2B"]
-coverImage: "./images/cover.jpg"
+coverImage: "./images/cover.webp"
 images: []
 order: 7
 year: "2023"
@@ -65,7 +65,7 @@ Used Continuous Discovery methodology, focusing on minimal viable elements deliv
 Enhanced usability and performance with Material Design radio buttons, mitigating fat finger interaction issues.
 
 <gallery cols="1">
-<figure src="./images/radio-buttons.jpg" alt="Radio button components">Material Design radio buttons for improved usability and reduced interaction errors</figure>
+<figure src="./images/radio-buttons.webp" alt="Radio button components">Material Design radio buttons for improved usability and reduced interaction errors</figure>
 </gallery>
 
 ### Native Checkboxes
@@ -73,7 +73,7 @@ Enhanced usability and performance with Material Design radio buttons, mitigatin
 Streamlined interactions with Material Design checkboxes while minimizing fat finger errors.
 
 <gallery cols="1">
-<figure src="./images/checkboxes.jpg" alt="Checkbox components">Streamlined checkbox interactions for multi-option selection</figure>
+<figure src="./images/checkboxes.webp" alt="Checkbox components">Streamlined checkbox interactions for multi-option selection</figure>
 </gallery>
 
 ### Dropdown Menus
@@ -81,7 +81,7 @@ Streamlined interactions with Material Design checkboxes while minimizing fat fi
 Enabled color specification through dropdown interfaces for efficient data entry in limited screen space.
 
 <gallery cols="1">
-<figure src="./images/dropdown.jpg" alt="Dropdown menu">Compact dropdown for efficient color specification</figure>
+<figure src="./images/dropdown.webp" alt="Dropdown menu">Compact dropdown for efficient color specification</figure>
 </gallery>
 
 ### Color Selection
@@ -89,7 +89,7 @@ Enabled color specification through dropdown interfaces for efficient data entry
 Added checkbox feature allowing inspectors to indicate two-color vehicles with corresponding dropdown menus for accurate representation. Combined color labels with color boxes to support inspectors with color blindness or visual impairments.
 
 <gallery cols="1">
-<figure src="./images/color-selection.jpg" alt="Vehicle color picker">Accessible color selection with labels supporting visual impairments</figure>
+<figure src="./images/color-selection.webp" alt="Vehicle color picker">Accessible color selection with labels supporting visual impairments</figure>
 </gallery>
 
 ### Accordion Organization
@@ -97,7 +97,7 @@ Added checkbox feature allowing inspectors to indicate two-color vehicles with c
 Grouped options under relevant accordion menus reducing cognitive load for locating car parts.
 
 <gallery cols="1">
-<figure src="./images/accordion.jpg" alt="Accordion navigation">Collapsible sections reducing cognitive load when locating parts</figure>
+<figure src="./images/accordion.webp" alt="Accordion navigation">Collapsible sections reducing cognitive load when locating parts</figure>
 </gallery>
 
 ### Global Search
@@ -105,7 +105,7 @@ Grouped options under relevant accordion menus reducing cognitive load for locat
 Enabled effortless vehicle part location throughout the application regardless of current location.
 
 <gallery cols="1">
-<figure src="./images/global-search.jpg" alt="Global search feature">Search across all inspection sections from anywhere in the app</figure>
+<figure src="./images/global-search.webp" alt="Global search feature">Search across all inspection sections from anywhere in the app</figure>
 </gallery>
 
 ### Selective Photo Capture
@@ -113,7 +113,7 @@ Enabled effortless vehicle part location throughout the application regardless o
 Implemented photo documentation exclusively for vehicle parts requiring photographic evidence, saving significant time.
 
 <gallery cols="1">
-<figure src="./images/photo-capturing.jpg" alt="Photo capture interface">Guided photo capture only for parts requiring documentation</figure>
+<figure src="./images/photo-capturing.webp" alt="Photo capture interface">Guided photo capture only for parts requiring documentation</figure>
 </gallery>
 
 ### Impact

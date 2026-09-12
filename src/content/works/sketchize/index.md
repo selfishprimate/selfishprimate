@@ -4,7 +4,7 @@ description: "Sketchize is a tool designed for UI/UX designers offering free wir
 company: "Sketchize"
 category: "Design Tool"
 tags: ["Wireframing", "Design Tool", "Open Source", "Templates"]
-coverImage: "./images/cover.jpg"
+coverImage: "./images/cover.webp"
 images: []
 order: 8
 year: "2022"
@@ -33,8 +33,8 @@ The tool offers comprehensive template variety with orientation and style option
 Single, 2up, and 3up layouts available in plain and dotted grid versions. Landscape versions included for game designers.
 
 <gallery cols="1">
-<figure src="./images/iphone-single.jpg" alt="Single iPhone wireframe template">Individual iPhone screen wireframe sheet</figure>
-<figure src="./images/iphone-2up.jpg" alt="iPhone 2-up wireframe template">Two-up iPhone wireframe sheet for flow design</figure>
+<figure src="./images/iphone-single.webp" alt="Single iPhone wireframe template">Individual iPhone screen wireframe sheet</figure>
+<figure src="./images/iphone-2up.webp" alt="iPhone 2-up wireframe template">Two-up iPhone wireframe sheet for flow design</figure>
 </gallery>
 
 ### Android Templates
@@ -42,8 +42,8 @@ Single, 2up, and 3up layouts available in plain and dotted grid versions. Landsc
 Galaxy S20 templates with single, double, and triple layouts. Plain and dotted grid options with landscape-rotated sheets available.
 
 <gallery cols="1">
-<figure src="./images/galaxy-single.jpg" alt="Single Galaxy wireframe template">Individual Galaxy screen wireframe sheet</figure>
-<figure src="./images/galaxy-2up.jpg" alt="Galaxy 2-up wireframe template">Two-up Galaxy wireframe sheet for flow design</figure>
+<figure src="./images/galaxy-single.webp" alt="Single Galaxy wireframe template">Individual Galaxy screen wireframe sheet</figure>
+<figure src="./images/galaxy-2up.webp" alt="Galaxy 2-up wireframe template">Two-up Galaxy wireframe sheet for flow design</figure>
 </gallery>
 
 ### Smartwatch Templates
@@ -51,8 +51,8 @@ Galaxy S20 templates with single, double, and triple layouts. Plain and dotted g
 Apple Watch and Galaxy Watch templates for wearable designs with single and 2-up layouts in plain and dotted grid versions.
 
 <gallery cols="1">
-<figure src="./images/apple-watch.jpg" alt="Apple Watch wireframe template">Apple Watch wireframe sheet for watchOS apps</figure>
-<figure src="./images/galaxy-watch.jpg" alt="Galaxy Watch wireframe template">Galaxy Watch wireframe sheet with circular design focus</figure>
+<figure src="./images/apple-watch.webp" alt="Apple Watch wireframe template">Apple Watch wireframe sheet for watchOS apps</figure>
+<figure src="./images/galaxy-watch.webp" alt="Galaxy Watch wireframe template">Galaxy Watch wireframe sheet with circular design focus</figure>
 </gallery>
 
 ### Tablet & Desktop Templates
@@ -60,8 +60,8 @@ Apple Watch and Galaxy Watch templates for wearable designs with single and 2-up
 iPad Pro templates with single and 2-up layouts, plus desktop browser wireframes in portrait and landscape orientations.
 
 <gallery cols="1">
-<figure src="./images/ipad.jpg" alt="iPad wireframe template">iPad Pro wireframe sheet for tablet apps</figure>
-<figure src="./images/desktop.jpg" alt="Desktop browser wireframe template">Browser wireframe sheet for web design</figure>
+<figure src="./images/ipad.webp" alt="iPad wireframe template">iPad Pro wireframe sheet for tablet apps</figure>
+<figure src="./images/desktop.webp" alt="Desktop browser wireframe template">Browser wireframe sheet for web design</figure>
 </gallery>
 
 ### E-Reader Templates
@@ -69,7 +69,7 @@ iPad Pro templates with single and 2-up layouts, plus desktop browser wireframes
 Kindle Paperwhite templates for e-reader app designs in plain and dotted versions.
 
 <gallery cols="1">
-<figure src="./images/kindle.jpg" alt="Kindle wireframe template">Kindle Paperwhite wireframe sheet for eBook interfaces</figure>
+<figure src="./images/kindle.webp" alt="Kindle wireframe template">Kindle Paperwhite wireframe sheet for eBook interfaces</figure>
 </gallery>
 
 ### Testimonials

@@ -4,7 +4,7 @@ description: "A mobile car rental feature designed under tight deadlines, levera
 company: "Turna.com"
 category: "Mobile App Design"
 tags: ["Car Rental", "Mobile App", "React Native", "Design System", "Travel"]
-coverImage: "./images/cover.jpg"
+coverImage: "./images/cover.webp"
 images: []
 order: 2
 year: "2023"
@@ -32,7 +32,7 @@ Rather than diving straight into screens, I made a strategic decision to invest 
 The home screen presents car rental as a clear entry point within the Turna ecosystem. The search interface captures essential booking details: pickup/return locations and dates. The location search leverages familiar patterns (recent searches, popular destinations, and real-time suggestions) to minimize typing and accelerate the booking flow.
 
 <gallery cols="1">
-<figure src="./images/home-screen-and-location-search.png" alt="Home and location search">Home screen with rental search form and intelligent location suggestions with recent searches</figure>
+<figure src="./images/home-screen-and-location-search.webp" alt="Home and location search">Home screen with rental search form and intelligent location suggestions with recent searches</figure>
 </gallery>
 
 ### Search Results & Filtering
@@ -40,7 +40,7 @@ The home screen presents car rental as a clear entry point within the Turna ecos
 The results screen balances information density with scannability. Each vehicle card displays critical decision factors: car model, transmission type, fuel policy, passenger capacity, and daily rate. The filtering system allows users to narrow results by transmission, fuel type, vehicle segment, and specific brands, essential for users who have strong preferences or company car policies.
 
 <gallery cols="1">
-<figure src="./images/search-results-and-filtering.png" alt="Search results and filters">Vehicle listings with comprehensive filtering options and brand selection</figure>
+<figure src="./images/search-results-and-filtering.webp" alt="Search results and filters">Vehicle listings with comprehensive filtering options and brand selection</figure>
 </gallery>
 
 ### Vehicle Details
@@ -48,7 +48,7 @@ The results screen balances information density with scannability. Each vehicle 
 The detail screen provides everything users need to make an informed decision. Vehicle specifications are organized in scannable sections: basic info, rental conditions, and included features. Key details like mileage limits, fuel policy, minimum driver age, and deposit requirements are prominently displayed, these are often the deciding factors that users compare across options.
 
 <gallery cols="1">
-<figure src="./images/car-details-page.png" alt="Car details">Comprehensive vehicle information with specifications, rental conditions, and pricing breakdown</figure>
+<figure src="./images/car-details-page.webp" alt="Car details">Comprehensive vehicle information with specifications, rental conditions, and pricing breakdown</figure>
 </gallery>
 
 ### Payment Experience
@@ -58,19 +58,19 @@ The payment flow was designed to accommodate multiple user preferences and reduc
 **Saved Cards:** Returning users can complete payment with a single tap using previously saved cards, dramatically reducing checkout time.
 
 <gallery cols="1">
-<figure src="./images/payment-with-saved-card.png" alt="Payment with saved card">Quick checkout using saved payment methods</figure>
+<figure src="./images/payment-with-saved-card.webp" alt="Payment with saved card">Quick checkout using saved payment methods</figure>
 </gallery>
 
 **New Card Entry:** For new cards, the interface provides clear input fields with installment options, a critical feature for the Turkish market where installment payments are widely expected.
 
 <gallery cols="1">
-<figure src="./images/payment-with-new-card.png" alt="Payment with new card">New card entry with installment plan selection</figure>
+<figure src="./images/payment-with-new-card.webp" alt="Payment with new card">New card entry with installment plan selection</figure>
 </gallery>
 
 **Turna Points:** Integration with the platform's loyalty program allows users to apply earned points toward their rental, creating a cohesive ecosystem experience.
 
 <gallery cols="1">
-<figure src="./images/payment-with-turna-points.png" alt="Payment with Turna points">Loyalty points redemption during checkout</figure>
+<figure src="./images/payment-with-turna-points.webp" alt="Payment with Turna points">Loyalty points redemption during checkout</figure>
 </gallery>
 
 ### Post-Payment Card Save
@@ -78,7 +78,7 @@ The payment flow was designed to accommodate multiple user preferences and reduc
 After successful payment, users who entered a new card are offered a seamless opportunity to save it for future bookings. This opt-in approach respects user choice while encouraging the behavior that leads to faster future checkouts.
 
 <gallery cols="1">
-<figure src="./images/saving-credit-card-info-after-payment.png" alt="Save card after payment">Success confirmation with card saving option for future convenience</figure>
+<figure src="./images/saving-credit-card-info-after-payment.webp" alt="Save card after payment">Success confirmation with card saving option for future convenience</figure>
 </gallery>
 
 ### Reflection

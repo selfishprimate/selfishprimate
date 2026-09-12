@@ -4,7 +4,7 @@ description: "A design exploration to modernize Edenred's digital wallet with co
 company: "Edenred"
 category: "Mobile App Design"
 tags: ["Digital Wallet", "Payment Systems", "NFC", "QR Code", "Fintech", "AR"]
-coverImage: "./images/cover.jpg"
+coverImage: "./images/cover.webp"
 images: []
 order: 12
 year: "2020"
@@ -30,7 +30,7 @@ We reimagined the Edenred experience from the ground up, focusing on three core 
 The flagship feature: one-time password generation for cardless payments. Users can generate a 6-digit code directly from the app, share it with the cashier, and complete the transaction, no physical card needed. The code expires after 120 seconds, ensuring security without sacrificing convenience.
 
 <gallery cols="1">
-<figure src="./images/otp-payment.png" alt="OTP payment flow">One-time password generation enables secure, cardless payments at any partner restaurant</figure>
+<figure src="./images/otp-payment.webp" alt="OTP payment flow">One-time password generation enables secure, cardless payments at any partner restaurant</figure>
 </gallery>
 
 ### QR Code Payments
@@ -38,7 +38,7 @@ The flagship feature: one-time password generation for cardless payments. Users 
 For an even faster experience, we designed a QR-based payment flow. Users simply scan the merchant's QR code, verify the amount on the confirmation screen, and approve the transaction. The entire process takes less than 10 seconds.
 
 <gallery cols="1">
-<figure src="./images/qr-payment.png" alt="QR code payment">Scan, confirm, pay. QR payments reduce checkout time to under 10 seconds</figure>
+<figure src="./images/qr-payment.webp" alt="QR code payment">Scan, confirm, pay. QR payments reduce checkout time to under 10 seconds</figure>
 </gallery>
 
 ### Smart Card Registration
@@ -46,7 +46,7 @@ For an even faster experience, we designed a QR-based payment flow. Users simply
 We eliminated the frustration of manual card entry by offering three registration methods: traditional number input, camera-based scanning, and NFC tap. Each option displays estimated completion time, letting users choose based on their preference. The NFC option takes just 5 seconds.
 
 <gallery cols="1">
-<figure src="./images/defining-a-card.png" alt="Card registration options">Three card registration methods with estimated completion times for each approach</figure>
+<figure src="./images/defining-a-card.webp" alt="Card registration options">Three card registration methods with estimated completion times for each approach</figure>
 </gallery>
 
 ### Wallet Management & Spending Insights
@@ -54,7 +54,7 @@ We eliminated the frustration of manual card entry by offering three registratio
 The redesigned wallet view puts essential information front and center: current balance, quick actions for deposits and transfers, and easy access to transaction history. The spending breakdown feature visualizes monthly expenses by restaurant, helping users understand their dining habits at a glance.
 
 <gallery cols="1">
-<figure src="./images/wallet-management.png" alt="Wallet and spending insights">Balance overview with spending distribution showing where users dine most frequently</figure>
+<figure src="./images/wallet-management.webp" alt="Wallet and spending insights">Balance overview with spending distribution showing where users dine most frequently</figure>
 </gallery>
 
 ### AR Restaurant Discovery
@@ -62,7 +62,7 @@ The redesigned wallet view puts essential information front and center: current 
 The most experimental feature: an augmented reality view that transforms restaurant discovery into an interactive experience. Point your camera at your surroundings, and partner restaurants appear as floating markers. Tap any marker to see details, ratings, and available discounts, perfect for exploring new lunch spots in unfamiliar areas.
 
 <gallery cols="1">
-<figure src="./images/augmented-reality.png" alt="AR restaurant finder">Augmented reality transforms restaurant discovery into an interactive, gamified experience</figure>
+<figure src="./images/augmented-reality.webp" alt="AR restaurant finder">Augmented reality transforms restaurant discovery into an interactive, gamified experience</figure>
 </gallery>
 
 ### Wearable Extension
@@ -70,7 +70,7 @@ The most experimental feature: an augmented reality view that transforms restaur
 To complete the ecosystem, we designed an Apple Watch companion app. Users can check their balance at a glance and make NFC payments directly from their wrist, ideal for quick coffee runs or when your phone isn't readily accessible.
 
 <gallery cols="1">
-<figure src="./images/smartwatch.png" alt="Apple Watch app">Apple Watch companion app for balance checks and wrist-based NFC payments</figure>
+<figure src="./images/smartwatch.webp" alt="Apple Watch app">Apple Watch companion app for balance checks and wrist-based NFC payments</figure>
 </gallery>
 
 ### Reflection

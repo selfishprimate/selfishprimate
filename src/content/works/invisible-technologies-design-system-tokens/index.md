@@ -4,7 +4,7 @@ description: "A token foundation for a Tailwind and shadcn design system, built 
 company: "Invisible Technologies"
 category: "Design System"
 tags: ["Design System", "Design Tokens", "Tailwind CSS", "shadcn/ui", "Figma", "Claude Code"]
-coverImage: "./images/cover.jpg"
+coverImage: "./images/cover.webp"
 images: []
 order: 0
 year: "2026"
@@ -38,11 +38,11 @@ The entire build ran inside Claude Code connected to Figma over MCP. Claude read
 Primitives are the raw, hidden palette and scales that developers never touch. Semantic tokens are property scoped roles that alias them, covering background, text, border, icon and focus ring in both light and dark. Teams use the roles, never the raw values.
 
 <gallery cols="1">
-<figure src="./images/figma-variable-collections.jpg" alt="Figma variable collections">The split as Figma sees it: one hidden primitives collection holding color, typography and the numeric scaler, and separate published collections for the roles that alias into it</figure>
+<figure src="./images/figma-variable-collections.webp" alt="Figma variable collections">The split as Figma sees it: one hidden primitives collection holding color, typography and the numeric scaler, and separate published collections for the roles that alias into it</figure>
 </gallery>
 
 <gallery cols="1">
-<figure src="./images/semantic-color-text-roles-light.jpg" alt="Semantic text color roles in light and dark">Semantic text roles, each one an alias into the hidden primitive layer, resolved side by side for light and dark</figure>
+<figure src="./images/semantic-color-text-roles-light.webp" alt="Semantic text color roles in light and dark">Semantic text roles, each one an alias into the hidden primitive layer, resolved side by side for light and dark</figure>
 </gallery>
 
 Underneath them sits the palette itself, and two decisions shaped it: the colour space the ramps are generated in, and how many rungs each one gets.
@@ -62,14 +62,14 @@ Dark mode is where it runs out. A layered surface structure, page behind card be
 So the primitives here run eighteen steps, and the neutral runs twenty six, from pure white at 0 to pure black at 1000. Seven of those rungs sit at or below `gray/800`: 800, 850, 900, 925, 950, 975 and 1000. That is the range a dark interface actually builds its surfaces out of.
 
 <gallery cols="1">
-<figure src="./images/primitive-color-ramp-gray-dark.jpg" alt="Primitive gray color ramp">Gray, twenty six rungs from white at 0 to black at 1000, fine enough at the dark end for surfaces and borders to layer without collapsing into each other</figure>
-<figure src="./images/primitive-color-ramp-electric-blue-dark.jpg" alt="Primitive electric blue color ramp">Electric blue, eighteen steps on the same OKLCH lightness ladder, with the brand value sitting at 500</figure>
+<figure src="./images/primitive-color-ramp-gray-dark.webp" alt="Primitive gray color ramp">Gray, twenty six rungs from white at 0 to black at 1000, fine enough at the dark end for surfaces and borders to layer without collapsing into each other</figure>
+<figure src="./images/primitive-color-ramp-electric-blue-dark.webp" alt="Primitive electric blue color ramp">Electric blue, eighteen steps on the same OKLCH lightness ladder, with the brand value sitting at 500</figure>
 </gallery>
 
 The type scale follows the same logic. Font families, weights and sizes live as primitives, and each role composes them into a single class.
 
 <gallery cols="1">
-<figure src="./images/typography-display-dark.jpg" alt="Display typography showcase">Display roles, where family, size, line height, tracking and weight resolve into one utility</figure>
+<figure src="./images/typography-display-dark.webp" alt="Display typography showcase">Display roles, where family, size, line height, tracking and weight resolve into one utility</figure>
 </gallery>
 
 ### The Core Problem, and the @utility Solution
@@ -81,10 +81,10 @@ Tailwind v4's `--color-*` namespace generates every property from one value, whi
 One hidden numeric scale, the `scaler`, feeds every dimension family through aliases: spacing, sizing, radius, border width and control height. Unlike color these are not property scoped, so they emit as native Tailwind `@theme` and let Tailwind generate the utilities itself. A single spacing token produces around eighty five padding, margin, gap and sizing classes on its own.
 
 <gallery cols="1">
-<figure src="./images/spacing-showcase.jpg" alt="Spacing scale showcase">A sixteen step spacing scale, named by intent rather than by pixel value</figure>
-<figure src="./images/sizing-showcase.jpg" alt="Sizing scale showcase">Sizing shares the same scaler, so a step means the same thing wherever it appears</figure>
-<figure src="./images/radius-showcase.jpg" alt="Border radius showcase">Radius mirrors Tailwind's own t-shirt vocabulary</figure>
-<figure src="./images/border-width-showcase.jpg" alt="Border width showcase">Border width maps to Tailwind's numeric scale, so nothing needs to be emitted for it</figure>
+<figure src="./images/spacing-showcase.webp" alt="Spacing scale showcase">A sixteen step spacing scale, named by intent rather than by pixel value</figure>
+<figure src="./images/sizing-showcase.webp" alt="Sizing scale showcase">Sizing shares the same scaler, so a step means the same thing wherever it appears</figure>
+<figure src="./images/radius-showcase.webp" alt="Border radius showcase">Radius mirrors Tailwind's own t-shirt vocabulary</figure>
+<figure src="./images/border-width-showcase.webp" alt="Border width showcase">Border width maps to Tailwind's numeric scale, so nothing needs to be emitted for it</figure>
 </gallery>
 
 ### No Drift Between Design and Code
@@ -116,7 +116,7 @@ Only color and typography need a custom utility, because only they are property 
 Every token family has a showcase sheet in Figma that renders the tokens in use, from color ramps and radius swatches to spacing bars and control heights, with the exact class beside each one. The documentation and the specification are the same artifact.
 
 <gallery cols="1">
-<figure src="./images/typography-playground-dark.jpg" alt="Typography playground sheet">The type playground sets each role in real copy rather than specimen rows, so a decision can be judged where it will actually be read</figure>
+<figure src="./images/typography-playground-dark.webp" alt="Typography playground sheet">The type playground sets each role in real copy rather than specimen rows, so a decision can be judged where it will actually be read</figure>
 </gallery>
 
 ### Challenges

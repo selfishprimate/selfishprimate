@@ -4,7 +4,7 @@ description: "A ground-up redesign of the Middle East's leading gifting platform
 company: "Joi Gifts"
 category: "Mobile App"
 tags: ["Mobile App", "E-commerce", "iOS", "Android", "Gifting"]
-coverImage: "./images/cover.jpg"
+coverImage: "./images/cover.webp"
 images: []
 order: 3
 year: "2023"
@@ -42,13 +42,13 @@ The cart experience was redesigned around a simple insight: users need confidenc
 The empty state encourages exploration rather than feeling like a dead end. When items are added, quantity controls are inline, and a collapsible order summary lets users review totals without leaving the cart.
 
 <gallery cols="1">
-<figure src="./images/cart-general.jpg" alt="Shopping cart experience">Cart flow from empty state through item management to order summary review</figure>
+<figure src="./images/cart-general.webp" alt="Shopping cart experience">Cart flow from empty state through item management to order summary review</figure>
 </gallery>
 
 A key innovation: if a delivery slot expires while the user is browsing, they're notified immediately with an option to update, no need to navigate back to product details.
 
 <gallery cols="1">
-<figure src="./images/cart-expired.jpg" alt="Expired delivery handling">Proactive notification when delivery slots expire, with inline correction</figure>
+<figure src="./images/cart-expired.webp" alt="Expired delivery handling">Proactive notification when delivery slots expire, with inline correction</figure>
 </gallery>
 
 ### Gift Reminders: Never Miss a Moment
@@ -58,13 +58,13 @@ Gift-giving is often tied to occasions like birthdays, anniversaries, and holida
 Users can create reminders for any occasion, with options for one-time or annual recurrence. The form captures recipient name, occasion type, date, and an optional personal note. A custom date picker using native scroll wheels makes selection feel natural on mobile.
 
 <gallery cols="1">
-<figure src="./images/reminder-add.jpg" alt="Create reminder flow">Reminder creation from empty state through form completion with date selection</figure>
+<figure src="./images/reminder-add.webp" alt="Create reminder flow">Reminder creation from empty state through form completion with date selection</figure>
 </gallery>
 
 The reminder list surfaces upcoming occasions prominently, with visual hierarchy that highlights imminent dates. Edit and delete actions are easily accessible without cluttering the interface.
 
 <gallery cols="1">
-<figure src="./images/reminder-list.jpg" alt="Reminder management">Reminder list with upcoming occasions highlighted and easy management options</figure>
+<figure src="./images/reminder-list.webp" alt="Reminder management">Reminder list with upcoming occasions highlighted and easy management options</figure>
 </gallery>
 
 ### Address Management: Flexibility Without Friction
@@ -74,15 +74,15 @@ Delivery addresses in gift-giving are unique, users often send to recipients, no
 Two input methods serve different user preferences: manual entry for those who know the exact address, and map selection for visual confirmation. The map view includes real-time delivery validation. If an area isn't serviceable, users know immediately rather than discovering it at checkout.
 
 <gallery cols="1">
-<figure src="./images/address-list.jpg" alt="Saved addresses">Address list with clear edit and remove options for each saved location</figure>
+<figure src="./images/address-list.webp" alt="Saved addresses">Address list with clear edit and remove options for each saved location</figure>
 </gallery>
 
 <gallery cols="1">
-<figure src="./images/address-add.jpg" alt="Add address flow">Dual input methods: manual form entry and interactive map selection with delivery validation</figure>
+<figure src="./images/address-add.webp" alt="Add address flow">Dual input methods: manual form entry and interactive map selection with delivery validation</figure>
 </gallery>
 
 <gallery cols="1">
-<figure src="./images/address-delete.jpg" alt="Address deletion">Confirmation dialog prevents accidental deletion of saved addresses</figure>
+<figure src="./images/address-delete.webp" alt="Address deletion">Confirmation dialog prevents accidental deletion of saved addresses</figure>
 </gallery>
 
 ### Product Discovery: Browse with Intent
@@ -92,11 +92,11 @@ The product listing balances information density with scannability. Each card di
 Filtering and sorting are accessible from a persistent header, with active filter counts providing clear feedback. The filter panel itself uses familiar patterns: expandable categories, clear selections, and a live count of matching results.
 
 <gallery cols="1">
-<figure src="./images/listing-general.jpg" alt="Product listing">Product grid with dynamic promotional badges and accessible filtering</figure>
+<figure src="./images/listing-general.webp" alt="Product listing">Product grid with dynamic promotional badges and accessible filtering</figure>
 </gallery>
 
 <gallery cols="1">
-<figure src="./images/listing-filtered.jpg" alt="Filter experience">Filter panel with clear category organization and real-time result counts</figure>
+<figure src="./images/listing-filtered.webp" alt="Filter experience">Filter panel with clear category organization and real-time result counts</figure>
 </gallery>
 
 ### Product Details: Guided Decision Making
@@ -106,15 +106,15 @@ Product pages faced a unique challenge: users need comprehensive information (mu
 When users tap "Add to Cart," a delivery selection sheet slides up, not a new page. Options are clearly prioritized: Joi Express (90-minute delivery) appears first for urgent gifts, followed by same-day and scheduled options. A calendar picker handles custom dates.
 
 <gallery cols="1">
-<figure src="./images/product-express.jpg" alt="Product and delivery selection">Product details with delivery scheduling through progressive bottom sheets</figure>
+<figure src="./images/product-express.webp" alt="Product and delivery selection">Product details with delivery scheduling through progressive bottom sheets</figure>
 </gallery>
 
 <gallery cols="1">
-<figure src="./images/product-time.jpg" alt="Time slot selection">Time slot picker with clear availability and pricing information</figure>
+<figure src="./images/product-time.webp" alt="Time slot selection">Time slot picker with clear availability and pricing information</figure>
 </gallery>
 
 <gallery cols="1">
-<figure src="./images/product-custom.jpg" alt="Calendar selection">Calendar interface for scheduling future deliveries with intuitive date picking</figure>
+<figure src="./images/product-custom.webp" alt="Calendar selection">Calendar interface for scheduling future deliveries with intuitive date picking</figure>
 </gallery>
 
 ### Payment: Trust and Speed
@@ -126,7 +126,7 @@ Payment options are presented as clear radio selections: saved cards appear firs
 Before final submission, an order summary bottom sheet displays all details (products, delivery info, pricing breakdown) for one last confirmation. The success screen celebrates the completed gift with order details and a clear path back to shopping.
 
 <gallery cols="1">
-<figure src="./images/payment.jpg" alt="Payment flow">Complete checkout: payment selection, saved cards, order summary, and confirmation</figure>
+<figure src="./images/payment.webp" alt="Payment flow">Complete checkout: payment selection, saved cards, order summary, and confirmation</figure>
 </gallery>
 
 ### Reflection

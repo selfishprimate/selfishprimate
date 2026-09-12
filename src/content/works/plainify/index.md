@@ -4,7 +4,7 @@ description: "A free web tool that turns your product idea into a structured spe
 company: "Plainify"
 category: "Web Application"
 tags: ["AI Tools", "Product Specifications", "Developer Tools", "Open Source", "Vibe Coding"]
-coverImage: "./images/cover.jpg"
+coverImage: "./images/cover.webp"
 images: []
 order: 1
 year: "2026"
@@ -41,13 +41,13 @@ The application offers two complementary approaches based on user context and ti
 **Relax Mode** targets rapid ideation. Users input a brief product description (as simple as "A recipe app that suggests meals based on available ingredients"), select an AI model, and receive a complete 14-section specification within seconds. This mode works well for early exploration or when time is limited.
 
 <gallery cols="1">
-<figure src="./images/relax-mode.jpg" alt="Plainify Relax Mode">Relax Mode accepts a brief product description and optional visual references, generating a complete specification with minimal input</figure>
+<figure src="./images/relax-mode.webp" alt="Plainify Relax Mode">Relax Mode accepts a brief product description and optional visual references, generating a complete specification with minimal input</figure>
 </gallery>
 
 **Custom Mode** provides granular control over every section. The interface walks users through curated options, contextual examples, and intelligent defaults. Design style, color palette, typography, tech stack, UI library: each choice is guided rather than open-ended. For any decision point where users feel uncertain, an "Let AI decide" option delegates the choice to the model.
 
 <gallery cols="1">
-<figure src="./images/custom-mode.jpg" alt="Plainify Custom Mode">Custom Mode guides users through each specification section with curated options and contextual suggestions</figure>
+<figure src="./images/custom-mode.webp" alt="Plainify Custom Mode">Custom Mode guides users through each specification section with curated options and contextual suggestions</figure>
 </gallery>
 
 ### Output & Integration
@@ -55,7 +55,7 @@ The application offers two complementary approaches based on user context and ti
 Both workflows produce a clean markdown file named `{project-name}-plain.md`. Users can preview the output, make inline edits, copy to clipboard, or download directly. The file drops into any project directory and works immediately with AI assistants. Simply instruct the tool to read the spec and begin building.
 
 <gallery cols="1">
-<figure src="./images/markdown-preview.jpg" alt="Markdown Preview">The preview modal displays generated content with options to edit, copy, or download the specification file</figure>
+<figure src="./images/markdown-preview.webp" alt="Markdown Preview">The preview modal displays generated content with options to edit, copy, or download the specification file</figure>
 </gallery>
 
 ### Visual Reference Analysis

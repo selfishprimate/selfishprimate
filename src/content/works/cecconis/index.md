@@ -4,7 +4,7 @@ description: "A website redesign for the acclaimed Italian restaurant, transform
 company: "Cecconi's Miami Beach"
 category: "Web Design"
 tags: ["Restaurant", "Web Design", "UX Design", "Hospitality", "Soho House"]
-coverImage: "./images/cover.jpg"
+coverImage: "./images/cover.webp"
 images: []
 order: 11
 year: "2021"
@@ -32,7 +32,7 @@ The redesigned homepage leads with atmospheric photography that immediately tran
 The reservation widget is embedded directly in the hero section, answering the most common user intent immediately. Party size, date, and time selection are visible without scrolling, with OpenTable integration providing instant confirmation.
 
 <gallery cols="1">
-<figure src="./images/home.jpg" alt="Homepage design">Homepage featuring atmospheric hero imagery, inline reservation widget, menu discovery, and social proof through user-generated content</figure>
+<figure src="./images/home.webp" alt="Homepage design">Homepage featuring atmospheric hero imagery, inline reservation widget, menu discovery, and social proof through user-generated content</figure>
 </gallery>
 
 Below the fold, a visual menu discovery section invites exploration across categories (Breakfast, All Day, Brunch, Drinks, Dessert, Kids) each represented by appetizing imagery. A personal message from the chef adds authenticity and human touch, while a curated feed of guest moments under #CecconisMoments provides powerful social proof.
@@ -44,7 +44,7 @@ The dedicated reservation page was designed around one principle: get guests to 
 Available time slots appear immediately after selecting preferences, giving users instant feedback and control. The sidebar maintains persistent access to essential information (location with an interactive map, phone number, and operating hours) so users never need to hunt for details.
 
 <gallery cols="1">
-<figure src="./images/reservation.jpg" alt="Reservation page">Streamlined two-step booking flow with OpenTable integration and persistent location information</figure>
+<figure src="./images/reservation.webp" alt="Reservation page">Streamlined two-step booking flow with OpenTable integration and persistent location information</figure>
 </gallery>
 
 The prominent OpenTable badge serves dual purposes: it signals trust through a recognized booking platform, and it reassures guests that their reservation is secure and confirmed.
@@ -56,7 +56,7 @@ The About page balances storytelling with practical information. The hero showca
 For Soho House members, a dedicated section highlights exclusive benefits: priority booking, 20% discounts, and special events. This not only serves existing members but creates aspiration for non-members, with a clear CTA to apply for membership.
 
 <gallery cols="1">
-<figure src="./images/about-us.jpg" alt="About page">About page with kitchen hero, restaurant story, and Soho House membership benefits</figure>
+<figure src="./images/about-us.webp" alt="About page">About page with kitchen hero, restaurant story, and Soho House membership benefits</figure>
 </gallery>
 
 ### Design System Notes

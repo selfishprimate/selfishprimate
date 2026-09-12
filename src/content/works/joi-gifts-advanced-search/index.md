@@ -4,7 +4,7 @@ description: "A comprehensive search experience redesign for the Middle East's l
 company: "Joi Gifts"
 category: "UI/UX Design"
 tags: ["Search UX", "Smart Suggestions", "E-commerce", "Mobile Design"]
-coverImage: "./images/cover.jpg"
+coverImage: "./images/cover.webp"
 images: []
 order: 5
 year: "2023"
@@ -32,7 +32,7 @@ I approached this redesign with a core belief: search isn't just about finding, 
 The first interaction sets the tone. When users tap the search field, a subtle backdrop dims the rest of the page, creating a focused environment for discovery. This isn't just visual polish, it signals to users that they've entered a dedicated search mode where the platform is ready to help them find exactly what they need.
 
 <gallery cols="1">
-<figure src="./images/backdrop.jpg" alt="Search focus backdrop">Backdrop dims the interface, creating a focused search environment that reduces visual noise</figure>
+<figure src="./images/backdrop.webp" alt="Search focus backdrop">Backdrop dims the interface, creating a focused search environment that reduces visual noise</figure>
 </gallery>
 
 ### Recent Searches: Memory as a Feature
@@ -40,7 +40,7 @@ The first interaction sets the tone. When users tap the search field, a subtle b
 Returning customers shouldn't start from zero. The "Your recent searches" feature immediately surfaces previous queries (cake, flower, balloon) allowing one-tap access to repeat searches. A "Clear All" option gives users control over their history. This small addition dramatically reduced time-to-result for our most valuable users: repeat customers.
 
 <gallery cols="1">
-<figure src="./images/recently-searched.jpg" alt="Recent searches">Recent searches eliminate repetitive typing and help users pick up where they left off</figure>
+<figure src="./images/recently-searched.webp" alt="Recent searches">Recent searches eliminate repetitive typing and help users pick up where they left off</figure>
 </gallery>
 
 ### Recently Viewed: Bridging Sessions
@@ -48,7 +48,7 @@ Returning customers shouldn't start from zero. The "Your recent searches" featur
 Gift-buying is rarely impulsive. Users browse, compare, leave, and return, sometimes days later. The "You recently viewed" section bridges these sessions, displaying products with images and prices for instant recognition. This feature acknowledges a fundamental truth about e-commerce: the buying journey spans multiple visits.
 
 <gallery cols="1">
-<figure src="./images/recently-viewed.jpg" alt="Recently viewed products">Recently viewed products create continuity across shopping sessions</figure>
+<figure src="./images/recently-viewed.webp" alt="Recently viewed products">Recently viewed products create continuity across shopping sessions</figure>
 </gallery>
 
 ### Intelligent Autofill: Anticipating Intent
@@ -62,7 +62,7 @@ As users type, the search transforms into a discovery engine. For a query like "
 **Related products** appear below with images and prices, letting users jump directly to promising options without completing the search. This progressive disclosure keeps the interface clean while packing it with utility.
 
 <gallery cols="1">
-<figure src="./images/autofill.jpg" alt="Autofill and suggestions">Intelligent autofill combines query completion, category shortcuts, and product previews</figure>
+<figure src="./images/autofill.webp" alt="Autofill and suggestions">Intelligent autofill combines query completion, category shortcuts, and product previews</figure>
 </gallery>
 
 ### Mobile: Full Parity, Native Feel
@@ -70,11 +70,11 @@ As users type, the search transforms into a discovery engine. For a query like "
 The mobile experience maintains complete feature parity while respecting platform conventions. The dedicated search screen uses the full viewport, with the keyboard immediately available. Autofill suggestions appear as the user types, with categories and products adapting to the smaller screen. Recent searches and recently viewed products are accessible from the empty state, ensuring mobile users get the same shortcuts as desktop users.
 
 <gallery cols="1">
-<figure src="./images/mobile-01.jpg" alt="Mobile search experience">Mobile search with full-screen focus, autofill suggestions, and category shortcuts</figure>
+<figure src="./images/mobile-01.webp" alt="Mobile search experience">Mobile search with full-screen focus, autofill suggestions, and category shortcuts</figure>
 </gallery>
 
 <gallery cols="1">
-<figure src="./images/mobile-02.jpg" alt="Mobile personalization">Mobile empty state with recent searches and recently viewed products for instant access</figure>
+<figure src="./images/mobile-02.webp" alt="Mobile personalization">Mobile empty state with recent searches and recently viewed products for instant access</figure>
 </gallery>
 
 ### Reflection
