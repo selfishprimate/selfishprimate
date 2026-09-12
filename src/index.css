@@ -23,6 +23,9 @@
   /* The case study pages only: a paper one shade off white, so a page that is
      almost entirely imagery does not read as a gallery pinned to nothing. */
   --color-paper: #F9F9F8;
+  /* Code blocks need a surface that reads against the paper above. The card
+     grey is #F7F7F7, two values off the paper, so it showed as nothing. */
+  --color-code: #F0F0EE;
 
   /* The site has one corner. Everything that gets rounded — cards, thumbnails,
      cover images, embeds, logos, the portrait — uses `rounded-card`, so
@@ -45,6 +48,7 @@ body.page-paper {
   --color-border: #1C1C1C;
   --color-accent: #FFFFFF;
   --color-paper: #0A0A0A;
+  --color-code: #161616;
 }
 
 /* Light/Dark mode image visibility */
@@ -271,11 +275,50 @@ body {
 }
 
 .prose blockquote {
-  margin: 1.6em 0;
-  padding-left: 1.25em;
-  border-left: 2px solid var(--color-surface);
-  font-size: clamp(1.0625rem, 1.6vw, 1.3125rem);
-  line-height: 1.55;
+  margin: 2.25em 0;
+  padding: 0;
+  border: 0;
+  font-size: clamp(1.375rem, 2.3vw, 1.75rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+  color: var(--color-text-primary);
+}
+
+/* The only mark it carries. The site uses one rule in the footer and nothing
+   else, so a short one here sets the quote apart without introducing a
+   decoration the rest of the page does not have. */
+.prose blockquote::before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  margin-bottom: 0.7em;
+  background-color: var(--color-text-primary);
+}
+
+.prose blockquote p {
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  color: inherit;
+  margin-bottom: 0.5em;
+}
+
+.prose blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* An attribution is authored as a second paragraph inside the quote, so the
+   selector only bites when there is one. At quote size a trailing " - Name"
+   read as part of the sentence. */
+.prose blockquote p:not(:first-child) {
+  margin-top: 0.9em;
+  font-size: clamp(1rem, 1.4vw, 1.125rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
   color: var(--color-text-secondary);
 }
 
@@ -284,14 +327,14 @@ body {
 }
 
 .prose code {
-  background-color: var(--color-surface);
+  background-color: var(--color-code);
   padding: 0.15em 0.4em;
   border-radius: 6px;
   font-size: 0.85em;
 }
 
 .prose pre {
-  background-color: var(--color-surface);
+  background-color: var(--color-code);
   color: var(--color-text-primary);
   padding: 1.25em;
   border-radius: var(--radius-card);

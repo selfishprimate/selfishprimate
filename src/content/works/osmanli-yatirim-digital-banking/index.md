@@ -12,7 +12,9 @@ featured: false
 draft: true
 ---
 
-> "The best investment platforms are the ones that make complex financial decisions feel simple." - Anonymous
+> “The best investment platforms are the ones that make complex financial decisions feel simple.”
+>
+> Anonymous
 
 ### Overview
 
