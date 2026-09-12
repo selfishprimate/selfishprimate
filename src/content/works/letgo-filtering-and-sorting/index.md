@@ -51,7 +51,7 @@ The second evaluation focused on how listings are displayed and how the filterin
 
 - **Incorrect stepper usage:** A stepper component was used for selecting values like brand or category, requiring users to scroll through options one by one. This dramatically reduces efficiency for lists with many items.
 
-- **Ambiguous "Save" button:** The top "Save" button creates confusion—users cannot immediately tell if it saves the product to favorites or saves their search/filter settings.
+- **Ambiguous "Save" button:** The top "Save" button creates confusion: users cannot immediately tell if it saves the product to favorites or saves their search/filter settings.
 
 - **Missing gaps between cards:** Product cards had no visual separation between them, making it difficult to distinguish where one listing ends and another begins.
 
@@ -111,7 +111,7 @@ The final evaluation examined the overall listing presentation and visual design
 
 - **Inconsistent image cropping:** Product images were not cropped or sized consistently, creating a chaotic visual rhythm that made the listing feel unprofessional and harder to scan.
 
-- **Missing key information:** Product cards didn't consistently surface key information like item condition, seller rating, or time since posting—details that help users make quick decisions.
+- **Missing key information:** Product cards didn't consistently surface key information like item condition, seller rating, or time since posting, the details that help users make quick decisions.
 
 - **Visual hierarchy problems:** The varying image sizes and text treatments made it difficult for users to quickly compare listings and identify relevant items.
 
@@ -161,7 +161,7 @@ A new "Save Search" feature allows users to preserve their filter combinations f
 
 #### Transparent Sorting Options
 
-The sorting redesign replaces vague labels with clear, descriptive options. "Smart Sorting" now includes an explanation of how it works, appearing in a tooltip when users need clarification. The full sorting menu presents options like "Most Liked," "Most Viewed," "Listing Date: Newest First," and "Price: Low to High" — each unambiguous about the resulting order. Radio buttons replace the incorrect checkbox pattern, correctly indicating mutual exclusivity. When a sorting option is active, a small dot in the primary color appears next to the Sort button, giving users a persistent visual indicator that their results are being sorted.
+The sorting redesign replaces vague labels with clear, descriptive options. "Smart Sorting" now includes an explanation of how it works, appearing in a tooltip when users need clarification. The full sorting menu presents options like "Most Liked," "Most Viewed," "Listing Date: Newest First," and "Price: Low to High". Each one is unambiguous about the resulting order. Radio buttons replace the incorrect checkbox pattern, correctly indicating mutual exclusivity. When a sorting option is active, a small dot in the primary color appears next to the Sort button, giving users a persistent visual indicator that their results are being sorted.
 
 <gallery cols="1">
 <figure src="./images/letgo-sorting.png" alt="Redesigned sorting options">Clear sorting labels with explanatory tooltips, proper radio button pattern, and immediate visual feedback on the listing</figure>
@@ -173,7 +173,7 @@ This heuristic evaluation revealed that even successful apps can accumulate sign
 
 The issues I identified fell into recurring patterns: inconsistent design patterns, ambiguous labels, poor feedback mechanisms, and violation of user expectations. Each problem individually might seem minor, but collectively they compound into an experience that frustrates users and likely impacts conversion.
 
-This analysis reinforced a key principle: discoverability features like filtering and sorting deserve the same design rigor as primary user flows. When users can't find what they're looking for efficiently, the entire marketplace experience suffers—no matter how good the core buying and selling mechanics might be.
+This analysis reinforced a key principle: discoverability features like filtering and sorting deserve the same design rigor as primary user flows. When users can't find what they're looking for efficiently, the entire marketplace experience suffers, no matter how good the core buying and selling mechanics might be.
 
 ### Figma Screens
 

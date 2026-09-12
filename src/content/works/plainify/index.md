@@ -24,7 +24,7 @@ During a "Vibe Designing" workshop I organized for my design team, this friction
 
 I started documenting what made AI outputs successful versus problematic. The pattern was consistent: well-structured, comprehensive specification files dramatically improved initial results and reduced back-and-forth corrections. Scattered requirements across Figma files, Notion docs, and Slack threads led to fragmented AI outputs.
 
-This research led me to develop **PLAIN (Product Language for AI Notation)** — an open-source specification format that consolidates everything a product needs into a single markdown file. The format covers 14 distinct sections, from project overview and value proposition to design direction, component inventory, and technical architecture.
+This research led me to develop **PLAIN (Product Language for AI Notation)**, an open-source specification format that consolidates everything a product needs into a single markdown file. The format covers 14 distinct sections, from project overview and value proposition to design direction, component inventory, and technical architecture.
 
 ### Design Objectives
 
@@ -38,13 +38,13 @@ This research led me to develop **PLAIN (Product Language for AI Notation)** —
 
 The application offers two complementary approaches based on user context and time constraints.
 
-**Relax Mode** targets rapid ideation. Users input a brief product description — as simple as "A recipe app that suggests meals based on available ingredients" — select an AI model, and receive a complete 14-section specification within seconds. This mode works well for early exploration or when time is limited.
+**Relax Mode** targets rapid ideation. Users input a brief product description (as simple as "A recipe app that suggests meals based on available ingredients"), select an AI model, and receive a complete 14-section specification within seconds. This mode works well for early exploration or when time is limited.
 
 <gallery cols="1">
 <figure src="./images/relax-mode.jpg" alt="Plainify Relax Mode">Relax Mode accepts a brief product description and optional visual references, generating a complete specification with minimal input</figure>
 </gallery>
 
-**Custom Mode** provides granular control over every section. The interface walks users through curated options, contextual examples, and intelligent defaults. Design style, color palette, typography, tech stack, UI library — each choice is guided rather than open-ended. For any decision point where users feel uncertain, an "Let AI decide" option delegates the choice to the model.
+**Custom Mode** provides granular control over every section. The interface walks users through curated options, contextual examples, and intelligent defaults. Design style, color palette, typography, tech stack, UI library: each choice is guided rather than open-ended. For any decision point where users feel uncertain, an "Let AI decide" option delegates the choice to the model.
 
 <gallery cols="1">
 <figure src="./images/custom-mode.jpg" alt="Plainify Custom Mode">Custom Mode guides users through each specification section with curated options and contextual suggestions</figure>
@@ -52,7 +52,7 @@ The application offers two complementary approaches based on user context and ti
 
 ### Output & Integration
 
-Both workflows produce a clean markdown file named `{project-name}-plain.md`. Users can preview the output, make inline edits, copy to clipboard, or download directly. The file drops into any project directory and works immediately with AI assistants — simply instruct the tool to read the spec and begin building.
+Both workflows produce a clean markdown file named `{project-name}-plain.md`. Users can preview the output, make inline edits, copy to clipboard, or download directly. The file drops into any project directory and works immediately with AI assistants. Simply instruct the tool to read the spec and begin building.
 
 <gallery cols="1">
 <figure src="./images/markdown-preview.jpg" alt="Markdown Preview">The preview modal displays generated content with options to edit, copy, or download the specification file</figure>
@@ -68,7 +68,7 @@ Data privacy shaped core architectural decisions. The application runs entirely 
 
 ### Technical Implementation
 
-The generation engine uses Anthropic's Claude Haiku models. Users choose between Haiku 3.5 for faster output or Haiku 4.5 for more nuanced results. The markdown format was intentional — it's readable by humans, parseable by AI, trackable by Git, and editable in any text editor. No proprietary formats or vendor lock-in.
+The generation engine uses Anthropic's Claude Haiku models. Users choose between Haiku 3.5 for faster output or Haiku 4.5 for more nuanced results. The markdown format was intentional: it's readable by humans, parseable by AI, trackable by Git, and editable in any text editor. No proprietary formats or vendor lock-in.
 
 ### Key Features
 
@@ -81,15 +81,15 @@ The generation engine uses Anthropic's Claude Haiku models. Users choose between
 
 ### Watch the Video
 
-See Relax Mode in action — from product idea to complete specification in seconds.
+See Relax Mode in action, from product idea to complete specification in seconds.
 
 <youtube src="VXFl22T_RQ8" title="Plainify Demo" />
 
 ### Reflection
 
-Building Plainify reinforced a principle I've observed throughout my design career: the quality of output depends heavily on the quality of input. AI coding assistants amplify this relationship — vague prompts produce generic results, while structured specifications yield coherent, buildable applications.
+Building Plainify reinforced a principle I've observed throughout my design career: the quality of output depends heavily on the quality of input. AI coding assistants amplify this relationship: vague prompts produce generic results, while structured specifications yield coherent, buildable applications.
 
-The project also validated a workflow I call "Design in Code" — iterating on interfaces directly in the codebase using AI assistance rather than traditional design-to-handoff pipelines. Plainify itself was built this way, with Figma reserved only for branding assets while all UI work happened in the terminal with Claude Code.
+The project also validated a workflow I call "Design in Code": iterating on interfaces directly in the codebase using AI assistance rather than traditional design-to-handoff pipelines. Plainify itself was built this way, with Figma reserved only for branding assets while all UI work happened in the terminal with Claude Code.
 
 ### Links
 

@@ -137,7 +137,7 @@ export function HomePage() {
                   )}
                 </p>
                 <p className="j-item text-text-tertiary">{exp.role}</p>
-                <p className="j-meta mt-2">{exp.period.replace(' — ', '–')}</p>
+                <p className="j-meta mt-2">{exp.period.replace(' - ', '–')}</p>
                 <p className="j-meta mt-4 text-text-primary">{exp.description}</p>
                 </div>
               </li>

@@ -43,7 +43,7 @@ export function ExperiencePage() {
                   {exp.company}
                 </h3>
                 <p className="j-item mt-1 text-text-tertiary">{exp.role}</p>
-                <p className="j-meta mt-2">{exp.period.replace(' — ', '–')}</p>
+                <p className="j-meta mt-2">{exp.period.replace(' - ', '–')}</p>
                 <p className="j-meta mt-5 text-text-primary">{exp.description}</p>
                 {exp.skills && exp.skills.length > 0 && (
                   <p className="j-meta mt-4">{exp.skills.join(', ')}</p>
