@@ -116,7 +116,7 @@ export function TableOfContents({ content, className = '' }: TableOfContentsProp
             <button
               onClick={() => handleClick(id)}
               className={`
-                block text-left text-[0.9375rem] leading-[1.45] transition-colors duration-200
+                block text-left text-[0.9375rem] leading-[1.25] transition-colors duration-200
                 ${level === 3 ? 'pl-0' : 'pl-3'}
                 ${
                   activeId === id
