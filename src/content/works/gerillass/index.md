@@ -1,6 +1,6 @@
 ---
 title: "Gerillass: A Sass Library a Coding Agent Can Actually Use"
-description: "A five year old Sass toolkit rebuilt on the module system, given a machine-readable manifest the test suite refuses to let drift, and folded into one repository with the site and documentation it had been living apart from."
+description: "A Sass toolkit that began as the answer to writing the same CSS for the fifth time, released in 2021 and rebuilt five years later on the module system, with a machine-readable manifest the test suite refuses to let drift."
 company: "Gerillass"
 category: "Developer Tool"
 tags: ["Sass", "Open Source", "Developer Tools", "Design Systems", "AI Tooling", "Documentation"]
@@ -14,21 +14,53 @@ featuredOrder: 3
 
 > “Documentation drifts away from code in most projects, quietly. An agent reading stale docs writes code that does not work.”
 
-### Overview
+### The Problem It Was Built For
 
-Gerillass is a Sass library I started as a personal collection of mixins and released publicly in 2021. It has 53 mixins and 23 functions, and it is installed by other people's projects, which makes every change a compatibility question rather than a preference.
+Frontend work has a set of problems you solve once and then solve again on every project. Centring something. Holding an element to a ratio. A triangle. A breakpoint. A gradient over an image. None of them is hard, and that is exactly why they never get put away — each one is quick enough to rewrite that you rewrite it, slightly differently, for years.
 
-This is what happened to it over one week in September 2026. The library moved onto the Sass module system, which Dart Sass 3.0 makes mandatory. It gained a machine-readable description of its own API that the test suite will not let go stale. And the marketing site and the documentation — two separate repositories, on two domains, with nothing connecting either to the library — were folded into the library's own repository as a single application.
+The cost is not the typing. It is that the fifth version is not the same as the first. A ratio box written from memory forgets that an `<img>` with no `object-fit` stretches rather than crops. A breakpoint written by hand gets its `min-width` and `max-width` a pixel apart, and two components end up disagreeing about who owns 768px. A library is how a decision gets made once instead of being remade slightly wrong each time.
+
+So I kept one. From my early days writing HTML and CSS it lived as a folder of mixins that travelled with me between projects, and it grew the way that kind of thing grows: by hitting something in real work and putting the answer somewhere it could be reused.
+
+### Why It Went Public
+
+I had wanted to release it for years without finding the time. When the pandemic locked everyone indoors, the time arrived. I restructured the codebase, wrote the documentation, built a site for it, and put it out in 2021.
+
+What it had to be, for anyone other than me, was three things:
+
+- **Practical.** Every mixin answers a problem that actually came up, not one that completes a matrix.
+- **Flexible.** It adapts to the project rather than asking the project to adopt a system. No reset you must accept, no grid you must buy into, no class names in your markup.
+- **Quiet in the output.** Mixins, not classes, so nothing ships that you did not call.
+
+That last pair is also what separates it from a framework. Bourbon, Susy, Scut and Bootstrap all shaped it, but a framework hands you an opinion about how the whole page is built. Gerillass hands you the one thing you were about to write badly.
+
+### What Is In It
+
+53 mixins and 23 functions, grouped by the kind of problem they close:
+
+- **Layout** — `center`, `position`, `sizer`, `aspect-ratio`, `columnizer`, `stretched-link`, and `escape-to-parent`, which lets a child break out of a container that is constraining it.
+- **Responsive** — `breakpoint` for media queries, `container` and `container-query` for the component-level equivalent, `adaptive` for a container that steps up at each breakpoint, plus `smartphone` and `tablet`.
+- **Typography** — `ellipsis` and `line-clamp` for overflow, `font-face`, `text-gradient`, `text-stroke`, `text-shadow`, and `fluid`, a function returning a `clamp()` that grows with the viewport.
+- **Surface and shape** — `circle`, `triangle`, `border-radius`, `scissors`, `linear-gradient`, `radial-gradient`, `background-dots`, `background-stripes`, `background-image`.
+- **Structure and state** — `clearfix`, `border-box`, `reset-css`, `all-buttons` and `all-text-inputs` for styling every control at once, `placeholder`, `text-selection`, `hide`.
+
+Underneath sit the 23 functions the mixins are built from — unit conversion, colour shading, validation. They are public because the same arithmetic keeps coming up in the projects using the library.
 
 <gallery cols="1">
-<figure src="./images/home.jpg" alt="The Gerillass home page">gerillass.com, rebuilt as a statically generated Vite application and served from the library's own repository</figure>
+<figure src="./images/docs.jpg" alt="A Gerillass documentation page">Every member has a page: what it takes, what it refuses, and what it compiles to</figure>
 </gallery>
 
-### The Problem an Agent Has With a Library This Size
+### Five Years On, a Different Problem
+
+The library was fine. What had changed was who reads it.
 
 A library with a few thousand weekly installs has essentially no training data behind it. Ask a coding agent to use Gerillass and it will not refuse — it will guess the argument forms, and Sass will let it. An unknown function is not an error in Sass: the call is emitted as literal CSS and the build passes. You get a stylesheet with `remify(24px)` sitting in it as text.
 
 That failure mode is worse than a crash, because nothing surfaces it. So the fix could not be a better README. It had to be something an agent reads mechanically, and something that cannot quietly stop being true.
+
+<gallery cols="1">
+<figure src="./images/home.jpg" alt="The Gerillass home page">gerillass.com, rebuilt as a statically generated Vite application and served from the library's own repository</figure>
+</gallery>
 
 ### A Manifest That Cannot Drift
 
@@ -72,10 +104,6 @@ Neither was a discipline problem. Both are what happens when the only way to ans
 
 So the sites moved in. One Vite application now serves the marketing site with the documentation mounted under `/docs` — 80 documentation pages, one router, one build, one deploy. Every route is generated as a real HTML file at build time; the build writes 86 of them. The site is styled entirely with Gerillass, resolved through a load path to the library beside it rather than a published copy, so it is always built against the code it advertises.
 
-<gallery cols="1">
-<figure src="./images/docs.jpg" alt="A Gerillass documentation page">Documentation now lives at gerillass.com/docs, generated from the same repository as the mixin it describes</figure>
-</gallery>
-
 ### Search and the Playground
 
 The site gained a command palette over every mixin, function and page — the thing a library of 76 members needs and did not have.
@@ -101,6 +129,8 @@ And `tools/audit.js` does the thing a test suite cannot. `npm test` only checks 
 ### Where It Stands
 
 Version 2.1.0. 53 mixins, 23 functions, 436 tests, 143 snapshots. One repository holding the library, its site, its documentation and the description of itself that all three are generated from.
+
+Five years on it is still answering the question it started with — write this once, correctly, and stop rewriting it — for a reader who did not exist when it was written.
 
 ### Installation
 
