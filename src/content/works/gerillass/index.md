@@ -102,10 +102,6 @@ And `tools/audit.js` does the thing a test suite cannot. `npm test` only checks 
 
 Version 2.1.0. 53 mixins, 23 functions, 436 tests, 143 snapshots. One repository holding the library, its site, its documentation and the description of itself that all three are generated from.
 
-<gallery cols="1">
-<figure src="./images/gerillass-mockup.jpg" alt="Gerillass website design, 2021">The 2021 release. Made with the loving music of [Anna German](https://open.spotify.com/track/7cmusjrA2X3w6eExZuskZp?si=9908e91075844cf2) and dedicated to [James Williamson](https://simpleprimate.netlify.app/): the best web educator ever.</figure>
-</gallery>
-
 ### Installation
 
 ```bash
