@@ -39,7 +39,8 @@ body.page-paper {
   background-color: var(--color-paper);
 }
 
-.dark {
+.dark,
+.prose blockquote {
   --color-background: #000000;
   --color-surface: #0F0F0F;
   --color-text-primary: #FFFFFF;
@@ -274,27 +275,20 @@ body {
   text-decoration-color: var(--color-text-primary);
 }
 
+/* An inverted panel, the same object as the closing banner in the footer and
+   built the same way: the selector above puts the dark palette in scope, so
+   every colour below is the site's own rather than a new one. */
 .prose blockquote {
-  margin: 2.25em 0;
-  padding: 0;
+  margin: 2.5em 0;
+  padding: clamp(1.75rem, 3.5vw, 2.5rem) clamp(1.5rem, 3vw, 2.25rem);
   border: 0;
-  font-size: clamp(1.375rem, 2.3vw, 1.75rem);
+  border-radius: var(--radius-card);
+  background-color: var(--color-background);
+  font-size: clamp(1.25rem, 2vw, 1.625rem);
   font-weight: 500;
   letter-spacing: -0.02em;
-  line-height: 1.35;
+  line-height: 1.4;
   color: var(--color-text-primary);
-}
-
-/* The only mark it carries. The site uses one rule in the footer and nothing
-   else, so a short one here sets the quote apart without introducing a
-   decoration the rest of the page does not have. */
-.prose blockquote::before {
-  content: "";
-  display: block;
-  width: 40px;
-  height: 2px;
-  margin-bottom: 0.7em;
-  background-color: var(--color-text-primary);
 }
 
 .prose blockquote p {
