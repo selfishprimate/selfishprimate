@@ -8,6 +8,8 @@ coverImage: "./images/cover.jpg"
 images: []
 order: 7
 year: "2026"
+featured: true
+featuredOrder: 3
 ---
 
 > "Documentation drifts away from code in most projects, quietly. An agent reading stale docs writes code that does not work."
