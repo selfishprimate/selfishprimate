@@ -95,7 +95,7 @@ There is **no test framework** in this repo. `npm run build` (which type-checks 
 
 ## Commands
 
-- `npm run dev` — Vite dev server (port 5173)
+- `npm run dev` — Vite dev server (port 6001, pinned with `strictPort`)
 - `npm run build` — Runs `prebuild` (regenerates `public/sitemap.xml`), then `tsc -b` and `vite build` → `dist/`
 - `npm run lint` — ESLint over the repo
 - `npm run preview` — Serve the production build locally
