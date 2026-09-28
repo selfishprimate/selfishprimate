@@ -8,8 +8,6 @@ coverImage: "./images/cover.webp"
 images: []
 order: 6
 year: "2023"
-featured: true
-featuredOrder: 6
 ---
 
 Joi Gifts is the leading online gifting platform in the Middle East, offering same-day delivery of flowers, cakes, and curated gifts across the UAE, Saudi Arabia, and beyond. As the product catalog expanded to thousands of items, the existing search functionality became a bottleneck. Users struggled to find what they wanted, often abandoning their search in frustration. I was tasked with reimagining the entire search experience across desktop and mobile.

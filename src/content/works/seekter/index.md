@@ -8,6 +8,8 @@ coverImage: "./images/cover.webp"
 images: []
 order: 2
 year: "2026"
+featured: true
+featuredOrder: 3
 ---
 
 > It is opinionated where the lessons were expensive: dedup before every form, never guess an answer, never invent an anecdote.
