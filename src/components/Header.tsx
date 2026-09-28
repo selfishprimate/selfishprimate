@@ -30,7 +30,18 @@ export function Header() {
           keeps the page reading as a document. */}
       <header className="mx-auto w-full max-w-[1280px] px-6 pt-14 md:px-10">
         <div className="flex items-center justify-between gap-6">
-          <Link to="/">
+          <Link to="/" className="flex items-center gap-2.5">
+            {/* The mark is taller than the wordmark's cap height on purpose:
+                matched to it exactly, a drawing this detailed reads as a
+                smudge. */}
+            <img
+              src="/images/sp-mark.png"
+              alt=""
+              aria-hidden="true"
+              width={31}
+              height={34}
+              className="h-[34px] w-auto shrink-0"
+            />
             <h1 className="j-nav text-text-primary">
               <span className="sr-only">SELFISHPRIMATE</span>
               <span aria-hidden="true" className="font-semibold tracking-[0.01em]">
