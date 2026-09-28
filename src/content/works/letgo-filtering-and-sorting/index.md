@@ -6,7 +6,7 @@ category: "UX Research & Design"
 tags: ["Heuristic Evaluation", "Filtering UX", "E-commerce", "Mobile Design"]
 coverImage: "./images/cover.webp"
 images: []
-order: 6
+order: 7
 year: "2024"
 featured: false
 ---

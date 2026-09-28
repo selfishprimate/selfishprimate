@@ -6,7 +6,7 @@ category: "UI/UX Design"
 tags: ["E-commerce", "Filtering UI", "Accessibility", "Mobile Design"]
 coverImage: "./images/cover.webp"
 images: []
-order: 14
+order: 15
 year: "2020"
 ---
 

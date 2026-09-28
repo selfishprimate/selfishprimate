@@ -12,6 +12,7 @@ import joiSearchMd from '../content/works/joi-gifts-advanced-search/index.md?raw
 import vavacarsMd from '../content/works/vavacars/index.md?raw';
 import sketchizeMd from '../content/works/sketchize/index.md?raw';
 import gerillassMd from '../content/works/gerillass/index.md?raw';
+import seekterMd from '../content/works/seekter/index.md?raw';
 import otorentoMd from '../content/works/otorento/index.md?raw';
 import osmanliYatirimMd from '../content/works/osmanli-yatirim-data-package-trading-website/index.md?raw';
 import cecconisMd from '../content/works/cecconis/index.md?raw';
@@ -56,6 +57,7 @@ const projectFiles: Record<string, string> = {
   'vavacars': vavacarsMd,
   'sketchize': sketchizeMd,
   'gerillass': gerillassMd,
+  'seekter': seekterMd,
   'otorento': otorentoMd,
   'osmanli-yatirim-data-package-trading-website': osmanliYatirimMd,
   'cecconis': cecconisMd,

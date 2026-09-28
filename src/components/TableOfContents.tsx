@@ -12,12 +12,26 @@ interface TableOfContentsProps {
   className?: string;
 }
 
-// Parse headings from markdown content
+// Parse headings from markdown content.
+//
+// Fenced code is skipped. A case study that shows a markdown file puts real
+// `##` lines inside a fence, and counting those produced contents entries
+// pointing at anchors no heading ever rendered.
 function parseHeadings(content: string): TOCItem[] {
   const headings: TOCItem[] = [];
   const lines = content.split('\n');
+  let fence: string | null = null;
 
   for (const line of lines) {
+    const fenceMatch = line.match(/^\s*(```+|~~~+)/);
+    if (fenceMatch) {
+      const marker = fenceMatch[1][0].repeat(3);
+      if (fence === null) fence = marker;
+      else if (fence === marker) fence = null;
+      continue;
+    }
+    if (fence !== null) continue;
+
     // Match ### or #### headings (h3, h4)
     const match = line.match(/^(#{2,4})\s+(.+)$/);
     if (match) {

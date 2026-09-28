@@ -6,7 +6,7 @@ category: "UI/UX Design"
 tags: ["Search UX", "Smart Suggestions", "E-commerce", "Mobile Design"]
 coverImage: "./images/cover.webp"
 images: []
-order: 5
+order: 6
 year: "2023"
 featured: true
 featuredOrder: 6

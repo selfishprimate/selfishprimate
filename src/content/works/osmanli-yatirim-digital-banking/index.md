@@ -6,7 +6,7 @@ category: "FinTech"
 tags: ["FinTech", "Banking", "Web App", "Digital Banking", "Investment", "Trading"]
 coverImage: "./images/cover.webp"
 images: []
-order: 11
+order: 12
 year: "2021"
 featured: false
 draft: true

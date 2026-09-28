@@ -6,7 +6,7 @@ category: "Web Design"
 tags: ["Restaurant", "Web Design", "UX Design", "Hospitality", "Soho House"]
 coverImage: "./images/cover.webp"
 images: []
-order: 11
+order: 12
 year: "2021"
 ---
 
