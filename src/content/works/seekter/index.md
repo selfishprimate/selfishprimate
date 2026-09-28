@@ -6,10 +6,10 @@ category: "AI Agent"
 tags: ["AI Agents", "Claude Code", "Automation", "Developer Tools", "Open Source", "Systems Design"]
 coverImage: "./images/cover.webp"
 images: []
-order: 2
+order: 1
 year: "2026"
 featured: true
-featuredOrder: 3
+featuredOrder: 2
 ---
 
 > It is opinionated where the lessons were expensive: dedup before every form, never guess an answer, never invent an anecdote.
