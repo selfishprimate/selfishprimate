@@ -4,6 +4,38 @@ title: Articles
 description: Thoughts on design, development, and the creative process.
 ---
 
+# Seekter: Turn Your Job Search Into One Command a Day
+slug: seekter-turn-your-job-search-into-one-command-a-da
+image: ./images/seekter-turn-your-job-search-into-one-command-a-da.webp
+description: Let’s say you’re looking for a job.
+date: September 29, 2026
+url: https://medium.com/@selfishprimate/seekter-turn-your-job-search-into-one-command-a-day-bc2de0f4e87c
+tags: Claude Code, Job Search, Ai Agent, Automation, Open Source
+
+# Why Every Vibe-Coded App Looks the Same (And How a Spec Fixes It)
+slug: why-every-vibe-coded-app-looks-the-same-and-how-a-
+image: ./images/why-every-vibe-coded-app-looks-the-same-and-how-a-.webp
+description: Open Lovable. Build a dashboard. Now do the same in Bolt. Then v0. Then ask Claude Code or Cursor to scaffold one from scratch.
+date: April 30, 2026
+url: https://medium.com/plainify/why-every-vibe-coded-app-looks-the-same-and-how-a-spec-fixes-it-35316dfb42de
+tags: Product Design, Ui Design, Ai, Front End Development, Vibe Coding
+
+# The New Floor for Vibe Coding: Minimum Bearable Product
+slug: the-new-floor-for-vibe-coding-minimum-bearable-pro
+image: ./images/the-new-floor-for-vibe-coding-minimum-bearable-pro.webp
+description: Hello, vibe coders. 👋
+date: April 17, 2026
+url: https://medium.com/design-bootcamp/the-new-floor-for-vibe-coding-minimum-bearable-product-de328c269c2e
+tags: Product Design, Software Development, Design, Vibe Coding, Ai
+
+# Yojimbo: The Sharpest Animated Border Beams Inspired by Kurosawa’s Epic Film
+slug: yojimbo-the-sharpest-animated-border-beams-inspire
+image: ./images/yojimbo-the-sharpest-animated-border-beams-inspire.webp
+description: If you’ve been vibe coding, or working alongside someone who does, you’ve probably noticed the pattern. AI-generated interfaces all start to look the same. The same cards, the same buttons, the sam...
+date: April 7, 2026
+url: https://medium.com/@selfishprimate/yojimbo-the-sharpest-animated-border-beams-inspired-by-kurosawas-epic-film-0169aa8da56b
+tags: Product Design, Vibe Coding, React, Web Development, Web Design
+
 # Peak-End Rule: What the Juventus vs Galatasaray Match Teaches Us About UX Design
 slug: peak-end-rule-what-the-juventus-vs-galatasaray-mat
 image: ./images/peak-end-rule-what-the-juventus-vs-galatasaray-mat.webp
