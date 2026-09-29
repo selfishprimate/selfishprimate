@@ -7,7 +7,7 @@ description: Thoughts on design, development, and the creative process.
 # Seekter: Turn Your Job Search Into One Command a Day
 slug: seekter-turn-your-job-search-into-one-command-a-da
 image: ./images/seekter-turn-your-job-search-into-one-command-a-da.webp
-description: Let’s say you’re looking for a job.
+description: A free, open-source agent that runs inside Claude Code, searches five job sources every day, fills the application forms in your own browser, and keeps the entire tracker as markdown files you own.
 date: September 29, 2026
 url: https://medium.com/@selfishprimate/seekter-turn-your-job-search-into-one-command-a-day-bc2de0f4e87c
 tags: Claude Code, Job Search, Ai Agent, Automation, Open Source
@@ -23,7 +23,7 @@ tags: Product Design, Ui Design, Ai, Front End Development, Vibe Coding
 # The New Floor for Vibe Coding: Minimum Bearable Product
 slug: the-new-floor-for-vibe-coding-minimum-bearable-pro
 image: ./images/the-new-floor-for-vibe-coding-minimum-bearable-pro.webp
-description: Hello, vibe coders. 👋
+description: Moving beyond the “I built this in a night” hype: defining the quality threshold for the modern vibe coder.
 date: April 17, 2026
 url: https://medium.com/design-bootcamp/the-new-floor-for-vibe-coding-minimum-bearable-product-de328c269c2e
 tags: Product Design, Software Development, Design, Vibe Coding, Ai
