@@ -85,6 +85,35 @@ The banner is also the one place the reference is not followed on colour: it
 puts a warm gradient there, and this site has no colour, so the panel inverts
 instead.
 
+## How work reaches main
+
+**Never commit to `main`.** Every change, however small, starts as a branch off
+the current `main` and is pushed as a branch. The pull request is the user's to
+open, unless they ask for it to be opened for them.
+
+```bash
+git switch main && git pull            # start from what is live
+git switch -c <branch>                 # one branch per request
+# work, verify, commit
+git push -u origin <branch>            # then stop, and say it is ready
+```
+
+Branch names follow the ones in the user's other repositories: lowercase,
+hyphenated, descriptive, no type prefix. `case-study-back-link`, not
+`fix/back-button`.
+
+Commit messages are part of the work, not paperwork after it. Say what changed
+and why it had to change. A message that could describe any commit has not been
+written yet.
+
+After the user merges, resynchronise before starting anything else, and delete
+the branch once it is merged:
+
+```bash
+git switch main && git pull
+git branch -d <branch> && git push origin --delete <branch>
+```
+
 ## Project Overview
 
 Personal portfolio site for a Product Designer (selfishprimate.com), built as a React SPA and deployed to Netlify. All content is authored as markdown in `src/content/` and compiled into the bundle — there is no database, CMS, or runtime data fetching.
