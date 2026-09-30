@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from 'react';
+import type { MouseEvent } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
@@ -325,6 +326,19 @@ export function ProjectPage() {
     });
   };
 
+  // Back is a real link to the work index that upgrades itself to a history
+  // step when there is one. `navigate(-1)` on its own did nothing whenever the
+  // page was opened from a search result, a shared link or a new tab, because
+  // there was no entry of ours behind it. React Router records its position in
+  // `history.state.idx`, so 0 means this page is where the history starts.
+  const goBack = (event: MouseEvent<HTMLAnchorElement>) => {
+    // A modified click is asking for a new tab. Leave it to the browser.
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (((window.history.state as { idx?: number } | null)?.idx ?? 0) <= 0) return;
+    event.preventDefault();
+    navigate(-1);
+  };
+
   return (
     <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10">
       {/* Back */}
@@ -333,13 +347,10 @@ export function ProjectPage() {
         animate={{ opacity: 1 }}
         className="pt-8"
       >
-        <button
-          onClick={() => navigate(-1)}
-          className="j-nav inline-flex items-center gap-2"
-        >
+        <Link to="/works" onClick={goBack} className="j-nav inline-flex items-center gap-2">
           <ArrowLeft size={14} />
           Back
-        </button>
+        </Link>
       </motion.p>
 
       {/* Header */}
