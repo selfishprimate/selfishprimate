@@ -5,6 +5,7 @@ company: "Seekter"
 category: "AI Agent"
 tags: ["AI Agents", "Claude Code", "Automation", "Developer Tools", "Open Source", "Systems Design"]
 coverImage: "./images/cover.webp"
+coverVideo: "./images/cover.mp4"
 images: []
 order: 1
 year: "2026"
@@ -219,6 +220,11 @@ I am not going to dress that up, and I am not going to file it as a result eithe
 
 The honest description of what it is: not a tool that finds you a job, but one that removes the four clerical tasks standing between you and the one that matters, and refuses to guess on your behalf while doing it.
 
+### What Came Next
+
+I shared Seekter on LinkedIn on 29 September. The repository went from no stars to 44 in four days, and it got a site of its own, [seekter.dev](https://seekter.dev), built in the four days that followed. How that site was made is [a case study of its own](/works/seekter-website).
+
 ### Links
 
+- [Website](https://seekter.dev)
 - [GitHub Repository](https://github.com/selfishprimate/seekter)

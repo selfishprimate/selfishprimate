@@ -6,6 +6,9 @@ export interface Project {
   category: string;
   tags: string[];
   coverImage: string;
+  /** A short silent loop shown in place of the cover, with the cover as its
+   *  poster. Optional; most projects have only the still. */
+  coverVideo?: string;
   images: string[];
   featured: boolean;
   featuredOrder?: number;

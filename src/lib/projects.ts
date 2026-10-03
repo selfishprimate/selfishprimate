@@ -13,6 +13,7 @@ import vavacarsMd from '../content/works/vavacars/index.md?raw';
 import sketchizeMd from '../content/works/sketchize/index.md?raw';
 import gerillassMd from '../content/works/gerillass/index.md?raw';
 import seekterMd from '../content/works/seekter/index.md?raw';
+import seekterWebsiteMd from '../content/works/seekter-website/index.md?raw';
 import otorentoMd from '../content/works/otorento/index.md?raw';
 import osmanliYatirimMd from '../content/works/osmanli-yatirim-data-package-trading-website/index.md?raw';
 import cecconisMd from '../content/works/cecconis/index.md?raw';
@@ -22,8 +23,8 @@ import turnaCarRentalMd from '../content/works/turna-com-app-rent-a-car/index.md
 import osmanliYatirimDigitalBankingMd from '../content/works/osmanli-yatirim-digital-banking/index.md?raw';
 import letgoFilteringAndSortingMd from '../content/works/letgo-filtering-and-sorting/index.md?raw';
 
-// Import all images using Vite's glob import
-const imageModules = import.meta.glob('../content/works/*/images/*.(jpg|jpeg|png|gif|webp|svg)', { eager: true, query: '?url', import: 'default' });
+// Import all images, and the cover loops some projects have, using Vite's glob import
+const imageModules = import.meta.glob('../content/works/*/images/*.(jpg|jpeg|png|gif|webp|svg|mp4)', { eager: true, query: '?url', import: 'default' });
 
 // Create a map of relative paths to resolved URLs
 const imageMap: Record<string, string> = {};
@@ -58,6 +59,7 @@ const projectFiles: Record<string, string> = {
   'sketchize': sketchizeMd,
   'gerillass': gerillassMd,
   'seekter': seekterMd,
+  'seekter-website': seekterWebsiteMd,
   'otorento': otorentoMd,
   'osmanli-yatirim-data-package-trading-website': osmanliYatirimMd,
   'cecconis': cecconisMd,
@@ -133,6 +135,7 @@ export function getProjects(): Project[] {
 
     // Resolve image paths
     const coverImage = data.coverImage ? resolveImagePath(data.coverImage as string, slug) : '';
+    const coverVideo = data.coverVideo ? resolveImagePath(data.coverVideo as string, slug) : undefined;
     const images = ((data.images as string[]) || []).map(img => resolveImagePath(img, slug));
 
     projects.push({
@@ -143,6 +146,7 @@ export function getProjects(): Project[] {
       category: data.category as string || '',
       tags: (data.tags as string[]) || [],
       coverImage,
+      coverVideo,
       images,
       featured: data.featured as boolean || false,
       featuredOrder: data.featuredOrder as number | undefined,

@@ -10,6 +10,7 @@ import { siteConfig } from '@/lib/data';
 import { useSEO, generateTitle, schemas } from '@/hooks/useSEO';
 import { useBodyScrollLock } from '@/hooks/useBodyScrollLock';
 import { TableOfContents } from '@/components/TableOfContents';
+import { CoverMedia } from '@/components/CoverMedia';
 import { generateSlug } from '@/lib/slug';
 
 // Image data collected from <gallery> blocks for the lightbox
@@ -379,11 +380,11 @@ export function ProjectPage() {
           transition={{ delay: 0.1, duration: 0.6 }}
           className="relative left-1/2 w-[min(100vw-2rem,calc(100%+12rem))] -translate-x-1/2"
         >
-          <img
-            src={project.coverImage}
+          <CoverMedia
+            image={project.coverImage}
+            video={project.coverVideo}
             alt={project.title}
             loading="eager"
-            decoding="async"
             className="w-full rounded-card"
           />
         </motion.section>
