@@ -8,8 +8,7 @@ coverImage: "./images/cover.webp"
 images: []
 order: 8
 year: "2026"
-featured: true
-featuredOrder: 4
+featured: false
 ---
 
 > Documentation drifts away from code in most projects, quietly. An agent reading stale docs writes code that does not work.
