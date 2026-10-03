@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import type { Project } from '@/lib/types';
+import { CoverMedia } from '@/components/CoverMedia';
 
 interface ProjectCardProps {
   project: Project;
@@ -35,11 +36,11 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             on the card rather than a panel cut off by the caption. */}
         <div className="aspect-[4/3] overflow-hidden rounded-b-card">
           {project.coverImage && (
-            <img
-              src={project.coverImage}
+            <CoverMedia
+              image={project.coverImage}
+              video={project.coverVideo}
               alt={project.title}
               loading={index < 2 ? 'eager' : 'lazy'}
-              decoding="async"
               className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]"
             />
           )}
