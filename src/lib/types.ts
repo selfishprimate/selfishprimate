@@ -9,6 +9,9 @@ export interface Project {
   /** A short silent loop shown in place of the cover, with the cover as its
    *  poster. Optional; most projects have only the still. */
   coverVideo?: string;
+  /** The project's live address, shown beside the client, year and
+   *  discipline under the cover. Optional; not every project has one. */
+  website?: string;
   images: string[];
   featured: boolean;
   featuredOrder?: number;

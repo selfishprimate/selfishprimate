@@ -4,7 +4,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { ArrowLeft, ArrowRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { getProjectBySlug, getProjects, resolveProjectImagePath } from '@/lib/projects';
 import { siteConfig } from '@/lib/data';
 import { useSEO, generateTitle, schemas } from '@/hooks/useSEO';
@@ -395,7 +395,7 @@ export function ProjectPage() {
         initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.15, duration: 0.6 }}
-        className="mt-12 grid gap-4 border-t border-border pt-6 sm:grid-cols-3 md:mt-16 md:gap-10"
+        className={`mt-12 grid gap-4 border-t border-border pt-6 md:mt-16 md:gap-10 ${project.website ? 'sm:grid-cols-4' : 'sm:grid-cols-3'}`}
       >
         <div>
           <dt className="j-meta">Client</dt>
@@ -409,6 +409,28 @@ export function ProjectPage() {
           <dt className="j-meta">Discipline</dt>
           <dd className="j-item">{project.tags.slice(0, 2).join(', ')}</dd>
         </div>
+        {/* A fourth fact when the project has a live address: the host
+            alone, without the protocol, and the arrow that says it leaves
+            the site. */}
+        {project.website && (
+          <div>
+            <dt className="j-meta">Website</dt>
+            <dd className="j-item">
+              <a
+                href={project.website}
+                target="_blank"
+                rel="noopener"
+                className="group inline-flex items-center gap-1 underline-offset-4 hover:underline"
+              >
+                {project.website.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+                <ArrowUpRight
+                  aria-hidden
+                  className="size-[0.9em] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                />
+              </a>
+            </dd>
+          </div>
+        )}
       </motion.dl>
 
       {/* Content with TOC */}

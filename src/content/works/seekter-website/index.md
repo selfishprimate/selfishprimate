@@ -1,11 +1,12 @@
 ---
 title: "Seekter: The Website, From a LinkedIn Post to Live in Four Days"
-description: "The site Seekter got once its launch post took off, built in four days by directing Claude Code: a dark theme that shifts tone with the visitor's clock, a pixel-art mascot drawn entirely in code, and a lab where both were worked out before they shipped."
+description: "A site for Seekter, built in four days while its launch post was still travelling and refined for two weeks after, designed entirely by directing Claude Code against the running page. Three decisions shaped it: content laid on one sheet, a light mode that lights only that sheet, and an ink with no cold greys left in it."
 company: "Seekter"
 category: "Web Design"
 tags: ["Web Design", "AI-Native", "Claude Code", "Pixel Art", "Motion", "Design Tokens"]
 coverImage: "./images/cover.webp"
 coverVideo: "./images/cover.mp4"
+website: "https://seekter.dev"
 images: []
 order: 1
 year: "2026"
@@ -15,90 +16,92 @@ featuredOrder: 3
 
 > The decisions stayed mine. What disappeared was the gap between deciding and seeing.
 
-Seekter is an agent that runs inside Claude Code and turns a day of job applications into one command. The agent has [a case study of its own](/works/seekter). This one is about the site it got afterwards, and how that site was made.
+Seekter is an agent that runs inside Claude Code and turns a day of job applications into one command. The agent has [a case study of its own](/works/seekter). This one is about the site it got afterwards: why it was needed, how it was made, the three decisions that shaped it, and what it did.
 
-### After the Post
+### Context
 
-The repository had been public for a week without a single star when I shared Seekter on LinkedIn on 29 September. The post went further than anything I had written before: close to 300 likes in its first three days, and a comment thread long enough that answering it became part of the work.
+The repository had been public for a week without a single star when I shared Seekter on LinkedIn on 29 September. The post went further than anything I had written before: close to 300 likes in its first three days, and a comment thread long enough that answering it became part of the work. Twenty-one stars arrived on [the repository](https://github.com/selfishprimate/seekter) that day, and there were 48 by 3 October.
 
-GitHub moved with it. Twenty-one stars arrived on [the repository](https://github.com/selfishprimate/seekter) on the day of the post, and there were 44 four days later.
+### The Problem
 
-A post sends people to a repository, and a repository opens on a README, which is a document rather than a front door. So the decision that week was to give Seekter a site of its own, and to have it up while people were still arriving.
+All of that attention landed on a README. A README is a document, not a front door: it explains a project to someone who has already decided to read about it. The people arriving from the post had not decided anything yet. They needed to learn what Seekter does in one line, see what a day of it looks like, and get to `git clone` without reading anything else.
 
-### A Site in Four Days
+That became the brief for [seekter.dev](https://seekter.dev), with one constraint on top of it: it had to be up while people were still arriving. It went live between 30 September and 3 October, in 26 merged pull requests.
 
-[seekter.dev](https://seekter.dev) was built between 30 September and 3 October: 26 merged pull requests and close to ninety commits. Its job is narrow. Say what Seekter is in one line, show what a day of it looks like, and get someone from the page to `git clone` without reading anything else.
+The page that does the job is short. The hero is the one line and the clone command, with the repository's stars and forks under it and the faces of the people who starred it. The clone command is one block that copies on a click anywhere in it. Below it, the five commands sit beside a terminal window that replays them, and the figures in that terminal are real: the run is the report of 1 October.
 
-The hero is the one line and the clone command, with the repository's stars and forks under it and the faces of the people who starred it. GitHub has stopped showing who starred a repository to anyone but its owner, so that roster cannot be fetched by the page. A scheduled GitHub Action refreshes it every six hours instead and commits it, and the counts beside it are read live.
+### How It Was Made
 
-Below that, the five commands sit beside a terminal that replays them. The figures in it are not invented for the page: the run is the report of 1 October, and the report segment is what the tracker printed that day.
+Nothing on the site was drawn in a design tool first. It was designed the way I described in [Design in Figma is Dead, Long Live Design in Code](https://medium.com/design-bootcamp/design-in-figma-is-dead-long-live-design-in-code-56cd97a19173): in the terminal, in conversation with Claude Code, against the running page rather than a picture of it. I said what was wrong with what I was looking at, it changed the code, opened the page in a browser of its own, measured what it had done, and I looked again. Nothing reached the live site without a pull request, because merging is deploying.
 
-<gallery cols="1">
-<figure src="./images/site-commands.webp" alt="The five slash commands beside a terminal replaying the 1 October run">The run as the terminal replays it, the five sources and their counts set in columns so the figures line up down the rows</figure>
-</gallery>
+What that changes is the cost of trying something. The footer spacing took four attempts. The banner between the commands and the questions went through half a dozen colours, sage and pink among them, before it settled on the page's own dark. Every one of those attempts cost a sentence, so trying the unlikely option became the normal thing to do rather than the expensive one.
 
-### Built AI-Native
+Figma kept a job, just a different one. The share card, the case study covers and the thank-you video for LinkedIn were made there, with Claude working through Figma's MCP server and building the pixel pets from the same cell data the site draws them from. Once the site had settled, the direction reversed: Claude rebuilt its pages in Figma from the running code, every spacing measured off the live page, with variables for each of the site's tones. The full pages in this case study are exported from that rebuild.
 
-Nothing on the site was drawn in a design tool first. It was designed the way I described in [Design in Figma is Dead, Long Live Design in Code](https://medium.com/design-bootcamp/design-in-figma-is-dead-long-live-design-in-code-56cd97a19173): in the terminal, in conversation with Claude Code, against the running page rather than a picture of it. I said what was wrong with what I was looking at, it changed the code, opened the page in a browser of its own, measured what it had done, and I looked again. The two tones, the dog, the terminal, the spacing of the footer: every one of them was decided that way. Nothing reached the live site without a pull request, because merging is deploying, and the pull request is the last place a change can be read before it is live.
+### Decision One: One Sheet Instead of Rails
 
-What that changes is the cost of trying something. The footer spacing took four attempts, the dog's head round a side edge was redrawn twice, and none of those attempts cost more than a sentence. The decisions stayed mine. What disappeared was the gap between deciding and seeing.
+The site launched framed. The content ran between striped rails down both sides, with a rule across every section. It read as engineered, but it also turned the page into a stack of boxes, and every new section meant another line.
 
-Figma still had a job, just not that one. The marketing around the site was made there: the share card, the case study covers and the thank-you video for LinkedIn. Claude did much of that work through Figma's MCP server, laying out the frames, building the pixel dogs layer by layer from the same cell data the site draws them from, and setting the keyframes that animate them in Figma Motion. So the dog in a video moves exactly as it does on the page. For the share card it went looking before it drew, searching real products through Mobbin's MCP server for references, and then drafted three or four directions to choose from.
-
-Even the animations in this case study came out of the terminal: the live site, driven by a scripted browser on a fake clock, recorded one animation frame at a time.
-
-### Two Tones, One Clock
-
-The site is dark at every hour, but not the same dark. Between 07:00 and 19:00 on the visitor's own clock its ground sits a step lighter, `#171412` instead of `#0c0a09`, and the borders, fills and secondary text move with it. Type and the oranges do not move.
-
-An inline script sets the tone before the first paint, so it never flashes, and checks again every minute, so a page left open into the evening turns with it. Both tones clear AA with room to spare: body text is 16.7 to 1 on the day ground and 18 to 1 at night, and the orange type is 5.9 and 6.4.
+Two weeks in, the rails and the rules came off. Everything between the hero and the footer now lies on one sheet, set 24px in from the window's edges, with rounded corners and a grain of its own. The surfaces step up through two tokens, the sheet and the card on it, so a terminal or a banner stands off the sheet the way the sheet stands off the page. The spacing has one rhythm: 128px between sections and at the sheet's edges, and 64px from a section's heading to what it opens. On a phone the sheet runs full bleed, because a 24px margin and a 40px corner cost too much of a narrow screen.
 
 <gallery cols="1">
-<figure src="./images/site-tones.webp" alt="The Seekter hero split down the middle, the night tone on the left and the day tone on the right">The same hero at 22:00 and at 10:00, split down the middle. Night on the left, day on the right</figure>
+<figure src="./images/site-before.webp" alt="The Seekter site at launch, with striped rails down both sides and a rule between the hero and the commands">At launch: the content framed between striped rails, every section closed by a rule</figure>
+<figure src="./images/site-after.webp" alt="The Seekter site two weeks later, the hero on the page and the content on one rounded sheet">Two weeks later: the hero on the page, everything after it on one sheet</figure>
 </gallery>
 
-### A Dog Drawn in Code
-
-Seekter's mascot is a Chihuahua, and there is no image of it anywhere in the repository. It is built from parts in TypeScript: a body, four legs, a tail, a collar and a head with a three-quarter face, on a grid of 12 by 11 cells in six tones of the site's orange. Every frame is composed from those parts, so a new scene is a new arrangement rather than a new drawing. The three standing poses came from a sprite sheet, and the lab checks the parts against it cell for cell.
-
-It has ten scenes, and the site gives it four places to play them.
-
-- **Beside the wordmark:** it opens with a wag of the tail, then plays a scene picked at random on every visit, from the ones that still read at logo size.
-- **On the 404:** it pees on a hydrant, leaves a pile, or sniffs its way straight into a wall, at random. A page that is not there gets the dog's opinion of it.
-- **Along the footer:** it patrols the bottom rule nose down, lifts a leg at each corner, and every so often stops in the middle for the other thing.
-- **Behind the command block:** it never comes out. It grips an edge, puts its head round, looks at you, looks about, and goes back. Round a side the head is cocked out from the block, over the top it rises ears first, and the edge is picked at random each time, never the one it has just left.
+The sheet also separated two things the rails had mixed together: the frame of the site, meaning the header, the hero and the footer, and the content inside it. That separation is what made the second decision possible.
 
 <gallery cols="1">
-<figure src="./images/dog-scenes.gif" alt="Ten scenes of the Seekter dog playing side by side in the mascot lab">Every scene on the spot: the sniffing walk, the tail chase, barking, digging, rolling over, scratching, the hydrant, the pile, the wall and the heart</figure>
+<figure src="./images/site-page-home.webp" alt="The whole Seekter home page in dark mode, from the hero to the footer">The whole home page: the hero, the sheet with the commands, the feedback band and the questions, then the footer</figure>
 </gallery>
 
-All of it respects reduced motion. Asked for less, every dog on the site stands still, and the one behind the command block does not appear at all.
+### Decision Two: A Light Mode That Lights Only the Content
 
-### The Lab
+Dark is the site's own mode, and it keeps the visitor's hour: between 07:00 and 19:00 on their clock the ground sits a step lighter, set before the first paint so it never flashes.
 
-None of this was drawn on the home page. It was worked out on [seekter.dev/lab](https://seekter.dev/lab), a catalogue of pieces of the site built on pages of their own before they ship.
+The first light mode turned the whole page to paper. It worked, and it lost the site. The dark hero with its orange glow, the pets against the dark, the feel of a terminal: all of it went with the background. But the reason anyone asks for a light mode is reading, and reading happens on the sheet.
+
+So light mode now lights the content only. The header, the hero and the footer stay dark, and the sheet between them turns to paper. The page keeps its frame and only the reading surface changes. One element had to be told to stay dark as well: the feedback band, which in light mode became a bright white block in the middle of the paper. Kept dark, it reads as part of the frame passing through the content.
 
 <gallery cols="1">
-<figure src="./images/site-lab.webp" alt="The Seekter lab catalogue with two entries, Mascot and Color Mode">The lab catalogue. Each entry previews itself live</figure>
+<figure src="./images/site-modes.webp" alt="The bottom of the Seekter hero and the top of the sheet in four vertical strips: dark night, dark day, light day and light night">The same view in four strips: dark at night, dark by day, light by day and light at night. The hero only shifts its tone, and light mode turns the sheet to paper</figure>
 </gallery>
 
-- **Mascot:** every dog on the page plays or pauses together, steps a frame at a time and runs at any speed. One section walks it across a stage, another plays every scene on the spot, side by side, and the last two lay its poses against the sprite sheet they were taken from and show a whole loop frame by frame. There are three breeds, a Chihuahua, a Golden Retriever and a Dachshund, and the two that did not make it to the site are still there, which is what made redrawing the Chihuahua cheap.
-- **Color Mode:** the visitor's clock and a strip of the twenty-four hours. Pick an hour and the whole page takes that hour's tone. Below it, the same pieces of the site in both tones side by side, and every token with its contrast ratio in each.
+### Decision Three: No Cold Greys on Warm Paper
+
+Once the sheet was paper, something about it read wrong, and it took a measurement to say what. I built a page in the lab that reads every colour token live from the stylesheet and gives its contrast and its hue, then audited every text and icon colour on the site in both modes and both tones.
+
+The paper was warm, and the light mode's ink was not. Its text and rules came from a borrowed neutral slate, and the borders read as grey lines on cream. The audit found more: pure white on the orange buttons, and a cool zinc grey left over in the hero's line. In all, 51 of 188 colour uses measured as neutral or cool. The secondary text also fell just short of AA on the sheet's muted fills.
+
+The fix was a rule rather than a list of patches: nothing on the light sheet is a neutral grey or a pure white. The ink was warmed to the paper's own hue, the rules became a warm brown let through, the cards went from white to a warm off-white, and every border on the site was moved onto one token. The same audit afterwards found all 178 colours warm, and the secondary text passing AA.
 
 <gallery cols="1">
-<figure src="./images/site-lab-mascot.webp" alt="The mascot lab page with its settings, the stage and the grid of scenes">The mascot lab, where the scenes were drawn and checked</figure>
-<figure src="./images/site-lab-color-mode.webp" alt="The color mode lab page with the hour strip and the two tones side by side">The color mode lab, where the day tone was tuned against the night one</figure>
+<figure src="./images/site-lab-tokens.webp" alt="The tokens lab showing the colour tokens of the page and the light sheet with values, contrast and hue">The tokens lab: every token as each surface has it, with its contrast and its hue, flagged when it reads cold</figure>
 </gallery>
 
-The lab pages are kept out of search on purpose. They are workbenches, and somebody arriving from a search result for a job-search agent should land on the page that explains it.
+### Two Pets Drawn in Code
 
-### What It Adds Up To
+Seekter has two mascots, Alf the Chihuahua and Tarçın the cat, and there is no image of either in the repository. Both are built from parts in TypeScript on a grid of 11 rows, so a new scene is a new arrangement of the same parts rather than a new drawing. Every scene exists for both, played the way that animal would play it: where the dog barks, the cat meows by her empty bowl; where he sniffs his way along, she stalks. There are eighteen. The visitor picks a pet and the whole site wears it, and the footer carries a dedication to the memory of Tarçın, the most loved and most loving cat of all time.
 
-Four days, from a post that went further than I expected to a site that stands on its own. It is not a large site. It says what Seekter is in one line, shows a real day of it, and gets someone to `git clone`, and everything else on it is there to make that walk worth taking: a ground that keeps the visitor's hour, and a dog that is never quite doing what you expect.
+They are where a visitor does not expect them: beside the wordmark, peeking over the edge of the clone command and ducking back, chasing a moth above the commands, patrolling the footer, and on the 404, giving their opinion of a page that is not there. Asked for less motion, they all stand still.
 
-What I would keep from it is the way it was made rather than any one piece of it. Every decision was taken against the running page, with the cost of changing my mind close to nothing, and that changed which ideas were worth trying at all. A dog peeking round a code block is not something I would have specified in a design file and handed over. It is something you try because trying it costs a sentence, and keep because you can see it working.
+None of this was worked out on the home page. Every piece was built first in [the lab](https://seekter.dev/lab), on a page of its own: the pets and their scenes, the modes and tones, the icons as pixel art, the feedback band beside the versions it replaced, and the tokens.
 
-Figma did not leave the process. It moved to where it is strongest, the frames that leave the site: the share card, the covers, the video. The site itself was designed where it lives.
+<gallery cols="1">
+<figure src="./images/site-page-lab-mascot.webp" alt="The Seekter mascot lab page in dark mode, every pet on it playing">The mascot lab, playing: the controls, a stage Alf walks across, and his eighteen scenes on their tiles, from the sniffing walk to reading the manual</figure>
+</gallery>
+
+### Outcome
+
+The post brought the first wave: 48 stars by 3 October. The site went live as that wave was falling, and the repository kept growing behind it, to 71 stars and 13 forks two weeks later.
+
+The clearer signal is in the clones. Over the first two weeks of October, GitHub reported 1,732 clones of the repository from 695 unique cloners, against 343 unique visitors to its page. Not all of those cloners are people. The repository's own CI checked it out 224 times in the same fortnight, and crawlers clone public repositories too. But even counting every CI run as a separate cloner, more clients cloned the repository than opened it, and clones held steady through the second week, at more than a hundred a day, while views of the page fell by half. That is the pattern a page built to get people straight to `git clone` should leave behind, though GitHub's counts cannot show who those cloners were.
+
+What I would change is the measurement. The site's links to GitHub drop the referrer, so GitHub cannot say how many of those visits came from seekter.dev. The next version will pass it on, so the next case study can show the path from the page to the clone rather than infer it.
+
+### What I Would Keep
+
+The way it was made, more than any piece of it. Every decision was taken against the running page, and that changed which ideas were worth trying at all. A dog peeking over a code block, a light mode that leaves the frame dark, an audit that finds cold colours on a warm page: none of these is something I would have specified in a design file and handed over. They are things you try because trying costs a sentence, and keep because you can see them working.
 
 ### Links
 
