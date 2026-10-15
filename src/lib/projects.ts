@@ -147,6 +147,7 @@ export function getProjects(): Project[] {
       tags: (data.tags as string[]) || [],
       coverImage,
       coverVideo,
+      website: (data.website as string) || undefined,
       images,
       featured: data.featured as boolean || false,
       featuredOrder: data.featuredOrder as number | undefined,
