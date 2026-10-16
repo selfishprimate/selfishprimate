@@ -52,7 +52,7 @@ Two weeks in, the rails and the rules came off. Everything between the hero and 
 The sheet also separated two things the rails had mixed together: the frame of the site, meaning the header, the hero and the footer, and the content inside it. That separation is what made the second decision possible.
 
 <gallery cols="1">
-<figure src="./images/site-page-home.webp" alt="The whole Seekter home page in dark mode, from the hero to the footer">The whole home page: the hero, then the sheet with the commands, the manifesto's line, the feedback band and the questions, then the footer</figure>
+<figure src="./images/site-page-home.webp" alt="The whole Seekter home page in dark mode, from the hero to the footer">The whole home page: the hero, then the sheet with the commands, the manifesto's line, the three feedback cards and the questions, then the footer</figure>
 </gallery>
 
 ### Decision Two: A Light Mode That Lights Only the Content
@@ -81,14 +81,14 @@ The fix was a rule rather than a list of patches: nothing on the light sheet is 
 
 ### Two Pets Drawn in Code
 
-Seekter has two mascots, Alf the Chihuahua and Tarçın the cat, and there is no image of either in the repository. Both are built from parts in TypeScript on a grid of 11 rows, so a new scene is a new arrangement of the same parts rather than a new drawing. Every scene exists for both, played the way that animal would play it: where the dog barks, the cat meows by her empty bowl; where he sniffs his way along, she stalks. There are twenty-two. The visitor picks a pet and the whole site wears it, and the footer carries a dedication to the memory of Tarçın, the most loved and most loving cat of all time.
+Seekter has two mascots, Alf the Chihuahua and Tarçın the cat, and there is no image of either in the repository. Both are built from parts in TypeScript on a grid of 11 rows, so a new scene is a new arrangement of the same parts rather than a new drawing. Every scene exists for both, played the way that animal would play it: where the dog barks, the cat meows by her empty bowl; where he sniffs his way along, she stalks. There are twenty-three. The visitor picks a pet and the whole site wears it, and the footer carries a dedication to the memory of Tarçın, the most loved and most loving cat of all time.
 
 They are where a visitor does not expect them: beside the wordmark, peeking over the edge of the clone command and ducking back, chasing a moth above the commands, patrolling the footer, and on the 404, giving their opinion of a page that is not there. Over the manifesto's line on the home page, “Automate the labour, never the truth,” the pet is off duty, because the line says the work is the kit's: swaying in a hammock, sunbathing under a parasol, or dozing by a laptop that fills with lines on its own, picked at random on each visit. Where it dozes off, it sleeps the way it does in its nap. Asked for less motion, they all stand still.
 
-None of this was worked out on the home page. Every piece was built first in [the lab](https://seekter.dev/lab), on a page of its own: the pets and their scenes, the modes and tones, the icons as pixel art, the feedback band beside the versions it replaced, and the tokens.
+None of this was worked out on the home page. Every piece was built first in [the lab](https://seekter.dev/lab), on a page of its own: the pets and their scenes, the modes and tones, the icons as pixel art, the feedback cards beside the versions they replaced, and the tokens.
 
 <gallery cols="1">
-<figure src="./images/site-page-lab-mascot.webp" alt="The Seekter mascot lab page in dark mode, every pet on it playing">The mascot lab, playing: the controls, a stage Alf walks across, and his twenty-two scenes on their tiles, from the sniffing walk to reading the manual</figure>
+<figure src="./images/site-page-lab-mascot.webp" alt="The Seekter mascot lab page in dark mode, every pet on it playing">The mascot lab, playing: the controls, a stage Alf walks across, and his twenty-three scenes on their tiles, from the sniffing walk to reading the manual</figure>
 </gallery>
 
 ### Outcome
