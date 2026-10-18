@@ -31,6 +31,10 @@ Seekter is an agent that runs inside Claude Code. Not a service, not a scraper f
 
 It is five slash commands, and each one owns a different part of the loop.
 
+<gallery cols="1">
+<figure src="./images/fig-loop.webp" alt="Five cards, one for each Seekter command, with a dashed line from the last back to the first">Setup, the daily run, what happened next, the funnel and shipping the kit. What a run teaches the agent goes back into the kit</figure>
+</gallery>
+
 #### Setup
 
 One interview, about forty questions, asked one at a time and resumable if you stop halfway. It writes `profile/`: contact details, target titles, where you can and cannot work, salary bands, standard answers, the sectors you will not touch, a fact bank for free text, and the search queries.
@@ -83,16 +87,9 @@ It builds a list of your identity values out of your profile, scans the staged d
 
 The split that makes it work is between the kit and the candidate. Nothing in the tracked files assumes a field, a city, a salary or a name. Titles, queries, boards and filters all come from your profile, which `/seekter-init` builds from your answers and which git never sees.
 
-```
-profile/          ← you. git-ignored.
-applications/     ← your tracker. git-ignored.
-runs/             ← one report per run. git-ignored.
-
-.claude/skills/   ← the five commands
-reference/        ← how each source and each form system actually behaves
-scripts/          ← the tracker CLI
-templates/        ← what init fills in
-```
+<gallery cols="1">
+<figure src="./images/fig-kit.webp" alt="Two panels: the kit, tracked and shared on GitHub, and you, git-ignored and never leaving the machine">The commands, the reference files, the tracker CLI and the templates are shared. The profile, the tracker and the run reports never leave your machine</figure>
+</gallery>
 
 ### How a Run Works
 
@@ -101,16 +98,24 @@ Five sources, in a fixed order, every run: an API sweep, LinkedIn job alert noti
 They are separate channels, and none of them is a backup for another. That sounds like an assumption until you count it. One day's notification page carried 24 jobs, 13 of which never appeared in that day's nine searches. On another day, sixteen searches returned 55 matching postings and 53 of them had not appeared in that day's notification harvest. The day after, the overlap between the two was zero. Drop the third step to save time and you drop almost the whole day.
 
 <gallery cols="1">
-<figure src="./images/fig-source-overlap.webp" alt="Three measurements of how little the job sources overlap">Three days, measured in both directions. The orange segment is what the other channel also had; on 23 September it was nothing at all</figure>
+<figure src="./images/fig-source-overlap.webp" alt="Three measurements of how little the job sources overlap, each posting drawn as a cell">Three days, one cell per posting. The orange cells were in that channel only; on 23 September that was every one of them</figure>
 </gallery>
 
 The rule that came out of that is the one the whole run is built around: **harvest all five sources before filling a single form.** Sweeping is cheap and forms are not. A run that starts applying during step one runs out of room before step three, and step three is the one carrying most of the day's new postings. So the run sweeps everything, dedups, filters, ranks, and only then starts applying.
 
 <gallery cols="1">
-<figure src="./images/fig-sources.webp" alt="Where the tracked postings came from: LinkedIn 626, job boards 171, freehire API 31, Dice 7, inbox 6">One channel carries three quarters of everything, and the long tail of boards and APIs carries almost nothing. Knowing which is which took a month of counting, and it is the reason the run order is fixed rather than tuned</figure>
+<figure src="./images/fig-run-order.webp" alt="Five job sources in a fixed order gathered into a harvest step, followed by dedup, filter, rank and apply">Five sources in a fixed order, all swept before the first form</figure>
+</gallery>
+
+<gallery cols="1">
+<figure src="./images/fig-sources.webp" alt="Where the tracked postings came from: LinkedIn 626, job boards 171, freehire API 31, Dice 7, inbox 6, with the share that became applications">One channel carries three quarters of everything, and the long tail carries almost nothing. Knowing which is which took a month of counting, and it is the reason the run order is fixed rather than tuned</figure>
 </gallery>
 
 Ranking is four tiers, and the tiers are the design. "Is this role open to me?" is a judgment that gets made about sixty times a run, and left as a judgment it gets made differently every time. So it became a taxonomy instead: **A** for remote roles you can take from where you live, **B** for the ambiguous ones with no country stated, **C** for relocation where the posting or the form puts sponsorship on the table, **X** for skip. Four labels, applied in a fixed order, and the ambiguous case gets a name of its own rather than being rounded down to "no".
+
+<gallery cols="1">
+<figure src="./images/fig-tiers.webp" alt="Four tier cards: A open to you, B ambiguous, C relocation, X skip">Four labels, applied in a fixed order</figure>
+</gallery>
 
 Pay is deliberately not in that list, and it was the hardest thing to leave out, because a salary band looks exactly like a filter. But a published band is an answer to a form question, and a posting with no band is not a worse job, it is a less informative advert. Sorting on pay would have meant discarding roles for being vague about money.
 
@@ -120,27 +125,9 @@ Every posting Seekter touches is recorded once, filed by the month it was first 
 
 **Applications are files, skips are rows.** Most postings are passed over for one sentence, "the country list leaves out yours", and a sentence does not deserve a file with eight headings. Skips get a single table per month instead, which keeps them greppable without burying the applications, and dedup reads that table too, so a posting passed over in week one is never re-evaluated in week four.
 
-```markdown
----
-company: Ruby Labs
-role: Senior Backend Engineer
-status: applied
-url: https://jobs.ashbyhq.com/ruby-labs/1e548ada-…
-source: freehire
-ats: ashby
-location_fit: A
-applied: 2026-09-22
-job_key: uuid:1e548ada-…
----
-
-# Senior Backend Engineer · Ruby Labs
-
-## Why it fits
-## Notes
-## Answers submitted      ← as sent, so no sentence goes to two companies
-## Log
-- 2026-09-22: applied
-```
+<gallery cols="1">
+<figure src="./images/fig-tracker.webp" alt="An application file with its front matter and sections beside a month's table of skipped postings">One application as a file, beside a month of skips as rows. The skipped rows are examples</figure>
+</gallery>
 
 `job_key` is the load-bearing field. It normalises whatever identity the posting has, a LinkedIn id, an Ashby UUID, a Greenhouse id, so the same job reached through an aggregator, LinkedIn and the company's own site is still caught as one thing.
 
@@ -160,6 +147,10 @@ python3 scripts/seekter.py stats --since 2026-09-01
 I built a scoring pass to order the candidate list: grep each description for eligibility language, worldwide, EMEA, contractor, the home country, and rank by how many signals it carries. It worked well enough that I started trusting it. Then one run scored 88 candidates, found 65 of them at zero, and dropped all 65 without opening one.
 
 Two of those 65 were applications. One was a Netherlands studio whose requirement list matched almost line for line.
+
+<gallery cols="1">
+<figure src="./images/fig-mistake.webp" alt="88 dots for 88 scored candidates: 23 opened, 65 dropped unopened at zero, two of them highlighted as applications">88 candidates scored, 65 dropped at zero without being opened, and two of those were applications</figure>
+</gallery>
 
 The score was not wrong. I had used it for the wrong job. A zero means "this description contains no positive signal", which is the definition of the ambiguous tier, not a reason to skip; the posting had simply declined to restrict itself. I had built a ranking device and then quietly promoted it to a filter, because a filter is the thing that makes a long list short, and the list was long.
 
@@ -187,7 +178,7 @@ An agent that fills forms on your behalf can do real damage, so the limits are w
 It never solves or bypasses a CAPTCHA, never creates an account, never types a password, never accepts terms of use for you, never sends a message or an email as you, and never pays for anything. A visible CAPTCHA is not a puzzle to get past, it is a hand off: the posting goes into a **Needs you** table with the next step spelled out, and waits.
 
 <gallery cols="1">
-<figure src="./images/fig-form.webp" alt="What the agent writes into a real form, and the two fields it refuses to fill">A real form, filled and then stopped. The personal values are the same placeholders the repository uses, because the repository is public and the person is not</figure>
+<figure src="./images/fig-form.webp" alt="A real application form as the agent fills it: seven fields filled from the profile and two, an arbitration agreement and a signature, stopped">A real form, filled and then stopped. The personal values are the same placeholders the repository uses, because the repository is public and the person is not</figure>
 </gallery>
 
 It also refuses to invent. If a mandatory question has no truthful answer available from your profile, it does not submit. Free text answers are built from a fact bank you wrote, in a voice you set, and every answer is stored as sent so the same sentence never goes to two companies.
@@ -211,7 +202,7 @@ Five commands, two reference folders of 43 files, three scripts, 61 commits over
 The numbers it produced about its own use are more useful than the build stats. Over that month it saw **853 postings**, passed over **511** of them with a written reason attached to each, and sent **341 applications**. That is the part the agent is answerable for, and it is work I would not have got through by hand.
 
 <gallery cols="1">
-<figure src="./images/fig-throughput.webp" alt="853 postings seen, 511 passed over with a written reason, 341 applications sent">The clerical work, which is the part the agent is responsible for. What came back is the market's answer, and it sits underneath at its real size</figure>
+<figure src="./images/fig-throughput.webp" alt="853 postings seen, 511 passed over with a written reason, 341 applications sent, 59 replies and one interview">The clerical work, which is the part the agent is responsible for, and underneath it the market's answer at its real size</figure>
 </gallery>
 
 What came back is a different measurement, and it belongs to the market rather than to the tool. Those 341 applications produced **59 replies** by the end of September: 58 rejections and one interview.
