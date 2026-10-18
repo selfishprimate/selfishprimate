@@ -30,6 +30,10 @@ That became the brief for [seekter.dev](https://seekter.dev), with one constrain
 
 The page that does the job is short. The hero is the one line and the clone command, with the repository's stars and forks under it and the faces of the people who starred it. The clone command is one block that copies on a click anywhere in it. Below it, the five commands sit beside a terminal window that replays them, and the figures in that terminal are real: the run is the report of 1 October.
 
+<gallery cols="1">
+<figure src="./images/site-loop.webp" alt="The five Seekter slash commands listed beside a terminal window replaying a real run">The five commands beside the terminal that replays them, its counts from the report of 1 October</figure>
+</gallery>
+
 ### How It Was Made
 
 Nothing on the site was drawn in a design tool first. It was designed the way I described in [Design in Figma is Dead, Long Live Design in Code](https://medium.com/design-bootcamp/design-in-figma-is-dead-long-live-design-in-code-56cd97a19173): in the terminal, in conversation with Claude Code, against the running page rather than a picture of it. I said what was wrong with what I was looking at, it changed the code, opened the page in a browser of its own, measured what it had done, and I looked again. Nothing reached the live site without a pull request, because merging is deploying.
@@ -64,7 +68,7 @@ The first light mode turned the whole page to paper. It worked, and it lost the 
 So light mode now lights the content only. The header, the hero and the footer stay dark, and the sheet between them turns to paper. The page keeps its frame and only the reading surface changes. One element had to be told to stay dark as well: the feedback band, which in light mode became a bright white block in the middle of the paper. Kept dark, it reads as part of the frame passing through the content.
 
 <gallery cols="1">
-<figure src="./images/site-modes.webp" alt="The bottom of the Seekter hero and the top of the sheet in four vertical strips: dark night, dark day, light day and light night">The same view in four strips: dark at night, dark by day, light by day and light at night. The hero only shifts its tone, and light mode turns the sheet to paper</figure>
+<figure src="./images/site-tones.webp" alt="A day drawn as a bar from 00:00 to 24:00, lit from 07:00 to 19:00, over the same view of the Seekter site in four strips: dark at night, dark by day, light by day and light at night">Four tones on one clock: the same view at 22:00 and 10:00 in each mode. The hero only shifts its tone, and light mode turns the sheet to paper</figure>
 </gallery>
 
 ### Decision Three: No Cold Greys on Warm Paper
@@ -76,14 +80,35 @@ The paper was warm, and the light mode's ink was not. Its text and rules came fr
 The fix was a rule rather than a list of patches: nothing on the light sheet is a neutral grey or a pure white. The ink was warmed to the paper's own hue, the rules became a warm brown let through, the cards went from white to a warm off-white, and every border on the site was moved onto one token. The same audit afterwards found all 178 colours warm, and the secondary text passing AA.
 
 <gallery cols="1">
+<figure src="./images/site-colour.webp" alt="The Seekter palette: page, sheet, card and paper surfaces, ink and muted text, the two oranges, and the ramp of coat colours they came from">The palette after the audit: warm surfaces, warm ink, and an orange taken from the pets' coats</figure>
+</gallery>
+
+<gallery cols="1">
 <figure src="./images/site-lab-tokens.webp" alt="The tokens lab showing the colour tokens of the page and the light sheet with values, contrast and hue">The tokens lab: every token as each surface has it, with its contrast and its hue, flagged when it reads cold</figure>
+</gallery>
+
+### The Brand
+
+The site had to look like the kit it sells: something that lives in a terminal and does its work quietly. The mark is Alf, drawn in the same cells as every scene he plays, and the name is set in Stack Sans Notch, kept for the wordmark alone so its notches stay a signature. Everything else is set in three faces with one job each: Sora for what is said, IBM Plex Sans for what is explained, and JetBrains Mono for what is typed.
+
+<gallery cols="1">
+<figure src="./images/site-wordmark.webp" alt="Alf lying by a laptop on a pixel grid beside the Seekter wordmark">The mark and the wordmark: Alf by a laptop that works on its own, and the name in Stack Sans Notch</figure>
+<figure src="./images/site-type.webp" alt="Sora, IBM Plex Sans and JetBrains Mono, each with a sample of the job it does on the site">Three voices, each with one job</figure>
 </gallery>
 
 ### Two Pets Drawn in Code
 
 Seekter has two mascots, Alf the Chihuahua and Tarçın the cat, and there is no image of either in the repository. Both are built from parts in TypeScript on a grid of 11 rows, so a new scene is a new arrangement of the same parts rather than a new drawing. Every scene exists for both, played the way that animal would play it: where the dog barks, the cat meows by her empty bowl; where he sniffs his way along, she stalks. There are twenty-three. The visitor picks a pet and the whole site wears it, and the footer carries a dedication to the memory of Tarçın, the most loved and most loving cat of all time.
 
+<gallery cols="1">
+<figure src="./images/site-pets.webp" alt="Alf the Chihuahua and Tarçın the cat in pixel art, three walking poses each">Alf and Tarçın, three poses each from the same walk</figure>
+</gallery>
+
 They are where a visitor does not expect them: beside the wordmark, peeking over the edge of the clone command and ducking back, chasing a moth above the commands, patrolling the footer, and on the 404, giving their opinion of a page that is not there. Over the manifesto's line on the home page, “Automate the labour, never the truth,” the pet is off duty, because the line says the work is the kit's: swaying in a hammock, sunbathing under a parasol, or dozing by a laptop that fills with lines on its own, picked at random on each visit. Where it dozes off, it sleeps the way it does in its nap. Asked for less motion, they all stand still.
+
+<gallery cols="1">
+<figure src="./images/site-hammock.webp" alt="Alf swaying in a hammock over the line Automate the labour, never the truth">Off duty over the manifesto's line</figure>
+</gallery>
 
 None of this was worked out on the home page. Every piece was built first in [the lab](https://seekter.dev/lab), on a page of its own: the pets and their scenes, the modes and tones, the icons as pixel art, the feedback cards beside the versions they replaced, and the tokens.
 
