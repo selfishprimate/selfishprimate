@@ -199,13 +199,13 @@ That happened, in six separate places, and sat in a public repository until it w
 
 Five commands, two reference folders of 43 files, three scripts, 61 commits over about a month of daily use. It was built while being used, which is why the reference files read like a logbook rather than documentation, and then emptied of the person who used it.
 
-The numbers it produced about its own use are more useful than the build stats. Over that month it saw **853 postings**, passed over **511** of them with a written reason attached to each, and sent **341 applications**. That is the part the agent is answerable for, and it is work I would not have got through by hand.
+The numbers it produced about its own use are more useful than the build stats. Over its first seven weeks it saw **1,958 postings**, passed over **1,421** of them with a written reason attached to each, and sent **514 applications**. That is the part the agent is answerable for, and it is work I would not have got through by hand.
 
 <gallery cols="1">
-<figure src="./images/fig-throughput.webp" alt="853 postings seen, 511 passed over with a written reason, 341 applications sent, 59 replies and one interview">The clerical work, which is the part the agent is responsible for, and underneath it the market's answer at its real size</figure>
+<figure src="./images/fig-throughput.webp" alt="1,958 postings seen, 1,421 passed over with a written reason, 514 applications sent, 155 replies and three interviews">The clerical work, which is the part the agent is responsible for, and underneath it the market's answer at its real size</figure>
 </gallery>
 
-What came back is a different measurement, and it belongs to the market rather than to the tool. Those 341 applications produced **59 replies** by the end of September: 58 rejections and one interview.
+What came back is a different measurement, and it belongs to the market rather than to the tool. Those 514 applications had produced **155 replies** by 19 October: 152 rejections and three interviews.
 
 I am not going to dress that up, and I am not going to file it as a result either. A response rate is what the market returns on volume, and an agent that fills forms cannot move it. What it can do is make it legible. Before Seekter that number was spread across a spreadsheet, an inbox and my own memory, which is another way of saying it did not exist.
 
