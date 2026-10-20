@@ -77,6 +77,14 @@ Instalments are not a feature in this market, they are the default expectation, 
 <figure src="./images/turna-payment.mp4" alt="The checkout flow, from the instalment table to a total paid mostly in points">Every bank’s table first, then the plan the card itself unlocks, then a loyalty balance that takes the total down to what is left on the card</figure>
 </gallery>
 
+### After the Money Moves
+
+A booking is not finished when the payment clears. It is finished when the person can read back what they just bought: the total split into the part the points covered and the part the card did, the reservation number where a thumb can copy it, and the two places and two times the whole rental turns on, stated once more in case anything was misread on the way in. This is also where the card is finally offered for saving, which is the only place that offer could go.
+
+<gallery cols="1">
+<figure src="./images/turna-confirmation.webp" alt="The confirmation screen and the offer to save the card">What was paid and with what, and an offer that waits until the payment has already worked</figure>
+</gallery>
+
 ### The States That Prove It
 
 Under a deadline nobody draws the failures. They get described in a ticket and discovered in testing. These were drawn, and that is the only honest argument for having spent the first days on a system: the components they are made of already existed, so a no results screen cost minutes rather than a morning.
