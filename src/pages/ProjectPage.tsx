@@ -20,8 +20,15 @@ interface ImageData {
   caption: string;
 }
 
+// A figure whose src is an .mp4 renders as a silent loop rather than a still,
+// and its poster is the .webp sitting beside it under the same name.
+const isMotionFigure = (src: string) => src.endsWith('.mp4');
+const posterFor = (src: string) => src.replace(/\.mp4$/, '.webp');
+
 // Walk every <gallery> block in a case study and collect its <figure> entries
-// in document order, which is also the lightbox order.
+// in document order, which is also the lightbox order. Motion figures are left
+// out: the lightbox shows stills, and counting them would shift every index
+// after the first one.
 function collectGalleryImages(content: string, slug: string, fallbackAlt: string): ImageData[] {
   const images: ImageData[] = [];
   const galleryRegex = /<gallery[^>]*>([\s\S]*?)<\/gallery>/g;
@@ -33,6 +40,7 @@ function collectGalleryImages(content: string, slug: string, fallbackAlt: string
     let figureMatch;
     while ((figureMatch = figureRegex.exec(galleryContent)) !== null) {
       const [, src, alt = '', caption = ''] = figureMatch;
+      if (isMotionFigure(src)) continue;
       images.push({
         src: resolveProjectImagePath(src, slug),
         alt: alt || fallbackAlt,
@@ -233,9 +241,22 @@ export function ProjectPage() {
           <div key={index} className={`grid ${gridClass} my-10 gap-6`}>
             {figures.map((figure, figIndex) => {
               const resolvedPath = resolveImagePath(figure.src);
-              const lightboxIdx = getLightboxIndex(figure.src);
+              const motion = isMotionFigure(figure.src);
+              const lightboxIdx = motion ? -1 : getLightboxIndex(figure.src);
               return (
                 <figure key={figIndex} className="m-0">
+                  {motion ? (
+                    // No zoom: there is nothing to enlarge, and the loop is
+                    // already playing at the size it was drawn for.
+                    <div className="w-full overflow-hidden bg-surface">
+                      <CoverMedia
+                        image={resolveImagePath(posterFor(figure.src))}
+                        video={resolvedPath}
+                        alt={figure.alt}
+                        className="h-auto w-full"
+                      />
+                    </div>
+                  ) : (
                   <button
                     type="button"
                     onClick={() => openLightbox(lightboxIdx)}
@@ -250,6 +271,7 @@ export function ProjectPage() {
                       className="w-full h-auto"
                     />
                   </button>
+                  )}
                   {figure.caption && (
                     <figcaption className="j-meta mt-4">
                       <ReactMarkdown

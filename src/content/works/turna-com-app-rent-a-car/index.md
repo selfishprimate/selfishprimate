@@ -44,7 +44,7 @@ Sixty eight colour tokens share one vocabulary of weight: weaker, weak, subtle, 
 Car rental had to arrive as a fifth vertical without anyone rebuilding the other four. It enters as a tab rather than a new application, so the search card had to feel native to a product nobody was redesigning. It asks for a place, two dates and two times, and keeps the second location behind a checkbox because most rentals come back to where they started.
 
 <gallery cols="1">
-<figure src="./images/turna-search.webp" alt="Home and location search">The search card, and a location field that offers recent searches and airports before a letter is typed</figure>
+<figure src="./images/turna-search.mp4" alt="The search flow, from location to dates">Place, dates, go. The location field is typed rather than scrolled, and the calendar takes the whole rental in one gesture</figure>
 </gallery>
 
 ### The Listing
