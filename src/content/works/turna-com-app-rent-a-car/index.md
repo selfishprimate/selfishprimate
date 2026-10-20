@@ -55,6 +55,12 @@ A rental card is not a product card. It carries the supplier, because which comp
 <figure src="./images/turna-card-anatomy.webp" alt="The anatomy of a listing card">Six facts in a fixed order, the two warnings that undo a booking, and the total set above the daily rate</figure>
 </gallery>
 
+Four hundred and fifty six cars is not a list anyone reads to the end, so the filters carry their own count. The control that applied them says how many are on, and the result says how many are left. Everything a filter does is undone by the tap that set it, except clearing all of them at once, which is the one action that asks a question first.
+
+<gallery cols="1">
+<figure src="./images/turna-filtering.mp4" alt="The filtering flow, from four hundred and fifty six cars down to thirty eight and back again">Filters counted on the control that applied them, a result that says what is left, and the one question the gesture cannot answer by itself</figure>
+</gallery>
+
 ### The Decision
 
 Nobody chooses a rental car from the photograph. The deposit, the mileage, the fuel policy, the minimum age and the minimum years of licence are what the choice turns on, and they are what causes an argument at the counter when they were not read. They were given the room to be read: the deciding facts sit above the fold, and the full conditions are one tap away, grouped and collapsed rather than folded into a terms link.
