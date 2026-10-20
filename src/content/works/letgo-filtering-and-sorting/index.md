@@ -181,9 +181,3 @@ This heuristic evaluation revealed that even successful apps can accumulate sign
 The issues I identified fell into recurring patterns: inconsistent design patterns, ambiguous labels, poor feedback mechanisms, and violation of user expectations. Each problem individually might seem minor, but collectively they compound into an experience that frustrates users and likely impacts conversion.
 
 This analysis reinforced a key principle: discoverability features like filtering and sorting deserve the same design rigor as primary user flows. When users can't find what they're looking for efficiently, the entire marketplace experience suffers, no matter how good the core buying and selling mechanics might be.
-
-### Figma Screens
-
-Explore the complete design file below, including all screens, components, and interaction flows.
-
-<figma src="https://embed.figma.com/design/zlkwMulQT9gyQP7UXrFYRS/Letgo-Case-Study--Halil-?node-id=1-17&embed-host=share" height="600" />
