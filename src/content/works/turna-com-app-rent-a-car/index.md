@@ -95,6 +95,12 @@ Under a deadline nobody draws the failures. They get described in a ticket and d
 
 Loading, empty location search, an expired code, 3D Secure, the modal stack, text truncation, scroll behaviour, currency switching, a clear all confirmation, a birthday picker, country and tax office selection, one saved card and several: all of them exist in the file, built from the same components as the screens people are meant to enjoy.
 
+One component makes the case better than a list of names does. The verification field that stands between a card and a saved card carries eight states, and three of them exist only when something has gone wrong.
+
+<gallery cols="1">
+<figure src="./images/turna-one-field.webp" alt="A single verification field in eight states">Eight states of one field, including the three nobody draws when the date cannot move</figure>
+</gallery>
+
 ### What It Cost and What It Returned
 
 The cost was the first days, spent on something with nothing to show at the end of them. The return was five flows and more than ninety frames that agree with each other, a developer who received tokens rather than measurements, and enough room left over to draw the states that normally get written as a sentence in a ticket.
