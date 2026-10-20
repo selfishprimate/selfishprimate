@@ -98,7 +98,7 @@ Loading, empty location search, an expired code, 3D Secure, the modal stack, tex
 One component makes the case better than a list of names does. The verification field that stands between a card and a saved card carries eight states, and three of them exist only when something has gone wrong.
 
 <gallery cols="1">
-<figure src="./images/turna-one-field.webp" alt="A single verification field in eight states">Eight states of one field, including the three nobody draws when the date cannot move</figure>
+<figure src="./images/turna-one-field.mp4" alt="A single verification field moving through eight states">One field through its whole life, including the three states nobody draws when the date cannot move</figure>
 </gallery>
 
 ### What It Cost and What It Returned
