@@ -5,6 +5,7 @@ company: "Letgo"
 category: "UX Research & Design"
 tags: ["Heuristic Evaluation", "Filtering UX", "E-commerce", "Mobile Design"]
 coverImage: "./images/cover.webp"
+coverVideo: "./images/cover.mp4"
 images: []
 order: 7
 year: "2024"
