@@ -68,7 +68,7 @@ Nobody chooses a rental car from the photograph. The deposit, the mileage, the f
 Instalments are not a feature in this market, they are the default expectation, and a card that cannot be split is a card that does not get used. The plan on offer depends on who issued the card, so the options are read from its first six digits. The loyalty balance had to spend like money, covering part of a total or all of it with the remainder still payable by card. And the card is offered for saving only after the payment has already worked, which is the one moment the offer is not in the way.
 
 <gallery cols="1">
-<figure src="./images/turna-payment.webp" alt="Instalments and loyalty points at checkout">Instalment options read from the card, and a loyalty balance that spends against the total</figure>
+<figure src="./images/turna-payment.mp4" alt="The checkout flow, from the instalment table to a total paid mostly in points">Every bank’s table first, then the plan the card itself unlocks, then a loyalty balance that takes the total down to what is left on the card</figure>
 </gallery>
 
 ### The States That Prove It
