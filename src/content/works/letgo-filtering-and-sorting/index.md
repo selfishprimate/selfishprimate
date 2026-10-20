@@ -167,10 +167,10 @@ The sorting redesign replaces vague labels with clear, descriptive options. "Sma
 
 #### Advertising in the Listing Grid
 
-The old listing wedged banners across the rows, which broke the two column rhythm the grid exists to create. Advertising now comes in two sizes and both of them are cut from the grid itself: a full product cell, or half of one when two advertisers share the slot. The column width never changes, the Sponsorlu label makes the block recognisable on sight, and the results close with a sentence and an offer to follow the search rather than stopping on a blank screen.
+The old listing wedged banners across the rows, which broke the two column rhythm the grid exists to create. Advertising now comes in two sizes and both of them are cut from the grid itself: a full product cell, or half of one when two advertisers share the slot. The column width never changes and the Sponsorlu label makes the block recognisable on sight, so the page can carry an advertiser without costing the reader a row.
 
 <gallery cols="1">
-<figure src="./images/letgo-listing-advertising.webp" alt="Advertising inside the redesigned listing grid">The full cell advert, the half cell format that lets two advertisers share one slot, and the end of the results with a prompt to follow the search</figure>
+<figure src="./images/letgo-listing-advertising.webp" alt="Advertising inside the redesigned listing grid">The full cell advert, and the half cell format that lets two advertisers share a single slot</figure>
 </gallery>
 
 ### Reflection
