@@ -165,6 +165,14 @@ The sorting redesign replaces vague labels with clear, descriptive options. "Sma
 <figure src="./images/letgo-sorting.webp" alt="Redesigned sorting options">Sorting options named after the order they produce, the sentence that explains Smart Sorting, and the dot that says a sort is in force</figure>
 </gallery>
 
+#### Advertising in the Listing Grid
+
+The old listing wedged banners across the rows, which broke the two column rhythm the grid exists to create. An advert now takes exactly one product cell, carries a Sponsorlu label and scrolls with everything else, so it can be recognised and passed over rather than scrolled around. letgo's own promotions follow the same rule instead of claiming a banner, and the results close with a sentence and an offer to be notified rather than stopping on a blank screen.
+
+<gallery cols="1">
+<figure src="./images/letgo-listing-advertising.webp" alt="Advertising inside the redesigned listing grid">A sponsored cell, a letgo promotion in the same slot, and the end of the results with a prompt to follow the search</figure>
+</gallery>
+
 ### Reflection
 
 This heuristic evaluation revealed that even successful apps can accumulate significant usability debt over time. Letgo's filtering and sorting experience, while functional, created unnecessary friction at nearly every step of the product discovery journey.
