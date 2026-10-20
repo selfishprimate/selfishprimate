@@ -7,9 +7,10 @@ tags: ["Heuristic Evaluation", "Filtering UX", "E-commerce", "Mobile Design"]
 coverImage: "./images/cover.webp"
 coverVideo: "./images/cover.mp4"
 images: []
-order: 7
+order: 2
 year: "2024"
-featured: false
+featured: true
+featuredOrder: 4
 ---
 
 Letgo was a popular mobile marketplace app that allowed users to buy and sell second-hand items locally. With its visual-first approach and location-based listings, the app aimed to make selling as easy as taking a photo. However, as the product catalog grew, users faced increasing difficulties finding what they were looking for. This case study documents my heuristic evaluation of the filtering and sorting experience, identifying key usability issues and proposing design improvements.
