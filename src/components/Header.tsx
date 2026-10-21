@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { SocialLinks } from './SocialLinks';
 import { MenuIcon } from './MenuIcon';
 import { useBodyScrollLock } from '@/hooks/useBodyScrollLock';
+import { overlayFade } from '@/lib/overlayFade';
 
 const navItems = [
   { label: 'Work', path: '/works' },
@@ -68,10 +69,8 @@ export function Header() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            {...overlayFade}
+            transition={{ ...overlayFade.transition, duration: 0.2 }}
             className="fixed inset-0 z-[100] bg-background md:hidden"
           >
             <button

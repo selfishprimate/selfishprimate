@@ -9,6 +9,7 @@ import { getProjectBySlug, getProjects, resolveProjectImagePath } from '@/lib/pr
 import { siteConfig } from '@/lib/data';
 import { useSEO, generateTitle, schemas } from '@/hooks/useSEO';
 import { useBodyScrollLock } from '@/hooks/useBodyScrollLock';
+import { overlayFade } from '@/lib/overlayFade';
 import { TableOfContents } from '@/components/TableOfContents';
 import { CoverMedia } from '@/components/CoverMedia';
 import { generateSlug } from '@/lib/slug';
@@ -503,9 +504,7 @@ export function ProjectPage() {
       <AnimatePresence>
         {lightboxIndex !== null && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            {...overlayFade}
             className="fixed inset-0 z-[110] flex flex-col bg-neutral-950/96"
             onClick={closeLightbox}
           >

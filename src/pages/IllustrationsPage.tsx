@@ -6,6 +6,7 @@ import { BlockLabel } from '@/components/BlockLabel';
 import { getIllustrationsContent } from '@/lib/illustrations';
 import { useSEO, generateTitle } from '@/hooks/useSEO';
 import { useBodyScrollLock } from '@/hooks/useBodyScrollLock';
+import { overlayFade } from '@/lib/overlayFade';
 
 export function IllustrationsPage() {
   const { meta, illustrations } = getIllustrationsContent();
@@ -107,9 +108,7 @@ export function IllustrationsPage() {
       <AnimatePresence>
         {selectedIndex !== null && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            {...overlayFade}
             className="fixed inset-0 z-[110] flex flex-col bg-neutral-950/96"
             onClick={closeLightbox}
           >
