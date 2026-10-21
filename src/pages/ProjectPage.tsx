@@ -30,14 +30,15 @@ const posterFor = (src: string) => src.replace(/\.mp4$/, '.webp');
 // A loop in the body of a case study plays while it is on screen and stops,
 // back on its first frame, once it has been scrolled past. With several of
 // them on one page, only the one being read is moving, and each starts from
-// the beginning of its flow when it comes into view. It also holds still while
-// the lightbox is open over it, where the same loop is playing larger.
-function MotionFigure({ image, video, alt, suspended }: { image: string; video: string; alt: string; suspended: boolean }) {
+// the beginning of its flow when it comes into view. Opening the lightbox
+// leaves it alone: stopping it there made it jump back to its first frame
+// under the fading overlay, which read as a blink on open and on close.
+function MotionFigure({ image, video, alt }: { image: string; video: string; alt: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { amount: 0.35 });
   return (
     <div ref={ref} className="w-full">
-      <CoverMedia image={image} video={video} alt={alt} playing={inView && !suspended} className="h-auto w-full" />
+      <CoverMedia image={image} video={video} alt={alt} playing={inView} className="h-auto w-full" />
     </div>
   );
 }
@@ -272,7 +273,6 @@ export function ProjectPage() {
                         image={resolveImagePath(posterFor(figure.src))}
                         video={resolvedPath}
                         alt={figure.alt}
-                        suspended={lightboxIndex !== null}
                       />
                     ) : (
                       <img
