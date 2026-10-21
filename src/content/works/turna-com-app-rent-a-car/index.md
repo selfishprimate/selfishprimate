@@ -45,15 +45,15 @@ Sixty eight colour tokens share one vocabulary of weight: weaker, weak, subtle, 
 Car rental had to arrive as a fifth vertical without anyone rebuilding the other four. It enters as a tab rather than a new application, so the search card had to feel native to a product nobody was redesigning. It asks for a place, two dates and two times, and keeps the second location behind a checkbox because most rentals come back to where they started.
 
 <gallery cols="1">
-<figure src="./images/turna-search.mp4" alt="The search flow, from location to dates">Place, dates, go. The location field is typed rather than scrolled, and the calendar takes the whole rental in one gesture</figure>
+<figure src="./images/turna-search.mp4" alt="The search flow, from location to dates">Place, dates, go. The location field is typed rather than scrolled, and the calendar takes the whole rental as one range</figure>
 </gallery>
 
 ### The Listing
 
-A rental card is not a product card. It carries the supplier, because which company you rent from decides the counter you queue at and the deposit you leave. It carries six facts in an order that never changes, so two cards can be compared by position rather than by reading. It carries the two things that undo a booking at the desk, free cancellation and the minimum driver age. And it leads with the total for the chosen dates rather than the daily rate the industry advertises, because the total is the number people actually compare.
+A rental card is not a product card. It carries the supplier, because which company you rent from decides the counter you queue at and the deposit you leave. It carries five facts in an order that never changes, so two cards can be compared by position rather than by reading. It carries the two things that undo a booking at the desk, free cancellation and the minimum driver age. And it leads with the total for the chosen dates rather than the daily rate the industry advertises, because the total is the number people actually compare.
 
 <gallery cols="1">
-<figure src="./images/turna-card-anatomy.webp" alt="The anatomy of a listing card">Six facts in a fixed order, the two warnings that undo a booking, and the total set above the daily rate</figure>
+<figure src="./images/turna-card-anatomy.webp" alt="The anatomy of a listing card">Five facts in a fixed order, the two warnings that undo a booking, and the total set above the daily rate</figure>
 </gallery>
 
 Four hundred and fifty six cars is not a list anyone reads to the end, so the filters carry their own count. The control that applied them says how many are on, and the result says how many are left. Everything a filter does is undone by the tap that set it, except clearing all of them at once, which is the one action that asks a question first.
@@ -75,7 +75,7 @@ Nobody chooses a rental car from the photograph. The deposit, the mileage, the f
 Instalments are not a feature in this market, they are the default expectation, and a card that cannot be split is a card that does not get used. The plan on offer depends on who issued the card, so the options are read from its first six digits. The loyalty balance had to spend like money, covering part of a total or all of it with the remainder still payable by card. And the card is offered for saving only after the payment has already worked, which is the one moment the offer is not in the way.
 
 <gallery cols="1">
-<figure src="./images/turna-payment.mp4" alt="The checkout flow, from the instalment table to a total paid mostly in points">Every bank’s table first, then the plan the card itself unlocks, then a loyalty balance that takes the total down to what is left on the card</figure>
+<figure src="./images/turna-payment.mp4" alt="The checkout flow, from the instalment table to a total paid mostly in points">Every bank's table first, then the plan the card itself unlocks, then a loyalty balance that takes the total down to what is left on the card</figure>
 </gallery>
 
 ### After the Money Moves
