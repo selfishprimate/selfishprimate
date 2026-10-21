@@ -5,6 +5,7 @@ company: "Turna.com"
 category: "Mobile App Design"
 tags: ["Car Rental", "Mobile App", "Design System", "Design Tokens", "Travel"]
 coverImage: "./images/cover.webp"
+coverVideo: "./images/cover.mp4"
 images: []
 order: 4
 year: "2023"
