@@ -199,6 +199,8 @@ Also note the frontmatter parsers split on `': '` (colon **plus space**) in most
 
 Every `<figure>` inside a `<gallery>` is collected into a lightbox (arrow keys, Esc, click-to-zoom on non-touch devices). Images that should open in the lightbox must go through `<gallery>` — plain markdown `![]()` images render inline and bypass it.
 
+A `<figure>` whose `src` is an `.mp4` is a loop: its poster is the `.webp` beside it under the same name, and that file must exist. In the page it plays only while a third of it is on screen and goes back to its first frame when scrolled away; it sits in the lightbox in document order with the stills, plays there at full size, and has no zoom.
+
 ### Project metadata behaviour (`src/lib/projects.ts`)
 
 - `draft: true` in frontmatter removes a project from the site entirely.

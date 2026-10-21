@@ -1,7 +1,7 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import type { MouseEvent } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { ArrowLeft, ArrowRight, ArrowUpRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -14,15 +14,39 @@ import { TableOfContents } from '@/components/TableOfContents';
 import { CoverMedia } from '@/components/CoverMedia';
 import { generateSlug } from '@/lib/slug';
 
-// Image data collected from <gallery> blocks for the lightbox
+// Image data collected from <gallery> blocks for the lightbox. A loop keeps
+// its video as src and carries its still as the poster.
 interface ImageData {
   src: string;
   alt: string;
   caption: string;
+  poster?: string;
+}
+
+// A figure whose src is an .mp4 renders as a silent loop rather than a still,
+// and its poster is the .webp sitting beside it under the same name.
+const isMotionFigure = (src: string) => src.endsWith('.mp4');
+const posterFor = (src: string) => src.replace(/\.mp4$/, '.webp');
+
+// A loop in the body of a case study plays while it is on screen and stops,
+// back on its first frame, once it has been scrolled past. With several of
+// them on one page, only the one being read is moving, and each starts from
+// the beginning of its flow when it comes into view. Opening the lightbox
+// leaves it alone: stopping it there made it jump back to its first frame
+// under the fading overlay, which read as a blink on open and on close.
+function MotionFigure({ image, video, alt }: { image: string; video: string; alt: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { amount: 0.35 });
+  return (
+    <div ref={ref} className="w-full">
+      <CoverMedia image={image} video={video} alt={alt} playing={inView} className="h-auto w-full" />
+    </div>
+  );
 }
 
 // Walk every <gallery> block in a case study and collect its <figure> entries
-// in document order, which is also the lightbox order.
+// in document order, which is also the lightbox order. Loops are part of it
+// like any still, so the arrows walk the case study as it reads.
 function collectGalleryImages(content: string, slug: string, fallbackAlt: string): ImageData[] {
   const images: ImageData[] = [];
   const galleryRegex = /<gallery[^>]*>([\s\S]*?)<\/gallery>/g;
@@ -38,6 +62,7 @@ function collectGalleryImages(content: string, slug: string, fallbackAlt: string
         src: resolveProjectImagePath(src, slug),
         alt: alt || fallbackAlt,
         caption: caption.trim(),
+        poster: isMotionFigure(src) ? resolveProjectImagePath(posterFor(src), slug) : undefined,
       });
     }
   }
@@ -234,6 +259,7 @@ export function ProjectPage() {
           <div key={index} className={`grid ${gridClass} my-10 gap-6`}>
             {figures.map((figure, figIndex) => {
               const resolvedPath = resolveImagePath(figure.src);
+              const motion = isMotionFigure(figure.src);
               const lightboxIdx = getLightboxIndex(figure.src);
               return (
                 <figure key={figIndex} className="m-0">
@@ -243,13 +269,21 @@ export function ProjectPage() {
                     aria-label={`View ${figure.alt} in full size`}
                     className="w-full cursor-zoom-in overflow-hidden bg-surface"
                   >
-                    <img
-                      src={resolvedPath}
-                      alt={figure.alt}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-auto"
-                    />
+                    {motion ? (
+                      <MotionFigure
+                        image={resolveImagePath(posterFor(figure.src))}
+                        video={resolvedPath}
+                        alt={figure.alt}
+                      />
+                    ) : (
+                      <img
+                        src={resolvedPath}
+                        alt={figure.alt}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-auto"
+                      />
+                    )}
                   </button>
                   {figure.caption && (
                     <figcaption className="j-meta mt-4">
@@ -527,7 +561,21 @@ export function ProjectPage() {
                 }
               }}
             >
-              {isZoomed ? (
+              {allImages[lightboxIndex]?.poster ? (
+                // A loop plays at the largest size the screen allows. There is
+                // no zoom on it: a moving picture cannot be panned around, and
+                // it was drawn to be read whole.
+                <div onClick={(e) => e.stopPropagation()}>
+                  <CoverMedia
+                    key={lightboxIndex}
+                    image={allImages[lightboxIndex].poster!}
+                    video={allImages[lightboxIndex].src}
+                    alt={allImages[lightboxIndex].alt}
+                    loading="eager"
+                    className="max-w-[92vw] max-h-[calc(100vh-8rem)] object-contain"
+                  />
+                </div>
+              ) : isZoomed ? (
                 <div className="inline-block p-4">
                   <img
                     src={allImages[lightboxIndex]?.src}

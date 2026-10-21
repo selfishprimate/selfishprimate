@@ -1,91 +1,109 @@
 ---
 title: "Turna.com: Rent a Car Mobile Experience"
-description: "A mobile car rental feature designed under tight deadlines, leveraging a scalable design system to deliver a complete booking flow from search to payment."
+description: "A car rental vertical designed end to end under a fixed deadline, built on a two layer token system so the schedule did not cost the foundations."
 company: "Turna.com"
 category: "Mobile App Design"
-tags: ["Car Rental", "Mobile App", "React Native", "Design System", "Travel"]
+tags: ["Car Rental", "Mobile App", "Design System", "Design Tokens", "Travel"]
 coverImage: "./images/cover.webp"
+coverVideo: "./images/cover.mp4"
 images: []
 order: 4
 year: "2023"
 featured: false
 ---
 
-Turna.com is Türkiye's comprehensive travel platform, offering flights, hotels, and transportation services. When the team decided to expand into car rentals, I was tasked with designing the complete mobile experience, from initial search to final payment, within a demanding timeline.
+Turna.com sells buses, hotels and ferries to people who book travel on a phone. When the company added car rental, the whole vertical had to be designed from the first search to a paid reservation, and the date it shipped was agreed before the work began.
 
-### The Challenge
+### The Constraint
 
-The project came with a significant constraint: we had a tight deadline that couldn't be extended. However, the business requirement was clear, we needed designs that weren't just quick fixes but scalable solutions that could evolve with the product. This tension between speed and sustainability shaped our entire approach.
+The deadline could not move and the scope could not shrink. The usual answer is to draw screens as fast as they are asked for and let a system follow afterwards, which in practice means it never arrives: every screen invents its own spacing, the fifth card does not match the first, and the developer receives a set of pictures rather than a specification.
 
-### Design System First
+The brief asked for something else. The screens had to be scalable, not disposable, because car rental was going to keep growing after launch. That put speed and durability in direct tension, and the way out of it was to spend the first days on the part nobody can see.
 
-Rather than diving straight into screens, I made a strategic decision to invest time upfront in building a small but robust design system with well-defined tokens. This choice initially felt counterintuitive given our timeline, but it paid dividends:
+### A System Before Any Screens
 
-- **Consistency:** Every component followed the same visual language from day one
-- **Speed:** Once tokens were established, designing new screens became significantly faster
-- **Handoff:** The React Native developer could implement components with precise specifications
-- **Scalability:** Future iterations would build on a solid foundation rather than accumulated debt
-
-### Home & Location Search
-
-The home screen presents car rental as a clear entry point within the Turna ecosystem. The search interface captures essential booking details: pickup/return locations and dates. The location search leverages familiar patterns (recent searches, popular destinations, and real-time suggestions) to minimize typing and accelerate the booking flow.
+Nothing in the interface points at a colour. The palette sits one layer below anything a screen can reach: a primitive holds the value, a role names the job, and the screen asks for the job. Every binding on the listing screen resolves to a role. Not one of them names a colour.
 
 <gallery cols="1">
-<figure src="./images/home-screen-and-location-search.webp" alt="Home and location search">Home screen with rental search form and intelligent location suggestions with recent searches</figure>
+<figure src="./images/turna-token-layers.webp" alt="The two token layers">A primitive holds the value, a role names the job, and the screen only ever asks for the job</figure>
 </gallery>
 
-### Search Results & Filtering
-
-The results screen balances information density with scannability. Each vehicle card displays critical decision factors: car model, transmission type, fuel policy, passenger capacity, and daily rate. The filtering system allows users to narrow results by transmission, fuel type, vehicle segment, and specific brands, essential for users who have strong preferences or company car policies.
+The same discipline runs through type. There is no heading style to choose from a list. A family, a size, a line height and a weight are four separate tokens, and a piece of text names the four it needs. The families are Inter for body and Sofia Sans for display, and the family token carries a direction branch, which is how the same system also sets a right to left script. Sizing is a four pixel grid held behind an alias, so the whole scale can be retuned from one place.
 
 <gallery cols="1">
-<figure src="./images/search-results-and-filtering.webp" alt="Search results and filters">Vehicle listings with comprehensive filtering options and brand selection</figure>
+<figure src="./images/turna-type-and-sizing.webp" alt="The typography and sizing scales">Twenty four typography tokens and ten sizing tokens, shown at the values the library actually holds</figure>
 </gallery>
 
-### Vehicle Details
-
-The detail screen provides everything users need to make an informed decision. Vehicle specifications are organized in scannable sections: basic info, rental conditions, and included features. Key details like mileage limits, fuel policy, minimum driver age, and deposit requirements are prominently displayed, these are often the deciding factors that users compare across options.
+Sixty eight colour tokens share one vocabulary of weight: weaker, weak, subtle, muted, default, strong. The ladder means the same thing whether it is the brand or a warning, and every family carries an onDefault, which is the colour that goes on top when that family is used as a fill. Reading the library to build these pages turned up one fault worth recording: `background/400` and `background/500` resolve to the same value, because the primitives beneath them both hold `#EBEDEF`. One step of that ladder does nothing.
 
 <gallery cols="1">
-<figure src="./images/car-details-page.webp" alt="Car details">Comprehensive vehicle information with specifications, rental conditions, and pricing breakdown</figure>
+<figure src="./images/turna-colour-roles.webp" alt="The colour roles">One ladder of weight, reused by the brand and by every status family</figure>
 </gallery>
 
-### Payment Experience
+### The Search
 
-The payment flow was designed to accommodate multiple user preferences and reduce checkout friction:
-
-**Saved Cards:** Returning users can complete payment with a single tap using previously saved cards, dramatically reducing checkout time.
+Car rental had to arrive as a fifth vertical without anyone rebuilding the other four. It enters as a tab rather than a new application, so the search card had to feel native to a product nobody was redesigning. It asks for a place, two dates and two times, and keeps the second location behind a checkbox because most rentals come back to where they started.
 
 <gallery cols="1">
-<figure src="./images/payment-with-saved-card.webp" alt="Payment with saved card">Quick checkout using saved payment methods</figure>
+<figure src="./images/turna-search.mp4" alt="The search flow, from location to dates">Place, dates, go. The location field is typed rather than scrolled, and the calendar takes the whole rental as one range</figure>
 </gallery>
 
-**New Card Entry:** For new cards, the interface provides clear input fields with installment options, a critical feature for the Turkish market where installment payments are widely expected.
+### The Listing
+
+A rental card is not a product card. It carries the supplier, because which company you rent from decides the counter you queue at and the deposit you leave. It carries five facts in an order that never changes, so two cards can be compared by position rather than by reading. It carries the two things that undo a booking at the desk, free cancellation and the minimum driver age. And it leads with the total for the chosen dates rather than the daily rate the industry advertises, because the total is the number people actually compare.
 
 <gallery cols="1">
-<figure src="./images/payment-with-new-card.webp" alt="Payment with new card">New card entry with installment plan selection</figure>
+<figure src="./images/turna-card-anatomy.webp" alt="The anatomy of a listing card">Five facts in a fixed order, the two warnings that undo a booking, and the total set above the daily rate</figure>
 </gallery>
 
-**Turna Points:** Integration with the platform's loyalty program allows users to apply earned points toward their rental, creating a cohesive ecosystem experience.
+Four hundred and fifty six cars is not a list anyone reads to the end, so the filters carry their own count. The control that applied them says how many are on, and the result says how many are left. Everything a filter does is undone by the tap that set it, except clearing all of them at once, which is the one action that asks a question first.
 
 <gallery cols="1">
-<figure src="./images/payment-with-turna-points.webp" alt="Payment with Turna points">Loyalty points redemption during checkout</figure>
+<figure src="./images/turna-filtering.mp4" alt="The filtering flow, from four hundred and fifty six cars down to thirty eight and back again">Filters counted on the control that applied them, a result that says what is left, and the one question the gesture cannot answer by itself</figure>
 </gallery>
 
-### Post-Payment Card Save
+### The Decision
 
-After successful payment, users who entered a new card are offered a seamless opportunity to save it for future bookings. This opt-in approach respects user choice while encouraging the behavior that leads to faster future checkouts.
+Nobody chooses a rental car from the photograph. The deposit, the mileage, the fuel policy, the minimum age and the minimum years of licence are what the choice turns on, and they are what causes an argument at the counter when they were not read. They were given the room to be read: the deciding facts sit above the fold, and the full conditions are one tap away, grouped and collapsed rather than folded into a terms link.
 
 <gallery cols="1">
-<figure src="./images/saving-credit-card-info-after-payment.webp" alt="Save card after payment">Success confirmation with card saving option for future convenience</figure>
+<figure src="./images/turna-conditions.webp" alt="Vehicle details and rental conditions">The facts that decide, and the full conditions kept a tap away rather than buried</figure>
 </gallery>
 
-### Reflection
+### Paying the Way Türkiye Pays
 
-The Turna car rental project reinforced an important lesson about design under pressure: investing in foundations, even when time is scarce, pays off exponentially. The design system approach transformed what could have been a stressful sprint into a methodical build where each screen informed the next. Working closely with the React Native developer, we delivered on schedule without compromising on quality or future scalability.
+Instalments are not a feature in this market, they are the default expectation, and a card that cannot be split is a card that does not get used. The plan on offer depends on who issued the card, so the options are read from its first six digits. The loyalty balance had to spend like money, covering part of a total or all of it with the remainder still payable by card. And the card is offered for saving only after the payment has already worked, which is the one moment the offer is not in the way.
 
-### Figma Screens
+<gallery cols="1">
+<figure src="./images/turna-payment.mp4" alt="The checkout flow, from the instalment table to a total paid mostly in points">Every bank's table first, then the plan the card itself unlocks, then a loyalty balance that takes the total down to what is left on the card</figure>
+</gallery>
 
-Explore the complete design file below, including all screens, components, and interaction flows.
+### After the Money Moves
 
-<figma src="https://embed.figma.com/design/yGHl3YZb1rBugcBIbk3U6p/Turna.com--Rent-a-Car-App-Redesign?node-id=10335-36640&embed-host=share" height="600" />
+A booking is not finished when the payment clears. It is finished when the person can read back what they just bought: the total split into the part the points covered and the part the card did, the reservation number where a thumb can copy it, and the two places and two times the whole rental turns on, stated once more in case anything was misread on the way in. This is also where the card is finally offered for saving, which is the only place that offer could go.
+
+<gallery cols="1">
+<figure src="./images/turna-confirmation.webp" alt="The confirmation screen and the offer to save the card">What was paid and with what, and an offer that waits until the payment has already worked</figure>
+</gallery>
+
+### The States That Prove It
+
+Under a deadline nobody draws the failures. They get described in a ticket and discovered in testing. These were drawn, and that is the only honest argument for having spent the first days on a system: the components they are made of already existed, so a no results screen cost minutes rather than a morning.
+
+<gallery cols="1">
+<figure src="./images/turna-states.webp" alt="Empty state and bank verification">No results that explains itself, and the bank's own verification page drawn into the flow</figure>
+</gallery>
+
+Loading, empty location search, an expired code, 3D Secure, the modal stack, text truncation, scroll behaviour, currency switching, a clear all confirmation, a birthday picker, country and tax office selection, one saved card and several: all of them exist in the file, built from the same components as the screens people are meant to enjoy.
+
+One component makes the case better than a list of names does. The verification field that stands between a card and a saved card carries eight states, and three of them exist only when something has gone wrong.
+
+<gallery cols="1">
+<figure src="./images/turna-one-field.mp4" alt="A single verification field moving through eight states">One field through its whole life, including the three states nobody draws when the date cannot move</figure>
+</gallery>
+
+### What It Cost and What It Returned
+
+The cost was the first days, spent on something with nothing to show at the end of them. The return was five flows and more than ninety frames that agree with each other, a developer who received tokens rather than measurements, and enough room left over to draw the states that normally get written as a sentence in a ticket.
+
+The honest part is that a system does not make the work correct, only consistent. Reading the library for this case study turned up a duplicated step in the background ladder, and a handful of screens still carrying placeholder copy in a notification banner. Both are the kind of thing a system makes easy to find and easy to fix in one place, which is a different claim from never making the mistake.
