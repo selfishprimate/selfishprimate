@@ -13,11 +13,13 @@ import { TableOfContents } from '@/components/TableOfContents';
 import { CoverMedia } from '@/components/CoverMedia';
 import { generateSlug } from '@/lib/slug';
 
-// Image data collected from <gallery> blocks for the lightbox
+// Image data collected from <gallery> blocks for the lightbox. A loop keeps
+// its video as src and carries its still as the poster.
 interface ImageData {
   src: string;
   alt: string;
   caption: string;
+  poster?: string;
 }
 
 // A figure whose src is an .mp4 renders as a silent loop rather than a still,
@@ -28,21 +30,21 @@ const posterFor = (src: string) => src.replace(/\.mp4$/, '.webp');
 // A loop in the body of a case study plays while it is on screen and stops,
 // back on its first frame, once it has been scrolled past. With several of
 // them on one page, only the one being read is moving, and each starts from
-// the beginning of its flow when it comes into view.
-function MotionFigure({ image, video, alt }: { image: string; video: string; alt: string }) {
+// the beginning of its flow when it comes into view. It also holds still while
+// the lightbox is open over it, where the same loop is playing larger.
+function MotionFigure({ image, video, alt, suspended }: { image: string; video: string; alt: string; suspended: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { amount: 0.35 });
   return (
-    <div ref={ref} className="w-full overflow-hidden bg-surface">
-      <CoverMedia image={image} video={video} alt={alt} playing={inView} className="h-auto w-full" />
+    <div ref={ref} className="w-full">
+      <CoverMedia image={image} video={video} alt={alt} playing={inView && !suspended} className="h-auto w-full" />
     </div>
   );
 }
 
 // Walk every <gallery> block in a case study and collect its <figure> entries
-// in document order, which is also the lightbox order. Motion figures are left
-// out: the lightbox shows stills, and counting them would shift every index
-// after the first one.
+// in document order, which is also the lightbox order. Loops are part of it
+// like any still, so the arrows walk the case study as it reads.
 function collectGalleryImages(content: string, slug: string, fallbackAlt: string): ImageData[] {
   const images: ImageData[] = [];
   const galleryRegex = /<gallery[^>]*>([\s\S]*?)<\/gallery>/g;
@@ -54,11 +56,11 @@ function collectGalleryImages(content: string, slug: string, fallbackAlt: string
     let figureMatch;
     while ((figureMatch = figureRegex.exec(galleryContent)) !== null) {
       const [, src, alt = '', caption = ''] = figureMatch;
-      if (isMotionFigure(src)) continue;
       images.push({
         src: resolveProjectImagePath(src, slug),
         alt: alt || fallbackAlt,
         caption: caption.trim(),
+        poster: isMotionFigure(src) ? resolveProjectImagePath(posterFor(src), slug) : undefined,
       });
     }
   }
@@ -256,33 +258,32 @@ export function ProjectPage() {
             {figures.map((figure, figIndex) => {
               const resolvedPath = resolveImagePath(figure.src);
               const motion = isMotionFigure(figure.src);
-              const lightboxIdx = motion ? -1 : getLightboxIndex(figure.src);
+              const lightboxIdx = getLightboxIndex(figure.src);
               return (
                 <figure key={figIndex} className="m-0">
-                  {motion ? (
-                    // No zoom: there is nothing to enlarge, and the loop is
-                    // already playing at the size it was drawn for.
-                    <MotionFigure
-                      image={resolveImagePath(posterFor(figure.src))}
-                      video={resolvedPath}
-                      alt={figure.alt}
-                    />
-                  ) : (
                   <button
                     type="button"
                     onClick={() => openLightbox(lightboxIdx)}
                     aria-label={`View ${figure.alt} in full size`}
                     className="w-full cursor-zoom-in overflow-hidden bg-surface"
                   >
-                    <img
-                      src={resolvedPath}
-                      alt={figure.alt}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-auto"
-                    />
+                    {motion ? (
+                      <MotionFigure
+                        image={resolveImagePath(posterFor(figure.src))}
+                        video={resolvedPath}
+                        alt={figure.alt}
+                        suspended={lightboxIndex !== null}
+                      />
+                    ) : (
+                      <img
+                        src={resolvedPath}
+                        alt={figure.alt}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-auto"
+                      />
+                    )}
                   </button>
-                  )}
                   {figure.caption && (
                     <figcaption className="j-meta mt-4">
                       <ReactMarkdown
@@ -561,7 +562,21 @@ export function ProjectPage() {
                 }
               }}
             >
-              {isZoomed ? (
+              {allImages[lightboxIndex]?.poster ? (
+                // A loop plays at the largest size the screen allows. There is
+                // no zoom on it: a moving picture cannot be panned around, and
+                // it was drawn to be read whole.
+                <div onClick={(e) => e.stopPropagation()}>
+                  <CoverMedia
+                    key={lightboxIndex}
+                    image={allImages[lightboxIndex].poster!}
+                    video={allImages[lightboxIndex].src}
+                    alt={allImages[lightboxIndex].alt}
+                    loading="eager"
+                    className="max-w-[92vw] max-h-[calc(100vh-8rem)] object-contain"
+                  />
+                </div>
+              ) : isZoomed ? (
                 <div className="inline-block p-4">
                   <img
                     src={allImages[lightboxIndex]?.src}
