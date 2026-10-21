@@ -1,7 +1,7 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import type { MouseEvent } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { ArrowLeft, ArrowRight, ArrowUpRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -24,6 +24,20 @@ interface ImageData {
 // and its poster is the .webp sitting beside it under the same name.
 const isMotionFigure = (src: string) => src.endsWith('.mp4');
 const posterFor = (src: string) => src.replace(/\.mp4$/, '.webp');
+
+// A loop in the body of a case study plays while it is on screen and stops,
+// back on its first frame, once it has been scrolled past. With several of
+// them on one page, only the one being read is moving, and each starts from
+// the beginning of its flow when it comes into view.
+function MotionFigure({ image, video, alt }: { image: string; video: string; alt: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { amount: 0.35 });
+  return (
+    <div ref={ref} className="w-full overflow-hidden bg-surface">
+      <CoverMedia image={image} video={video} alt={alt} playing={inView} className="h-auto w-full" />
+    </div>
+  );
+}
 
 // Walk every <gallery> block in a case study and collect its <figure> entries
 // in document order, which is also the lightbox order. Motion figures are left
@@ -248,14 +262,11 @@ export function ProjectPage() {
                   {motion ? (
                     // No zoom: there is nothing to enlarge, and the loop is
                     // already playing at the size it was drawn for.
-                    <div className="w-full overflow-hidden bg-surface">
-                      <CoverMedia
-                        image={resolveImagePath(posterFor(figure.src))}
-                        video={resolvedPath}
-                        alt={figure.alt}
-                        className="h-auto w-full"
-                      />
-                    </div>
+                    <MotionFigure
+                      image={resolveImagePath(posterFor(figure.src))}
+                      video={resolvedPath}
+                      alt={figure.alt}
+                    />
                   ) : (
                   <button
                     type="button"
