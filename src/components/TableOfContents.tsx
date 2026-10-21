@@ -135,7 +135,7 @@ export function TableOfContents({ content, className = '' }: TableOfContentsProp
                 ${
                   activeId === id
                     ? 'font-medium text-text-primary'
-                    : 'text-text-secondary/60 hover:text-text-primary'
+                    : 'text-text-secondary hover:text-text-primary'
                 }
               `}
             >
