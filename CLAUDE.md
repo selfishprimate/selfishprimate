@@ -253,7 +253,7 @@ one: inside it, lines opening with `- ` are records of the form
 
 ### Adding a new project
 
-1. Create `src/content/works/{slug}/index.md` with frontmatter (`title`, `description`, `company`, `tags`, `coverImage`, `featured`, `featuredOrder`, `order`, `year`, optional `draft`, optional `coverVideo`). `coverVideo` is a short silent `.mp4` loop in the project's `images/`; `CoverMedia` plays it on the card and the case study with `coverImage` as its poster, and shows only the still to visitors who ask for reduced motion
+1. Create `src/content/works/{slug}/index.md` with frontmatter (`title`, `description`, `company`, `tags`, `coverImage`, `featured`, `featuredOrder`, `order`, `year`, optional `draft`, optional `coverVideo`). `coverVideo` is a short silent `.mp4` loop in the project's `images/`; `CoverMedia` plays it with `coverImage` as its poster: on its own at the top of the case study, but on a card only while the card is hovered or focused (pass `playing` to control it; leave it unset to autoplay), so a grid of covers is not all moving at once. Touch screens and visitors who ask for reduced motion get the still
 2. Put images in `src/content/works/{slug}/images/`
 3. Add a `?raw` import **and** register the slug in the `projectFiles` map in `src/lib/projects.ts` — the `import.meta.glob` only covers images, so a project missing from that map simply won't exist
 

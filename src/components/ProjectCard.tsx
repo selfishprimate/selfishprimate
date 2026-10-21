@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import type { Project } from '@/lib/types';
@@ -17,8 +18,15 @@ interface ProjectCardProps {
  * image is the same height. And the title is clamped to two lines with two
  * lines' worth of space reserved, so a one-line title and a three-line one
  * still produce the same caption.
+ *
+ * A cover with a loop shows its still until the card is pointed at or
+ * focused, and plays only then. A grid of loops all running at once turns the
+ * page into a fairground, and the one being considered is the one that
+ * should move. A touch screen has no hover, so there the still is the cover.
  */
 export function ProjectCard({ project, index }: ProjectCardProps) {
+  const [active, setActive] = useState(false);
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 20 }}
@@ -30,6 +38,10 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       <Link
         to={`/works/${project.slug}`}
         className="group flex h-full flex-col overflow-hidden rounded-card bg-surface"
+        onPointerEnter={(e) => e.pointerType === 'mouse' && setActive(true)}
+        onPointerLeave={() => setActive(false)}
+        onFocus={() => setActive(true)}
+        onBlur={() => setActive(false)}
       >
         {/* The card clips the top corners; this rounds the bottom two to the
             same radius, so the cover reads as a complete rounded block sitting
@@ -41,6 +53,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               video={project.coverVideo}
               alt={project.title}
               loading={index < 2 ? 'eager' : 'lazy'}
+              playing={active}
               className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]"
             />
           )}
